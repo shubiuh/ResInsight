@@ -603,3 +603,403 @@ dark-mode-toggle:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--page-secondary-foreground-color);
 }
+
+/* ── Modern navigation menus ────────────────────────────── */
+/* SmartMenus injects text arrows into separate spans. Hide them and use a
+   quiet accent marker so labels remain aligned at every menu depth. */
+.sm-dox .sub-arrow {
+    display: none !important;
+}
+
+.sm-dox a.has-submenu {
+    position: relative;
+    padding-right: 25px !important;
+}
+
+.sm-dox > li > a.has-submenu::after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+    opacity: .5;
+    transform: translateY(-50%);
+}
+
+.sm-dox ul {
+    padding: 9px !important;
+    border-color: color-mix(in srgb, var(--primary-color) 22%, var(--separator-color)) !important;
+    background: color-mix(in srgb, var(--page-background-color) 94%, transparent) !important;
+    box-shadow: 0 18px 55px rgba(3, 10, 28, .25) !important;
+}
+
+.sm-dox ul li {
+    margin: 3px 0;
+}
+
+.sm-dox ul a {
+    display: flex !important;
+    min-height: 34px;
+    align-items: center;
+    line-height: 1.25 !important;
+}
+
+.sm-dox ul a.has-submenu::after {
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    width: 3px;
+    height: 15px;
+    border-radius: 3px;
+    background: var(--primary-color);
+    content: "";
+    opacity: .42;
+    transform: translateY(-50%);
+    transition: height .16s ease, opacity .16s ease;
+}
+
+.sm-dox ul a.has-submenu:hover::after,
+.sm-dox ul a.has-submenu:focus::after {
+    height: 22px;
+    opacity: 1;
+}
+
+.sm-dox ul ul {
+    margin-left: 8px !important;
+}
+
+/* ── Searchable, collapsible class and file indexes ─────── */
+.ri-tree-toolbar {
+    display: grid;
+    grid-template-columns: minmax(240px, 1fr) auto auto;
+    gap: 12px;
+    align-items: end;
+    margin: 0 0 18px;
+    padding: 14px;
+    border: 1px solid var(--separator-color);
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--code-background) 72%, var(--page-background-color));
+    box-shadow: 0 8px 28px rgba(3, 10, 28, .08);
+}
+
+.ri-tree-filter {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.ri-tree-filter span {
+    color: var(--page-secondary-foreground-color);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.ri-tree-filter input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid var(--separator-color);
+    border-radius: 10px;
+    outline: none;
+    background: var(--page-background-color);
+    color: var(--page-foreground-color);
+    font: inherit;
+    transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.ri-tree-filter input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 18%, transparent);
+}
+
+.ri-tree-actions {
+    display: flex;
+    gap: 7px;
+}
+
+.ri-tree-actions button {
+    min-height: 40px;
+    padding: 0 13px;
+    border: 1px solid var(--separator-color);
+    border-radius: 10px;
+    background: var(--page-background-color);
+    color: var(--page-foreground-color);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.ri-tree-actions button:hover {
+    border-color: var(--primary-color);
+    background: color-mix(in srgb, var(--primary-color) 10%, var(--page-background-color));
+    transform: translateY(-1px);
+}
+
+.ri-tree-status {
+    align-self: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--primary-color) 12%, transparent);
+    color: var(--page-secondary-foreground-color);
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.ri-tree-index div.directory {
+    overflow: hidden;
+    border: 1px solid var(--separator-color);
+    border-radius: 14px;
+}
+
+.ri-tree-index table.directory {
+    width: 100%;
+}
+
+.ri-tree-index table.directory tr[hidden] {
+    display: none !important;
+}
+
+.ri-tree-index table.directory td.entry {
+    white-space: normal;
+}
+
+/* File rows do not contain the namespace/class type badge that naturally
+   keeps class-index controls together. Keep their indent, toggle/icon, and
+   label on one line and scroll only when a deeply nested path truly needs it. */
+.ri-file-index div.directory {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.ri-file-index table.directory td.entry {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.ri-file-index table.directory td.desc {
+    vertical-align: middle;
+}
+
+.ri-file-index table.directory td.desc:empty {
+    width: 0;
+    min-width: 0;
+    padding-right: 0;
+    padding-left: 0;
+    border-left: 0;
+}
+
+.ri-file-index .ri-tree-toggle,
+.ri-file-index .iconfolder,
+.ri-file-index .icondoc {
+    flex: none;
+    vertical-align: middle;
+}
+
+.ri-tree-letter-group td {
+    background: color-mix(in srgb, var(--primary-color) 9%, var(--page-background-color)) !important;
+}
+
+.ri-tree-letter-label {
+    display: inline-grid;
+    min-width: 28px;
+    height: 28px;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: var(--primary-foreground-color);
+    font-weight: 800;
+}
+
+.ri-tree-letter-group td.desc {
+    color: var(--page-secondary-foreground-color);
+    font-size: 13px;
+}
+
+.ri-tree-toggle {
+    display: inline-grid;
+    width: 22px;
+    height: 22px;
+    margin: 0 7px 0 2px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 35%, var(--separator-color));
+    border-radius: 7px;
+    background: color-mix(in srgb, var(--primary-color) 10%, var(--page-background-color));
+    color: var(--primary-color);
+    font: inherit;
+    font-size: 0;
+    font-weight: 800;
+    line-height: 1;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.ri-tree-toggle::before {
+    content: "+";
+    font-size: 16px;
+}
+
+.ri-tree-toggle[aria-expanded="true"]::before {
+    content: "\2212";
+}
+
+.ri-tree-toggle:hover,
+.ri-tree-toggle:focus-visible {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-color) 16%, transparent);
+}
+
+/* ── Rich Related Pages, Topics, and Concepts indexes ───── */
+.ri-index-intro {
+    margin: 0 0 18px;
+    padding: 18px 20px;
+    border: 1px solid color-mix(in srgb, var(--primary-color) 28%, var(--separator-color));
+    border-radius: 16px;
+    background:
+        radial-gradient(circle at 95% 0%, color-mix(in srgb, var(--primary-color) 20%, transparent), transparent 42%),
+        color-mix(in srgb, var(--code-background) 72%, var(--page-background-color));
+    color: var(--page-secondary-foreground-color);
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.ri-index-intro span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+}
+
+.ri-index-intro p {
+    margin: 0;
+}
+
+.ri-card-index .contents > div.directory {
+    overflow: visible;
+}
+
+.ri-card-index .contents > div.directory table.directory {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 9px;
+}
+
+.ri-card-index .contents > div.directory table.directory tr {
+    display: grid;
+    grid-template-columns: minmax(230px, .72fr) minmax(0, 1.28fr);
+    overflow: hidden;
+    border: 1px solid var(--separator-color);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--code-background) 64%, var(--page-background-color));
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.ri-card-index .contents > div.directory table.directory tr:hover {
+    border-color: color-mix(in srgb, var(--primary-color) 50%, var(--separator-color));
+    box-shadow: 0 8px 24px rgba(3, 10, 28, .09);
+    transform: translateY(-1px);
+}
+
+.ri-card-index .contents > div.directory table.directory td {
+    display: block;
+    padding: 13px 15px !important;
+    border: 0 !important;
+    white-space: normal;
+}
+
+.ri-card-index .contents > div.directory table.directory td.entry {
+    font-weight: 700;
+}
+
+.ri-card-index .contents > div.directory table.directory td.desc {
+    border-left: 1px solid var(--separator-color) !important;
+    color: var(--page-secondary-foreground-color);
+    line-height: 1.5;
+}
+
+.ri-concept-section {
+    margin-top: 30px;
+}
+
+.ri-concept-section h2 {
+    margin-bottom: 6px;
+}
+
+.ri-concept-section > p {
+    color: var(--page-secondary-foreground-color);
+}
+
+.ri-concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.ri-concept-card {
+    display: block;
+    min-height: 112px;
+    padding: 17px;
+    border: 1px solid var(--separator-color);
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--code-background) 68%, var(--page-background-color));
+    color: var(--page-foreground-color) !important;
+    text-decoration: none !important;
+    transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.ri-concept-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 28px rgba(3, 10, 28, .12);
+    transform: translateY(-2px);
+}
+
+.ri-concept-card strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--primary-color);
+    font-size: 16px;
+}
+
+.ri-concept-card span {
+    color: var(--page-secondary-foreground-color);
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 767px) {
+    .ri-tree-toolbar {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .ri-tree-actions button {
+        flex: 1;
+    }
+
+    .ri-tree-status {
+        justify-self: start;
+    }
+
+    .ri-card-index .contents > div.directory table.directory tr {
+        grid-template-columns: 1fr;
+    }
+
+    .ri-card-index .contents > div.directory table.directory td.desc {
+        border-top: 1px solid var(--separator-color) !important;
+        border-left: 0 !important;
+    }
+}

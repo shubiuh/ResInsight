@@ -1027,6 +1027,7 @@ WARN_LOGFILE           = warnings.log
 # Note: If this tag is empty the current directory is searched.
 
 INPUT                  = @PROJECT_SOURCE_DIR@/doc/CodeDocumentation.dox \
+                         @PROJECT_SOURCE_DIR@/doc/DeveloperGuide.dox \
                          @PROJECT_SOURCE_DIR@/ApplicationExeCode \
                          @PROJECT_SOURCE_DIR@/ApplicationLibCode \
                          @PROJECT_SOURCE_DIR@/Fwk/AppFwk/cafAnimControl \
@@ -1495,7 +1496,8 @@ HTML_EXTRA_STYLESHEET  = @PROJECT_SOURCE_DIR@/doc/css/doxygen-awesome.css \
 
 HTML_EXTRA_FILES       = @PROJECT_SOURCE_DIR@/doc/images/resinsight-3d-view.png \
                          @PROJECT_SOURCE_DIR@/doc/images/resinsight-summary-plots.png \
-                         @PROJECT_SOURCE_DIR@/doc/images/resinsight-ensemble-analysis.png
+                         @PROJECT_SOURCE_DIR@/doc/images/resinsight-ensemble-analysis.png \
+                         @PROJECT_SOURCE_DIR@/doc/js/resinsight-docs.js
 
 # The HTML_COLORSTYLE tag can be used to specify if the generated HTML output
 # should be rendered with a dark or light theme.

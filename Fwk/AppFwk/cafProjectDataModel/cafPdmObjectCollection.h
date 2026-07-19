@@ -29,11 +29,12 @@ namespace caf
 
 //==================================================================================================
 ///
-/// Constrains a template parameter to types deriving from caf::PdmObject.
+/// \brief Requires a type derived from caf::PdmObject.
 ///
-/// Checked via `static_assert` inside a lazily-instantiated member function (the constructor)
-/// rather than as a class-template constraint, so that T may be forward-declared at the point
-/// the class template is instantiated as a base class.
+/// Used by generic PDM collections to guarantee that their elements participate in
+/// ResInsight's reflected, persistent project-object model. The constraint is checked
+/// inside a lazily instantiated member so T may still be forward-declared where a
+/// collection is used as a base class.
 ///
 //==================================================================================================
 template <typename T>

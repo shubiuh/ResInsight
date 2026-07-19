@@ -1,0 +1,216 @@
+/**
+ * \page architecture_overview Architecture Overview
+ * \brief How ResInsight moves data from files and services into models, views, plots, and automation APIs.
+ *
+ * ResInsight is organized as a set of cooperating layers. File readers and external
+ * services populate the in-memory reservoir model. The persistent project model owns
+ * user configuration and references the loaded data. Visualization and plotting layers
+ * translate those models into interactive desktop views, while commands and automation
+ * APIs expose operations to users and scripts.
+ *
+ * \section architecture_layers Principal layers
+ *
+ * - **Application:** \ref RiaApplication and \ref RiaGuiApplication manage lifecycle and services.
+ * - **Project model:** \ref RimProject owns cases, views, plots, wells, and persisted settings.
+ * - **Reservoir model:** \ref RigEclipseCaseData and \ref RigMainGrid hold grids and results.
+ * - **File interfaces:** \ref RifReaderInterface and related readers import simulation data.
+ * - **Visualization:** Riv classes create renderable scene content from Rim and Rig state.
+ * - **User interface:** Riu classes connect Qt widgets, viewers, editors, and selections.
+ * - **Commands:** Ric features implement discoverable user actions.
+ * - **Automation:** \ref RiaGrpcServer and \ref RiaSocketServer support external clients.
+ *
+ * \section architecture_dependencies Dependency direction
+ *
+ * Higher-level UI and commands may depend on project and data models. Core data models
+ * should not depend on presentation widgets. CAF supplies shared reflection, persistence,
+ * command, and UI-binding infrastructure; CVF supplies the low-level scene graph and renderer.
+ */
+
+/**
+ * \page data_flow_ownership Data Flow and Ownership
+ * \brief A practical guide to project ownership, loaded simulation data, and view updates.
+ *
+ * \ref RimProject is the root of the persisted object tree. Rim objects describe user intent:
+ * which cases are open, which results are selected, and how views and plots are configured.
+ * Heavy simulation arrays and derived results live primarily in Rig objects such as
+ * \ref RigEclipseCaseData. Rif readers create or populate these data structures.
+ *
+ * \section data_flow_update Update flow
+ *
+ * 1. A Ric command or automation request changes a Rim object.
+ * 2. The project model schedules calculation, editor refresh, or display-model creation.
+ * 3. Riv code rebuilds affected scene parts from Rim configuration and Rig data.
+ * 4. Riu viewers and plot widgets redraw the updated presentation.
+ *
+ * Prefer explicit ownership through PDM child fields and observe the existing scheduler
+ * patterns before triggering expensive redraws directly.
+ */
+
+/**
+ * \page extending_resinsight Extending ResInsight
+ * \brief Where to add a new data type, project object, command, visualization, or plot.
+ *
+ * \section extending_model New project-model object
+ *
+ * Derive from \ref caf::PdmObject, register the type with the CAF macros, initialize fields,
+ * and define UI ordering. Place domain objects under the closest ProjectDataModel subfolder.
+ *
+ * \section extending_command New user action
+ *
+ * Add a Ric command feature under `ApplicationLibCode/Commands`, implement enablement and
+ * execution separately, and reuse selection helpers and command infrastructure.
+ *
+ * \section extending_visual New visualization
+ *
+ * Keep persistent settings in a Rim object, calculations and domain data in Rig, renderable
+ * scene creation in Riv, and Qt-specific presentation in Riu.
+ *
+ * \section extending_reader New file format
+ *
+ * Add the reader or adapter under `ApplicationLibCode/FileInterface`, isolate parsing from
+ * project-model mutation, and include focused unit tests with compact test data.
+ */
+
+/**
+ * \page automation_interfaces Automation Interfaces
+ * \brief Entry points for gRPC, socket, command-file, Python, and Octave integrations.
+ *
+ * The gRPC services in `GrpcInterface` provide the primary structured automation API and
+ * back the Python `rips` package. The socket interface supports established data-exchange
+ * workflows. Command files expose repeatable application operations, while Octave integration
+ * supports numerical workflows.
+ *
+ * Start with \ref RiaGrpcServer, \ref RiaSocketServer, and the generated classes in
+ * `GrpcInterface/Python/rips`. Automation handlers should validate identifiers, report
+ * actionable errors, and reuse the same model operations as desktop commands.
+ */
+
+/**
+ * \page code_navigation Code Navigation Guide
+ * \brief Use prefixes, folders, and generated indexes to find implementation responsibility quickly.
+ *
+ * Class prefixes identify architectural responsibility: Ria application services, Rim project
+ * objects, Rig data and calculations, Rif file interfaces, Riv visualization, Riu user interface,
+ * Ric commands, caf application framework, and cvf visualization framework.
+ *
+ * Use the searchable, collapsible **Class List** to explore namespaces and nested classes.
+ * Use the **File List** in collapsed mode to browse top-level packages before opening a directory.
+ * The \ref architecture_overview and topic groups below provide a conceptual starting point.
+ */
+
+/** \defgroup ri_architecture ResInsight Architecture
+ *  \brief Developer-oriented map of the application layers and their responsibilities.
+ *  These topics organize the main ResInsight subsystems independently of the physical source tree.
+ */
+
+/** \defgroup ri_application Application and Lifecycle
+ *  \ingroup ri_architecture
+ *  \brief Startup, application services, preferences, scheduling, and project lifecycle.
+ */
+
+/** \defgroup ri_project_model Project Data Model
+ *  \ingroup ri_architecture
+ *  \brief Persistent Rim objects for cases, views, wells, plots, and user configuration.
+ */
+
+/** \defgroup ri_reservoir_model Reservoir Data and Calculations
+ *  \ingroup ri_architecture
+ *  \brief Rig grids, results, wells, derived calculations, and domain algorithms.
+ */
+
+/** \defgroup ri_file_interfaces File Interfaces
+ *  \ingroup ri_architecture
+ *  \brief Rif readers, writers, import adapters, and data-format boundaries.
+ */
+
+/** \defgroup ri_visualization Visualization Pipeline
+ *  \ingroup ri_architecture
+ *  \brief Riv scene construction and the CVF rendering primitives used by 3D views.
+ */
+
+/** \defgroup ri_plots Plots and Analytics
+ *  \ingroup ri_architecture
+ *  \brief Summary, ensemble, well-log, cross-plot, histogram, and analysis models.
+ */
+
+/** \defgroup ri_commands_ui Commands and User Interface
+ *  \ingroup ri_architecture
+ *  \brief Ric actions and Riu desktop presentation, editing, selection, and interaction.
+ */
+
+/** \defgroup ri_automation Automation and Integrations
+ *  \ingroup ri_architecture
+ *  \brief gRPC, Python, socket, command-file, cloud, and Octave integration surfaces.
+ */
+
+/** \defgroup ri_grpc gRPC Automation API
+ *  \ingroup ri_automation
+ *  \brief Asynchronous API used by external clients and the Python rips package.
+ *
+ *  ResInsight exposes project objects, cases, grids, properties, wells, commands,
+ *  and application lifecycle operations through protocol-buffer services in
+ *  `GrpcInterface/GrpcProtos`. The C++ server implements those contracts and the
+ *  generated Python layer is wrapped by the higher-level `rips` package.
+ *
+ *  A typical request travels from a generated gRPC service handler through a
+ *  RiaGrpc callback, onto the application thread, and then into the same Rim and
+ *  Rig models used by the desktop application.
+ */
+
+/** \defgroup ri_grpc_runtime Server Runtime and Request Lifecycle
+ *  \ingroup ri_grpc
+ *  \brief Server startup, service registration, completion queues, callbacks, and shutdown.
+ *
+ *  Start with \ref RiaGrpcApplicationInterface and \ref RiaGrpcServer. Services
+ *  derive from \ref RiaGrpcServiceInterface and register creators with
+ *  `RiaGrpcServiceFactory`. \ref RiaGrpcCallbackInterface and its unary and
+ *  streaming specializations manage asynchronous request states.
+ *
+ *  The server receives work on its gRPC thread while model operations are queued
+ *  for safe processing by the application. Preserve that boundary when adding
+ *  handlers that read or mutate project data.
+ */
+
+/** \defgroup ri_grpc_services Service Endpoints and Data Streaming
+ *  \ingroup ri_grpc
+ *  \brief Project, case, grid, property, well, command, PDM, and streaming endpoints.
+ *
+ *  Important implementations include `RiaGrpcAppService`,
+ *  \ref RiaGrpcProjectService, \ref RiaGrpcCaseService,
+ *  \ref RiaGrpcGridService, \ref RiaGrpcPropertiesService,
+ *  \ref RiaGrpcPdmObjectService, \ref RiaGrpcCommandService,
+ *  \ref RiaGrpcWellPathService, and \ref RiaGrpcSimulationWellService.
+ *
+ *  Large cell and property arrays use server-to-client streaming callbacks and
+ *  state handlers. Prefer streaming for large payloads and keep conversion logic
+ *  separate from reservoir calculations and project-model ownership.
+ */
+
+/** \defgroup ri_grpc_python Python rips Client
+ *  \ingroup ri_grpc
+ *  \brief High-level Python objects, generated stubs, examples, and integration tests.
+ *
+ *  `GrpcInterface/Python/rips` provides Python representations of ResInsight
+ *  projects, cases, views, wells, plots, and other PDM objects. Generated stubs
+ *  handle transport while the handwritten wrappers expose a domain-oriented API.
+ *
+ *  Use `GrpcInterface/Python/rips/PythonExamples` for workflows and the `tests`
+ *  directory for executable examples of expected behavior, error reporting, and
+ *  object lifetime handling.
+ */
+
+/** \defgroup ri_grpc_extension Adding or Changing a gRPC Endpoint
+ *  \ingroup ri_grpc
+ *  \brief Workflow for protocol definitions, C++ handlers, Python wrappers, and tests.
+ *
+ *  1. Add messages and RPC declarations to the appropriate file in
+ *     `GrpcInterface/GrpcProtos`.
+ *  2. Regenerate the C++ and Python protocol-buffer bindings through the build.
+ *  3. Implement the handler in the matching RiaGrpc service and register its callback.
+ *  4. Add or update the high-level Python wrapper when the generated stub is not
+ *     the desired public interface.
+ *  5. Cover unary, streaming, validation, and failure behavior with focused tests.
+ *
+ *  Keep protocol fields backward compatible where possible. Reuse existing model
+ *  operations instead of duplicating behavior inside the transport layer.
+ */
