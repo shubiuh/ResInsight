@@ -20,6 +20,20 @@
         return result;
     }
 
+    function resolveMainPageLinks() {
+        if (pageName() !== "index.html") return;
+
+        const generatedLinks = new Map();
+        document.querySelectorAll(".contents a.el[title][href]").forEach(link => {
+            if (!generatedLinks.has(link.title)) generatedLinks.set(link.title, link.href);
+        });
+
+        document.querySelectorAll("a[data-ri-ref]").forEach(link => {
+            const resolved = generatedLinks.get(link.dataset.riRef);
+            if (resolved) link.href = resolved;
+        });
+    }
+
     function groupTopLevelClasses(table) {
         const originalRows = Array.from(table.querySelectorAll("tr[id^='row_']"));
         const containerKeys = new Set();
@@ -188,17 +202,18 @@
         section.className = "ri-concept-section";
         section.innerHTML =
             '<h2>Architectural concepts</h2><div class="ri-concept-grid">' +
-            '<a class="ri-concept-card" href="architecture_overview.html"><strong>Layered architecture</strong><span>Understand responsibility and dependency direction.</span></a>' +
-            '<a class="ri-concept-card" href="data_flow_ownership.html"><strong>Ownership and update flow</strong><span>Follow data from readers through models to views.</span></a>' +
-            '<a class="ri-concept-card" href="extending_resinsight.html"><strong>Extension patterns</strong><span>Add model objects, commands, readers, and visuals.</span></a>' +
-            '<a class="ri-concept-card" href="automation_interfaces.html"><strong>Automation boundaries</strong><span>Use gRPC, Python, sockets, and command files.</span></a>' +
-            '<a class="ri-concept-card" href="classcaf_1_1PdmObject.html"><strong>PDM reflection</strong><span>Persistence, fields, editors, and object ownership.</span></a>' +
-            '<a class="ri-concept-card" href="classcvf_1_1Scene.html"><strong>Scene and rendering</strong><span>CVF scene graphs and the visualization pipeline.</span></a>' +
+            '<a class="ri-concept-card" href="pages.html"><strong>Layered architecture</strong><span>Understand responsibility and dependency direction.</span></a>' +
+            '<a class="ri-concept-card" href="pages.html"><strong>Ownership and update flow</strong><span>Follow data from readers through models to views.</span></a>' +
+            '<a class="ri-concept-card" href="pages.html"><strong>Extension patterns</strong><span>Add model objects, commands, readers, and visuals.</span></a>' +
+            '<a class="ri-concept-card" href="topics.html"><strong>Automation boundaries</strong><span>Use gRPC, Python, sockets, and command files.</span></a>' +
+            '<a class="ri-concept-card" href="topics.html"><strong>PDM reflection</strong><span>Persistence, fields, editors, and object ownership.</span></a>' +
+            '<a class="ri-concept-card" href="topics.html"><strong>Scene and rendering</strong><span>CVF scene graphs and the visualization pipeline.</span></a>' +
             "</div></section>";
         directory.before(section);
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+        resolveMainPageLinks();
         enhanceTreeIndex();
         enhanceOverviewIndexes();
     });

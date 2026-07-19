@@ -47,73 +47,73 @@
  *   <div class="ri-component ri-component--blue">
  *     <span class="ri-component__icon">APP</span><h3>Application &amp; lifecycle</h3>
  *     <p>Startup, preferences, project loading, scheduling, and application-wide services.</p>
- *     <p><a href="classRiaApplication.html">RiaApplication</a> · <a href="classRiaGuiApplication.html">RiaGuiApplication</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RiaApplication">RiaApplication</a> · <a href="classes.html" data-ri-ref="RiaGuiApplication">RiaGuiApplication</a></p>
  *     <code>ApplicationLibCode/Application</code>
  *   </div>
  *   <div class="ri-component ri-component--cyan">
  *     <span class="ri-component__icon">PDM</span><h3>Project data model</h3>
  *     <p>The persistent object tree for projects, cases, views, wells, plots, and settings.</p>
- *     <p><a href="classRimProject.html">RimProject</a> · <a href="classRimCase.html">RimCase</a> · <a href="classRim3dView.html">Rim3dView</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RimProject">RimProject</a> · <a href="classes.html" data-ri-ref="RimCase">RimCase</a> · <a href="classes.html" data-ri-ref="Rim3dView">Rim3dView</a></p>
  *     <code>ApplicationLibCode/ProjectDataModel</code>
  *   </div>
  *   <div class="ri-component ri-component--green">
  *     <span class="ri-component__icon">GRID</span><h3>Reservoir data model</h3>
  *     <p>Simulation grids, cells, results, faults, wells, flow diagnostics, and result access.</p>
- *     <p><a href="classRigEclipseCaseData.html">RigEclipseCaseData</a> · <a href="classRigMainGrid.html">RigMainGrid</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RigEclipseCaseData">RigEclipseCaseData</a> · <a href="classes.html" data-ri-ref="RigMainGrid">RigMainGrid</a></p>
  *     <code>ApplicationLibCode/ReservoirDataModel</code>
  *   </div>
  *   <div class="ri-component ri-component--orange">
  *     <span class="ri-component__icon">I/O</span><h3>File interfaces</h3>
  *     <p>Readers, importers, exporters, and adapters for Eclipse, summaries, wells, surfaces, and seismic data.</p>
- *     <p><a href="classRifReaderInterface.html">RifReaderInterface</a> · <a href="classRifSummaryReaderInterface.html">RifSummaryReaderInterface</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RifReaderInterface">RifReaderInterface</a> · <a href="classes.html" data-ri-ref="RifSummaryReaderInterface">RifSummaryReaderInterface</a></p>
  *     <code>ApplicationLibCode/FileInterface</code>
  *   </div>
  *   <div class="ri-component ri-component--violet">
  *     <span class="ri-component__icon">3D</span><h3>Model visualization</h3>
  *     <p>Transforms model state into renderable grids, wells, faults, annotations, intersections, and selections.</p>
- *     <p><a href="classRivReservoirViewPartMgr.html">RivReservoirViewPartMgr</a> · <a href="classRimEclipseView.html">RimEclipseView</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RivReservoirViewPartMgr">RivReservoirViewPartMgr</a> · <a href="classes.html" data-ri-ref="RimEclipseView">RimEclipseView</a></p>
  *     <code>ApplicationLibCode/ModelVisualization</code>
  *   </div>
  *   <div class="ri-component ri-component--pink">
  *     <span class="ri-component__icon">PLOT</span><h3>Plots &amp; analytics</h3>
  *     <p>Summary curves, ensembles, well logs, cross plots, correlation, histograms, and flow plots.</p>
- *     <p><a href="classRimSummaryPlot.html">RimSummaryPlot</a> · <a href="classRimWellLogPlot.html">RimWellLogPlot</a> · <a href="classRimGridCrossPlot.html">RimGridCrossPlot</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RimSummaryPlot">RimSummaryPlot</a> · <a href="classes.html" data-ri-ref="RimWellLogPlot">RimWellLogPlot</a> · <a href="classes.html" data-ri-ref="RimGridCrossPlot">RimGridCrossPlot</a></p>
  *     <code>ApplicationLibCode/ProjectDataModel</code>
  *   </div>
  *   <div class="ri-component ri-component--yellow">
  *     <span class="ri-component__icon">UI</span><h3>User interface</h3>
  *     <p>Main windows, viewers, plot widgets, editors, dialogs, selection tools, and Qt integration.</p>
- *     <p><a href="classRiuMainWindow.html">RiuMainWindow</a> · <a href="classRiuViewer.html">RiuViewer</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RiuMainWindow">RiuMainWindow</a> · <a href="classes.html" data-ri-ref="RiuViewer">RiuViewer</a></p>
  *     <code>ApplicationLibCode/UserInterface</code>
  *   </div>
  *   <div class="ri-component ri-component--red">
  *     <span class="ri-component__icon">CMD</span><h3>Commands &amp; features</h3>
  *     <p>User actions for importing, creating, editing, exporting, and operating on selected objects.</p>
- *     <p><a href="classRicImportEclipseCaseFeature.html">RicImportEclipseCaseFeature</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RicImportEclipseCaseFeature">RicImportEclipseCaseFeature</a></p>
  *     <code>ApplicationLibCode/Commands</code>
  *   </div>
  *   <div class="ri-component ri-component--teal">
  *     <span class="ri-component__icon">API</span><h3>Automation &amp; integrations</h3>
  *     <p>gRPC, socket, command-file, Python-facing, and Octave-facing automation surfaces.</p>
- *     <p><a href="classRiaGrpcServer.html">RiaGrpcServer</a> · <a href="classRiaSocketServer.html">RiaSocketServer</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RiaGrpcServer">RiaGrpcServer</a> · <a href="classes.html" data-ri-ref="RiaSocketServer">RiaSocketServer</a></p>
  *     <code>GrpcInterface · SocketInterface · CommandFileInterface</code>
  *   </div>
  *   <div class="ri-component ri-component--indigo">
  *     <span class="ri-component__icon">GEO</span><h3>Geomechanics</h3>
  *     <p>Finite-element data, geomechanical results, fault reactivation, and GeoMech visualization.</p>
- *     <p><a href="classRimGeoMechCase.html">RimGeoMechCase</a> · <a href="classRimGeoMechView.html">RimGeoMechView</a></p>
+ *     <p><a href="classes.html" data-ri-ref="RimGeoMechCase">RimGeoMechCase</a> · <a href="classes.html" data-ri-ref="RimGeoMechView">RimGeoMechView</a></p>
  *     <code>ApplicationLibCode/GeoMech</code>
  *   </div>
  *   <div class="ri-component ri-component--lime">
  *     <span class="ri-component__icon">CAF</span><h3>Application framework</h3>
  *     <p>Reusable persistence, reflection, UI binding, command, viewer, and animation infrastructure.</p>
- *     <p><a href="classcaf_1_1PdmObject.html">caf::PdmObject</a> · <a href="classcaf_1_1PdmField.html">caf::PdmField</a></p>
+ *     <p><a href="classes.html" data-ri-ref="caf::PdmObject">caf::PdmObject</a> · <a href="classes.html" data-ri-ref="caf::PdmField">caf::PdmField</a></p>
  *     <code>Fwk/AppFwk</code>
  *   </div>
  *   <div class="ri-component ri-component--slate">
  *     <span class="ri-component__icon">VIZ</span><h3>Visualization framework</h3>
  *     <p>Low-level scene graph, geometry, rendering, OpenGL, and viewer building blocks.</p>
- *     <p><a href="namespacecvf.html">cvf namespace</a> · <a href="namespaces.html">All namespaces</a></p>
+ *     <p><a href="namespaces.html">cvf namespace</a> · <a href="namespaces.html">All namespaces</a></p>
  *     <code>Fwk/VizFwk</code>
  *   </div>
  * </div>
@@ -127,7 +127,7 @@
  * | Project ownership | \ref RimProject | Root of the persisted ResInsight project |
  * | Reservoir cases | \ref RimCase, \ref RimEclipseCase | Common case behavior and Eclipse reservoir simulations |
  * | Geomechanics | \ref RimGeoMechCase, \ref RimGeoMechView | Finite-element cases, results, and GeoMech views |
- * | 3D views | \ref RimEclipseView, \ref RimGeoMechView | View configuration and displayed results |
+ * | 3D views | \ref Rim3dView, \ref RimEclipseView, \ref RimGeoMechView | Base view behavior, configuration, and displayed results |
  * | Grid/results | \ref RigEclipseCaseData, \ref RigMainGrid | In-memory simulation data and grid topology |
  * | File import/export | \ref RifReaderInterface, \ref RifSummaryReaderInterface | Reader contracts for grid, result, and summary data |
  * | Model visualization | \ref RivReservoirViewPartMgr | Converts reservoir model state into renderable scene parts |
@@ -149,16 +149,16 @@
  *
  * \htmlonly
  * <div class="ri-chip-list">
- *   <a class="ri-chip" href="classRiaApplication.html"><strong>Ria</strong> · application</a>
- *   <a class="ri-chip" href="classRimProject.html"><strong>Rim</strong> · project model</a>
- *   <a class="ri-chip" href="classRigEclipseCaseData.html"><strong>Rig</strong> · reservoir/geology data</a>
- *   <a class="ri-chip" href="classRifReaderInterface.html"><strong>Rif</strong> · file interface</a>
- *   <a class="ri-chip" href="classRivReservoirViewPartMgr.html"><strong>Riv</strong> · visualization</a>
- *   <a class="ri-chip" href="classRiuMainWindow.html"><strong>Riu</strong> · user interface</a>
- *   <a class="ri-chip" href="classRicImportEclipseCaseFeature.html"><strong>Ric</strong> · command</a>
- *   <a class="ri-chip" href="classRiaGrpcServer.html"><strong>RiaGrpc</strong> · gRPC</a>
- *   <a class="ri-chip" href="namespacecaf.html"><strong>caf</strong> · application framework</a>
- *   <a class="ri-chip" href="namespacecvf.html"><strong>cvf</strong> · visualization framework</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="RiaApplication"><strong>Ria</strong> · application</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="RimProject"><strong>Rim</strong> · project model</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="RigEclipseCaseData"><strong>Rig</strong> · reservoir/geology data</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="RifReaderInterface"><strong>Rif</strong> · file interface</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="RivReservoirViewPartMgr"><strong>Riv</strong> · visualization</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="RiuMainWindow"><strong>Riu</strong> · user interface</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="RicImportEclipseCaseFeature"><strong>Ric</strong> · command</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="RiaGrpcServer"><strong>RiaGrpc</strong> · gRPC</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="caf::PdmObject"><strong>caf</strong> · application framework</a>
+ *   <a class="ri-chip" href="classes.html" data-ri-ref="cvf::Scene"><strong>cvf</strong> · visualization framework</a>
  * </div>
  * \endhtmlonly
  *
