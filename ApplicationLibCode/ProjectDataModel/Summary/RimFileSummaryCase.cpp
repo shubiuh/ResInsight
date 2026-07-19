@@ -173,7 +173,7 @@ std::unique_ptr<RifSummaryReaderInterface> RimFileSummaryCase::findRelatedFilesA
 
         std::vector<QString> warnings;
 
-        auto findFileCandidates = [&ensembleImportState, &headerFileName, &warnings] -> std::vector<QString>
+        auto findFileCandidates = [&ensembleImportState, &headerFileName, &warnings]() -> std::vector<QString>
         {
             if ( ( RiaPreferencesSummary::current()->summaryDataReader() == RiaPreferencesSummary::SummaryReaderMode::OPM_COMMON ) &&
                  ensembleImportState.useConfigValues() )

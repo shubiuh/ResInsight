@@ -62,10 +62,11 @@ Ankh.NoLoad
 .vs
 out
 build
+build_vs*/
 build-bench
 CMakeSettings.json
 enc_temp_folder
-CMakeUserPresets.json
+# CMakeUserPresets.json
 
 # Tool files
 .vscode

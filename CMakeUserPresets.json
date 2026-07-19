@@ -1,0 +1,122 @@
+{
+    "version": 2,
+    "configurePresets": [
+        {
+            "name": "windows-base",
+            "hidden": true,
+            "displayName": "Windows Base",
+            "inherits": "ninja",
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+            },
+            "cacheVariables": {
+                "RESINSIGHT_ENABLE_UNITY_BUILD": true,
+                "RESINSIGHT_ENABLE_GRPC": true,
+                "CMAKE_PREFIX_PATH": "c:/Qt/6.9.3/msvc2022_64;C:/opt/buildcache/bin",
+                "RESINSIGHT_GRPC_PYTHON_EXECUTABLE": "C:/Python/Python311/python.exe"
+            }
+        },
+        {
+            "name": "vs-windows-base",
+            "hidden": true,
+            "displayName": "VS Windows Base",
+            "generator": "Visual Studio 17 2022",
+            "architecture": {
+                "value": "x64",
+                "strategy": "set"
+            },
+            "binaryDir": "${sourceDir}/build_vs",
+            "cacheVariables": {
+                "RESINSIGHT_ENABLE_UNITY_BUILD": false,
+                "RESINSIGHT_ENABLE_GRPC": true,
+                "CMAKE_PREFIX_PATH": "c:/Qt/6.9.3/msvc2022_64",
+                "CMAKE_TOOLCHAIN_FILE": "D:/work_2026/99_trash/ResInsight/ThirdParty/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_INSTALL_OPTIONS": "--disable-metrics;--clean-after-build",
+                "CMAKE_POLICY_VERSION_MINIMUM": "3.5"
+            }
+        },
+        {
+            "name": "vs2026-windows-base",
+            "hidden": true,
+            "displayName": "VS 2026 Windows Base",
+            "generator": "Visual Studio 18 2026",
+            "architecture": {
+                "value": "x64",
+                "strategy": "set"
+            },
+            "binaryDir": "${sourceDir}/build_vs2026",
+            "cacheVariables": {
+                "RESINSIGHT_ENABLE_UNITY_BUILD": true,
+                "RESINSIGHT_ENABLE_GRPC": true,
+                "CMAKE_PREFIX_PATH": "c:/Qt/6.9.3/msvc2022_64",
+                "CMAKE_TOOLCHAIN_FILE": "D:/work_2026/99_trash/ResInsight/ThirdParty/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "VCPKG_INSTALL_OPTIONS": "--disable-metrics;--clean-after-build",
+                "CMAKE_POLICY_VERSION_MINIMUM": "3.5"
+            }
+        },
+        {
+            "name": "x64-debug",
+            "displayName": "x64 Debug",
+            "description": "Target Windows (64-bit) with the Ninja build system. (Debug)",
+            "inherits": "windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+        },
+        {
+            "name": "x64-relwithdebinfo",
+            "displayName": "x64 Release with Debug Info",
+            "description": "Target Windows (64-bit) with the Ninja build system. (RelWithDebInfo)",
+            "inherits": "windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "RelWithDebInfo" }
+        },
+        {
+            "name": "x64-release",
+            "displayName": "x64 Release",
+            "description": "Target Windows (64-bit) with the Ninja build system. (Release)",
+            "inherits": "windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+        },
+        {
+            "name": "vs-x64-debug",
+            "displayName": "VS x64 Debug",
+            "description": "Target Windows (64-bit) with Visual Studio 2022. (Debug)",
+            "inherits": "vs-windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+        },
+        {
+            "name": "vs-x64-relwithdebinfo",
+            "displayName": "VS x64 Release with Debug Info",
+            "description": "Target Windows (64-bit) with Visual Studio 2022. (RelWithDebInfo)",
+            "inherits": "vs-windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "RelWithDebInfo" }
+        },
+        {
+            "name": "vs-x64-release",
+            "displayName": "VS x64 Release",
+            "description": "Target Windows (64-bit) with Visual Studio 2022. (Release)",
+            "inherits": "vs-windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+        },
+        {
+            "name": "vs2026-x64-debug",
+            "displayName": "VS 2026 x64 Debug",
+            "description": "Target Windows (64-bit) with Visual Studio 2026. (Debug)",
+            "inherits": "vs2026-windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+        },
+        {
+            "name": "vs2026-x64-relwithdebinfo",
+            "displayName": "VS 2026 x64 Release with Debug Info",
+            "description": "Target Windows (64-bit) with Visual Studio 2026. (RelWithDebInfo)",
+            "inherits": "vs2026-windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "RelWithDebInfo" }
+        },
+        {
+            "name": "vs2026-x64-release",
+            "displayName": "VS 2026 x64 Release",
+            "description": "Target Windows (64-bit) with Visual Studio 2026. (Release)",
+            "inherits": "vs2026-windows-base",
+            "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+        }
+    ]
+}

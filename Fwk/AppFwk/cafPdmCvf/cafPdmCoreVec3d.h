@@ -45,7 +45,11 @@
 
 #include <QTextStream>
 
+#if QT_VERSION < QT_VERSION_CHECK(6, 9, 0)
+// Qt 6.9+ changed the QMetaTypeId handling and the macro conflicts with the new
+// meta type interface. The type registration is handled automatically in 6.9+.
 Q_DECLARE_METATYPE( cvf::Vec3d );
+#endif
 
 // pdmToVariant/pdmFromVariant in namespace cvf so ADL finds them when called via caf::toVariant/
 // caf::fromVariant — ADL searches the argument's namespace (cvf) in addition to caf.
