@@ -13,6 +13,7 @@
             "cacheVariables": {
                 "RESINSIGHT_ENABLE_UNITY_BUILD": true,
                 "RESINSIGHT_ENABLE_GRPC": true,
+                "RESINSIGHT_BUILD_DOCUMENTATION": true,
                 "CMAKE_PREFIX_PATH": "c:/Qt/6.9.3/msvc2022_64;C:/opt/buildcache/bin",
                 "RESINSIGHT_GRPC_PYTHON_EXECUTABLE": "C:/Python/Python311/python.exe"
             }
@@ -30,6 +31,7 @@
             "cacheVariables": {
                 "RESINSIGHT_ENABLE_UNITY_BUILD": false,
                 "RESINSIGHT_ENABLE_GRPC": true,
+                "RESINSIGHT_BUILD_DOCUMENTATION": true,
                 "CMAKE_PREFIX_PATH": "c:/Qt/6.9.3/msvc2022_64",
                 "CMAKE_TOOLCHAIN_FILE": "D:/work_2026/99_trash/ResInsight/ThirdParty/vcpkg/scripts/buildsystems/vcpkg.cmake",
                 "VCPKG_INSTALL_OPTIONS": "--disable-metrics;--clean-after-build",
@@ -49,6 +51,7 @@
             "cacheVariables": {
                 "RESINSIGHT_ENABLE_UNITY_BUILD": false,
                 "RESINSIGHT_ENABLE_GRPC": true,
+                "RESINSIGHT_BUILD_DOCUMENTATION": true,
                 "CMAKE_PREFIX_PATH": "c:/Qt/6.9.3/msvc2022_64",
                 "CMAKE_TOOLCHAIN_FILE": "D:/work_2026/99_trash/ResInsight/ThirdParty/vcpkg/scripts/buildsystems/vcpkg.cmake",
                 "VCPKG_INSTALL_OPTIONS": "--disable-metrics;--clean-after-build",
