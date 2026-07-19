@@ -13,8 +13,8 @@
             "cacheVariables": {
                 "RESINSIGHT_ENABLE_UNITY_BUILD": true,
                 "RESINSIGHT_ENABLE_GRPC": true,
-                "CMAKE_PREFIX_PATH": "c:/Qt/6.6.3/msvc2019_64;f:/tools/buildcache/bin",
-                "RESINSIGHT_GRPC_PYTHON_EXECUTABLE": "c:/Users/MagneSjaastad/AppData/Local/Programs/Python/Python38/python.exe",
+                "CMAKE_PREFIX_PATH": "c:/Qt/6.9.3/msvc2022_64;C:/opt/buildcache/bin",
+                "RESINSIGHT_GRPC_PYTHON_EXECUTABLE": "C:/Python/Python311/python.exe",
                 "RESINSIGHT_ODB_API_DIR": "c:/odb/odb_2020/odb_api"
 
             }
