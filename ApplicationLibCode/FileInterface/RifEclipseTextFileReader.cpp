@@ -33,6 +33,7 @@
 #include <iosfwd>
 #include <iostream>
 #include <sstream>
+#include <string_view>
 
 //--------------------------------------------------------------------------------------------------
 ///
@@ -55,7 +56,13 @@ std::vector<RifEclipseKeywordContent> RifEclipseTextFileReader::readKeywordAndVa
     std::string stringData;
 
     std::ifstream inFile;
-    inFile.open( filename );
+
+    // On MSVC, std::filesystem::path(std::string) uses the ANSI codepage,
+    // which breaks paths with non-ASCII characters (e.g. Chinese).
+    // Constructing from std::u8string treats the input as UTF-8 correctly.
+    // The filename comes from QString::toStdString() which produces UTF-8.
+    inFile.open( std::filesystem::path(
+        std::u8string_view( reinterpret_cast<const char8_t*>( filename.data() ), filename.size() ) ) );
 
     std::stringstream strStream;
     strStream << inFile.rdbuf();
