@@ -193,6 +193,8 @@ set_property(
 )
 
 # create a custom target that copies the files to the build folder
+# Use $<TARGET_FILE_DIR:ResInsight-tests> generator expression for multi-config
+# generators (VS) so DLLs go to the correct per-config output directory.
 foreach(riFileName ${RI_FILENAMES})
   list(
     APPEND
@@ -202,7 +204,7 @@ foreach(riFileName ${RI_FILENAMES})
     -E
     copy_if_different
     ${riFileName}
-    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+    $<TARGET_FILE_DIR:ResInsight-tests>
   )
 endforeach()
 add_custom_target(PreBuildFileCopyTest ${copyCommands})

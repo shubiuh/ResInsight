@@ -47,7 +47,7 @@
             },
             "binaryDir": "${sourceDir}/build_vs2026",
             "cacheVariables": {
-                "RESINSIGHT_ENABLE_UNITY_BUILD": true,
+                "RESINSIGHT_ENABLE_UNITY_BUILD": false,
                 "RESINSIGHT_ENABLE_GRPC": true,
                 "CMAKE_PREFIX_PATH": "c:/Qt/6.9.3/msvc2022_64",
                 "CMAKE_TOOLCHAIN_FILE": "D:/work_2026/99_trash/ResInsight/ThirdParty/vcpkg/scripts/buildsystems/vcpkg.cmake",

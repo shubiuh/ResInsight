@@ -256,6 +256,8 @@ add_library(ResInsightDummyTarget EXCLUDE_FROM_ALL empty.cpp)
 set_property(TARGET ResInsightDummyTarget PROPERTY FOLDER "FileCopyTargets")
 
 # create a custom target that copies the files to the build folder
+# Use $<TARGET_FILE_DIR:ResInsight> generator expression so the DLLs are copied
+# to the correct per-config output directory for multi-config generators (VS).
 foreach(riFileName ${RI_FILENAMES})
   list(
     APPEND
@@ -265,7 +267,7 @@ foreach(riFileName ${RI_FILENAMES})
     -E
     copy_if_different
     ${riFileName}
-    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
+    $<TARGET_FILE_DIR:ResInsight>
   )
 endforeach()
 add_custom_target(PreBuildFileCopy ${copyCommands})
