@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements OPM Flow external simulator preferences.
 
 #include "RiaPreferencesOpm.h"
 
@@ -31,7 +33,7 @@
 CAF_PDM_SOURCE_INIT( RiaPreferencesOpm, "RiaPreferencesOpm" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Discovers WSL distributions once so the preferences editor can offer valid runtime choices.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesOpm::RiaPreferencesOpm()
 {
@@ -71,7 +73,7 @@ RiaPreferencesOpm* RiaPreferencesOpm::current()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// UI grouping also controls field visibility so MPI and WSL details follow their enable switches.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesOpm::appendItems( caf::PdmUiOrdering& uiOrdering )
 {
@@ -100,7 +102,7 @@ void RiaPreferencesOpm::appendItems( caf::PdmUiOrdering& uiOrdering )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Distribution options come from runtime discovery rather than persisted free-form values.
 //--------------------------------------------------------------------------------------------------
 QList<caf::PdmOptionItemInfo> RiaPreferencesOpm::calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions )
 {
@@ -134,7 +136,7 @@ QString RiaPreferencesOpm::mpirunCommand() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Builds WSL arguments separately so process launchers can prepend them without parsing a command string.
 //--------------------------------------------------------------------------------------------------
 QStringList RiaPreferencesOpm::wslOptions() const
 {
@@ -149,7 +151,7 @@ QStringList RiaPreferencesOpm::wslOptions() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Validation is delegated to the job settings built from these preferences to match actual launch rules.
 //--------------------------------------------------------------------------------------------------
 bool RiaPreferencesOpm::validateFlowSettings() const
 {
@@ -173,7 +175,7 @@ bool RiaPreferencesOpm::useMpi() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// A new PDM object prevents per-run edits from changing the global default child object.
 //--------------------------------------------------------------------------------------------------
 RimOpmFlowJobSettings* RiaPreferencesOpm::createDefaultJobSettings() const
 {

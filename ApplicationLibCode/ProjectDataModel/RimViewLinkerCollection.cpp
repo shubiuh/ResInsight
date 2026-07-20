@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Global activation and project-tree presentation for linked views.
 //
 //  Copyright (C) 2015-     Statoil ASA
 //  Copyright (C) 2015-     Ceetron Solutions AS
@@ -63,7 +65,8 @@ void RimViewLinkerCollection::defineUiTreeOrdering( caf::PdmUiTreeOrdering& uiTr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Disabling keeps the serialized controller configuration but removes its effective overrides;
+/// enabling reapplies current master state and refreshes dependent displays.
 //--------------------------------------------------------------------------------------------------
 void RimViewLinkerCollection::fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue )
 {

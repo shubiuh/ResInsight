@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements RFT/PLT curve identification by data source, well, and time step.
 
 #include "RiaRftPltCurveDefinition.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Copies all identity components so definitions remain stable as container keys.
 //--------------------------------------------------------------------------------------------------
 RiaRftPltCurveDefinition::RiaRftPltCurveDefinition( const RifDataSourceForRftPlt& address, const QString& wellName, const QDateTime& timeStep )
     : m_curveAddress( address )
@@ -29,7 +31,7 @@ RiaRftPltCurveDefinition::RiaRftPltCurveDefinition( const RifDataSourceForRftPlt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the stored structured address without copying it.
 //--------------------------------------------------------------------------------------------------
 const RifDataSourceForRftPlt& RiaRftPltCurveDefinition::address() const
 {
@@ -37,7 +39,7 @@ const RifDataSourceForRftPlt& RiaRftPltCurveDefinition::address() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the stored well name without copying it.
 //--------------------------------------------------------------------------------------------------
 const QString& RiaRftPltCurveDefinition::wellName() const
 {
@@ -45,7 +47,7 @@ const QString& RiaRftPltCurveDefinition::wellName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the stored report time without copying it.
 //--------------------------------------------------------------------------------------------------
 const QDateTime& RiaRftPltCurveDefinition::timeStep() const
 {
@@ -53,7 +55,7 @@ const QDateTime& RiaRftPltCurveDefinition::timeStep() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Prioritizes ensemble sources, then compares address, well name, and epoch time deterministically.
 //--------------------------------------------------------------------------------------------------
 auto RiaRftPltCurveDefinition::operator<=>( const RiaRftPltCurveDefinition& other ) const -> std::strong_ordering
 {

@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements canonical result and property name strings.
 
 #include "RiaResultNames.h"
 

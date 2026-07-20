@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Well flow-related helper functions, including reservoir tracer name.
 
 #pragma once
 
@@ -22,5 +24,6 @@
 
 namespace RiaDefines
 {
+/// @return Canonical tracer name used for undivided reservoir-fluid flow.
 QString reservoirTracerName();
 }; // namespace RiaDefines

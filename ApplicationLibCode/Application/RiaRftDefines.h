@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief RFT segment and branch result name helpers.
 
 #pragma once
 
@@ -22,12 +24,17 @@
 
 namespace RiaDefines
 {
+/// @name Multi-segment well result identifiers
+/// @{
 bool    isSegmentResult( const QString& resultName );
 QString segmentStartDepthResultName();
 QString segmentEndDepthResultName();
 QString segmentTvdDepthResultName();
 QString segmentNumberResultName();
+/// @}
 
+/// @name Segment-connection result identifiers
+/// @{
 bool        isSegmentConnectionResult( const QString& resultName );
 QString     segmentConnectionTvdDepthResultName();
 std::string segmentConnectionEndDepthResultName();
@@ -37,10 +44,14 @@ QString     segmentConnectionMeasuredDepthResultName();
 std::string segmentConnectionIPos();
 std::string segmentConnectionJPos();
 std::string segmentConnectionKPos();
+/// @}
 
+/// @return Selection label representing every segment branch.
 QString allBranches();
+/// @return Canonical result identifier for segment branch number.
 QString segmentBranchNumberResultName();
 
+/// Physical branch category represented by an RFT segment.
 enum class RftBranchType
 {
     RFT_TUBING,

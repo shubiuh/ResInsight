@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief FIFO scheduling and cancellation of non-owned RimProcess instances.
 //
 //  Copyright (C) 2026     Equinor ASA
 //
@@ -64,7 +66,9 @@ void RimProcessQueue::onProcessFinished( size_t processId )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Consults preferences for every launch so runtime changes to the parallel-job limit take effect
+/// without reconstructing the singleton. Failed startup reports completion through the same monitor
+/// path as a crashed process, keeping queue bookkeeping centralized.
 //--------------------------------------------------------------------------------------------------
 void RimProcessQueue::launchNextProcessIfPossible()
 {
@@ -98,7 +102,8 @@ size_t RimProcessQueue::internalQueueProcess( RimProcess* process )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removes the process under the mutex but invokes its callback or QProcess termination afterward.
+/// This avoids re-entering queue completion logic while the non-recursive queue lock is held.
 //--------------------------------------------------------------------------------------------------
 void RimProcessQueue::internalStopProcess( size_t processId )
 {

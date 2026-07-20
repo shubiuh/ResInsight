@@ -15,11 +15,14 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Seismic section type and slice direction enumerations.
 
 #pragma once
 
 namespace RiaDefines
 {
+/// Principal cube direction used when sampling a seismic slice.
 enum class SeismicSliceDirection
 {
     INLINE,
@@ -27,6 +30,7 @@ enum class SeismicSliceDirection
     DEPTH
 };
 
+/// Geometry used to define a displayed seismic section.
 enum class SeismicSectionType
 {
     SS_INLINE,

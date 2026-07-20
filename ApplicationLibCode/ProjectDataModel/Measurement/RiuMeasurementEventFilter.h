@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Application event filter that cancels interactive measurement with Escape.
 //
 //  Copyright (C) 2019-     Equinor ASA
 //
@@ -25,21 +27,28 @@
 class QEvent;
 class RimMeasurement;
 
-//--------------------------------------------------------------------------------------------------
-//
-//--------------------------------------------------------------------------------------------------
+/// @brief Converts an Escape key press into disabling the associated RimMeasurement.
+///
+/// The parent relationship is guarded by caf::PdmPointer because the filter is registered on the
+/// application rather than parented as a QObject child. Non-Escape events continue through Qt's
+/// normal event-filter chain.
 class RiuMeasurementEventFilter : public QObject
 {
     Q_OBJECT
 public:
+    /// Creates an unregistered filter associated with @p parent.
     explicit RiuMeasurementEventFilter( RimMeasurement* parent );
 
+    /// Installs this filter on the GUI application.
     void registerFilter();
+    /// Removes this filter from the GUI application.
     void unregisterFilter();
 
 protected:
+    /// Consumes Escape presses and disables measurement; forwards all other events.
     bool eventFilter( QObject* obj, QEvent* event ) override;
 
 private:
+    /// Guarded, non-owning measurement state to disable.
     caf::PdmPointer<RimMeasurement> m_parent;
 };

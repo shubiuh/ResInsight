@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements the headless (console) ResInsight application class.
 #include "RiaConsoleApplication.h"
 
 #include "Cloud/RiaConnectorTools.h"
@@ -42,7 +44,7 @@
 #endif
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses the shared base singleton as the source of truth and verifies the concrete application type.
 //--------------------------------------------------------------------------------------------------
 RiaConsoleApplication* RiaConsoleApplication::instance()
 {
@@ -52,7 +54,7 @@ RiaConsoleApplication* RiaConsoleApplication::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Multiple inheritance gives Qt ownership of the event loop and RiaApplication ownership of domain state.
 //--------------------------------------------------------------------------------------------------
 RiaConsoleApplication::RiaConsoleApplication( int& argc, char** argv )
     : QCoreApplication( argc, argv )
@@ -62,14 +64,14 @@ RiaConsoleApplication::RiaConsoleApplication( int& argc, char** argv )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Console-specific resources are parented or owned elsewhere, so no explicit teardown is required.
 //--------------------------------------------------------------------------------------------------
 RiaConsoleApplication::~RiaConsoleApplication()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Initializes stream routing before logging so startup diagnostics reach the invoking console or pipe.
 //--------------------------------------------------------------------------------------------------
 void RiaConsoleApplication::initialize()
 {
@@ -127,7 +129,7 @@ void RiaConsoleApplication::initialize()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Processes terminal actions in dependency order: configuration, project loading, imports, then commands.
 //--------------------------------------------------------------------------------------------------
 RiaApplication::ApplicationStatus RiaConsoleApplication::handleArguments( cvf::ProgramOptions* progOpt )
 {
@@ -416,7 +418,7 @@ RiaApplication::ApplicationStatus RiaConsoleApplication::handleArguments( cvf::P
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Standard output is used so help, version, and generated text can be redirected by shell callers.
 //--------------------------------------------------------------------------------------------------
 void RiaConsoleApplication::showFormattedTextInMessageBoxOrConsole( const QString& errMsg )
 {
@@ -424,7 +426,7 @@ void RiaConsoleApplication::showFormattedTextInMessageBoxOrConsole( const QStrin
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Headless workflows still require Qt events for timers, queued connections, and worker processes.
 //--------------------------------------------------------------------------------------------------
 void RiaConsoleApplication::invokeProcessEvents( QEventLoop::ProcessEventsFlags flags /*= QEventLoop::AllEvents*/ )
 {
@@ -432,7 +434,7 @@ void RiaConsoleApplication::invokeProcessEvents( QEventLoop::ProcessEventsFlags 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Logging keeps error reporting available without introducing QWidget dependencies.
 //--------------------------------------------------------------------------------------------------
 void RiaConsoleApplication::onProjectOpeningError( const QString& errMsg )
 {
@@ -440,7 +442,7 @@ void RiaConsoleApplication::onProjectOpeningError( const QString& errMsg )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Plot models are loaded in console mode because command files and exports can depend on them.
 //--------------------------------------------------------------------------------------------------
 void RiaConsoleApplication::onProjectOpened()
 {
@@ -449,7 +451,7 @@ void RiaConsoleApplication::onProjectOpened()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Closing may schedule deferred QObject cleanup, so the event queue is drained before continuing.
 //--------------------------------------------------------------------------------------------------
 void RiaConsoleApplication::onProjectClosed()
 {

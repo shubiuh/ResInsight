@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Eclipse case grouping and shared-grid registration implementation.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -163,6 +165,8 @@ RigMainGrid* RimEclipseCaseCollection::registerCaseInGridCollection( RimEclipseC
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Registers grid geometry before moving the case so identical-grid groups can reuse the group's
+/// main grid while retaining case-specific active-cell and result data.
 void RimEclipseCaseCollection::insertCaseInCaseGroup( RimIdenticalGridCaseGroup* caseGroup, RimEclipseCase* rimReservoir )
 {
     CVF_ASSERT( rimReservoir );

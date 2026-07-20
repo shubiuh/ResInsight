@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Propagation of camera, time, results, filters, scale, and cursor across linked views.
 //
 //  Copyright (C) 2015-     Statoil ASA
 //  Copyright (C) 2015-     Ceetron Solutions AS
@@ -344,7 +346,8 @@ QString RimViewLinker::displayNameForView( Rim3dView* view )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Promoting an existing dependent to master first deletes its controller, ensuring a view cannot be
+/// both source and target. Existing overrides are removed before changing the source relationship.
 //--------------------------------------------------------------------------------------------------
 void RimViewLinker::setMasterView( Rim3dView* view )
 {
@@ -592,7 +595,8 @@ QList<caf::PdmOptionItemInfo> RimViewLinker::calculateValueOptions( const caf::P
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Applies camera state only to controllers that opted into camera linking. The source is excluded
+/// from the destination list, preventing immediate feedback into the viewer that emitted the change.
 //--------------------------------------------------------------------------------------------------
 void RimViewLinker::updateCamera( Rim3dView* sourceView )
 {
@@ -616,7 +620,8 @@ void RimViewLinker::updateCamera( Rim3dView* sourceView )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Maintains one controller per dependent view and rejects the master. Controller setup performs
+/// presentation and initial override synchronization for the newly linked view.
 //--------------------------------------------------------------------------------------------------
 void RimViewLinker::addDependentView( Rim3dView* view )
 {

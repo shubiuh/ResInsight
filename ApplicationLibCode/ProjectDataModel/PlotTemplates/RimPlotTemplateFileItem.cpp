@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Plot-template filename classification and icon-state implementation.
 //
 //  Copyright (C) 2011-2012 Statoil ASA, Ceetron AS
 //
@@ -48,7 +50,8 @@ RimPlotTemplateFileItem::~RimPlotTemplateFileItem()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates both identity and presentation together so a reused item cannot retain the icon or label
+/// of its previous path.
 //--------------------------------------------------------------------------------------------------
 void RimPlotTemplateFileItem::setFilePath( const QString& filePath )
 {

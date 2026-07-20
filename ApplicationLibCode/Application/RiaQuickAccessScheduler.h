@@ -15,19 +15,31 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Scheduler for deferred quick-access data updates.
 
 #pragma once
 
 #include "cafScheduler.h"
 
+//--------------------------------------------------------------------------------------------------
+/// @brief Coalesces quick-access editor refresh requests into one event-loop update.
+///
+/// Quick-access fields may be affected by many model notifications in one operation. Scheduling a
+/// zero-delay callback avoids repeatedly rebuilding their editors while the model is still changing.
+//--------------------------------------------------------------------------------------------------
 class RiaQuickAccessScheduler : public caf::Scheduler
 {
 public:
+    /// Constructs the scheduler. Prefer instance() for process-wide use.
     RiaQuickAccessScheduler();
 
+    /// @return The process-wide quick-access scheduler.
     static RiaQuickAccessScheduler* instance();
 
+    /// Requests a deferred refresh of all quick-access editors.
     void scheduleDisplayModelUpdateAndRedraw();
 
+    /// Refreshes editors that the quick-access collection marks as requiring an update.
     void performScheduledUpdates() override;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements persistent string-list storage keyed by application settings keys.
 
 #include "RiaStringListSerializer.h"
 
@@ -22,7 +24,7 @@
 #include <QStringList>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Stores the settings key by value so later operations are independent of the caller's string.
 //--------------------------------------------------------------------------------------------------
 RiaStringListSerializer::RiaStringListSerializer( const QString& key )
     : m_key( key )
@@ -30,7 +32,7 @@ RiaStringListSerializer::RiaStringListSerializer( const QString& key )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removing before prepending enforces uniqueness while preserving a most-recent-first order.
 //--------------------------------------------------------------------------------------------------
 void RiaStringListSerializer::addString( const QString& textString, int maxStringCount )
 {
@@ -46,7 +48,7 @@ void RiaStringListSerializer::addString( const QString& textString, int maxStrin
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// removeAll() also cleans up duplicate entries written by older code or manual settings edits.
 //--------------------------------------------------------------------------------------------------
 void RiaStringListSerializer::removeString( const QString& textString )
 {
@@ -58,7 +60,7 @@ void RiaStringListSerializer::removeString( const QString& textString )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// QSettings converts an absent or incompatible value to an empty QStringList.
 //--------------------------------------------------------------------------------------------------
 QStringList RiaStringListSerializer::textStrings()
 {

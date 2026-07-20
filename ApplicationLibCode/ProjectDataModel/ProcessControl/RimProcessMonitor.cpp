@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Line buffering, logging, and queue notification for external processes.
 //
 //  Copyright (C) 2021    Equinor ASA
 //
@@ -77,7 +79,8 @@ void RimProcessMonitor::error( QProcess::ProcessError error )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Queue notification is unconditional: even a crash or synthetic failure must release capacity
+/// so a later waiting process is not permanently blocked.
 //--------------------------------------------------------------------------------------------------
 void RimProcessMonitor::finished( int exitCode, QProcess::ExitStatus exitStatus )
 {
@@ -101,7 +104,8 @@ void RimProcessMonitor::finished( int exitCode, QProcess::ExitStatus exitStatus 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reads complete lines only. Retaining partial lines in QProcess allows a later signal to assemble
+/// them without emitting truncated log records.
 //--------------------------------------------------------------------------------------------------
 void RimProcessMonitor::readyReadStandardError()
 {

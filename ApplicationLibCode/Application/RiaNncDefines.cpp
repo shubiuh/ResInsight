@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements NNC property name helpers.
 
 #include "RiaNncDefines.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements summary ensemble curve set identification.
 
 #include "RiaCurveSetDefinition.h"
 
@@ -22,7 +24,7 @@
 #include "RimSummaryEnsemble.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// A null ensemble makes the default object a valid sentinel and sortable key.
 //--------------------------------------------------------------------------------------------------
 RiaCurveSetDefinition::RiaCurveSetDefinition()
     : m_ensemble( nullptr )
@@ -30,7 +32,7 @@ RiaCurveSetDefinition::RiaCurveSetDefinition()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Stores the non-owning ensemble identity together with a value copy of the address.
 //--------------------------------------------------------------------------------------------------
 RiaCurveSetDefinition::RiaCurveSetDefinition( RimSummaryEnsemble* ensemble, const RifEclipseSummaryAddress& summaryAddress )
     : m_ensemble( ensemble )
@@ -39,7 +41,7 @@ RiaCurveSetDefinition::RiaCurveSetDefinition( RimSummaryEnsemble* ensemble, cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ensemble without transferring ownership.
 //--------------------------------------------------------------------------------------------------
 RimSummaryEnsemble* RiaCurveSetDefinition::ensemble() const
 {
@@ -47,7 +49,7 @@ RimSummaryEnsemble* RiaCurveSetDefinition::ensemble() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returning by reference avoids copying the structured summary address.
 //--------------------------------------------------------------------------------------------------
 const RifEclipseSummaryAddress& RiaCurveSetDefinition::summaryAddress() const
 {
@@ -55,7 +57,7 @@ const RifEclipseSummaryAddress& RiaCurveSetDefinition::summaryAddress() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Pointer ordering groups all addresses belonging to the same ensemble before address ordering.
 //--------------------------------------------------------------------------------------------------
 bool RiaCurveSetDefinition::operator<( const RiaCurveSetDefinition& other ) const
 {

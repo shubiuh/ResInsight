@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Shared case identity, naming, filtering, formation, and view behavior.
 //
 //  Copyright (C) 2015-     Statoil ASA
 //  Copyright (C) 2015-     Ceetron Solutions AS
@@ -78,7 +80,8 @@ RimCase::RimCase()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets an early destruction guard because releasing owned intersection views can call views().
+/// Returning no views during teardown prevents traversal of a partially destroyed object graph.
 //--------------------------------------------------------------------------------------------------
 RimCase::~RimCase()
 {
@@ -162,7 +165,8 @@ void RimCase::setCustomCaseName( const QString& caseName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Combines backend-specific special views with the owned 2D intersection views. The teardown guard
+/// is required because PDM child destruction can re-enter this query.
 //--------------------------------------------------------------------------------------------------
 std::vector<Rim3dView*> RimCase::views() const
 {
@@ -219,7 +223,8 @@ RimFormationNames* RimCase::activeFormationNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Time-step filters store native indices in UI order. With no active filtering, UI and native
+/// indices are intentionally identical.
 //--------------------------------------------------------------------------------------------------
 size_t RimCase::uiToNativeTimeStepIndex( size_t uiTimeStepIndex )
 {
@@ -291,7 +296,8 @@ void RimCase::updateOptionSensitivity()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Assigns identifiers missing from older project files and preserves user-modified historical
+/// names by treating projects from 2020.10 and earlier as custom-name cases.
 //--------------------------------------------------------------------------------------------------
 void RimCase::initAfterRead()
 {
@@ -318,7 +324,8 @@ caf::PdmFieldHandle* RimCase::userDescriptionField()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Ensemble cases derive uniqueness from a sample of peer file paths; standalone cases compare
+/// against the project. This keeps short labels distinguishable without exposing full paths.
 //--------------------------------------------------------------------------------------------------
 void RimCase::updateAutoShortName()
 {

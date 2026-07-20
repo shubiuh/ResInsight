@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements LAS depth property name helpers.
 
 #include "RiaLasDefines.h"
 

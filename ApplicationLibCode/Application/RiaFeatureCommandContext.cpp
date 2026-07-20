@@ -15,27 +15,29 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements transient context object for feature command execution.
 
 #include "RiaFeatureCommandContext.h"
 
 #include <QVariant>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// The QPointer member is default-initialized to an empty context.
 //--------------------------------------------------------------------------------------------------
 RiaFeatureCommandContext::RiaFeatureCommandContext()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// The context never owns the QObject referenced by its QPointer.
 //--------------------------------------------------------------------------------------------------
 RiaFeatureCommandContext::~RiaFeatureCommandContext()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Assignment to QPointer preserves automatic nulling if the QObject is destroyed elsewhere.
 //--------------------------------------------------------------------------------------------------
 void RiaFeatureCommandContext::setObject( QObject* object )
 {
@@ -43,7 +45,7 @@ void RiaFeatureCommandContext::setObject( QObject* object )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Exposes the guarded raw pointer for consumers that need custom QObject properties or type checks.
 //--------------------------------------------------------------------------------------------------
 QObject* RiaFeatureCommandContext::object() const
 {
@@ -51,7 +53,7 @@ QObject* RiaFeatureCommandContext::object() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// QVariant conversion makes missing or non-string title properties safely produce an empty string.
 //--------------------------------------------------------------------------------------------------
 QString RiaFeatureCommandContext::titleString() const
 {
@@ -66,7 +68,7 @@ QString RiaFeatureCommandContext::titleString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Content uses the same dynamic-property convention as titleString().
 //--------------------------------------------------------------------------------------------------
 QString RiaFeatureCommandContext::contentString() const
 {
@@ -81,7 +83,7 @@ QString RiaFeatureCommandContext::contentString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// A stable ASCII key allows unrelated command producers and consumers to exchange title text.
 //--------------------------------------------------------------------------------------------------
 std::string RiaFeatureCommandContext::titleStringIdentifier()
 {
@@ -89,7 +91,7 @@ std::string RiaFeatureCommandContext::titleStringIdentifier()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// A separate stable key prevents title and body content from being conflated.
 //--------------------------------------------------------------------------------------------------
 std::string RiaFeatureCommandContext::contentStringIdentifier()
 {
@@ -97,7 +99,7 @@ std::string RiaFeatureCommandContext::contentStringIdentifier()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Heap allocation intentionally keeps the process-wide context alive through static destruction order.
 //--------------------------------------------------------------------------------------------------
 RiaFeatureCommandContext* RiaFeatureCommandContext::instance()
 {
@@ -106,7 +108,7 @@ RiaFeatureCommandContext* RiaFeatureCommandContext::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Installs the caller-owned object without extending its lifetime.
 //--------------------------------------------------------------------------------------------------
 RiaFeatureCommandContextHelper::RiaFeatureCommandContextHelper( QObject* externalObject )
 {
@@ -114,7 +116,7 @@ RiaFeatureCommandContextHelper::RiaFeatureCommandContextHelper( QObject* externa
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clearing on scope exit prevents later commands from observing stale transient state.
 //--------------------------------------------------------------------------------------------------
 RiaFeatureCommandContextHelper::~RiaFeatureCommandContextHelper()
 {
@@ -122,7 +124,7 @@ RiaFeatureCommandContextHelper::~RiaFeatureCommandContextHelper()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Dynamic QObject properties avoid introducing a dedicated context subclass for two text values.
 //--------------------------------------------------------------------------------------------------
 RiaFeatureCommandContextTextHelper::RiaFeatureCommandContextTextHelper( const QString& title, const QString& text )
 {
@@ -135,7 +137,7 @@ RiaFeatureCommandContextTextHelper::RiaFeatureCommandContextTextHelper( const QS
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// deleteLater() avoids destroying the QObject while queued Qt code may still be using it.
 //--------------------------------------------------------------------------------------------------
 RiaFeatureCommandContextTextHelper::~RiaFeatureCommandContextTextHelper()
 {

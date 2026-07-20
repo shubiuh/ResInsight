@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implementation of Quick Access field-selection dialog data.
 //
 //  Copyright (C) 2024- Equinor ASA
 //
@@ -67,7 +69,8 @@ void RimFieldSelection::selectAllFields()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Stores keywords rather than pointers so the dialog selection remains independent of editor
+/// instances. An empty list is treated as all fields to provide a useful default selection.
 //--------------------------------------------------------------------------------------------------
 std::vector<caf::PdmFieldHandle*> RimFieldSelection::fields() const
 {

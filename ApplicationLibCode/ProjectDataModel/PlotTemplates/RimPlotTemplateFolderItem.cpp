@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Bounded filesystem discovery and hierarchical template-menu construction.
 
 #include "RimPlotTemplateFolderItem.h"
 
@@ -51,7 +53,8 @@ RimPlotTemplateFolderItem::~RimPlotTemplateFolderItem()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Deletes the previous owned tree before scanning so filesystem removals and changed root settings
+/// are reflected exactly rather than merged with stale nodes.
 //--------------------------------------------------------------------------------------------------
 void RimPlotTemplateFolderItem::createRootFolderItemsFromFolderPaths( const QStringList& folderPaths )
 {
@@ -133,7 +136,9 @@ void RimPlotTemplateFolderItem::setFolderPath( const QString& path )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Decrements before scanning so zero represents no searchable levels. Only readable directories
+/// are followed, and recursion stops at the user-configured depth to avoid unexpectedly expensive
+/// traversal of large mounted filesystems.
 //--------------------------------------------------------------------------------------------------
 void RimPlotTemplateFolderItem::searchForFileAndFolderNames( int levelsLeft )
 {

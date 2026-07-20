@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements OSDU data-kind string constants.
 
 #include "RiaOsduDefines.h"
 

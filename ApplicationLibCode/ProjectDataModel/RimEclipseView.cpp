@@ -18,6 +18,10 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+/// @file
+/// Implements Eclipse reservoir-view model construction, case synchronization,
+/// visibility-mask composition, and per-case camera-state handling.
+
 #include "RimEclipseView.h"
 
 #include "RiaApplication.h"
@@ -158,7 +162,7 @@ void caf::AppEnum<RimEclipseView::RimCaseChangeBehaviour>::setUp()
 
 CAF_PDM_XML_SOURCE_INIT( RimEclipseView, "ReservoirView" );
 //--------------------------------------------------------------------------------------------------
-///
+/// Constructs the owned view configuration and transient rendering support objects.
 //--------------------------------------------------------------------------------------------------
 RimEclipseView::RimEclipseView()
 {
@@ -271,7 +275,7 @@ RimEclipseView::RimEclipseView()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Releases transient rendering managers owned directly by the view.
 //--------------------------------------------------------------------------------------------------
 RimEclipseView::~RimEclipseView()
 {
@@ -436,7 +440,10 @@ void RimEclipseView::setVisibleGridPartsWatertight()
 }
 
 //--------------------------------------------------------------------------------------------------
+/// Rebinds every case-dependent child after the view's case changes.
 ///
+/// Keeping this propagation in one place prevents result definitions, filters,
+/// streamlines, and grid-tree nodes from retaining pointers into the old case.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::propagateEclipseCaseToChildObjects()
 {
@@ -461,7 +468,11 @@ void RimEclipseView::propagateEclipseCaseToChildObjects()
 }
 
 //--------------------------------------------------------------------------------------------------
+/// Saves the outgoing case's camera and restores the incoming case's camera.
 ///
+/// Camera settings are stored per case because switching the data source should
+/// not discard a useful viewpoint. A case without saved settings starts with a
+/// zoom-to-fit view.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::storeCurrentAndApplyNewCameraPosition( RimEclipseCase* currentCase, RimEclipseCase* newCase )
 {
@@ -635,6 +646,11 @@ std::vector<size_t> RimEclipseView::activeTimeStepIndices( bool propertyFiltersA
 /// Create display model,
 /// or at least empty scenes as frames that is delivered to the viewer
 /// The real geometry generation is done inside RivReservoirViewGeometry and friends
+///
+/// Static geometry can be shared by animation frames, whereas property-filtered
+/// geometry must be resolved for each time step. The method therefore prepares
+/// the frame/model structure and delegates actual part generation to the part
+/// managers and their caches.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::onCreateDisplayModel()
 {
@@ -909,7 +925,7 @@ void RimEclipseView::onCreateDisplayModel()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Advances transient streamline geometry when the animation controller changes.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::onAnimationsUpdate( const caf::SignalEmitter* emitter )
 {
@@ -922,7 +938,7 @@ void RimEclipseView::onAnimationsUpdate( const caf::SignalEmitter* emitter )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates time-dependent filters, colors, annotations, and geometry for the current frame.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::onUpdateDisplayModelForCurrentTimeStep()
 {
@@ -968,7 +984,7 @@ void RimEclipseView::onUpdateDisplayModelForCurrentTimeStep()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Recomputes which cached geometry categories must be visible for current filters.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::updateVisibleGeometries()
 {
@@ -1070,7 +1086,7 @@ void RimEclipseView::updateVisibleGeometries()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Recolors visible cached cell geometry after a result or legend change.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::updateVisibleCellColors()
 {
@@ -1133,7 +1149,7 @@ void RimEclipseView::updateVisibleCellColors()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends time-dependent well and fracture parts to the current scene.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::appendWellsAndFracturesToModel()
 {
@@ -1314,7 +1330,7 @@ caf::PdmFieldHandle* RimEclipseView::userDescriptionField()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Restores runtime back-references and creates children absent from old projects.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::initAfterRead()
 {
@@ -1721,7 +1737,9 @@ void RimEclipseView::updateLegendRangesTextAndVisibility( RimRegularLegendConfig
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Changes the case reference and immediately rebinds all dependent child objects.
+/// Display rebuilding is intentionally controlled by the caller so several model
+/// changes can be batched into one redraw.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::setEclipseCase( RimEclipseCase* reservoir )
 {
@@ -2421,7 +2439,10 @@ bool RimEclipseView::hasActiveDynamicPropertyOrDataFilters() const
 }
 
 //--------------------------------------------------------------------------------------------------
+/// Installs a non-owning property-filter override used by linked views.
 ///
+/// The native collection mirrors the override's enabled state for a consistent
+/// UI, while geometry is invalidated because the effective filter set changed.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::setOverridePropertyFilterCollection( RimEclipsePropertyFilterCollection* pfc )
 {
@@ -2436,7 +2457,8 @@ void RimEclipseView::setOverridePropertyFilterCollection( RimEclipsePropertyFilt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Combines the currently displayed geometry-part masks into one reservoir-wide mask.
+/// Local grid-cell indices are translated to reservoir indices before masks are ORed.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::calculateCurrentTotalCellVisibility( cvf::UByteArray* totalVisibility, int timeStep )
 {
@@ -2467,7 +2489,9 @@ void RimEclipseView::calculateCurrentTotalCellVisibility( cvf::UByteArray* total
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Combines selected geometry-type masks into one reservoir-wide visibility mask.
+/// This lower-level variant is used when callers need explicit cell-set types rather
+/// than the parts currently recorded as visible by the view.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseView::calculateCellVisibility( cvf::UByteArray* visibility, std::vector<RivCellSetEnum> geomTypes, int timeStep )
 {

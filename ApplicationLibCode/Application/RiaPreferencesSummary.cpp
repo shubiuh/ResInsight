@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements summary plotting and data-reading preferences.
 
 #include "RiaPreferencesSummary.h"
 
@@ -78,7 +80,8 @@ void RiaPreferencesSummary::DefaultSummaryPlotEnum::setUp()
 CAF_PDM_SOURCE_INIT( RiaPreferencesSummary, "RiaPreferencesSummary" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates the summary preferences with field keys that remain stable across settings migrations.
+/// UI-only configuration is attached here so callers consume plain, validated preference values.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesSummary::RiaPreferencesSummary()
 {
@@ -269,7 +272,8 @@ void RiaPreferencesSummary::appendRestartFileGroup( caf::PdmUiOrdering& uiOrderi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds only controls relevant to the selected default-plot strategy. Template selection is
+/// presented through a dedicated dialog because the stored field is a read-only summary list.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSummary::appendItemsToPlottingGroup( caf::PdmUiOrdering& uiOrdering )
 {
@@ -475,7 +479,9 @@ void RiaPreferencesSummary::defineEditorAttribute( const caf::PdmFieldHandle* fi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Exposes only readers and import modes supported by the current build and workflow. In particular,
+/// separate restart cases are withheld for ensemble summary import because that combination is not
+/// supported, while grid import can safely expose it.
 //--------------------------------------------------------------------------------------------------
 QList<caf::PdmOptionItemInfo> RiaPreferencesSummary::calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions )
 {
@@ -587,7 +593,8 @@ RiaPreferencesSummary::DefaultSummaryPlotType RiaPreferencesSummary::defaultSumm
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Filters the shared template list by file kind and removes duplicates while preserving user order.
+/// Single-case templates use the .rpt suffix; the remaining supported files are ensemble templates.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RiaPreferencesSummary::defaultSummaryPlotTemplates( bool returnEnsembleTemplates ) const
 {
@@ -614,7 +621,8 @@ bool RiaPreferencesSummary::isDefaultSummaryPlotTemplate( QString filename ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates the PDM field as a complete value so change tracking is preserved, then persists the
+/// preference immediately because this operation is initiated outside the standard property editor.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSummary::addToDefaultPlotTemplates( QString filename )
 {
@@ -629,7 +637,7 @@ void RiaPreferencesSummary::addToDefaultPlotTemplates( QString filename )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Rebuilds the PDM value without the selected filename and persists the external dialog change.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSummary::removeFromDefaultPlotTemplates( QString filename )
 {
@@ -647,7 +655,7 @@ void RiaPreferencesSummary::removeFromDefaultPlotTemplates( QString filename )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Migrates a legacy unsupported ensemble setting to a safe mode after deserialization.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSummary::initAfterRead()
 {

@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Owned collection of Eclipse cases within a group or ensemble context.
 //
 //  Copyright (C) 2011-2012 Statoil ASA, Ceetron AS
 //
@@ -28,23 +30,29 @@ class RimIdenticalGridCaseGroup;
 class RimReservoirGridEnsemble;
 class RimCase;
 
-//==================================================================================================
-//
-//
-//
-//==================================================================================================
+/// @brief Stores Eclipse cases and exposes their enclosing grouping context.
+///
+/// The child array owns its cases. Ancestor queries let shared code determine whether the collection
+/// belongs to an identical-grid case group, a concrete reservoir-grid ensemble, or another ensemble
+/// base without encoding that hierarchy in every consumer.
 class RimCaseCollection : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Initializes the owned reservoir-case array.
     RimCaseCollection();
 
+    /// @return Owned cases as base-class pointers in stored order.
     std::vector<RimCase*> cases() const;
 
+    /// Owned Eclipse reservoir cases.
     caf::PdmChildArrayField<RimEclipseCase*> reservoirs;
 
+    /// @return Enclosing identical-grid group, or `nullptr` when not grouped that way.
     RimIdenticalGridCaseGroup*    parentCaseGroup();
+    /// @return Enclosing concrete grid ensemble, or `nullptr` when absent.
     RimReservoirGridEnsemble*     parentGridEnsemble();
+    /// @return Enclosing grid-ensemble base of any supported subtype, or `nullptr`.
     RimReservoirGridEnsembleBase* parentGridEnsembleBase();
 };

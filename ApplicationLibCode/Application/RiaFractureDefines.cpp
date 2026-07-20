@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fracture-related result name and unit helpers.
 
 #include "RiaFractureDefines.h"
 

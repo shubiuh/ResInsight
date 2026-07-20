@@ -16,6 +16,10 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+/// @file
+/// Implements ownership, initialization, and case-provider propagation for
+/// collections of Eclipse reservoir views.
+
 #include "RimEclipseViewCollection.h"
 
 #include "RiaLogging.h"
@@ -38,7 +42,7 @@
 CAF_PDM_SOURCE_INIT( RimEclipseViewCollection, "EclipseViewCollection", "EclipseViewCollection" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Constructs an initially empty, non-deletable view container.
 //--------------------------------------------------------------------------------------------------
 RimEclipseViewCollection::RimEclipseViewCollection()
 {
@@ -50,14 +54,14 @@ RimEclipseViewCollection::RimEclipseViewCollection()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the collection and its framework-owned child views.
 //--------------------------------------------------------------------------------------------------
 RimEclipseViewCollection::~RimEclipseViewCollection()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the owned Eclipse views in collection order.
 //--------------------------------------------------------------------------------------------------
 std::vector<RimEclipseView*> RimEclipseViewCollection::views() const
 {
@@ -65,7 +69,7 @@ std::vector<RimEclipseView*> RimEclipseViewCollection::views() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Refreshes the owning case because this collection is hidden when embedded there.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseViewCollection::onChildDeleted( caf::PdmChildArrayFieldHandle* childArray, std::vector<caf::PdmObjectHandle*>& referringObjects )
 {
@@ -85,7 +89,8 @@ bool RimEclipseViewCollection::isEmpty()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a fully initialized view using application defaults and the case's
+/// default result before exposing it to the UI.
 //--------------------------------------------------------------------------------------------------
 RimEclipseView* RimEclipseViewCollection::addView( RimEclipseCase* eclipseCase )
 {
@@ -136,7 +141,7 @@ void RimEclipseViewCollection::addView( RimEclipseView* view )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Detaches @p view without deleting it, allowing callers to transfer ownership.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseViewCollection::removeView( RimEclipseView* view )
 {
@@ -145,7 +150,8 @@ void RimEclipseViewCollection::removeView( RimEclipseView* view )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Stores the case-list callback and propagates it to existing views so case
+/// selectors behave identically for both existing and subsequently added views.
 //--------------------------------------------------------------------------------------------------
 void RimEclipseViewCollection::setEclipseCaseProvider( std::function<std::vector<RimEclipseCase*>()> provider )
 {

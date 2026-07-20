@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Shared grid-view visibility, filtering, and auxiliary-geometry implementation.
 //
 //  Copyright (C) 2018-     Equinor ASA
 //
@@ -67,7 +69,8 @@
 CAF_PDM_XML_ABSTRACT_SOURCE_INIT( RimGridView, "GenericGridView" ); // Do not use. Abstract class
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Keeps linked-view overrides transient by disabling XML I/O. Render models are also transient and
+/// are named here to aid scene inspection and debugging without entering the PDM object graph.
 //--------------------------------------------------------------------------------------------------
 RimGridView::RimGridView()
     : cellVisibilityChanged( this )
@@ -137,7 +140,8 @@ void RimGridView::showGridCells( bool enableGridCells )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes lazily because visibility can require expensive result and filter evaluation. The signal
+/// is emitted only when a fresh mask is produced, not for repeated reads of the cached array.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<cvf::UByteArray> RimGridView::currentTotalCellVisibility()
 {
@@ -265,7 +269,8 @@ bool RimGridView::hasOverriddenCellFilterCollection()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Deletes the previous owned override before adopting the new one. The regular collection mirrors
+/// the override's active state so switching linkage off does not unexpectedly flip the UI toggle.
 //--------------------------------------------------------------------------------------------------
 void RimGridView::setOverrideCellFilterCollection( RimCellFilterCollection* rfc )
 {
@@ -285,7 +290,8 @@ void RimGridView::setOverrideCellFilterCollection( RimCellFilterCollection* rfc 
     scheduleCreateDisplayModelAndRedraw();
 }
 //--------------------------------------------------------------------------------------------------
-///
+/// Detaches the override from its old child field before assigning it to the regular field because
+/// a PDM child can have only one parent. The previous regular collection is intentionally replaced.
 //--------------------------------------------------------------------------------------------------
 void RimGridView::replaceCellFilterCollectionWithOverride()
 {
@@ -332,7 +338,8 @@ void RimGridView::updateViewFollowingCellFilterUpdates()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Migrates pre-2018 grid visibility, which was inferred from surface and mesh modes, into the
+/// explicit grid-collection activation field used by current versions.
 //--------------------------------------------------------------------------------------------------
 void RimGridView::initAfterRead()
 {

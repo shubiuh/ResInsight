@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Eclipse case lifecycle, result storage, derived caches, migrations, and view creation.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -293,6 +295,8 @@ bool RimEclipseCase::isGridSizeEqualTo( const RimEclipseCase* otherCase ) const
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Transfers legacy case-owned views, contour maps, and target mappings into their current
+/// collections. Each object is detached before insertion so PDM ownership changes without deletion.
 void RimEclipseCase::initAfterRead()
 {
     RimCase::initAfterRead();
@@ -728,6 +732,8 @@ void RimEclipseCase::appendMenuItems( caf::CmdFeatureMenuBuilder& menuBuilder ) 
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Rebuilds the result tree after placeholder and imported results are known. Nodes are grouped by
+/// semantic category so the project tree stays stable while result arrays remain lazily loaded.
 void RimEclipseCase::buildResultChildNodes()
 {
     m_resultAddressCollections.deleteChildren();
@@ -759,6 +765,8 @@ void RimEclipseCase::buildResultChildNodes()
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Computes the main-grid search tree first because the active-cell bounding box and later spatial
+/// operations depend on the grid's cached bounds and indices.
 void RimEclipseCase::computeCachedData()
 {
     RigEclipseCaseData* rigEclipseCase = eclipseCaseData();
@@ -1121,6 +1129,9 @@ bool RimEclipseCase::ensureReservoirCaseIsOpen()
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Completes common initialization after the concrete grid reader succeeds. Placeholder addresses
+/// make generated combined results selectable before their arrays are loaded and connect them to
+/// NNC transmissibility and phase-flux property names.
 bool RimEclipseCase::openReservoirCase()
 {
     if ( !openEclipseGridFile() )
@@ -1236,6 +1247,8 @@ void RimEclipseCase::reloadEclipseGridFile()
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Drops the reference-counted heavy runtime data while preserving persistent case configuration,
+/// views, result-storage settings, and imported-file metadata.
 void RimEclipseCase::closeReservoirCase()
 {
     setReservoirData( nullptr );

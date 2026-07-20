@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Identifies an RFT/PLT curve by data source, well name, and time step.
 
 #pragma once
 
@@ -28,21 +30,37 @@
 class RimSummaryCase;
 
 //==================================================================================================
+/// @brief Binds a data source address, well name, and time step to identify an RFT or PLT curve.
 ///
+/// RiaRftPltCurveDefinition uniquely identifies a curve by its RifDataSourceForRftPlt (which
+/// describes whether the data comes from an ensemble case, a grid case, or a file), the well
+/// name, and the reporting time step. Comparison uses the three-way spaceship operator.
+/// Ensemble-backed sources deliberately sort before single-case sources so ensemble curves are
+/// constructed and plotted first. Within the same source, definitions sort by well and time step.
 //==================================================================================================
 class RiaRftPltCurveDefinition
 {
 public:
+    /// Creates an immutable curve identity.
+    /// @param address RFT/PLT data source and source-specific address.
+    /// @param wellName Well represented by the curve.
+    /// @param timeStep Report time represented by the curve.
     explicit RiaRftPltCurveDefinition( const RifDataSourceForRftPlt& address, const QString& wellName, const QDateTime& timeStep );
 
+    /// @return The curve data-source address.
     const RifDataSourceForRftPlt& address() const;
+
+    /// @return The well name used by the curve.
     const QString&                wellName() const;
+
+    /// @return The curve report time.
     const QDateTime&              timeStep() const;
 
+    /// Provides a stable ordering suitable for ordered containers and deterministic curve creation.
     auto operator<=>( const RiaRftPltCurveDefinition& rhs ) const -> std::strong_ordering;
 
 private:
-    RifDataSourceForRftPlt m_curveAddress;
-    QString                m_wellName;
-    QDateTime              m_timeStep;
+    RifDataSourceForRftPlt m_curveAddress; ///< Data source and source-specific address.
+    QString                m_wellName;     ///< Well represented by the curve.
+    QDateTime              m_timeStep;     ///< Report time represented by the curve.
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief OSDU data-kind string constants and token path helper.
 
 #pragma once
 
@@ -22,12 +24,16 @@
 
 namespace RiaOsduDefines
 {
+/// @name OSDU record-kind identifiers
+/// @{
 QString osduFieldKind();
 QString osduWellKind();
 QString osduWellboreKind();
 QString osduWellboreTrajectoryKind();
 QString osduWellLogKind();
+/// @}
 
+/// @return Local path used to cache the current user's OSDU access token.
 QString tokenPath();
 
 }; // namespace RiaOsduDefines

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements deferred plot-collection data update scheduling.
 
 #include "RiaPlotCollectionScheduler.h"
 
@@ -24,21 +26,21 @@
 #include <QTimer>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Construction performs no eager work; the base scheduler owns the timer behavior.
 //--------------------------------------------------------------------------------------------------
 RiaPlotCollectionScheduler::RiaPlotCollectionScheduler()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Queued collections are non-owning and are not deleted by the scheduler.
 //--------------------------------------------------------------------------------------------------
 RiaPlotCollectionScheduler::~RiaPlotCollectionScheduler()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses a function-local static to provide lazy process-wide construction.
 //--------------------------------------------------------------------------------------------------
 RiaPlotCollectionScheduler* RiaPlotCollectionScheduler::instance()
 {
@@ -48,7 +50,7 @@ RiaPlotCollectionScheduler* RiaPlotCollectionScheduler::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends requests and starts a zero-delay timer so updates occur after the current model change.
 //--------------------------------------------------------------------------------------------------
 void RiaPlotCollectionScheduler::schedulePlotCollectionUpdate( const std::vector<RimPlotCollection*> plotCollections )
 {
@@ -58,7 +60,7 @@ void RiaPlotCollectionScheduler::schedulePlotCollectionUpdate( const std::vector
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Null entries are tolerated because callers may build request lists conditionally.
 //--------------------------------------------------------------------------------------------------
 void RiaPlotCollectionScheduler::performScheduledUpdates()
 {

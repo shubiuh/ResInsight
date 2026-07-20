@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Thermal fracture result name helpers.
 
 #pragma once
 
@@ -24,6 +26,8 @@
 
 namespace RiaDefines
 {
+/// @name Canonical thermal-fracture result identifiers
+/// @{
 QString leakoffPressureDropResultName();
 QString filtratePressureDropResultName();
 QString leakoffMobilityResultName();
@@ -31,7 +35,9 @@ QString filterCakeMobilityResultName();
 QString injectivityFactorResultName();
 QString viscosityResultName();
 QString filtrateThicknessResultName();
+/// @}
 
+/// Returns the expected display unit for thermal-fracture result @p name in @p unitSystem.
 QString getExpectedThermalFractureUnit( const QString& name, RiaDefines::EclipseUnitSystem unitSystem );
 
 }; // namespace RiaDefines

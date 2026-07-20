@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Resolution and editing of persistent PDM field references.
 //
 //  Copyright (C) 2024- Equinor ASA
 //
@@ -31,7 +33,8 @@ RimFieldReference::RimFieldReference()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Selects the first provider field as a usable default. Only the stable keyword is stored; the
+/// pointer itself is resolved from the object whenever field() is called.
 //--------------------------------------------------------------------------------------------------
 void RimFieldReference::setObject( caf::PdmObject* object )
 {
@@ -67,7 +70,8 @@ void RimFieldReference::setField( caf::PdmFieldHandle* field )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Traverses UI ordering rather than object->fields() so choices match the fields the user can
+/// actually see. Hidden implementation fields must not become pinning candidates accidentally.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<QString, QString>> RimFieldReference::fieldKeywordAndNames( caf::PdmObject* object )
 {
@@ -172,7 +176,8 @@ QList<caf::PdmOptionItemInfo> RimFieldReference::calculateValueOptions( const ca
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Late resolution makes stale project references harmless: renamed or removed field keywords
+/// simply return null and are pruned during the next Quick Access rebuild.
 //--------------------------------------------------------------------------------------------------
 caf::PdmFieldHandle* RimFieldReference::field() const
 {

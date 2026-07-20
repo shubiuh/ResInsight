@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Measurement mode, picked-point, and display-refresh implementation.
 //
 //  Copyright (C) 2018-     Equinor ASA
 //
@@ -52,7 +54,8 @@ RimMeasurement::~RimMeasurement()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Installs global interaction helpers only while active. Disabling unregisters picking before
+/// clearing geometry, then schedules the Qt filter for safe deletion after event dispatch completes.
 //--------------------------------------------------------------------------------------------------
 void RimMeasurement::setMeasurementMode( MeasurementMode measurementMode )
 {
@@ -90,7 +93,8 @@ RimMeasurement::MeasurementMode RimMeasurement::measurementMode() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Measurements cannot span views because their domain coordinate transforms may differ. Switching
+/// the active view therefore starts a new point sequence before recording the pick.
 //--------------------------------------------------------------------------------------------------
 void RimMeasurement::addPointInDomainCoords( const Vec3d& domainCoord )
 {

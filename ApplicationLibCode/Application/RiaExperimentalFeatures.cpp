@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements the central registry of experimental features.
 
 #include "RiaExperimentalFeatures.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// A function-local static avoids initialization-order dependencies and preserves stable references.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RiaExperimentalFeatures::Feature>& RiaExperimentalFeatures::availableFeatures()
 {

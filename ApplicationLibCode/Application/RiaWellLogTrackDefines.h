@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Well-log track display enumerations for trajectory type, formation source, and level.
 
 #pragma once
 
@@ -23,18 +25,21 @@
 namespace RiaDefines
 {
 
+/// Data source that provides the trajectory of a well-log track.
 enum class WellLogTrackTrajectoryType
 {
     WELL_PATH,
     SIMULATION_WELL
 };
 
+/// Source from which formation intervals are obtained.
 enum class WellLogTrackFormationSource
 {
     CASE,
     WELL_PICK_FILTER
 };
 
+/// Hierarchy level of formation names displayed on a track.
 enum class WellLogTrackFormationLevel
 {
     GROUP,

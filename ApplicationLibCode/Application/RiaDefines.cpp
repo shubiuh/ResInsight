@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements shared enum and constant definitions used across ResInsight modules.
 
 #include "RiaDefines.h"
 

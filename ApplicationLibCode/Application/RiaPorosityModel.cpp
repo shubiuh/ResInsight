@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements porosity model type enumeration.
 
 #include "RiaPorosityModel.h"
 

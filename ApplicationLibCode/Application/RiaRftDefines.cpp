@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements RFT segment and branch result name helpers.
 
 #include "RiaRftDefines.h"
 #include "cafAppEnum.h"

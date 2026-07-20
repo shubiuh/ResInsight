@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Input-deck reader setup, property import, and INCLUDE-file relocation.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -80,6 +82,7 @@ bool RimEclipseInputCase::importAsciiInputProperties( const QStringList& fileNam
 //--------------------------------------------------------------------------------------------------
 /// Open the supplied file set. If no grid data has been read, it will first find the possible
 /// grid data among the files then read all supported properties from the files matching the grid
+/// Matrix and fracture result stores share the reader so static properties remain lazily accessible.
 //--------------------------------------------------------------------------------------------------
 bool RimEclipseInputCase::openDataFileSet( const QStringList& fileNames )
 {
@@ -311,6 +314,7 @@ QString RimEclipseInputCase::locationOnDisc() const
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Changes only the directory portion of discovered files, preserving basenames and property identity.
 void RimEclipseInputCase::updateAdditionalFileFolder( const QString& newFolder )
 {
     QDir newDir( newFolder );

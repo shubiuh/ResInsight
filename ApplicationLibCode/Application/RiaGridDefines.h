@@ -15,12 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Grid-related type definitions, including radial grid modes.
 
 #pragma once
 
 namespace RiaGridDefines
 {
 
+/// Coordinate interpretation used when displaying or indexing a radial grid.
 enum class RadialGridMode
 {
     CYLINDRICAL,

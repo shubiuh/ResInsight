@@ -15,14 +15,14 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Porosity model type enumeration (matrix vs. fracture).
 
 #pragma once
 
-//--------------------------------------------------------------------------------------------------
-///
-//--------------------------------------------------------------------------------------------------
 namespace RiaDefines
 {
+/// Selects which pore system supplies properties and results in dual-porosity models.
 enum class PorosityModelType
 {
     MATRIX_MODEL,

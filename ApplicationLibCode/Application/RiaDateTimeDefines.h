@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Date and time format component enumerations for ResInsight.
 
 #pragma once
 
@@ -22,6 +24,8 @@
 
 namespace RiaDefines
 {
+/// Controls how much of a calendar date is included when constructing a format string.
+/// Negative values distinguish an inherited/default choice from explicitly suppressing the date.
 enum class DateFormatComponents
 {
     DATE_FORMAT_UNSPECIFIED = -2,
@@ -31,6 +35,7 @@ enum class DateFormatComponents
     DATE_FORMAT_YEAR_MONTH_DAY,
 };
 
+/// Controls the precision of a generated time format, from hours through milliseconds.
 enum class TimeFormatComponents
 {
     TIME_FORMAT_UNSPECIFIED = -2,
@@ -42,6 +47,7 @@ enum class TimeFormatComponents
     TIME_FORMAT_SIZE
 };
 
+/// Calendar-aware periods used for aggregation, resampling, and axis intervals.
 enum class DateTimePeriod
 {
     NONE = -1,

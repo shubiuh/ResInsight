@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements model export enumeration definitions.
 
 #include "RiaModelExportDefines.h"
 

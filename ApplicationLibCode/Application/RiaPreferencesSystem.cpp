@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements system-level preferences for ResInsight.
 
 #include "RiaApplication.h"
 
@@ -32,6 +34,7 @@
 
 namespace caf
 {
+/// Registers stable serialized keywords and human-readable reader-mode labels.
 template <>
 void RiaPreferencesSystem::EclipseTextFileReaderModeType::setUp()
 {
@@ -46,7 +49,7 @@ void RiaPreferencesSystem::EclipseTextFileReaderModeType::setUp()
 CAF_PDM_SOURCE_INIT( RiaPreferencesSystem, "RiaPreferencesSystem" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Initializes persisted defaults together with transient experimental-feature presentation fields.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesSystem::RiaPreferencesSystem()
 {
@@ -252,7 +255,7 @@ double RiaPreferencesSystem::exportPdfScalingFactor() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// The pair's enable flag distinguishes automatic thread selection from a user-entered limit.
 //--------------------------------------------------------------------------------------------------
 std::optional<int> RiaPreferencesSystem::threadCount() const
 {
@@ -283,7 +286,7 @@ RiaPreferencesSystem::EclipseTextFileReaderMode RiaPreferencesSystem::eclipseTex
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Keyword matching enables targeted timing diagnostics without changing the global log level.
 //--------------------------------------------------------------------------------------------------
 bool RiaPreferencesSystem::isLoggingActivatedForKeyword( const QString& keyword ) const
 {
@@ -297,7 +300,7 @@ bool RiaPreferencesSystem::isLoggingActivatedForKeyword( const QString& keyword 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses stable persisted keywords rather than localized feature display names.
 //--------------------------------------------------------------------------------------------------
 bool RiaPreferencesSystem::isFeatureEnabled( const QString& keyword ) const
 {
@@ -309,7 +312,7 @@ bool RiaPreferencesSystem::isFeatureEnabled( const QString& keyword ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Separates end-user controls from diagnostics and experimental options in the preferences UI.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSystem::defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering )
 {
@@ -365,7 +368,7 @@ void RiaPreferencesSystem::appendExperimentalFeaturesItems( caf::PdmUiOrdering& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Feature metadata comes from the central registry so UI choices and runtime gates stay aligned.
 //--------------------------------------------------------------------------------------------------
 QList<caf::PdmOptionItemInfo> RiaPreferencesSystem::calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions )
 {
@@ -383,7 +386,7 @@ QList<caf::PdmOptionItemInfo> RiaPreferencesSystem::calculateValueOptions( const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Migrates legacy delimited keywords once, then normalizes transient selection state.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSystem::initAfterRead()
 {
@@ -407,7 +410,7 @@ void RiaPreferencesSystem::initAfterRead()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Configures selection callbacks and read-only multiline presentation for feature details.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSystem::defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute )
 {
@@ -438,7 +441,7 @@ void RiaPreferencesSystem::defineEditorAttribute( const caf::PdmFieldHandle* fie
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Keeps the transient description synchronized with the feature row highlighted by the user.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSystem::fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue )
 {

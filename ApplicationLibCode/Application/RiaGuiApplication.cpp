@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements the graphical ResInsight application class.
 
 #include "RiaGuiApplication.h"
 
@@ -155,7 +157,7 @@
 //==================================================================================================
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses the shared base singleton so GUI/console mode is determined by the concrete application object.
 //--------------------------------------------------------------------------------------------------
 bool RiaGuiApplication::isRunning()
 {
@@ -163,7 +165,7 @@ bool RiaGuiApplication::isRunning()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Verifies the concrete type because GUI-only callers depend on QApplication and window services.
 //--------------------------------------------------------------------------------------------------
 RiaGuiApplication* RiaGuiApplication::instance()
 {
@@ -173,7 +175,7 @@ RiaGuiApplication* RiaGuiApplication::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Initializes both Qt and domain bases, then configures process-wide GUI behavior and event hooks.
 //--------------------------------------------------------------------------------------------------
 RiaGuiApplication::RiaGuiApplication( int& argc, char** argv )
     : QApplication( argc, argv )
@@ -207,7 +209,7 @@ void setNotifyInDestructorFlag( bool value )
 } // namespace
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Persists UI state before Qt destroys top-level widgets and shared application services.
 //--------------------------------------------------------------------------------------------------
 RiaGuiApplication::~RiaGuiApplication()
 {
@@ -231,7 +233,7 @@ RiaGuiApplication::~RiaGuiApplication()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Unsaved projects require a path first; existing projects delegate to the common serializer.
 //--------------------------------------------------------------------------------------------------
 bool RiaGuiApplication::saveProject()
 {
@@ -250,7 +252,7 @@ bool RiaGuiApplication::saveProject()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Centralizes extension handling and the last-used directory for every GUI Save As workflow.
 //--------------------------------------------------------------------------------------------------
 QString RiaGuiApplication::promptForProjectSaveAsFileName() const
 {
@@ -273,7 +275,7 @@ QString RiaGuiApplication::promptForProjectSaveAsFileName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Distinguishes Save, Discard, and Cancel so callers can safely abort project or application closure.
 //--------------------------------------------------------------------------------------------------
 bool RiaGuiApplication::askUserToSaveModifiedProject()
 {
@@ -310,7 +312,7 @@ bool RiaGuiApplication::askUserToSaveModifiedProject()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Wraps the common serializer with GUI error reporting and state refresh.
 //--------------------------------------------------------------------------------------------------
 bool RiaGuiApplication::saveProjectAs( const QString& fileName )
 {
@@ -325,7 +327,7 @@ bool RiaGuiApplication::saveProjectAs( const QString& fileName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Prevents closure from silently terminating scripts or other monitored background work.
 //--------------------------------------------------------------------------------------------------
 bool RiaGuiApplication::notifyUserAboutRunningJobs()
 {
@@ -340,7 +342,7 @@ bool RiaGuiApplication::notifyUserAboutRunningJobs()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Runs all close guards in one place so window and application close paths behave identically.
 //--------------------------------------------------------------------------------------------------
 bool RiaGuiApplication::checkWithUserBeforeClose()
 {
@@ -353,7 +355,7 @@ bool RiaGuiApplication::checkWithUserBeforeClose()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Stores expansion and current-index paths by stable PDM identity rather than transient QModelIndex values.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::storeTreeViewState()
 {
@@ -401,7 +403,7 @@ void RiaGuiApplication::storeTreeViewState()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Saves Qt dock layouts separately for the 3D and plot windows because either window may be absent.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::storeDockState()
 {
@@ -416,7 +418,7 @@ void RiaGuiApplication::storeDockState()
     }
 }
 //--------------------------------------------------------------------------------------------------
-///
+/// Restoration is delayed until project objects and dock widgets have been recreated.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::restoreDockState()
 {
@@ -447,7 +449,7 @@ void RiaGuiApplication::restoreDockState()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Includes project identity and modified state so both top-level windows communicate the same status.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::setWindowCaptionFromAppState()
 {
@@ -518,7 +520,7 @@ RiaDefines::RINavigationPolicy RiaGuiApplication::navigationPolicy() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Initializes shared services first, then installs GUI logging and UI-specific providers.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::initialize()
 {
@@ -562,7 +564,7 @@ void RiaGuiApplication::initialize()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Applies configuration and data-loading options before commands that consume the resulting project state.
 //--------------------------------------------------------------------------------------------------
 RiaApplication::ApplicationStatus RiaGuiApplication::handleArguments( cvf::ProgramOptions* progOpt )
 {
@@ -1023,7 +1025,7 @@ RiaApplication::ApplicationStatus RiaGuiApplication::handleArguments( cvf::Progr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Showing and raising are kept with lazy creation so callers always receive a usable interaction target.
 //--------------------------------------------------------------------------------------------------
 RiuMainWindow* RiaGuiApplication::getOrCreateAndShowMainWindow()
 {
@@ -1048,7 +1050,7 @@ RiuMainWindow* RiaGuiApplication::mainWindow()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Allocates the plot window without showing it, which is required while restoring project UI state.
 //--------------------------------------------------------------------------------------------------
 RiuPlotMainWindow* RiaGuiApplication::getOrCreateMainPlotWindow()
 {
@@ -1062,7 +1064,7 @@ RiuPlotMainWindow* RiaGuiApplication::getOrCreateMainPlotWindow()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates the 3D window once, wires application-close behavior, and installs project-backed models.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::createMainWindow()
 {
@@ -1095,7 +1097,7 @@ void RiaGuiApplication::createMainWindow()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates the separate plotting workspace and connects it to shared selection and project state.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::createMainPlotWindow()
 {
@@ -1167,7 +1169,7 @@ RiuMainWindowBase* RiaGuiApplication::mainWindowByID( int mainWindowID )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Prefers the focus state of the two workspaces and asks that window for its active view.
 //--------------------------------------------------------------------------------------------------
 RimViewWindow* RiaGuiApplication::activeViewWindow()
 {
@@ -1188,7 +1190,7 @@ RimViewWindow* RiaGuiApplication::activeViewWindow()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Chooses a visible top-level window consistently for commands not tied to one workspace.
 //--------------------------------------------------------------------------------------------------
 RiuMainWindowBase* RiaGuiApplication::activeMainWindow()
 {
@@ -1213,7 +1215,7 @@ RiuMainWindowBase* RiaGuiApplication::activeMainWindow()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Dialogs use the active main window as parent to preserve modality, stacking, and taskbar grouping.
 //--------------------------------------------------------------------------------------------------
 QWidget* RiaGuiApplication::widgetToUseAsParent()
 {
@@ -1237,7 +1239,7 @@ bool RiaGuiApplication::isMainPlotWindowVisible() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Stores durable file history only after an operation has established that the path is usable.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::addToRecentFiles( const QString& fileName )
 {
@@ -1255,7 +1257,7 @@ std::vector<QAction*> RiaGuiApplication::recentFileActions() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears framework selection and viewer-specific state to avoid dangling UI references.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::clearAllSelections()
 {
@@ -1265,7 +1267,7 @@ void RiaGuiApplication::clearAllSelections()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses the shared message dialog so formatting and parent-window selection remain consistent.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::showFormattedTextInMessageBoxOrConsole( const QString& text )
 {
@@ -1313,7 +1315,7 @@ void RiaGuiApplication::invokeProcessEvents( QEventLoop::ProcessEventsFlags flag
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Imported file types select which tree branch and view state should become visible to the user.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::onFileSuccessfullyLoaded( const QString& fileName, RiaDefines::ImportFileType fileType )
 {
@@ -1338,7 +1340,7 @@ void RiaGuiApplication::onFileSuccessfullyLoaded( const QString& fileName, RiaDe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Detaches UI state before the project object graph is replaced during deserialization.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::onProjectBeingOpened()
 {
@@ -1356,7 +1358,7 @@ void RiaGuiApplication::onProjectOpeningError( const QString& errMsg )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Project setup is ordered: reconnect models, load plots, restore layouts, then redraw.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::onProjectOpened()
 {
@@ -1418,7 +1420,7 @@ void RiaGuiApplication::onProjectOpened()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Captures user layout and clears selection before project-owned objects become invalid.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::onProjectBeingClosed()
 {
@@ -1437,7 +1439,7 @@ void RiaGuiApplication::onProjectBeingClosed()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Rebinds windows to the fresh empty project and drains stale UI state after closure.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::onProjectClosed()
 {
@@ -1450,7 +1452,7 @@ void RiaGuiApplication::onProjectClosed()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Serializes current tree and dock state into the project immediately before writing it.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::onProjectBeingSaved()
 {
@@ -1475,7 +1477,7 @@ void RiaGuiApplication::onProjectSaved()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reapplies fonts, rendering defaults, and affected display models only where preferences changed.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::applyGuiPreferences( const RiaPreferences*                         oldPreferences,
                                              const std::vector<caf::FontHolderInterface*>& defaultFontObjects )
@@ -1681,7 +1683,7 @@ void RiaGuiApplication::applyGuiPreferences( const RiaPreferences*              
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reads screen DPI at use time because font atlas selection depends on the active display configuration.
 //--------------------------------------------------------------------------------------------------
 int RiaGuiApplication::applicationResolution()
 {
@@ -1695,7 +1697,7 @@ int RiaGuiApplication::applicationResolution()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// The process monitor receives output and status while RiaApplication retains process ownership.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::startMonitoringWorkProgress( caf::UiProcess* uiProcess )
 {
@@ -1713,7 +1715,7 @@ void RiaGuiApplication::stopMonitoringWorkProgress()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Completion can trigger the next queued case; cleanup follows after that decision is made.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::slotWorkerProcessFinished( int exitCode, QProcess::ExitStatus exitStatus )
 {
@@ -1761,7 +1763,7 @@ void RiaGuiApplication::slotWorkerProcessFinished( int exitCode, QProcess::ExitS
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// QApplication is quit only after both independent top-level workspaces have closed.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::onLastWindowClosed()
 {
@@ -1773,7 +1775,7 @@ void RiaGuiApplication::onLastWindowClosed()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reloads the template for each grid so every snapshot starts from identical project and view state.
 //--------------------------------------------------------------------------------------------------
 void RiaGuiApplication::runMultiCaseSnapshots( const QString&       templateProjectFileName,
                                                std::vector<QString> gridFileNames,
@@ -1802,7 +1804,7 @@ void RiaGuiApplication::runMultiCaseSnapshots( const QString&       templateProj
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Catches exceptions at the Qt delivery boundary so faulty events are reported consistently.
 //--------------------------------------------------------------------------------------------------
 bool RiaGuiApplication::notify( QObject* receiver, QEvent* event )
 {

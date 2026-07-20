@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Escape-key cancellation for active 3D measurement.
 //
 //  Copyright (C) 2019-     Equinor ASA
 //
@@ -51,7 +53,8 @@ void RiuMeasurementEventFilter::unregisterFilter()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Accepts and consumes Escape so no other application shortcut runs for the same key press.
+/// Disabling the measurement performs the complete pick-handler and filter cleanup.
 //--------------------------------------------------------------------------------------------------
 bool RiuMeasurementEventFilter::eventFilter( QObject* obj, QEvent* event )
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief StimPlan model curve property enumerations and default value helpers.
 
 #pragma once
 
@@ -22,6 +24,7 @@
 
 namespace RiaDefines
 {
+/// Property curves that can populate a StimPlan model layer table.
 enum class CurveProperty
 {
     UNDEFINED,
@@ -55,8 +58,11 @@ enum class CurveProperty
     FORMATIONS
 };
 
+/// @name Safe defaults for incomplete StimPlan inputs
+/// @{
 double defaultPorosity();
 double defaultPermeability();
 double zeroReplacementForLogarithmicPlot();
+/// @}
 
 }; // namespace RiaDefines

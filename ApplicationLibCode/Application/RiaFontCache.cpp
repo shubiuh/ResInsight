@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements the cached font registry for ResInsight UI fonts.
 
 #include "RiaFontCache.h"
 
@@ -26,7 +28,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Quantizes a scaled point size to the finite set of pre-generated atlas sizes.
 //--------------------------------------------------------------------------------------------------
 caf::FixedAtlasFont::FontSize mapToAtlasFontSize( int pointSize )
 {
@@ -49,12 +51,12 @@ caf::FixedAtlasFont::FontSize mapToAtlasFontSize( int pointSize )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Storage is defined in one translation unit to provide a single process-wide cache.
 //--------------------------------------------------------------------------------------------------
 std::map<caf::FixedAtlasFont::FontSize, cvf::ref<caf::FixedAtlasFont>> RiaFontCache::ms_fonts;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Converts the semantic size to absolute points before applying display scaling.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<caf::FixedAtlasFont> RiaFontCache::getFont( FontSize pointFontSize )
 {
@@ -63,7 +65,7 @@ cvf::ref<caf::FixedAtlasFont> RiaFontCache::getFont( FontSize pointFontSize )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses 96 DPI as the atlas baseline and creates each quantized font at most once.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<caf::FixedAtlasFont> RiaFontCache::getFont( int pointSize )
 {
@@ -90,8 +92,7 @@ cvf::ref<caf::FixedAtlasFont> RiaFontCache::getFont( int pointSize )
 }
 
 //--------------------------------------------------------------------------------------------------
-/// In the 2019 releases the font size was stored as an enum value rather than actual size
-/// Use this method for legacy conversion
+/// Maps the ordinal representation stored by 2019 releases to current semantic font sizes.
 //--------------------------------------------------------------------------------------------------
 RiaFontCache::FontSize RiaFontCache::legacyEnumToPointSize( int enumValue )
 {
@@ -117,7 +118,7 @@ RiaFontCache::FontSize RiaFontCache::legacyEnumToPointSize( int enumValue )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clearing shared references allows atlas resources to be reclaimed during application shutdown.
 //--------------------------------------------------------------------------------------------------
 void RiaFontCache::clear()
 {

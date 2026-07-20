@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Phased loading of Eclipse result grids, wells, active cells, RFT, and flow diagnostics.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -174,6 +176,9 @@ bool RimEclipseResultCase::showTimeStepFilterGUI()
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Returns before constructing progress UI when metadata is already loaded because creating the
+/// dialog can process events and redraw incomplete geometry. Legacy formats fall back to Resdata
+/// when the configured OPM reader cannot read them.
 bool RimEclipseResultCase::importGridAndResultMetaData( bool showTimeStepFilter )
 {
     // Early exit if data is already read
@@ -355,6 +360,8 @@ void RimEclipseResultCase::closeReservoirCase()
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Shares the grid geometry from @p mainEclipseCase and reads only case-specific active cells and
+/// result metadata. This is the lightweight path used by identical-grid groups.
 bool RimEclipseResultCase::openAndReadActiveCellData( RigEclipseCaseData* mainEclipseCase )
 {
     // Early exit if data is already read
@@ -441,6 +448,8 @@ void RimEclipseResultCase::loadAndUpdateSourSimData()
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Defers RFT import because many visualization workflows never request well-test data. The guard
+/// permits at most one import attempt during each open cycle.
 void RimEclipseResultCase::ensureRftDataIsImported()
 {
     if ( m_rftDataIsReadFromFile ) return;

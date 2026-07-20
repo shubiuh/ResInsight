@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implementation of view-scoped Quick Access grouping and deduplication.
 //
 //  Copyright (C) 2024- Equinor ASA
 //
@@ -65,7 +67,8 @@ void RimFieldQuickAccessGroup::addFields( const std::vector<caf::PdmFieldHandle*
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Rejects fields from other views before allocating the entry. This keeps persisted groups valid
+/// when two open views contain objects of the same type and expose identically named fields.
 //--------------------------------------------------------------------------------------------------
 void RimFieldQuickAccessGroup::addField( caf::PdmFieldHandle* field )
 {
@@ -89,7 +92,8 @@ std::vector<RimFieldQuickAccess*> RimFieldQuickAccessGroup::fieldQuickAccesses()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Determines the logical provider from the first valid entry. Group construction ensures entries
+/// normally share an owner; returning null for an empty group also makes it eligible for cleanup.
 //--------------------------------------------------------------------------------------------------
 caf::PdmObjectHandle* RimFieldQuickAccessGroup::groupOwner() const
 {

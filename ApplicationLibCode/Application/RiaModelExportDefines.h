@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Enumerations for model export grid-box selection and boundary conditions.
 
 #pragma once
 
@@ -23,6 +25,7 @@
 namespace RiaModelExportDefines
 {
 
+/// Strategy used to derive the bounding box of an exported model.
 enum GridBoxSelection
 {
     VISIBLE_CELLS_BOX,
@@ -32,6 +35,7 @@ enum GridBoxSelection
     MANUAL_SELECTION
 };
 
+/// Simulator keyword representation used for exported boundary conditions.
 enum BoundaryCondition
 {
     OPERNUM_OPERATER,

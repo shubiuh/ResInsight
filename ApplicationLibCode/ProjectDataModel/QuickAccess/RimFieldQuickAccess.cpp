@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implementation of a live field entry in the Quick Access panel.
 //
 //  Copyright (C) 2024- Equinor ASA
 //
@@ -29,7 +31,8 @@
 CAF_PDM_SOURCE_INIT( RimFieldQuickAccess, "RimFieldQuickAccess" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses proxy fields for the two actions because the property editor can render them on the same
+/// row as the referenced model field without adding command state to that model object.
 //--------------------------------------------------------------------------------------------------
 RimFieldQuickAccess::RimFieldQuickAccess()
 {
@@ -87,7 +90,8 @@ void RimFieldQuickAccess::onSelectObjectButton()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removal is scheduled instead of performed here because deleting this object from its own editor
+/// callback would invalidate the UI ordering while Qt is still dispatching the button event.
 //--------------------------------------------------------------------------------------------------
 void RimFieldQuickAccess::onRemoveObjectButton()
 {

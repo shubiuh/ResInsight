@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Construction, migration, persistence, lookup, and project-wide coordination.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -115,7 +117,9 @@
 
 CAF_PDM_SOURCE_INIT( RimProject, "ResInsightProject" );
 //--------------------------------------------------------------------------------------------------
-///
+/// Initializes every mandatory collection up front so application code can navigate the project
+/// graph without repeatedly creating missing roots. Runtime-discovered scripts and plot templates
+/// disable XML I/O because preferences, rather than the project file, define their source folders.
 //--------------------------------------------------------------------------------------------------
 RimProject::RimProject()
 {
@@ -231,7 +235,9 @@ RimProject* RimProject::current()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the document to a reusable empty-project state instead of destroying the RimProject.
+/// Application and UI objects can therefore keep their root pointer while all project-specific
+/// children, links, calculations, jobs, and saved window state are replaced.
 //--------------------------------------------------------------------------------------------------
 void RimProject::close()
 {
@@ -272,7 +278,9 @@ void RimProject::close()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Performs migrations that require the complete object graph and externally loaded data. Legacy
+/// cases are transferred with clearWithoutDelete() so ownership moves to the oil-field collections
+/// without deleting the migrated objects.
 //--------------------------------------------------------------------------------------------------
 void RimProject::updatesAfterProjectFileIsRead()
 {
@@ -369,7 +377,8 @@ void RimProject::initAfterRead()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Captures window visibility only in GUI mode, allowing console project writes to preserve the
+/// serialized UI state. The writer version is refreshed for every save to drive future migrations.
 //--------------------------------------------------------------------------------------------------
 void RimProject::setupBeforeSave()
 {
@@ -440,7 +449,8 @@ RimMainPlotCollection* RimProject::mainPlotCollection() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Moves referenced paths into the legacy global path list immediately before XML generation. This
+/// makes project relocation possible while retaining the field ordering expected by older readers.
 //--------------------------------------------------------------------------------------------------
 bool RimProject::writeProjectFile()
 {
@@ -521,7 +531,9 @@ bool RimProject::isProjectFileVersionEqualOrOlderThan( const QString& otherProje
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Relocates every PDM FilePath when the project directory changes, such as during Save As. The
+/// stored path is updated first so subsequent dependency logic resolves relative paths against the
+/// new project location.
 //--------------------------------------------------------------------------------------------------
 void RimProject::setProjectFileNameAndUpdateDependencies( const QString& projectFileName )
 {
@@ -1319,7 +1331,8 @@ RimPlotTemplateFolderItem* RimProject::rootPlotTemplateItem() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Enumerates FilePath value objects rather than only their owning fields, allowing nested project
+/// objects to participate uniformly in relocation without subsystem-specific path code here.
 //--------------------------------------------------------------------------------------------------
 std::vector<caf::FilePath*> RimProject::allFilePaths() const
 {

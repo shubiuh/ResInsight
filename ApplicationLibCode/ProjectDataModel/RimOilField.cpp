@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Construction and legacy migration of the oil-field ownership graph.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -43,7 +45,9 @@
 
 CAF_PDM_SOURCE_INIT( RimOilField, "ResInsightOilField" );
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates mandatory collection objects once and stores them in PDM child fields. Measurement is
+/// transient and therefore excluded from XML, while legacy fracture storage remains readable but
+/// is disabled for new writes.
 //--------------------------------------------------------------------------------------------------
 RimOilField::RimOilField()
 {
@@ -144,7 +148,8 @@ const RimValveTemplateCollection* RimOilField::valveTemplateCollection() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Transfers templates from the obsolete standalone fracture collection into the newer unified
+/// completion-template collection. removeChild() is used before transfer to prevent double ownership.
 //--------------------------------------------------------------------------------------------------
 void RimOilField::initAfterRead()
 {

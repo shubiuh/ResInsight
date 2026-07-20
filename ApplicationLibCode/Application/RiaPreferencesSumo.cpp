@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements SUMO cloud storage connection preferences.
 
 #include "RiaApplication.h"
 
@@ -24,7 +26,7 @@
 CAF_PDM_SOURCE_INIT( RiaPreferencesSumo, "RiaPreferencesSumo" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// All fields are initialized before setFieldStates() uniformly disables editing and persistence.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesSumo::RiaPreferencesSumo()
 {
@@ -38,7 +40,7 @@ RiaPreferencesSumo::RiaPreferencesSumo()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Runtime access is routed through the active application preference tree.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesSumo* RiaPreferencesSumo::current()
 {
@@ -46,7 +48,7 @@ RiaPreferencesSumo* RiaPreferencesSumo::current()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Explicit key matching limits external configuration to the supported SUMO contract.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSumo::setData( const std::map<QString, QString>& keyValuePairs, const QString& configFile )
 {
@@ -74,7 +76,7 @@ void RiaPreferencesSumo::setData( const std::map<QString, QString>& keyValuePair
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Connection data remains runtime-only even though PDM is used to display it.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesSumo::setFieldStates()
 {

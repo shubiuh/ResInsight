@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Effective synchronization and cross-case override logic for one dependent view.
 //
 //  Copyright (C) 2015-     Statoil ASA
 //  Copyright (C) 2015-     Ceetron Solutions AS
@@ -246,7 +248,9 @@ RimGeoMechView* RimViewController::managedGeoView() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Chooses mutually compatible override strategies. Direct property-filter control is cleared when
+/// complete visible-cell mapping is active, while filter icons and geometry are refreshed after the
+/// effective source changes.
 //--------------------------------------------------------------------------------------------------
 void RimViewController::updateOverrides()
 {
@@ -486,7 +490,9 @@ void RimViewController::updateDisplayNameAndIcon()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses PDM XML serialization as a type-aware deep-copy mechanism. The duplicate belongs to the
+/// dependent view and can therefore evaluate against that view's case while retaining master filter
+/// definitions and ordering.
 //--------------------------------------------------------------------------------------------------
 void RimViewController::updateDuplicatedPropertyFilters()
 {
@@ -607,7 +613,8 @@ RimViewLinker* RimViewController::ownerViewLinker() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reuses the cached mapper only while all four possible source/destination grid or FEM identities
+/// match. Changing either view's case invalidates the mapping without requiring an explicit signal.
 //--------------------------------------------------------------------------------------------------
 const RigCaseToCaseCellMapper* RimViewController::cellMapper()
 {

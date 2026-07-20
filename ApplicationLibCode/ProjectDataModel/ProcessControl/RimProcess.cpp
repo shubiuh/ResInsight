@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief External command setup and QProcess lifecycle implementation.
 //
 //  Copyright (C) 2021 -     Equinor ASA
 //
@@ -33,7 +35,8 @@ CAF_PDM_SOURCE_INIT( RimProcess, "RimProcess" );
 size_t RimProcess::m_nextProcessId = 1;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Assigns the identifier before handing it to either monitor. A supplied monitor is adopted and
+/// retargeted, which permits specialized monitors while keeping ownership rules uniform.
 //--------------------------------------------------------------------------------------------------
 RimProcess::RimProcess( bool logStdOutErr /*true*/, RimProcessMonitor* monitor )
     : m_enableLogging( logStdOutErr )
@@ -100,7 +103,9 @@ void RimProcess::addParameters( QStringList parameterList )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Rewrites script commands into interpreter invocations because QProcess does not consistently
+/// execute shell scripts by filename across platforms. Arguments previously added by callers remain
+/// after the inferred interpreter prefix and script path.
 //--------------------------------------------------------------------------------------------------
 void RimProcess::setCommand( QString cmdStr )
 {
@@ -167,7 +172,8 @@ size_t RimProcess::ID() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a fresh QProcess for each run, overlays environment changes on the system environment,
+/// and waits until startup succeeds so callers can distinguish queuing from an invalid command.
 //--------------------------------------------------------------------------------------------------
 bool RimProcess::start( bool enableStdOut, bool enableStdErr )
 {
@@ -243,7 +249,8 @@ void RimProcess::notifyErrorFinish()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Processes paint, timer, and completion events while excluding user input. This keeps the GUI
+/// responsive without allowing a second user action to mutate state assumed by the blocking task.
 //--------------------------------------------------------------------------------------------------
 bool RimProcess::execute( bool enableStdOut, bool enableStdErr )
 {

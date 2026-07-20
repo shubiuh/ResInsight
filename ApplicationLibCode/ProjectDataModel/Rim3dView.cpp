@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Persistent 3D-view settings, runtime viewer lifecycle, and scene-update orchestration.
 //
 //  Copyright (C) 2015-     Statoil ASA
 //  Copyright (C) 2015-     Ceetron Solutions AS
@@ -91,7 +93,9 @@ void caf::AppEnum<Rim3dView::SurfaceModeType>::setUp()
 CAF_PDM_XML_ABSTRACT_SOURCE_INIT( Rim3dView, "View", "GenericView" ); // Do not use. Abstract class
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Seeds new-view presentation from application preferences, but persists each view independently
+/// afterward. Camera proxies bridge scripting/property editing to live viewer state, while the
+/// underlying fields remain hidden serialization storage.
 //--------------------------------------------------------------------------------------------------
 Rim3dView::Rim3dView()
     : updateAnimations( this )
@@ -234,7 +238,8 @@ int Rim3dView::id() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reference-counts timer use so multiple animated features share one driver without stopping each
+/// other. All consumers receive the same tick through updateAnimations.
 //--------------------------------------------------------------------------------------------------
 void Rim3dView::requestAnimationTimer()
 {
@@ -551,7 +556,8 @@ QImage Rim3dView::captureSnapshot( int width, int height )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Schedules this view, linked dependents when this is a master, and views that embed this one as a
+/// comparison. The scheduler coalesces repeated requests within the same event-loop cycle.
 //--------------------------------------------------------------------------------------------------
 void Rim3dView::scheduleCreateDisplayModelAndRedraw()
 {
@@ -714,7 +720,9 @@ void Rim3dView::setCurrentTimeStepAndUpdate( int frameIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates the base and comparison scenes using the same runtime viewer, then propagates changes to
+/// containing comparison views. The guard breaks cycles when comparison relationships point back to
+/// a view already updating.
 //--------------------------------------------------------------------------------------------------
 void Rim3dView::updateDisplayModelForCurrentTimeStepAndRedraw()
 {
@@ -888,7 +896,8 @@ bool Rim3dView::hasVisibleTimeStepDependent3dWellLogCurves() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Persists camera state here because saving serializes the backing fields directly and need not
+/// invoke the proxy getters that normally synchronize them with interactive viewer navigation.
 //--------------------------------------------------------------------------------------------------
 void Rim3dView::setupBeforeSave()
 {
@@ -1801,7 +1810,8 @@ Rim3dView* Rim3dView::activeComparisonView() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Temporarily redirects the dependent view into this view's comparison renderer. Matching vertical
+/// scale and computing an equivalent eye offset make the two scenes spatially comparable.
 //--------------------------------------------------------------------------------------------------
 Rim3dView* Rim3dView::prepareComparisonView()
 {
@@ -1830,7 +1840,7 @@ Rim3dView* Rim3dView::prepareComparisonView()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the dependent view to its native viewer and records its frame in the comparison renderer.
 //--------------------------------------------------------------------------------------------------
 void Rim3dView::restoreComparisonView()
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief SUMO metadata selection and summary ensemble creation implementation.
 
 #include "RimCloudDataSourceCollection.h"
 
@@ -102,7 +104,8 @@ void RimCloudDataSourceCollection::createEnsemblesFromSelectedDataSources( const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Upstream selection changes invalidate cached downstream choices. Action fields are reset after
+/// handling because they represent momentary push buttons rather than persistent boolean state.
 //--------------------------------------------------------------------------------------------------
 void RimCloudDataSourceCollection::fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue )
 {
@@ -141,7 +144,8 @@ void RimCloudDataSourceCollection::fieldChangedByUi( const caf::PdmFieldHandle* 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Metadata is requested only when the corresponding connector cache is empty. Option calculation
+/// is synchronous because the PDM editor requires a complete choice list before opening.
 //--------------------------------------------------------------------------------------------------
 QList<caf::PdmOptionItemInfo> RimCloudDataSourceCollection::calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions )
 {
@@ -252,7 +256,8 @@ void RimCloudDataSourceCollection::defineEditorAttribute( const caf::PdmFieldHan
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Avoids duplicate sources by the stable case-id/ensemble-name pair. Required realization and
+/// vector metadata is captured in the project object so subsequent plotting can use the source.
 //--------------------------------------------------------------------------------------------------
 std::vector<RimSummarySumoDataSource*> RimCloudDataSourceCollection::addDataSources()
 {

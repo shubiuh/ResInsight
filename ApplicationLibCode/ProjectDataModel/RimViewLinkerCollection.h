@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Project-owned optional linked-view configuration.
 //
 //  Copyright (C) 2015-     Statoil ASA
 //  Copyright (C) 2015-     Ceetron Solutions AS
@@ -26,25 +28,36 @@
 class RimViewLinker;
 
 //==================================================================================================
+/// @brief Owns the single view-linking group and provides its global enable switch.
 ///
-///
+/// Keeping activation outside RimViewLinker allows the complete linking configuration to remain
+/// serialized while temporarily disabled. Turning the collection off removes effective overrides;
+/// re-enabling reapplies them without rebuilding controllers.
 //==================================================================================================
 class RimViewLinkerCollection : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Initializes an active collection with an empty owned linker.
     RimViewLinkerCollection();
     ~RimViewLinkerCollection() override;
 
+    /// Global activation state exposed as the tree item's checkbox.
     caf::PdmField<bool>                isActive;
+    /// Owned master/dependent linking configuration.
     caf::PdmChildField<RimViewLinker*> viewLinker;
 
+    /// Clears deleted child relationships and updates linked-view presentation.
     void onChildDeleted( caf::PdmChildArrayFieldHandle* childArray, std::vector<caf::PdmObjectHandle*>& referringObjects ) override;
 
 protected:
+    /// Uses isActive as the project-tree toggle field.
     caf::PdmFieldHandle* objectToggleField() override { return &isActive; }
+    /// Shows the linker and its dependent controllers beneath this collection.
     void                 defineUiTreeOrdering( caf::PdmUiTreeOrdering& uiTreeOrdering, QString uiConfigName = "" ) override;
+    /// Applies or removes all synchronization overrides when activation changes.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
+    /// Restores mandatory linker state and presentation after deserialization.
     void initAfterRead() override;
 };

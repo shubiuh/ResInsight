@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements the thread-safe string pool for shared string storage.
 
 #include "RiaStringPool.h"
 
@@ -22,7 +24,7 @@
 #include <stdexcept>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Function-local static construction is lazy and thread-safe under the C++ object model.
 //--------------------------------------------------------------------------------------------------
 RiaStringPool& RiaStringPool::instance()
 {
@@ -31,7 +33,7 @@ RiaStringPool& RiaStringPool::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Pre-interning the empty string gives callers a canonical non-sentinel empty value.
 //--------------------------------------------------------------------------------------------------
 RiaStringPool::RiaStringPool()
 {
@@ -42,7 +44,7 @@ RiaStringPool::RiaStringPool()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses double-checked locking: common lookups share the mutex, while only missing strings serialize.
 //--------------------------------------------------------------------------------------------------
 RiaStringPool::IndexType RiaStringPool::getIndex( const std::string& str )
 {
@@ -73,7 +75,7 @@ RiaStringPool::IndexType RiaStringPool::getIndex( const std::string& str )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Bounds checking occurs while holding a shared lock so the size and indexed element are consistent.
 //--------------------------------------------------------------------------------------------------
 const std::string& RiaStringPool::getString( IndexType index ) const
 {

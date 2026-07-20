@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Discovery, persistence, and rendering of project Quick Access groups.
 //
 //  Copyright (C) 2024- Equinor ASA
 //
@@ -53,7 +55,8 @@ RimQuickAccessCollection* RimQuickAccessCollection::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Recurses through PDM child fields rather than arbitrary C++ relationships, following the same
+/// ownership graph that is serialized with the project and avoiding cycles through pointer fields.
 //--------------------------------------------------------------------------------------------------
 void RimQuickAccessCollection::addQuickAccessFieldsRecursively( caf::PdmObjectHandle* object )
 {
@@ -123,7 +126,8 @@ void RimQuickAccessCollection::addQuickAccessField( const RimFieldReference& fie
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Rebuilds only the active view's panel. Group names must be unique because PDM UI ordering uses
+/// names as identifiers, so duplicate provider labels receive a deterministic numeric prefix.
 //--------------------------------------------------------------------------------------------------
 void RimQuickAccessCollection::defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering )
 {
@@ -169,7 +173,8 @@ void RimQuickAccessCollection::defineUiOrdering( QString uiConfigName, caf::PdmU
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Performs deletion at rebuild time, after editor callbacks have returned. Invalid field keywords
+/// are treated like explicit removals, and empty groups are removed in a second pass.
 //--------------------------------------------------------------------------------------------------
 void RimQuickAccessCollection::deleteMarkedObjects()
 {
@@ -219,7 +224,8 @@ void RimQuickAccessCollection::deleteMarkedObjects()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// An unnamed group is shared per view as the default. Named groups are matched by their provider
+/// object so separate providers may legitimately expose the same display name.
 //--------------------------------------------------------------------------------------------------
 RimFieldQuickAccessGroup* RimQuickAccessCollection::findOrCreateGroup( caf::PdmObjectHandle* object, const QString& groupName )
 {

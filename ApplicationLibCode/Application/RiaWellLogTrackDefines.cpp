@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well-log track display enumerations.
 
 #include "RiaWellLogTrackDefines.h"
 

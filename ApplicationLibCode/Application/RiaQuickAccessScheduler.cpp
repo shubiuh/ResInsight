@@ -15,20 +15,22 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements deferred quick-access data update scheduling.
 
 #include "RiaQuickAccessScheduler.h"
 
 #include "QuickAccess/RimQuickAccessCollection.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Construction performs no eager editor work.
 //--------------------------------------------------------------------------------------------------
 RiaQuickAccessScheduler::RiaQuickAccessScheduler()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses a function-local static to make the scheduler available without explicit ownership.
 //--------------------------------------------------------------------------------------------------
 RiaQuickAccessScheduler* RiaQuickAccessScheduler::instance()
 {
@@ -38,7 +40,7 @@ RiaQuickAccessScheduler* RiaQuickAccessScheduler::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// A zero-delay timer coalesces all calls made during the current event-loop turn.
 //--------------------------------------------------------------------------------------------------
 void RiaQuickAccessScheduler::scheduleDisplayModelUpdateAndRedraw()
 {
@@ -46,7 +48,7 @@ void RiaQuickAccessScheduler::scheduleDisplayModelUpdateAndRedraw()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// The collection determines which connected editors are stale and need refreshing.
 //--------------------------------------------------------------------------------------------------
 void RiaQuickAccessScheduler::performScheduledUpdates()
 {

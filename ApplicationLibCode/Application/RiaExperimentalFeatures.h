@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Central registry of experimental (in-development) features.
 
 #pragma once
 
@@ -23,15 +25,20 @@
 #include <vector>
 
 //--------------------------------------------------------------------------------------------------
-/// Central, discoverable registry of experimental features.
+/// @brief Central, discoverable registry of opt-in experimental features.
 ///
 /// To add a new experimental feature, append an entry to the list returned by availableFeatures()
 /// (see RiaExperimentalFeatures.cpp) and gate the code path behind
 /// RiaPreferencesSystem::isFeatureEnabled( "<keyword>" ).
+///
+/// Keywords are persisted in user preferences and must remain stable after release. The registry is
+/// immutable after first access, which keeps references valid and gives the preferences UI a
+/// deterministic order.
 //--------------------------------------------------------------------------------------------------
 class RiaExperimentalFeatures
 {
 public:
+    /// Descriptive metadata used to expose and evaluate one feature flag.
     struct Feature
     {
         QString keyword; ///< Stable identifier, passed to RiaPreferencesSystem::isFeatureEnabled().
@@ -39,6 +46,7 @@ public:
         QString description; ///< Short explanation, appended to the checkbox label.
     };
 
-    /// The single, discoverable list of all experimental features.
+    /// Returns the single, immutable list of all experimental features.
+    /// @return A process-lifetime reference in preferences display order.
     static const std::vector<Feature>& availableFeatures();
 };

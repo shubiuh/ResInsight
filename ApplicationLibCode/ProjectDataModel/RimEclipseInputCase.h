@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Eclipse case loaded from an input deck and its included property files.
 //
 //  Copyright (C) 2011-2012 Statoil ASA, Ceetron AS
 //
@@ -31,38 +33,43 @@ class RifReaderInterface;
 class RimEclipseInputProperty;
 class RimEclipseInputPropertyCollection;
 
-//==================================================================================================
-//
-//
-//
-//==================================================================================================
+/// @brief Loads grid geometry and static properties from Eclipse DATA/GRDECL input files.
+///
+/// Unlike RimEclipseResultCase, an input case has no simulator restart sequence. The additional-files
+/// proxy exposes discovered INCLUDE files without persisting a duplicate list; the primary deck and
+/// reader determine them when the case is opened.
 class RimEclipseInputCase : public RimEclipseCase
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Initializes the read-only additional-file proxy.
     RimEclipseInputCase();
     ~RimEclipseInputCase() override;
 
-    // File open methods
+    /// Opens @p fileNames as one Eclipse input file set and installs the resulting grid data.
     bool openDataFileSet( const QStringList& fileNames );
+    /// Imports additional ASCII properties into the already loaded input grid.
     bool importAsciiInputProperties( const QStringList& fileNames ) override;
 
-    // RimCase overrides
+    /// Opens the configured primary deck, or creates a requested built-in mock model.
     bool openEclipseGridFile() override;
 
-    // Overrides from RimCase
+    /// @return Directory containing the configured input deck.
     QString locationOnDisc() const override;
 
+    /// Relocates referenced additional files beneath @p newFolder where possible.
     void updateAdditionalFileFolder( const QString& newFolder );
 
 protected:
+    /// Presents the primary input deck and discovered additional files.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
 private:
+    /// Creates a reader populated with the named built-in synthetic grid.
     cvf::ref<RifReaderInterface> createMockModel( QString modelName );
 
 private:
-    // Fields
+    /// Read-only runtime view of additional files discovered by the input reader.
     caf::PdmProxyValueField<std::vector<QString>> m_additionalFiles;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements geo-mechanical WIA and FRM external tool preferences.
 
 #include "RiaPreferencesGeoMech.h"
 

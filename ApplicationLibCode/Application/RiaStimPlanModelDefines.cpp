@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements StimPlan model curve property enumerations and default values.
 
 #include "RiaStimPlanModelDefines.h"
 

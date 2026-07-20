@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements plot-related enumerations, naming helpers, and axis utilities.
 
 #include "RiaPlotDefines.h"
 

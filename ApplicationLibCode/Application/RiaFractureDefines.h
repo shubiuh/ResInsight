@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Fracture-related result name and unit helpers.
 
 #pragma once
 
@@ -24,11 +26,17 @@
 
 namespace RiaDefines
 {
+/// @return Canonical result identifier for fracture conductivity.
 QString conductivityResultName();
+/// @return Conductivity unit label appropriate for @p unitSystem.
 QString unitStringConductivity( RiaDefines::EclipseUnitSystem unitSystem );
 
+/// @return Unit-adjusted alpha coefficient used by the non-Darcy fracture-flow model.
 double nonDarcyFlowAlpha( RiaDefines::EclipseUnitSystem unitSystem );
 
+/// @name Standard fracture color-legend names
+/// @{
 QString faciesColorLegendName();
 QString rockTypeColorLegendName();
+/// @}
 }; // namespace RiaDefines

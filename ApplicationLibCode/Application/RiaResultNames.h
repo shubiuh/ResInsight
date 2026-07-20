@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Canonical result and property name strings used across ResInsight.
 
 #pragma once
 
@@ -29,11 +31,18 @@ class RigEclipseResultAddress;
 
 namespace RiaResultNames
 {
+/// @name Result classification
+/// These predicates encode display and range-handling rules shared by result consumers.
+/// @{
 bool isPerCellFaceResult( const QString& resultName );
 bool isLogarithmicResult( const QString& resultName );
 bool isFlowResultWithBothPosAndNegValues( const QString& resultName );
 bool isCategoryResult( const QString& resultName );
+/// @}
 
+/// @name Canonical generated-result identifiers
+/// Returned strings are stable keys used to register, find, and serialize derived results.
+/// @{
 QString undefinedResultName();
 QString undefinedGridFaultName();
 QString undefinedGridFaultWithInactiveName();
@@ -74,12 +83,17 @@ QString riPorvSoilSgas();
 QString faultReactAssessmentPrefix();
 
 QString completionTypeResultName();
+/// @}
 
+/// Returns the canonical grid-index result name, accounting for radial-grid conventions where needed.
 QString                 indexIResultName( bool isRadial );
 QString                 indexJResultName( bool isRadial );
 QString                 indexKResultName();
+/// Builds the static integer result address used for index and categorical results.
 RigEclipseResultAddress staticIntegerAddress( const QString& resultName );
 
+/// @name Common simulator property identifiers
+/// @{
 QString faultDistanceName();
 QString facies();
 
@@ -96,8 +110,10 @@ QString convergence();
 
 QString opernum();
 QString bordnum();
+/// @}
 
-// Well path derived results
+/// @name Wellbore-stability derived-result identifiers
+/// @{
 QString wbsAzimuthResult();
 QString wbsInclinationResult();
 QString wbsPPResult();
@@ -115,19 +131,24 @@ QString wbsPPMinResult();
 QString wbsPPMaxResult();
 QString wbsPPExpResult();
 QString wbsPPInitialResult();
+/// @}
 
-// Fault results
+/// @name Fault and region result identifiers
+/// @{
 QString           formationBinaryAllanResultName();
 QString           formationAllanResultName();
 std::set<QString> nncResultNames();
 
 QString satnumResult();
 QString imbnumResult();
+/// @}
 
-// List of well path derived results
+/// @return Ordered wellbore-stability angle results available to selectors.
 std::vector<QString> wbsAngleResultNames();
+/// @return Ordered collection of all supported wellbore-stability derived results.
 std::vector<QString> wbsDerivedResultNames();
 
+/// @return Canonical generated result containing active formation names.
 QString activeFormationNamesResultName();
 
 }; // namespace RiaResultNames

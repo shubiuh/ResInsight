@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements cloud request content-type and timeout constants.
 
 #include "RiaCloudDefines.h"
 

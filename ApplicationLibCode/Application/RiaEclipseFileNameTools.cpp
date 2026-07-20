@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse file-name parsing and related-file discovery.
 
 #include "RiaEclipseFileNameTools.h"
 
@@ -42,7 +44,7 @@ void caf::AppEnum<RiaEclipseFileNameTools::EclipseFileType>::setUp()
 } // End namespace caf
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Normalizes the lookup to an absolute directory plus the input file's complete base name.
 //--------------------------------------------------------------------------------------------------
 RiaEclipseFileNameTools::RiaEclipseFileNameTools( const QString& inputFilePath )
 {
@@ -52,7 +54,7 @@ RiaEclipseFileNameTools::RiaEclipseFileNameTools( const QString& inputFilePath )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// EGRID is preferred because it is the unified grid representation used by modern Eclipse cases.
 //--------------------------------------------------------------------------------------------------
 QString RiaEclipseFileNameTools::findRelatedGridFile()
 {
@@ -66,7 +68,7 @@ QString RiaEclipseFileNameTools::findRelatedGridFile()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// SMSPEC takes precedence because it is the canonical summary entry point when both files exist.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RiaEclipseFileNameTools::findSummaryFileCandidates()
 {
@@ -83,7 +85,7 @@ std::vector<QString> RiaEclipseFileNameTools::findSummaryFileCandidates()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// DATA discovery uses the same base-name convention as grid and summary discovery.
 //--------------------------------------------------------------------------------------------------
 QString RiaEclipseFileNameTools::findRelatedDataFile()
 {
@@ -91,7 +93,7 @@ QString RiaEclipseFileNameTools::findRelatedDataFile()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// AppEnum provides the canonical extension text so lookup and UI registration cannot diverge.
 //--------------------------------------------------------------------------------------------------
 QString RiaEclipseFileNameTools::relatedFilePath( EclipseFileType fileType ) const
 {
@@ -108,7 +110,7 @@ QString RiaEclipseFileNameTools::relatedFilePath( EclipseFileType fileType ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// completeSuffix() handles names containing multiple dots while comparison remains case-insensitive.
 //--------------------------------------------------------------------------------------------------
 bool RiaEclipseFileNameTools::hasMatchingSuffix( const QString& fileName, EclipseFileType fileType )
 {

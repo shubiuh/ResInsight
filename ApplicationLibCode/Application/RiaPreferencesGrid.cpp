@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements grid import and reading preferences.
 
 #include "RiaPreferencesGrid.h"
 

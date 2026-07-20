@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well flow-related helper functions.
 
 #include "RiaWellFlowDefines.h"
 

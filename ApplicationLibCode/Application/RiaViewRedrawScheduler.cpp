@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements deferred 3D view display-model updates and redraws.
 
 #include "RiaViewRedrawScheduler.h"
 
@@ -23,21 +25,21 @@
 #include <set>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Construction leaves the queue empty; caf::Scheduler supplies timer management.
 //--------------------------------------------------------------------------------------------------
 RiaViewRedrawScheduler::RiaViewRedrawScheduler()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Queued views are non-owning and are not destroyed by this object.
 //--------------------------------------------------------------------------------------------------
 RiaViewRedrawScheduler::~RiaViewRedrawScheduler()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses a function-local static so the scheduler is created on first use.
 //--------------------------------------------------------------------------------------------------
 RiaViewRedrawScheduler* RiaViewRedrawScheduler::instance()
 {
@@ -47,8 +49,7 @@ RiaViewRedrawScheduler* RiaViewRedrawScheduler::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-/// Schedule a creation of the Display model and redraw of the reservoir view
-/// The redraw will happen as soon as the event loop is entered
+/// Queues the view and starts a zero-delay timer so rebuilding occurs on the next event-loop pass.
 //--------------------------------------------------------------------------------------------------
 void RiaViewRedrawScheduler::scheduleDisplayModelUpdateAndRedraw( Rim3dView* resViewToUpdate )
 {
@@ -58,7 +59,7 @@ void RiaViewRedrawScheduler::scheduleDisplayModelUpdateAndRedraw( Rim3dView* res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removes pending work when project or UI state is being reset.
 //--------------------------------------------------------------------------------------------------
 void RiaViewRedrawScheduler::clearViewsScheduledForUpdate()
 {
@@ -66,7 +67,7 @@ void RiaViewRedrawScheduler::clearViewsScheduledForUpdate()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets both deduplicate requests and separate dependency order before rebuilding display models.
 //--------------------------------------------------------------------------------------------------
 void RiaViewRedrawScheduler::updateAndRedrawScheduledViews()
 {
@@ -106,7 +107,7 @@ void RiaViewRedrawScheduler::updateAndRedrawScheduledViews()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// The timer callback delegates to the synchronous update routine for reuse during project loading.
 //--------------------------------------------------------------------------------------------------
 void RiaViewRedrawScheduler::performScheduledUpdates()
 {

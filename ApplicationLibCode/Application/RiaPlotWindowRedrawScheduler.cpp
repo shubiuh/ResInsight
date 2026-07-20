@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements deferred plot-window and plot-widget redraw scheduling.
 
 #include "RiaPlotWindowRedrawScheduler.h"
 
@@ -27,7 +29,7 @@
 #include "DockWidget.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses lazy function-local construction and relies on QPointer entries for lifetime safety.
 //--------------------------------------------------------------------------------------------------
 RiaPlotWindowRedrawScheduler* RiaPlotWindowRedrawScheduler::instance()
 {
@@ -37,7 +39,7 @@ RiaPlotWindowRedrawScheduler* RiaPlotWindowRedrawScheduler::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Bitwise OR preserves every requested update category when a book is queued repeatedly.
 //--------------------------------------------------------------------------------------------------
 void RiaPlotWindowRedrawScheduler::scheduleMultiPlotBookUpdate( RiuMultiPlotBook* plotBook, RiaDefines::MultiPlotPageUpdateType updateType )
 {
@@ -54,7 +56,7 @@ void RiaPlotWindowRedrawScheduler::scheduleMultiPlotBookUpdate( RiuMultiPlotBook
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Page requests use the same flag-merging rule as book requests.
 //--------------------------------------------------------------------------------------------------
 void RiaPlotWindowRedrawScheduler::scheduleMultiPlotPageUpdate( RiuMultiPlotPage* plotPage, RiaDefines::MultiPlotPageUpdateType updateType )
 {
@@ -71,7 +73,7 @@ void RiaPlotWindowRedrawScheduler::scheduleMultiPlotPageUpdate( RiuMultiPlotPage
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// A set collapses repeated replot requests for the same widget.
 //--------------------------------------------------------------------------------------------------
 void RiaPlotWindowRedrawScheduler::schedulePlotWidgetReplot( RiuPlotWidget* plotWidget )
 {
@@ -81,7 +83,7 @@ void RiaPlotWindowRedrawScheduler::schedulePlotWidgetReplot( RiuPlotWidget* plot
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clearing is used when the owning UI state is reset and queued work is no longer meaningful.
 //--------------------------------------------------------------------------------------------------
 void RiaPlotWindowRedrawScheduler::clearAllScheduledUpdates()
 {
@@ -91,7 +93,7 @@ void RiaPlotWindowRedrawScheduler::clearAllScheduledUpdates()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Swapping queues out before processing isolates requests generated recursively during updates.
 //--------------------------------------------------------------------------------------------------
 void RiaPlotWindowRedrawScheduler::performScheduledUpdates()
 {

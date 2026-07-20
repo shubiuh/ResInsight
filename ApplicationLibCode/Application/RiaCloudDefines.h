@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Cloud request content-type and timeout constants.
 
 #pragma once
 
@@ -22,7 +24,11 @@
 
 namespace RiaCloudDefines
 {
+/// @name HTTP defaults
+/// Canonical MIME types and authentication timeout shared by cloud-service clients.
+/// @{
 QString contentTypeJson();
 QString contentTypeParquet();
 int     requestTokenTimeoutMillis();
+/// @}
 }; // namespace RiaCloudDefines

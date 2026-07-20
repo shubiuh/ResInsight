@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Validation and construction of in-memory Eclipse corner-point grids.
 //
 //  Copyright (C) 2025-     Equinor ASA
 //
@@ -81,6 +83,8 @@ bool RimCornerPointCase::openEclipseGridFile()
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Validates exact Eclipse array sizes before allocating the returned case. The caller receives
+/// ownership only on success, avoiding partially initialized objects on malformed input.
 std::expected<RimCornerPointCase*, QString> RimCornerPointCase::createFromCoordinatesArray( const int                 nx,
                                                                                             const int                 ny,
                                                                                             const int                 nz,
@@ -117,6 +121,8 @@ std::expected<RimCornerPointCase*, QString> RimCornerPointCase::createFromCoordi
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Clears active-cell mappings, results, nodes, and cells before rebuilding so no indices from the
+/// old dimensions survive. Persistent case identity and views are retained.
 std::expected<void, QString> RimCornerPointCase::replaceGridFromCoordinatesArray( RimCornerPointCase&       cornerPointCase,
                                                                                   const int                 nx,
                                                                                   const int                 ny,
@@ -152,6 +158,8 @@ std::expected<void, QString> RimCornerPointCase::replaceGridFromCoordinatesArray
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// Interpolates X/Y coordinates along the four COORD pillars at each ZCORN depth. Horizontal pillars
+/// use their top coordinate directly to avoid division by zero.
 std::array<cvf::Vec3d, 8> RimCornerPointCase::getCorners( const RigMainGrid&        grid,
                                                           const std::vector<float>& coord,
                                                           const std::vector<float>& zcorn,

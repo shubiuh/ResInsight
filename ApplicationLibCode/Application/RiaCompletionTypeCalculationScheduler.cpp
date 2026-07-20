@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements deferred completion-type recalculation scheduling.
 
 #include "RiaCompletionTypeCalculationScheduler.h"
 
@@ -39,7 +41,7 @@
 #include <set>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns a function-local static so construction is lazy and initialization is thread-safe.
 //--------------------------------------------------------------------------------------------------
 RiaCompletionTypeCalculationScheduler* RiaCompletionTypeCalculationScheduler::instance()
 {
@@ -49,7 +51,7 @@ RiaCompletionTypeCalculationScheduler* RiaCompletionTypeCalculationScheduler::in
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Obtains the current project cases before forwarding to the selective scheduling overload.
 //--------------------------------------------------------------------------------------------------
 void RiaCompletionTypeCalculationScheduler::scheduleRecalculateCompletionTypeAndRedrawAllViews()
 {
@@ -59,7 +61,7 @@ void RiaCompletionTypeCalculationScheduler::scheduleRecalculateCompletionTypeAnd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Invalidates derived data synchronously, then defers view work to the next event-loop pass.
 //--------------------------------------------------------------------------------------------------
 void RiaCompletionTypeCalculationScheduler::scheduleRecalculateCompletionTypeAndRedrawAllViews( const std::vector<RimEclipseCase*>& eclipseCases )
 {
@@ -74,7 +76,7 @@ void RiaCompletionTypeCalculationScheduler::scheduleRecalculateCompletionTypeAnd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Geometry is invalidated because property filters can depend on the removed completion result.
 //--------------------------------------------------------------------------------------------------
 void RiaCompletionTypeCalculationScheduler::clearCompletionTypeResultsInAllCases()
 {
@@ -98,7 +100,7 @@ void RiaCompletionTypeCalculationScheduler::clearCompletionTypeResultsInAllCases
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Both dynamic and static result categories are cleared because either may contain the derived result.
 //--------------------------------------------------------------------------------------------------
 void RiaCompletionTypeCalculationScheduler::clearCompletionTypeResults( const std::vector<RimEclipseCase*>& eclipseCases )
 {
@@ -120,7 +122,7 @@ void RiaCompletionTypeCalculationScheduler::clearCompletionTypeResults( const st
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Duplicate requests are collapsed so a case is recalculated at most once per scheduler pass.
 //--------------------------------------------------------------------------------------------------
 void RiaCompletionTypeCalculationScheduler::performScheduledUpdates()
 {
@@ -157,14 +159,14 @@ void RiaCompletionTypeCalculationScheduler::performScheduledUpdates()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Defaulted behavior is expressed out of line to keep Qt-related implementation in this file.
 //--------------------------------------------------------------------------------------------------
 RiaCompletionTypeCalculationScheduler::~RiaCompletionTypeCalculationScheduler()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Construction is private because callers share the instance returned by instance().
 //--------------------------------------------------------------------------------------------------
 RiaCompletionTypeCalculationScheduler::RiaCompletionTypeCalculationScheduler()
 {

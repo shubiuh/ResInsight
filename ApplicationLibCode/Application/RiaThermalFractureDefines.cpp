@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements thermal fracture result name helpers.
 
 #include "RiaThermalFractureDefines.h"
 #include "RiaFractureDefines.h"

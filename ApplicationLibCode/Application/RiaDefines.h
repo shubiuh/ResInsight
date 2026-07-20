@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Shared enum and constant definitions used across ResInsight modules.
 
 #pragma once
 
@@ -27,6 +29,7 @@
 
 namespace RiaDefines
 {
+/// Unit conventions encoded by an Eclipse reservoir model.
 enum class EclipseUnitSystem
 {
     UNITS_METRIC,
@@ -35,6 +38,7 @@ enum class EclipseUnitSystem
     UNITS_UNKNOWN,
 };
 
+/// Origin or semantic family of a cell result in the result hierarchy.
 enum class ResultCatType
 {
     DYNAMIC_NATIVE,
@@ -51,6 +55,7 @@ enum class ResultCatType
     UNDEFINED = 999
 };
 
+/// Scalar storage type used when interpreting imported result arrays.
 enum class ResultDataType
 {
     UNKNOWN,
@@ -59,8 +64,8 @@ enum class ResultDataType
     INTEGER
 };
 
-// WARNING: DO NOT CHANGE THE ORDER WITHOUT KNOWING WHAT YOU ARE DOING!
-//          You may well change the behaviour of property filters.
+/// Components that may be attached to a modeled well path.
+/// @warning Enumerator order is consumed by property-filter logic and is serialization-sensitive.
 enum class WellPathComponentType
 {
     // Production Tube
@@ -83,6 +88,7 @@ enum class WellPathComponentType
     UNDEFINED_COMPONENT
 };
 
+/// Amount of grid-edge geometry drawn in a 3D view.
 enum class MeshModeType
 {
     FULL_MESH,
@@ -90,12 +96,15 @@ enum class MeshModeType
     NO_MESH
 };
 
-// Mock model text identifiers
+/// @name Built-in mock-model identifiers
+/// Stable names understood by the synthetic case generators.
+/// @{
 QString mockModelBasic();
 QString mockModelBasicWithResults();
 QString mockModelLargeWithResults();
 QString mockModelCustomized();
 QString mockModelBasicInputCase();
+/// @}
 
 // Units and conversions
 enum class DepthUnitType
@@ -105,10 +114,13 @@ enum class DepthUnitType
     UNIT_NONE
 };
 
-DepthUnitType     fromEclipseUnit( EclipseUnitSystem eclipseUnit );
+/// Converts reservoir-model units to their corresponding depth unit.
+DepthUnitType fromEclipseUnit( EclipseUnitSystem eclipseUnit );
+/// Infers an Eclipse unit convention from a depth unit when possible.
 EclipseUnitSystem fromDepthUnit( DepthUnitType depthUnit );
 
 // Depth types used for well log plots
+/// Supported vertical coordinates for well-log tracks.
 enum class DepthType
 {
     MEASURED_DEPTH,
@@ -118,6 +130,7 @@ enum class DepthType
     TRUE_VERTICAL_DEPTH_RKB
 };
 
+/// Reservoir-fluid phases used for results, wells, and curve styling.
 enum class PhaseType
 {
     OIL_PHASE,
@@ -126,6 +139,7 @@ enum class PhaseType
     PHASE_NOT_APPLICABLE
 };
 
+/// Bit mask describing one or more file families accepted by an import operation.
 enum class ImportFileType : uint32_t
 {
     NOT_A_VALID_IMPORT_FILE = 1 << 0,
@@ -146,13 +160,19 @@ enum class ImportFileType : uint32_t
     ANY_IMPORT_FILE         = ANY_ECLIPSE_FILE | ANY_GEOMECH_FILE | RESINSIGHT_PROJECT_FILE
 };
 
+/// @return Whether @p fileType contains a supported geo-mechanical format.
 bool isGeoMechFileType( ImportFileType fileType );
+/// @return Whether @p fileType contains an Eclipse result-grid format.
 bool isEclipseResultFileType( ImportFileType fileType );
+/// @return Whether @p fileType contains any Eclipse-related format.
 bool isEclipseFileType( ImportFileType fileType );
 
+/// Detects an import-file category from the extension and recognized filename conventions.
 ImportFileType obtainFileTypeFromFileName( const QString& fileName );
+/// Produces a user-facing directory label for the requested file-type mask.
 QString        defaultDirectoryLabel( ImportFileType fileTypes );
 
+/// Project case kinds used when dispatching imports and creating case objects.
 enum class CaseType
 {
     UNDEFINED_CASE      = -1,
@@ -163,6 +183,7 @@ enum class CaseType
     GEOMECH_ODB_CASE    = 5
 };
 
+/// Roles whose font sizes can be configured independently.
 enum class FontSettingType
 {
     SCENE_FONT,
@@ -171,6 +192,7 @@ enum class FontSettingType
     PLOT_FONT
 };
 
+/// Logical index axes in a structured reservoir grid.
 enum class GridCaseAxis
 {
     AXIS_I,
@@ -179,6 +201,7 @@ enum class GridCaseAxis
     UNDEFINED_AXIS
 };
 
+/// Available backends for reading reservoir-grid data.
 enum class GridModelReader
 {
     RESDATA,
@@ -186,6 +209,7 @@ enum class GridModelReader
     NOT_SET
 };
 
+/// Color themes supported by the desktop UI.
 enum class ThemeEnum
 {
     DEFAULT,
@@ -193,6 +217,7 @@ enum class ThemeEnum
     UNDEFINED
 };
 
+/// Mouse navigation conventions offered by the 3D viewer.
 enum class RINavigationPolicy : short
 {
     NAVIGATION_POLICY_CEETRON,
@@ -201,6 +226,7 @@ enum class RINavigationPolicy : short
     NAVIGATION_POLICY_RMS
 };
 
+/// Operational role assigned to a simulation well.
 enum class WellProductionType : short
 {
     PRODUCER,
@@ -210,10 +236,13 @@ enum class WellProductionType : short
     UNDEFINED_PRODUCTION_TYPE
 };
 
+/// @return Whether the production type represents any injector role.
 bool isInjector( WellProductionType wellProductionType );
 
+/// @return Delimiter used to serialize multiple strings into legacy scalar settings fields.
 QString stringListSeparator();
 
+/// Number of columns used by a multi-plot layout; the large sentinel means no limit.
 enum class ColumnCount
 {
     COLUMNS_1         = 1,
@@ -223,6 +252,7 @@ enum class ColumnCount
     COLUMNS_UNLIMITED = 1000,
 };
 
+/// Number of plot rows placed on each multi-plot page.
 enum class RowCount
 {
     ROWS_1 = 1,
@@ -231,6 +261,7 @@ enum class RowCount
     ROWS_4 = 4,
 };
 
+/// Bit mask identifying which portions of a multi-plot page require regeneration.
 enum class MultiPlotPageUpdateType : uint32_t
 {
     NONE   = 0b00000000,
@@ -240,13 +271,18 @@ enum class MultiPlotPageUpdateType : uint32_t
     ALL    = 0b00000111
 };
 
+/// @name Multi-plot update-mask queries
+/// @{
 bool isFullUpdate( MultiPlotPageUpdateType updateType );
 bool isLegendUpdate( MultiPlotPageUpdateType updateType );
 bool isTitleUpdate( MultiPlotPageUpdateType updateType );
 bool isPlotUpdate( MultiPlotPageUpdateType updateType );
+/// @}
 
+/// @return Standard vertical-scale choices offered by 3D view editors.
 std::vector<double> viewScaleOptions();
 
+/// Bit mask describing the data families displayed in a 3D view.
 enum class View3dContent
 {
     NONE              = 0b00000000,
@@ -258,6 +294,7 @@ enum class View3dContent
     ALL               = 0b00011111
 };
 
+/// Bit mask for auxiliary object categories displayed in a 3D view.
 enum class ItemIn3dView
 {
     NONE    = 0b00000000,
@@ -266,6 +303,7 @@ enum class ItemIn3dView
     ALL     = 0b00000011
 };
 
+/// @return UI postfix used to identify features that are still in beta.
 QString betaFeaturePostfix();
 }; // namespace RiaDefines
 

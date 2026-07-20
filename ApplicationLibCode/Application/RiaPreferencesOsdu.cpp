@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements OSDU cloud connection preferences.
 
 #include "RiaApplication.h"
 
@@ -24,7 +26,7 @@
 CAF_PDM_SOURCE_INIT( RiaPreferencesOsdu, "RiaPreferencesOsdu" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// All fields are initialized before setFieldStates() uniformly disables editing and persistence.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesOsdu::RiaPreferencesOsdu()
 {
@@ -39,7 +41,7 @@ RiaPreferencesOsdu::RiaPreferencesOsdu()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Runtime access is routed through the active application preference tree.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesOsdu* RiaPreferencesOsdu::current()
 {
@@ -47,7 +49,7 @@ RiaPreferencesOsdu* RiaPreferencesOsdu::current()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Explicit key matching limits external configuration to the supported OSDU contract.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesOsdu::setData( const std::map<QString, QString>& keyValuePairs, const QString& configFile )
 {
@@ -79,7 +81,7 @@ void RiaPreferencesOsdu::setData( const std::map<QString, QString>& keyValuePair
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Connection data remains runtime-only even though PDM is used to display it.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesOsdu::setFieldStates()
 {

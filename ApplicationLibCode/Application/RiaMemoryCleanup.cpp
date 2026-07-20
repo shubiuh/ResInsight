@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements the UI for inspecting and clearing cached results.
 
 #include "RiaMemoryCleanup.h"
 #include "RiaGuiApplication.h"
@@ -40,14 +42,13 @@
 #include <QVBoxLayout>
 
 //==================================================================================================
-///
-///
+/// Registers the cleanup tool with the PDM object factory.
 //==================================================================================================
 
 CAF_PDM_SOURCE_INIT( RiaMemoryCleanup, "RiaMemoryCleanup" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Configures a case selector and a checkable tree of result arrays currently resident in memory.
 //--------------------------------------------------------------------------------------------------
 RiaMemoryCleanup::RiaMemoryCleanup()
 {
@@ -60,7 +61,7 @@ RiaMemoryCleanup::RiaMemoryCleanup()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Derives the cleanup scope from the view's owning case rather than from transient view state.
 //--------------------------------------------------------------------------------------------------
 void RiaMemoryCleanup::setPropertiesFromView( Rim3dView* view )
 {
@@ -70,7 +71,7 @@ void RiaMemoryCleanup::setPropertiesFromView( Rim3dView* view )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Dispatches to the case-specific cache API, then invalidates option-index mappings after deletion.
 //--------------------------------------------------------------------------------------------------
 void RiaMemoryCleanup::clearSelectedResultsFromMemory()
 {
@@ -110,7 +111,7 @@ void RiaMemoryCleanup::clearSelectedResultsFromMemory()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Lightweight non-modal viewer used for the detailed memory report.
 //--------------------------------------------------------------------------------------------------
 class TextDialog : public QDialog
 {
@@ -127,7 +128,7 @@ public:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Keeps the report non-modal so users can compare it with the project while the dialog is open.
 //--------------------------------------------------------------------------------------------------
 void RiaMemoryCleanup::showMemoryReport()
 {
@@ -142,7 +143,7 @@ void RiaMemoryCleanup::showMemoryReport()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Translates checked UI indices through the GeoMech address snapshot built for the option list.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigFemResultAddress> RiaMemoryCleanup::selectedGeoMechResults() const
 {
@@ -159,7 +160,7 @@ std::vector<RigFemResultAddress> RiaMemoryCleanup::selectedGeoMechResults() cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Translates checked UI indices through the Eclipse address snapshot built for the option list.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigEclipseResultAddress> RiaMemoryCleanup::selectedEclipseResults() const
 {
@@ -176,7 +177,7 @@ std::vector<RigEclipseResultAddress> RiaMemoryCleanup::selectedEclipseResults() 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Observers on enabled PDM objects protect GeoMech results that active views still require.
 //--------------------------------------------------------------------------------------------------
 std::set<RigFemResultAddress> RiaMemoryCleanup::findGeoMechCaseResultsInUse() const
 {
@@ -204,7 +205,7 @@ std::set<RigFemResultAddress> RiaMemoryCleanup::findGeoMechCaseResultsInUse() co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Every Eclipse result definition is treated as an active dependency of its selected result.
 //--------------------------------------------------------------------------------------------------
 std::set<RigEclipseResultAddress> RiaMemoryCleanup::findEclipseResultsInUse() const
 {
@@ -224,7 +225,7 @@ std::set<RigEclipseResultAddress> RiaMemoryCleanup::findEclipseResultsInUse() co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Changing case invalidates the result options because indices are case-specific.
 //--------------------------------------------------------------------------------------------------
 void RiaMemoryCleanup::fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue )
 {
@@ -235,7 +236,7 @@ void RiaMemoryCleanup::fieldChangedByUi( const caf::PdmFieldHandle* changedField
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Builds disabled options for in-use results while preserving an index-to-address snapshot.
 //--------------------------------------------------------------------------------------------------
 QList<caf::PdmOptionItemInfo> RiaMemoryCleanup::calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions )
 {
@@ -322,7 +323,7 @@ QList<caf::PdmOptionItemInfo> RiaMemoryCleanup::calculateValueOptions( const caf
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Actions are placed after the generated fields so selection state is committed before execution.
 //--------------------------------------------------------------------------------------------------
 void RiaMemoryCleanup::defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering )
 {
@@ -338,7 +339,7 @@ void RiaMemoryCleanup::defineUiOrdering( QString uiConfigName, caf::PdmUiOrderin
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Counts resident double values and separates the compact total from per-case details.
 //--------------------------------------------------------------------------------------------------
 std::pair<QString, QString> RiaMemoryCleanup::createMemoryReport()
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements seismic section type and slice direction enumerations.
 
 #include "RiaSeismicDefines.h"
 

@@ -18,6 +18,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements the application-wide preferences model.
 
 #include "RiaPreferences.h"
 
@@ -88,7 +90,11 @@ void RiaPreferences::PageOrientationEnum::setUp()
 CAF_PDM_SOURCE_INIT( RiaPreferences, "RiaPreferences" );
 
 //--------------------------------------------------------------------------------------------------
+/// Registers the persistent field keys before assigning UI editors and platform-dependent defaults.
 ///
+/// The serialized keys are compatibility identifiers and therefore intentionally differ in places
+/// from current member names or UI labels. Subsystem preference objects are allocated into PDM child
+/// fields so the root object owns one complete, serializable settings tree.
 //--------------------------------------------------------------------------------------------------
 RiaPreferences::RiaPreferences()
 {
@@ -305,7 +311,9 @@ RiaPreferences* RiaPreferences::current()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Lets child preference objects contribute attributes, then handles editors owned by the root.
+/// Directory-list fields append selections while expression folders replace their current path;
+/// numeric and pattern validators prevent invalid values from entering persistent settings.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferences::defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute )
 {
@@ -355,7 +363,11 @@ void RiaPreferences::defineEditorAttribute( const caf::PdmFieldHandle* field, QS
 }
 
 //--------------------------------------------------------------------------------------------------
+/// Composes a preferences page for @p uiConfigName from root fields and subsystem-owned groups.
 ///
+/// Keeping this routing in the root gives the dialog a stable tab structure without exposing one
+/// subsystem's fields to another. Unlisted fields are deliberately skipped to avoid an automatic
+/// catch-all group appearing at the bottom of a page.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferences::defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering )
 {
@@ -537,7 +549,8 @@ void RiaPreferences::defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Builds date and time choices from the supported format catalog and includes an example value.
+/// The preview makes ambiguous format tokens understandable without storing localized display text.
 //--------------------------------------------------------------------------------------------------
 QList<caf::PdmOptionItemInfo> RiaPreferences::calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions )
 {
@@ -579,7 +592,8 @@ void RiaPreferences::initAfterRead()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Applies coupled changes immediately: paper-size changes reset all margins to valid defaults and
+/// theme changes repaint the application. Other changes are delegated to summary preferences.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferences::fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue )
 {
@@ -869,7 +883,7 @@ std::map<RiaDefines::FontSettingType, RiaFontCache::FontSize> RiaPreferences::de
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Persists only in GUI mode because console applications do not own the Qt settings lifecycle.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferences::writePreferencesToApplicationStore()
 {
@@ -879,7 +893,8 @@ void RiaPreferences::writePreferencesToApplicationStore()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Builds the layout using the page size's native definition unit so inch-based and metric paper
+/// sizes interpret the stored margins correctly.
 //--------------------------------------------------------------------------------------------------
 QPageLayout RiaPreferences::defaultPageLayout() const
 {
@@ -1101,7 +1116,8 @@ RiaPreferencesGrid* RiaPreferences::gridPreferences() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reads an entire PDM object graph from XML. PDM field keywords, rather than C++ member names,
+/// preserve compatibility with preference files written by earlier ResInsight versions.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferences::importPreferenceValuesFromFile( const QString& fileName )
 {
@@ -1128,7 +1144,7 @@ void RiaPreferences::importPreferenceValuesFromFile( const QString& fileName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Serializes the complete root and child preference graph, producing a portable settings snapshot.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferences::exportPreferenceValuesToFile( const QString& fileName )
 {

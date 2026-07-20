@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief NNC (non-neighbouring connection) property name helpers.
 
 #pragma once
 
@@ -22,6 +24,9 @@
 
 namespace RiaDefines
 {
+/// @name Canonical non-neighbour connection result names
+/// These keys identify phase flux, transmissibility, and multiplier results on NNC faces.
+/// @{
 QString propertyNameFluxWat();
 QString propertyNameFluxOil();
 QString propertyNameFluxGas();
@@ -29,4 +34,5 @@ QString propertyNameCombTrans();
 QString propertyNameRiCombTrans();
 QString propertyNameRiCombTransByArea();
 QString propertyNameRiCombMult();
+/// @}
 }; // namespace RiaDefines

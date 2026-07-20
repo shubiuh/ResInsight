@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements OpenTelemetry exporter preferences.
 
 #include "RiaPreferencesOpenTelemetry.h"
 
@@ -29,7 +31,7 @@
 CAF_PDM_SOURCE_INIT( RiaPreferencesOpenTelemetry, "RiaPreferencesOpenTelemetry" );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Defaults provide bounded exporter behavior even when optional keys are absent.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesOpenTelemetry::RiaPreferencesOpenTelemetry()
 {
@@ -52,7 +54,7 @@ RiaPreferencesOpenTelemetry::RiaPreferencesOpenTelemetry()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Resolves through RiaApplication so GUI and console modes use the same runtime configuration.
 //--------------------------------------------------------------------------------------------------
 RiaPreferencesOpenTelemetry* RiaPreferencesOpenTelemetry::current()
 {
@@ -60,7 +62,7 @@ RiaPreferencesOpenTelemetry* RiaPreferencesOpenTelemetry::current()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Explicit key handling makes accepted deployment configuration discoverable and logs typos.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesOpenTelemetry::setData( const std::map<QString, QString>& keyValuePairs, const QString& configFile )
 {
@@ -112,7 +114,7 @@ void RiaPreferencesOpenTelemetry::setData( const std::map<QString, QString>& key
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// External telemetry configuration is intentionally neither editable nor serialized by PDM.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesOpenTelemetry::setFieldStates()
 {
@@ -124,7 +126,7 @@ void RiaPreferencesOpenTelemetry::setFieldStates()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Advanced operational limits are collapsed to keep connection diagnostics prominent.
 //--------------------------------------------------------------------------------------------------
 void RiaPreferencesOpenTelemetry::defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering )
 {
@@ -147,7 +149,7 @@ void RiaPreferencesOpenTelemetry::defineUiOrdering( QString uiConfigName, caf::P
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// The stable service name groups telemetry from different ResInsight versions together.
 //--------------------------------------------------------------------------------------------------
 QString RiaPreferencesOpenTelemetry::serviceName() const
 {
@@ -155,7 +157,7 @@ QString RiaPreferencesOpenTelemetry::serviceName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Build version is used rather than a separately configurable telemetry version.
 //--------------------------------------------------------------------------------------------------
 QString RiaPreferencesOpenTelemetry::serviceVersion() const
 {
@@ -163,7 +165,7 @@ QString RiaPreferencesOpenTelemetry::serviceVersion() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the connection material exactly as supplied by the external configuration.
 //--------------------------------------------------------------------------------------------------
 QString RiaPreferencesOpenTelemetry::connectionString() const
 {
@@ -171,7 +173,7 @@ QString RiaPreferencesOpenTelemetry::connectionString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Batch timeout controls latency versus exporter efficiency.
 //--------------------------------------------------------------------------------------------------
 int RiaPreferencesOpenTelemetry::batchTimeoutMs() const
 {
@@ -179,7 +181,7 @@ int RiaPreferencesOpenTelemetry::batchTimeoutMs() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Batch size bounds one exporter operation independently of total queue capacity.
 //--------------------------------------------------------------------------------------------------
 int RiaPreferencesOpenTelemetry::maxBatchSize() const
 {
@@ -187,7 +189,7 @@ int RiaPreferencesOpenTelemetry::maxBatchSize() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Queue size bounds buffered telemetry during slow or unavailable network export.
 //--------------------------------------------------------------------------------------------------
 int RiaPreferencesOpenTelemetry::maxQueueSize() const
 {
@@ -195,7 +197,7 @@ int RiaPreferencesOpenTelemetry::maxQueueSize() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Memory threshold provides a second safeguard beyond the item-count queue limit.
 //--------------------------------------------------------------------------------------------------
 int RiaPreferencesOpenTelemetry::memoryThresholdMb() const
 {
@@ -203,7 +205,7 @@ int RiaPreferencesOpenTelemetry::memoryThresholdMb() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sampling rate is preserved as a fraction for downstream telemetry configuration.
 //--------------------------------------------------------------------------------------------------
 double RiaPreferencesOpenTelemetry::samplingRate() const
 {
@@ -211,7 +213,7 @@ double RiaPreferencesOpenTelemetry::samplingRate() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Connection timeout bounds individual network attempts by the exporter.
 //--------------------------------------------------------------------------------------------------
 int RiaPreferencesOpenTelemetry::connectionTimeoutMs() const
 {
@@ -219,7 +221,7 @@ int RiaPreferencesOpenTelemetry::connectionTimeoutMs() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Empty comma-separated elements are skipped so trailing commas do not create event names.
 //--------------------------------------------------------------------------------------------------
 QStringList RiaPreferencesOpenTelemetry::eventAllowlist() const
 {
@@ -227,7 +229,7 @@ QStringList RiaPreferencesOpenTelemetry::eventAllowlist() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Denylist parsing mirrors allowlist parsing for predictable filtering semantics.
 //--------------------------------------------------------------------------------------------------
 QStringList RiaPreferencesOpenTelemetry::eventDenylist() const
 {

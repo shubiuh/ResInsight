@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief LAS depth property name helpers.
 
 #pragma once
 
@@ -22,7 +24,10 @@
 
 namespace RiaDefines
 {
+/// @name Canonical LAS depth-curve names
+/// @{
 QString propertyNameMeasuredDepth();
 QString propertyNameTvdMslDepth();
 QString propertyNameTvdRkbDepth();
+/// @}
 }; // namespace RiaDefines
