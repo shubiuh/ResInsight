@@ -111,6 +111,7 @@ set(SOURCE_GROUP_SOURCE_FILES
     ${CMAKE_CURRENT_LIST_DIR}/RimEclipseResultAddress.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RimEclipseResultAddressCollection.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RimRoffCase.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/RimVtkCase.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RimEclipseCaseTools.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RimMultipleEclipseResults.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RimPressureDepthData.cpp

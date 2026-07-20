@@ -98,6 +98,7 @@ set(SOURCE_GROUP_SOURCE_FILES
     ${CMAKE_CURRENT_LIST_DIR}/RifByteArrayArrowRandomAccessFile.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RifArrowTools.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RifReaderRegularGridModel.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/RifReaderVtkGrid.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RifVfpInjTable.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RifVfpProdTable.cpp
     ${CMAKE_CURRENT_LIST_DIR}/RifVtkSurfaceImporter.cpp

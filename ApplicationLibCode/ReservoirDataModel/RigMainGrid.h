@@ -119,6 +119,10 @@ public:
     // invalidate all cells with I > iLimit (0 based index)
     void invalidateCellsAboveI( size_t iLimit );
 
+    // Allocate cells with default values in the internal reservoir cell storage.
+    // The cells will be accessible via cell() after this call.
+    void allocateCells( size_t cellCount );
+
     std::tuple<QString, double, cvf::StructGridInterface::FaceType> minimumDistanceFaultToPoint( const cvf::Vec3d& point ) const;
 
 protected: // only for use by file readers and internal services. TODO: replace with a better API

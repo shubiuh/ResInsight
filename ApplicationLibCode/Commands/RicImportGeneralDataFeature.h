@@ -43,12 +43,13 @@ public:
         QStringList eclipseInputFiles;
         QStringList eclipseSummaryFiles;
         QStringList roffFiles;
+        QStringList vtkFiles;
 
         std::vector<int> createdCaseIds;
 
         operator bool() const
         {
-            return !( eclipseCaseFiles.empty() && eclipseInputFiles.empty() && eclipseSummaryFiles.empty() && roffFiles.empty() );
+            return !( eclipseCaseFiles.empty() && eclipseInputFiles.empty() && eclipseSummaryFiles.empty() && roffFiles.empty() && vtkFiles.empty() );
         }
     };
 

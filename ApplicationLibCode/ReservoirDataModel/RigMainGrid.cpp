@@ -100,6 +100,16 @@ const std::vector<RigCell>& RigMainGrid::reservoirCells() const
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+void RigMainGrid::allocateCells( size_t cellCount )
+{
+    RigCell defaultCell;
+    defaultCell.setHostGrid( this );
+    m_cells.resize( m_cells.size() + cellCount, defaultCell );
+}
+
+//--------------------------------------------------------------------------------------------------
+///
+//--------------------------------------------------------------------------------------------------
 RigGridBase* RigMainGrid::gridAndGridLocalIdxFromGlobalCellIdx( size_t globalCellIdx, size_t* gridLocalCellIdx )
 {
     CVF_ASSERT( globalCellIdx < totalCellCount() );

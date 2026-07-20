@@ -354,6 +354,10 @@ RiaDefines::ImportFileType RiaDefines::obtainFileTypeFromFileName( const QString
     {
         return ImportFileType::GEOMECH_VTK_FILE;
     }
+    else if ( fileName.endsWith( ".vtk", Qt::CaseInsensitive ) || fileName.endsWith( ".vtu", Qt::CaseInsensitive ) )
+    {
+        return ImportFileType::VTK_GRID_FILE;
+    }
     else if ( fileName.endsWith( ".rsp", Qt::CaseInsensitive ) || fileName.endsWith( ".rip", Qt::CaseInsensitive ) )
     {
         return ImportFileType::RESINSIGHT_PROJECT_FILE;
@@ -388,6 +392,10 @@ QString RiaDefines::defaultDirectoryLabel( RiaDefines::ImportFileType fileType )
     else if ( fileType == ImportFileType::GEOMECH_ODB_FILE )
     {
         defaultDirLabel = "GEOMECH_MODEL";
+    }
+    else if ( fileType == ImportFileType::VTK_GRID_FILE )
+    {
+        defaultDirLabel = "VTK_GRID";
     }
 
     return defaultDirLabel;

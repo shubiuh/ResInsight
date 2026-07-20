@@ -46,14 +46,17 @@ void RicImportGridModelFeature::onActionTriggered( bool isChecked )
     const QString binaryGridPattern = "*.GRID *.EGRID";
     const QString textGridPattern   = "*.GRDECL";
     const QString roffPattern       = "*.ROFF *.ROFFASC";
-    const QString allGridsPattern   = QString( "%1 %2 %3" ).arg( binaryGridPattern, textGridPattern, roffPattern );
+    const QString vtkPattern        = "*.vtk *.vtu";
+    const QString allGridsPattern   = QString( "%1 %2 %3 %4" ).arg( binaryGridPattern, textGridPattern, roffPattern, vtkPattern );
 
     const QString binaryGridFilter = QString( "Binary Grid Models (%1)" ).arg( binaryGridPattern );
+    const QString vtkFilter        = QString( "VTK Grid Models (%1)" ).arg( vtkPattern );
 
     const QStringList filterGroups = { QString( "Grid Models (%1)" ).arg( allGridsPattern ),
                                        binaryGridFilter,
                                        QString( "Text Grid Models (%1)" ).arg( textGridPattern ),
-                                       QString( "Roff Grid Models (%1)" ).arg( roffPattern ) };
+                                       QString( "Roff Grid Models (%1)" ).arg( roffPattern ),
+                                       vtkFilter };
 
     const QString defaultDirLabel = RiaDefines::defaultDirectoryLabel( RiaDefines::ImportFileType::ANY_ECLIPSE_FILE );
     const QString defaultDir      = app->lastUsedDialogDirectory( defaultDirLabel );

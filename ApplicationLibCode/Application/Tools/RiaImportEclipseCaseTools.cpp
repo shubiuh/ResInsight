@@ -50,6 +50,7 @@
 #include "RimOilField.h"
 #include "RimProject.h"
 #include "RimRoffCase.h"
+#include "RimVtkCase.h"
 #include "RimSummaryCase.h"
 #include "RimSummaryCaseMainCollection.h"
 #include "RimSummaryCurve.h"
@@ -608,6 +609,58 @@ RimRoffCase* RiaImportEclipseCaseTools::openRoffCaseFromFileName( const QString&
     }
 
     return roffCase;
+}
+
+//--------------------------------------------------------------------------------------------------
+///
+//--------------------------------------------------------------------------------------------------
+std::vector<int> RiaImportEclipseCaseTools::openVtkGridFilesFromFileNames( const QStringList& fileNames, bool createDefaultView )
+{
+    CAF_ASSERT( !fileNames.empty() );
+
+    RimProject* project = RimProject::current();
+    if ( !project ) return {};
+
+    RimEclipseCaseCollection* analysisModels = project->activeOilField() ? project->activeOilField()->analysisModels() : nullptr;
+    if ( !analysisModels ) return {};
+
+    std::vector<int> vtkCaseIds;
+    for ( const auto& fileName : fileNames )
+    {
+        auto* vtkCase = new RimVtkCase();
+        project->assignCaseIdToCase( vtkCase );
+        vtkCase->setGridFileName( fileName );
+
+        bool gridImportSuccess = vtkCase->openEclipseGridFile();
+        if ( !gridImportSuccess )
+        {
+            const auto errMsg = "Failed to import grid from VTK file: " + fileName.toStdString();
+            RiaLogging::error( errMsg.c_str() );
+            delete vtkCase;
+            continue;
+        }
+
+        analysisModels->cases.push_back( vtkCase );
+
+        RimEclipseView* eclipseView = nullptr;
+        if ( createDefaultView )
+        {
+            eclipseView = vtkCase->createAndAddReservoirView();
+
+            eclipseView->cellResult()->setResultType( RiaDefines::ResultCatType::INPUT_PROPERTY );
+
+            if ( RiaGuiApplication::isRunning() )
+            {
+                if ( RiuMainWindow::instance() ) RiuMainWindow::instance()->selectAsCurrentItem( eclipseView->cellResult() );
+            }
+
+            eclipseView->loadDataAndUpdate();
+        }
+
+        analysisModels->updateConnectedEditors();
+        vtkCaseIds.push_back( vtkCase->caseId() );
+    }
+    return vtkCaseIds;
 }
 
 //--------------------------------------------------------------------------------------------------

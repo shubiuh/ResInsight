@@ -73,6 +73,7 @@ RicImportGeneralDataFeature::OpenCaseResults RicImportGeneralDataFeature::openEc
     QStringList eclipseSummaryFiles;
     QStringList roffFiles;
     QStringList emFiles;
+    QStringList vtkFiles;
 
     for ( const QString& fileName : fileNames )
     {
@@ -96,6 +97,10 @@ RicImportGeneralDataFeature::OpenCaseResults RicImportGeneralDataFeature::openEc
         else if ( fileType == ImportFileType::EM_H5GRID )
         {
             emFiles.push_back( fileName );
+        }
+        else if ( fileType == ImportFileType::VTK_GRID_FILE )
+        {
+            vtkFiles.push_back( fileName );
         }
     }
 
@@ -143,6 +148,18 @@ RicImportGeneralDataFeature::OpenCaseResults RicImportGeneralDataFeature::openEc
         {
             return OpenCaseResults();
         }
+    }
+
+    if ( !vtkFiles.empty() )
+    {
+        auto vtkCaseIds = RiaImportEclipseCaseTools::openVtkGridFilesFromFileNames( vtkFiles, createDefaultView );
+        if ( vtkCaseIds.empty() )
+        {
+            return OpenCaseResults();
+        }
+        results.createdCaseIds.insert( results.createdCaseIds.end(), vtkCaseIds.begin(), vtkCaseIds.end() );
+        results.vtkFiles = vtkFiles;
+        RiaApplication::instance()->setLastUsedDialogDirectory( defaultDirectoryLabel( ImportFileType::VTK_GRID_FILE ), defaultDir );
     }
 
     return results;
