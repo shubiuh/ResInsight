@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for eclipse case data.
 
 #include "RigEclipseCaseDataTools.h"
 
@@ -29,7 +31,7 @@
 #include "cvfObject.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the first producer.
 //--------------------------------------------------------------------------------------------------
 QString RigEclipseCaseDataTools::firstProducer( RigEclipseCaseData* eclipseCaseData )
 {
@@ -54,7 +56,7 @@ QString RigEclipseCaseDataTools::firstProducer( RigEclipseCaseData* eclipseCaseD
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well bounding box in domain coords.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox RigEclipseCaseDataTools::wellBoundingBoxInDomainCoords( RigEclipseCaseData*   eclipseCaseData,
                                                                          const RigSimWellData* simWellData,
@@ -85,7 +87,7 @@ cvf::BoundingBox RigEclipseCaseDataTools::wellBoundingBoxInDomainCoords( RigEcli
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well bounding box ijk.
 //--------------------------------------------------------------------------------------------------
 std::pair<caf::VecIjk0, caf::VecIjk0> RigEclipseCaseDataTools::wellBoundingBoxIjk( RigEclipseCaseData*   eclipseCaseData,
                                                                                    const RigSimWellData* simWellData,
@@ -134,7 +136,7 @@ std::pair<caf::VecIjk0, caf::VecIjk0> RigEclipseCaseDataTools::wellBoundingBoxIj
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the wells bounding box ijk.
 //--------------------------------------------------------------------------------------------------
 std::pair<caf::VecIjk0, caf::VecIjk0> RigEclipseCaseDataTools::wellsBoundingBoxIjk( RigEclipseCaseData* eclipseCaseData,
                                                                                     const std::vector<const RigSimWellData*>& simWells,
@@ -177,7 +179,7 @@ std::pair<caf::VecIjk0, caf::VecIjk0> RigEclipseCaseDataTools::wellsBoundingBoxI
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the expand bounding box ijk.
 //--------------------------------------------------------------------------------------------------
 std::pair<caf::VecIjk0, caf::VecIjk0> RigEclipseCaseDataTools::expandBoundingBoxIjk( RigEclipseCaseData* eclipseCaseData,
                                                                                      const caf::VecIjk0& minIjk,
@@ -202,7 +204,7 @@ std::pair<caf::VecIjk0, caf::VecIjk0> RigEclipseCaseDataTools::expandBoundingBox
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates visibility from ijk bounds.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<cvf::UByteArray> RigEclipseCaseDataTools::createVisibilityFromIjkBounds( RigEclipseCaseData* eclipseCaseData,
                                                                                   const caf::VecIjk0& minIjk,

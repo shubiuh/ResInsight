@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new summary cross plot curve command support.
 
 #include "RicNewSummaryCrossPlotCurveFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete all polygons command support.
 
 #include "RicDeleteAllPolygonsFeature.h"
 

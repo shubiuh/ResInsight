@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements run job command support.
 
 #include "RicRunJobFeature.h"
 

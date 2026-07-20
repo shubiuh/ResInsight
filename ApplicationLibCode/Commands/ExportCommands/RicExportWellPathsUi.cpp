@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export well paths command support.
 
 #include "RicExportWellPathsUi.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import ensemble fracture statistics command support.
 
 #include "RicImportEnsembleFractureStatisticsFeature.h"
 

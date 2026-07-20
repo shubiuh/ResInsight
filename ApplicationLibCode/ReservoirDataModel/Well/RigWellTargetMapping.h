@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well target mapping reservoir-data functionality.
 
 #pragma once
 
@@ -33,9 +35,11 @@ class RigFloodingSettings;
 ///
 ///
 //==================================================================================================
+/// @brief Models well target mapping for reservoir-data processing.
 class RigWellTargetMapping
 {
 public:
+    /// Enumerates the supported volume type values.
     enum class VolumeType
     {
         OIL,
@@ -43,12 +47,14 @@ public:
         HYDROCARBON
     };
 
+    /// Enumerates the supported volume result type values.
     enum class VolumeResultType
     {
         MOBILE,
         TOTAL
     };
 
+    /// Enumerates the supported volumes type values.
     enum class VolumesType
     {
         RESERVOIR_VOLUMES,
@@ -57,16 +63,26 @@ public:
         RESERVOIR_VOLUMES_COMPUTED
     };
 
+    /// @brief Models clustering limits for reservoir-data processing.
     struct ClusteringLimits
     {
+        /// Stores saturation oil.
         double                  saturationOil;
+        /// Stores saturation gas.
         double                  saturationGas;
+        /// Stores permeability.
         double                  permeability;
+        /// Stores pressure.
         double                  pressure;
+        /// Stores transmissibility.
         double                  transmissibility;
+        /// Stores max num targets.
         int                     maxNumTargets;
+        /// Stores max iterations.
         int                     maxIterations;
+        /// Stores filter address.
         RigEclipseResultAddress filterAddress;
+        /// Stores filter.
         std::vector<double>     filter;
     };
 

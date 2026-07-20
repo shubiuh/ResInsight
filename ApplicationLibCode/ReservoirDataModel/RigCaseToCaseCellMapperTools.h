@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for case to case cell mapper.
 
 #pragma once
 
@@ -31,6 +33,7 @@ class RigFemPart;
 ///
 //==================================================================================================
 
+/// @brief Provides utilities for case to case cell mapper.
 class RigCaseToCaseCellMapperTools
 {
 public:

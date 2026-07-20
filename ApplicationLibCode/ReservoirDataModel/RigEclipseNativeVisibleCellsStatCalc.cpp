@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements eclipse native visible cells stat calc reservoir-data functionality.
 
 #include "RigEclipseNativeVisibleCellsStatCalc.h"
 
@@ -29,7 +31,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseNativeVisibleCellsStatCalc instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseNativeVisibleCellsStatCalc::RigEclipseNativeVisibleCellsStatCalc( RigCaseCellResultsData*        cellResultsData,
                                                                             const RigEclipseResultAddress& scalarResultIndex,
@@ -41,7 +43,7 @@ RigEclipseNativeVisibleCellsStatCalc::RigEclipseNativeVisibleCellsStatCalc( RigC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeVisibleCellsStatCalc::minMaxCellScalarValues( size_t timeStepIndex, double& min, double& max )
 {
@@ -52,7 +54,7 @@ void RigEclipseNativeVisibleCellsStatCalc::minMaxCellScalarValues( size_t timeSt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether precise p10p90 is available.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseNativeVisibleCellsStatCalc::hasPreciseP10p90() const
 {
@@ -60,7 +62,7 @@ bool RigEclipseNativeVisibleCellsStatCalc::hasPreciseP10p90() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the p10p90 cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeVisibleCellsStatCalc::p10p90CellScalarValues( double& p10, double& p90 )
 {
@@ -75,7 +77,7 @@ void RigEclipseNativeVisibleCellsStatCalc::p10p90CellScalarValues( double& p10, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the p10p90 cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeVisibleCellsStatCalc::p10p90CellScalarValues( size_t timeStepIndex, double& p10, double& p90 )
 {
@@ -85,7 +87,7 @@ void RigEclipseNativeVisibleCellsStatCalc::p10p90CellScalarValues( size_t timeSt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeVisibleCellsStatCalc::posNegClosestToZero( size_t timeStepIndex, double& pos, double& neg )
 {
@@ -96,7 +98,7 @@ void RigEclipseNativeVisibleCellsStatCalc::posNegClosestToZero( size_t timeStepI
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value sum and sample count.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeVisibleCellsStatCalc::valueSumAndSampleCount( size_t timeStepIndex, double& valueSum, size_t& sampleCount )
 {
@@ -107,7 +109,7 @@ void RigEclipseNativeVisibleCellsStatCalc::valueSumAndSampleCount( size_t timeSt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds data to histogram calculator.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeVisibleCellsStatCalc::addDataToHistogramCalculator( size_t timeStepIndex, RigHistogramCalculator& histogramCalculator )
 {
@@ -115,7 +117,7 @@ void RigEclipseNativeVisibleCellsStatCalc::addDataToHistogramCalculator( size_t 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeVisibleCellsStatCalc::uniqueValues( size_t timeStepIndex, std::set<int>& values )
 {
@@ -125,7 +127,7 @@ void RigEclipseNativeVisibleCellsStatCalc::uniqueValues( size_t timeStepIndex, s
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step count.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseNativeVisibleCellsStatCalc::timeStepCount()
 {
@@ -135,7 +137,7 @@ size_t RigEclipseNativeVisibleCellsStatCalc::timeStepCount()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeVisibleCellsStatCalc::mobileVolumeWeightedMean( size_t timeStepIndex, double& result )
 {

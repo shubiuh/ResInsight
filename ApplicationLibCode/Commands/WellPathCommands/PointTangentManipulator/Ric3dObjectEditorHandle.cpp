@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements 3D object editor handle command support.
 
 #include "Ric3dObjectEditorHandle.h"
 

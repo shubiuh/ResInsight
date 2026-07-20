@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create ensemble well log command support.
 
 #pragma once
 
@@ -26,18 +28,23 @@ class RicCreateEnsembleWellLogUi;
 class RimEclipseCase;
 
 //==================================================================================================
-///
+/// @brief Command feature for create ensemble well log.
 //==================================================================================================
 class RicCreateEnsembleWellLogFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Performs the open dialog and execute command command operation.
     static void            openDialogAndExecuteCommand();
+    /// Executes command.
     static void            executeCommand( const RicCreateEnsembleWellLogUi& ui, const std::list<QString>& fileNames );
+    /// Loads Eclipse case.
     static RimEclipseCase* loadEclipseCase( const QString& fileName );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

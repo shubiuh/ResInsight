@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reload polygon file command support.
 
 #include "RicReloadPolygonFileFeature.h"
 

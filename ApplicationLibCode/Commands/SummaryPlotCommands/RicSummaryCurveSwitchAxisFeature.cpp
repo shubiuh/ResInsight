@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements summary curve switch axis command support.
 
 #include "RicSummaryCurveSwitchAxisFeature.h"
 

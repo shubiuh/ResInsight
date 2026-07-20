@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements view job log command support.
 
 #include "RicViewJobLogFeature.h"
 

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements toggle items off command support.
 
 #include "RicToggleItemsOffFeature.h"
 

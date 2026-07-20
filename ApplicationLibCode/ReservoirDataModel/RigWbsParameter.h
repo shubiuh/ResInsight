@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares wbs parameter reservoir-data functionality.
 #pragma once
 
 #include "cafAppEnum.h"
@@ -26,11 +28,13 @@
 
 #include <set>
 
+/// @brief Models wbs parameter for reservoir-data processing.
 class RigWbsParameter
 {
     struct SourceAddress;
 
 public:
+    /// Enumerates the supported source values.
     enum Source
     {
         GRID = 0,
@@ -42,7 +46,9 @@ public:
         PROPORTIONAL_TO_SH, // FG in shale
         UNDEFINED = 1000,
     };
+    /// Type alias used for source enum.
     using SourceEnum   = caf::AppEnum<Source>;
+    /// Type alias used for source vector.
     using SourceVector = std::vector<std::pair<Source, SourceAddress>>;
 
 public:
@@ -97,6 +103,7 @@ public:
     static bool                      findParameter( QString parameterName, RigWbsParameter* foundParam = nullptr );
 
 private:
+    /// @brief Models source address for reservoir-data processing.
     struct SourceAddress
     {
         RigFemResultPosEnum resType;

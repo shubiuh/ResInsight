@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares flow diag results reservoir-data functionality.
 #pragma once
 
 #include "RigFlowDiagResultAddress.h"
@@ -36,9 +38,11 @@ class RigStatisticsDataCache;
 class RigActiveCellInfo;
 class RigFlowDiagSolverInterface;
 
+/// @brief Models flow diag results for reservoir-data processing.
 class RigFlowDiagResults
 {
 public:
+    /// Enumerates the supported cell filter values.
     enum CellFilter
     {
         CELLS_ACTIVE,
@@ -48,12 +52,14 @@ public:
         CELLS_DRAINED,
     };
 
+    /// Type alias used for cell filter enum.
     using CellFilterEnum = caf::AppEnum<CellFilter>;
 
 public:
     RigFlowDiagResults( RimFlowDiagSolution* flowSolution, size_t timeStepCount );
 
     const std::vector<double>* resultValues( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex );
+    /// Returns or processes time step count.
     size_t                     timeStepCount() { return m_timeStepCount; }
     const RigActiveCellInfo*   activeCellInfo( const RigFlowDiagResultAddress& resVarAddr );
 

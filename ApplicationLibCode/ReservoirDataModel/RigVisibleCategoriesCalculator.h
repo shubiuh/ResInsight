@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of visible categories.
 
 #pragma once
 
@@ -29,6 +31,7 @@ class RimEclipseResultDefinition;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates visible categories.
 class RigVisibleCategoriesCalculator
 {
 public:

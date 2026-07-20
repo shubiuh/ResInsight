@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show all linked views command support.
 
 #include "RicShowAllLinkedViewsFeature.h"
 

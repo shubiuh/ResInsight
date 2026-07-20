@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of selected fault distance results.
 
 #include "RigSelectedFaultDistanceResultCalculator.h"
 
@@ -32,7 +34,7 @@
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the compute.
 //--------------------------------------------------------------------------------------------------
 void RigSelectedFaultDistanceResultCalculator::compute( RigEclipseCaseData*                 caseData,
                                                         const QString&                      resultName,

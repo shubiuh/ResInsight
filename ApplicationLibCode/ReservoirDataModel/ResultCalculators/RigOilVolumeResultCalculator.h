@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of oil volume results.
 
 #pragma once
 
@@ -28,6 +30,7 @@ class RigEclipseResultAddress;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates oil volume results.
 class RigOilVolumeResultCalculator : public RigEclipseResultCalculator
 {
 public:

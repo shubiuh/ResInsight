@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares mesh fracture template command support.
 
 #pragma once
 
@@ -27,22 +29,27 @@ class RimFractureTemplate;
 class RimThermalFractureTemplate;
 
 //==================================================================================================
-///
+/// @brief Helper functions for mesh fracture template command workflows.
 //==================================================================================================
+/// @brief Helper functions for mesh fracture template command workflows.
 template <class T>
 class RicMeshFractureTemplateHelper
 {
 public:
+    /// Creates new template for fracture and update.
     static void createNewTemplateForFractureAndUpdate( RimFracture*   fracture,
                                                        const QString& title,
                                                        const QString& lastUsedDialogFallback,
                                                        const QString& fileFilter,
                                                        const QString& defaultTemplateName );
 
+    /// Selects fracture template and update.
     static void            selectFractureTemplateAndUpdate( RimFractureTemplate* fractureTemplate );
+    /// Creates new templates from files.
     static std::vector<T*> createNewTemplatesFromFiles( const std::vector<QString>& fileNames,
                                                         const QString&              defaultTemplateName,
                                                         bool                        reuseExistingTemplatesWithMatchingNames = false );
+    /// Creates new templates.
     static std::vector<T*> createNewTemplates( const QString& title,
                                                const QString& lastUsedDialogFallback,
                                                const QString& fileFilter,

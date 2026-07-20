@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares summary case restart command support.
 
 #pragma once
 
@@ -49,7 +51,7 @@ class QAbstractButton;
 #define GRID_FILES_LIST_INDEX 2
 
 //==================================================================================================
-///
+/// @brief Dialog for configuring summary case restart.
 //==================================================================================================
 class RicSummaryCaseRestartDialog : public QDialog
 {
@@ -63,9 +65,12 @@ public:
         NOT_IMPORT
     };
 
+    /// Constructs the command object.
     RicSummaryCaseRestartDialog( QWidget* parent );
+    /// Destroys the command object.
     ~RicSummaryCaseRestartDialog() override;
 
+    /// @return The open.
     static RicSummaryCaseRestartDialogResult openDialog( const QString&                     initialSummaryFile,
                                                          const QString&                     initialGridFile,
                                                          bool                               failOnSummaryImportError,
@@ -77,21 +82,33 @@ public:
                                                          RicSummaryCaseRestartDialogResult* lastResult,
                                                          QWidget*                           parent );
 
+    /// @return The selected summary import option.
     ImportOptions selectedSummaryImportOption() const;
+    /// @return The selected grid import option.
     ImportOptions selectedGridImportOption() const;
+    /// @return The ok to all selected.
     bool          okToAllSelected() const;
 
 private:
+    /// Updates file list widget.
     void    updateFileListWidget( QGridLayout* gridLayout, int listIndex );
+    /// Appends file info to grid layout.
     void    appendFileInfoToGridLayout( QGridLayout* gridLayout, const RifRestartFileInfo& fileInfo, const QString& fullPathFileName );
+    /// Appends text to grid layout.
     void    appendTextToGridLayout( QGridLayout* gridLayout, const QString& text );
+    /// Performs the display warnings if any command operation.
     void    displayWarningsIfAny( const std::vector<QString>& warnings );
+    /// @return The full file name.
     QString fullFileName( const QString& shortOrFullFileName );
 
 private slots:
+    /// Performs the slot show full path toggled command operation.
     void slotShowFullPathToggled( int state );
+    /// Performs the slot dialog button clicked command operation.
     void slotDialogButtonClicked( QAbstractButton* button );
+    /// Performs the slot file name copy custom menu requested command operation.
     void slotFileNameCopyCustomMenuRequested( const QPoint& point );
+    /// Performs the slot copy file name to clipboard command operation.
     void slotCopyFileNameToClipboard();
 
 private:
@@ -120,7 +137,7 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Supports summary case restart dialog result command workflows.
 //==================================================================================================
 class RicSummaryCaseRestartDialogResult
 {

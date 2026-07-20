@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements MSW branch command support.
 
 #include "RicMswBranchBuilder.h"
 

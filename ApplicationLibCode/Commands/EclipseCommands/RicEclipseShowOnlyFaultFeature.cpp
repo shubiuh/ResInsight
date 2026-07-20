@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse show only fault command support.
 
 #include "RicEclipseShowOnlyFaultFeature.h"
 

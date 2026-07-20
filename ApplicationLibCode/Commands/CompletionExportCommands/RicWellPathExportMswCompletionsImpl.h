@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path export MSW completions command support.
 
 #pragma once
 
@@ -30,6 +32,7 @@ class RimWellPath;
 class RicWellPathExportMswCompletionsImpl
 {
 public:
+    /// Exports well segments for all completions.
     static void exportWellSegmentsForAllCompletions( const RicExportCompletionDataSettingsUi& exportSettings,
                                                      const std::vector<RimWellPath*>&         wellPaths );
 };

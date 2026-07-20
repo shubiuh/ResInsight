@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well log file close command support.
 
 #include "RicWellLogFileCloseFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares reservoir builder reservoir-data functionality.
 
 #pragma once
 
@@ -26,9 +28,11 @@ class RigGridBase;
 class RigCell;
 class RigEclipseCaseData;
 
+/// @brief Models local grid refinement for reservoir-data processing.
 class LocalGridRefinement
 {
 public:
+    /// Returns or processes local grid refinement.
     LocalGridRefinement( const cvf::Vec3st& mainGridMin, const cvf::Vec3st& mainGridMax, const cvf::Vec3st& singleCellRefinementFactors )
     {
         m_mainGridMinCellPosition     = mainGridMin;
@@ -36,11 +40,15 @@ public:
         m_singleCellRefinementFactors = singleCellRefinementFactors;
     }
 
+    /// Stores main grid min cell position.
     cvf::Vec3st m_mainGridMinCellPosition;
+    /// Stores main grid max cell position.
     cvf::Vec3st m_mainGridMaxCellPosition;
+    /// Stores single cell refinement factors.
     cvf::Vec3st m_singleCellRefinementFactors;
 };
 
+/// @brief Models reservoir builder for reservoir-data processing.
 class RigReservoirBuilder
 {
 public:

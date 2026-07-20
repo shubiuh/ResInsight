@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export surface to gri command support.
 
 #pragma once
 
@@ -30,7 +32,7 @@
 class RimSurface;
 
 //==================================================================================================
-///
+/// @brief Command feature for export surface to gri.
 //==================================================================================================
 class RicExportSurfaceToGriFeature : public caf::CmdFeature
 {
@@ -45,7 +47,10 @@ public:
     static void exportSurfaces( const std::vector<RimSurface*>& surfaces );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

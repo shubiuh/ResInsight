@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares flow diag stat calc reservoir-data functionality.
 
 #pragma once
 
@@ -29,6 +31,7 @@ class RigFlowDiagResults;
 ///
 //==================================================================================================
 
+/// @brief Models flow diag stat calc for reservoir-data processing.
 class RigFlowDiagStatCalc : public RigStatisticsCalculator
 {
 public:

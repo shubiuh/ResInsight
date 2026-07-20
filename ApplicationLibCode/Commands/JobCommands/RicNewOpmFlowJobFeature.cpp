@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new OPM flow job command support.
 
 #include "RicNewOpmFlowJobFeature.h"
 

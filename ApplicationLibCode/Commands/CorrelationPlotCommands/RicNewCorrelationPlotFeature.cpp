@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new correlation plot command support.
 
 #include "RicNewCorrelationPlotFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements dock in plot view command support.
 
 #include "RicDockInPlotViewFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new intersection view command support.
 
 #include "RicNewIntersectionViewFeature.h"
 

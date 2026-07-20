@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements execute script for cases command support.
 
 #include "RicExecuteScriptForCasesFeature.h"
 

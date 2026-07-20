@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create multiple fractures command support.
 
 #include "RicCreateMultipleFracturesFeature.h"
 #include "RicFractureNameGenerator.h"

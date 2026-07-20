@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new nested collection command support.
 
 #include "RicNewNestedCollectionFeature.h"
 

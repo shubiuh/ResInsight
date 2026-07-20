@@ -15,28 +15,36 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares cut references to clipboard command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmObject;
 }
 
 //==================================================================================================
-///
+/// @brief Command feature for cut references to clipboard.
 //==================================================================================================
 class RicCutReferencesToClipboardFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 private:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return Whether any cuttable object selected.
     static bool isAnyCuttableObjectSelected();
+    /// @return Whether cutting of object supported.
     static bool isCuttingOfObjectSupported( caf::PdmObject* pdmObject );
 };

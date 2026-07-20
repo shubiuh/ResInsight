@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse well show command support.
 
 #include "RicEclipseWellShowFeatures.h"
 

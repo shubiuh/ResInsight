@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of ensemble fracture statistics.
 
 #pragma once
 
@@ -37,9 +39,11 @@ class RigStimPlanFractureDefinition;
 ///
 ///
 //==================================================================================================
+/// @brief Calculates ensemble fracture statistics.
 class RigEnsembleFractureStatisticsCalculator
 {
 public:
+    /// Enumerates the supported property type values.
     enum class PropertyType
     {
         HEIGHT,

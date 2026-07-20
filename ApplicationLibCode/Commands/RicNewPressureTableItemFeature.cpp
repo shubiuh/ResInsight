@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new pressure table item command support.
 #include "RicNewPressureTableItemFeature.h"
 
 #include "RimPressureTable.h"

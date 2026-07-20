@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements vfp tables reservoir-data functionality.
 
 #include "RigVfpTables.h"
 
@@ -26,7 +28,7 @@
 #include "FileInterface/RifVfpProdTable.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Populates plot data.
 //--------------------------------------------------------------------------------------------------
 VfpPlotData RigVfpTables::populatePlotData( const RifVfpInjTable&                   table,
                                             RimVfpDefines::InterpolatedVariableType interpolatedVariable,
@@ -71,7 +73,7 @@ VfpPlotData RigVfpTables::populatePlotData( const RifVfpInjTable&               
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Populates plot data.
 //--------------------------------------------------------------------------------------------------
 VfpPlotData RigVfpTables::populatePlotData( const RifVfpProdTable&                  table,
                                             RimVfpDefines::ProductionVariableType   primaryVariable,
@@ -143,7 +145,7 @@ VfpPlotData RigVfpTables::populatePlotData( const RifVfpProdTable&              
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unit system.
 //--------------------------------------------------------------------------------------------------
 const Opm::UnitSystem RigVfpTables::unitSystem() const
 {
@@ -151,7 +153,7 @@ const Opm::UnitSystem RigVfpTables::unitSystem() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Populates plot data.
 //--------------------------------------------------------------------------------------------------
 VfpPlotData RigVfpTables::populatePlotData( int                                     tableIndex,
                                             RimVfpDefines::ProductionVariableType   primaryVariable,
@@ -176,7 +178,7 @@ VfpPlotData RigVfpTables::populatePlotData( int                                 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Populates plot data.
 //--------------------------------------------------------------------------------------------------
 VfpPlotData RigVfpTables::populatePlotData( int                                     tableIndex,
                                             RimVfpDefines::ProductionVariableType   primaryVariable,
@@ -201,7 +203,7 @@ VfpPlotData RigVfpTables::populatePlotData( int                                 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Populates plot data.
 //--------------------------------------------------------------------------------------------------
 VfpPlotData RigVfpTables::populatePlotData( const RifVfpProdTable&                  table,
                                             RimVfpDefines::ProductionVariableType   primaryVariable,
@@ -297,7 +299,7 @@ VfpPlotData RigVfpTables::populatePlotData( const RifVfpProdTable&              
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ascii data for table.
 //--------------------------------------------------------------------------------------------------
 QString RigVfpTables::asciiDataForTable( int                                     tableNumber,
                                          RimVfpDefines::ProductionVariableType   primaryVariable,
@@ -325,7 +327,7 @@ QString RigVfpTables::asciiDataForTable( int                                    
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds closest indices.
 //--------------------------------------------------------------------------------------------------
 std::vector<int> RigVfpTables::findClosestIndices( const std::vector<double>& sourceValues, const std::vector<double>& valuesToMatch )
 {
@@ -357,7 +359,7 @@ std::vector<int> RigVfpTables::findClosestIndices( const std::vector<double>& so
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique closest indices.
 //--------------------------------------------------------------------------------------------------
 std::vector<int> RigVfpTables::uniqueClosestIndices( const std::vector<double>& sourceValues, const std::vector<double>& valuesToMatch )
 {
@@ -408,7 +410,7 @@ std::vector<int> RigVfpTables::uniqueClosestIndices( const std::vector<double>& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the axis title.
 //--------------------------------------------------------------------------------------------------
 QString RigVfpTables::axisTitle( RimVfpDefines::ProductionVariableType variableType, RimVfpDefines::FlowingPhaseType flowingPhase ) const
 {
@@ -429,7 +431,7 @@ QString RigVfpTables::axisTitle( RimVfpDefines::ProductionVariableType variableT
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns display unit.
 //--------------------------------------------------------------------------------------------------
 QString RigVfpTables::getDisplayUnit( RimVfpDefines::ProductionVariableType variableType ) const
 {
@@ -437,7 +439,7 @@ QString RigVfpTables::getDisplayUnit( RimVfpDefines::ProductionVariableType vari
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns display unit.
 //--------------------------------------------------------------------------------------------------
 QString RigVfpTables::getDisplayUnit( RimVfpDefines::ProductionVariableType variableType, const Opm::UnitSystem& unitSystem )
 {
@@ -457,7 +459,7 @@ QString RigVfpTables::getDisplayUnit( RimVfpDefines::ProductionVariableType vari
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns display unit with bracket.
 //--------------------------------------------------------------------------------------------------
 QString RigVfpTables::getDisplayUnitWithBracket( RimVfpDefines::ProductionVariableType variableType ) const
 {
@@ -465,7 +467,7 @@ QString RigVfpTables::getDisplayUnitWithBracket( RimVfpDefines::ProductionVariab
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns display unit with bracket.
 //--------------------------------------------------------------------------------------------------
 QString RigVfpTables::getDisplayUnitWithBracket( RimVfpDefines::ProductionVariableType variableType, const Opm::UnitSystem& unitSystem )
 {
@@ -476,7 +478,7 @@ QString RigVfpTables::getDisplayUnitWithBracket( RimVfpDefines::ProductionVariab
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the text for plot data.
 //--------------------------------------------------------------------------------------------------
 QString RigVfpTables::textForPlotData( const VfpPlotData& plotData )
 {
@@ -521,7 +523,7 @@ QString RigVfpTables::textForPlotData( const VfpPlotData& plotData )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns production table data.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigVfpTables::getProductionTableData( const RifVfpProdTable& table, RimVfpDefines::ProductionVariableType variableType ) const
 {
@@ -551,7 +553,7 @@ std::vector<double> RigVfpTables::getProductionTableData( const RifVfpProdTable&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns production table data.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigVfpTables::getProductionTableData( int tableIndex, RimVfpDefines::ProductionVariableType variableType ) const
 {
@@ -565,7 +567,7 @@ std::vector<double> RigVfpTables::getProductionTableData( int tableIndex, RimVfp
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns variable index.
 //--------------------------------------------------------------------------------------------------
 size_t RigVfpTables::getVariableIndex( const RifVfpProdTable&                table,
                                        RimVfpDefines::ProductionVariableType targetVariable,
@@ -588,7 +590,7 @@ size_t RigVfpTables::getVariableIndex( const RifVfpProdTable&                tab
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns variable index for value.
 //--------------------------------------------------------------------------------------------------
 size_t RigVfpTables::getVariableIndexForValue( const RifVfpProdTable&                table,
                                                RimVfpDefines::ProductionVariableType targetVariable,
@@ -672,7 +674,7 @@ size_t RigVfpTables::getVariableIndexForValue( const RifVfpProdTable&           
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the injection table.
 //--------------------------------------------------------------------------------------------------
 std::optional<RifVfpInjTable> RigVfpTables::injectionTable( int tableNumber ) const
 {
@@ -688,7 +690,7 @@ std::optional<RifVfpInjTable> RigVfpTables::injectionTable( int tableNumber ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the production table.
 //--------------------------------------------------------------------------------------------------
 std::optional<RifVfpProdTable> RigVfpTables::productionTable( int tableNumber ) const
 {
@@ -704,7 +706,7 @@ std::optional<RifVfpProdTable> RigVfpTables::productionTable( int tableNumber ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns flowing phase type.
 //--------------------------------------------------------------------------------------------------
 RimVfpDefines::FlowingPhaseType RigVfpTables::getFlowingPhaseType( const RifVfpProdTable& table )
 {
@@ -722,7 +724,7 @@ RimVfpDefines::FlowingPhaseType RigVfpTables::getFlowingPhaseType( const RifVfpP
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns flowing phase type.
 //--------------------------------------------------------------------------------------------------
 RimVfpDefines::FlowingPhaseType RigVfpTables::getFlowingPhaseType( const RifVfpInjTable& table )
 {
@@ -740,7 +742,7 @@ RimVfpDefines::FlowingPhaseType RigVfpTables::getFlowingPhaseType( const RifVfpI
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns flowing water fraction type.
 //--------------------------------------------------------------------------------------------------
 RimVfpDefines::FlowingWaterFractionType RigVfpTables::getFlowingWaterFractionType( const RifVfpProdTable& table )
 {
@@ -758,7 +760,7 @@ RimVfpDefines::FlowingWaterFractionType RigVfpTables::getFlowingWaterFractionTyp
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns flowing gas fraction type.
 //--------------------------------------------------------------------------------------------------
 RimVfpDefines::FlowingGasFractionType RigVfpTables::getFlowingGasFractionType( const RifVfpProdTable& table )
 {
@@ -776,7 +778,7 @@ RimVfpDefines::FlowingGasFractionType RigVfpTables::getFlowingGasFractionType( c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets unit system.
 //--------------------------------------------------------------------------------------------------
 void RigVfpTables::setUnitSystem( const Opm::UnitSystem& unitSystem )
 {
@@ -784,7 +786,7 @@ void RigVfpTables::setUnitSystem( const Opm::UnitSystem& unitSystem )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds injection table.
 //--------------------------------------------------------------------------------------------------
 void RigVfpTables::addInjectionTable( const RifVfpInjTable& table )
 {
@@ -792,7 +794,7 @@ void RigVfpTables::addInjectionTable( const RifVfpInjTable& table )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds production table.
 //--------------------------------------------------------------------------------------------------
 void RigVfpTables::addProductionTable( const RifVfpProdTable& table )
 {
@@ -800,7 +802,7 @@ void RigVfpTables::addProductionTable( const RifVfpProdTable& table )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the injection table numbers.
 //--------------------------------------------------------------------------------------------------
 std::vector<int> RigVfpTables::injectionTableNumbers() const
 {
@@ -815,7 +817,7 @@ std::vector<int> RigVfpTables::injectionTableNumbers() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the production table numbers.
 //--------------------------------------------------------------------------------------------------
 std::vector<int> RigVfpTables::productionTableNumbers() const
 {
@@ -830,7 +832,7 @@ std::vector<int> RigVfpTables::productionTableNumbers() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns table initial data.
 //--------------------------------------------------------------------------------------------------
 VfpTableInitialData RigVfpTables::getTableInitialData( int tableIndex ) const
 {

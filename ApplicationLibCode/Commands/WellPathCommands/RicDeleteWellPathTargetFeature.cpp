@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete well path target command support.
 #include "RicDeleteWellPathTargetFeature.h"
 
 #include "RimModeledWellPath.h"

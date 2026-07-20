@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete well path attribute command support.
 #include "RicDeleteWellPathAttributeFeature.h"
 
 #include "RimProject.h"

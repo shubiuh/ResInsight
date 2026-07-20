@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new fishbones subs at measured depth command support.
 
 #pragma once
 
@@ -22,20 +24,27 @@
 #include "RimFishbonesDefines.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for new fishbones subs at measured depth.
 //==================================================================================================
 class RicNewFishbonesSubsAtMeasuredDepthFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
 
+    /// Creates fishbones.
     void createFishbones( const RimFishbonesDefines::RicFishbonesSystemParameters& customParameters );
 
+    /// Performs the on drilling standard command operation.
     void onDrillingStandard();
+    /// Performs the on drilling extended command operation.
     void onDrillingExtended();
+    /// Performs the on acid jetting command operation.
     void onAcidJetting();
 };

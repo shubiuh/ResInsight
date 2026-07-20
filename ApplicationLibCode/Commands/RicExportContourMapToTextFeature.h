@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export contour map to text command support.
 #pragma once
 
 #include "CommandFileInterface/Core/RicfCommandObject.h"
@@ -31,28 +33,36 @@ class RimGeoMechContourMapView;
 class QTextStream;
 
 //==================================================================================================
-///
+/// @brief Command feature for export contour map to text.
 //==================================================================================================
 class RicExportContourMapToTextFeature : public caf::CmdFeature, public RicfCommandObject
 {
     RICF_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicExportContourMapToTextFeature();
+    /// Executes command support.
     caf::PdmScriptResponse execute() override;
 
+    /// @return The matching contour map view.
     static std::pair<RimEclipseContourMapView*, RimGeoMechContourMapView*> findContourMapView();
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Writes meta data to stream.
     static void writeMetaDataToStream( QTextStream&                   stream,
                                        const RimContourMapProjection* contourMapProjection,
                                        const QString&                 caseName,
                                        bool                           exportLocalCoordinates );
 
+    /// Writes contour map to stream.
     static void writeContourMapToStream( QTextStream&                   stream,
                                          const RimContourMapProjection* contourMapProjection,
                                          bool                           exportLocalCoordinates,

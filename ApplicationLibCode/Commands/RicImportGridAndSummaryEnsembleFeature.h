@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import grid and summary ensemble command support.
 
 #pragma once
 
@@ -23,16 +25,19 @@
 #include <QString>
 
 //==================================================================================================
-///
+/// @brief Command feature for import grid and summary ensemble.
 //==================================================================================================
 class RicImportGridAndSummaryEnsembleFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Imports from directory.
     static bool importFromDirectory( const QString& dirPath );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

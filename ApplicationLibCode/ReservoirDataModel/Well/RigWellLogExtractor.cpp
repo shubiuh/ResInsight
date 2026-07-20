@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements extraction of well log extractor.
 
 #include "RigWellLogExtractor.h"
 
@@ -25,7 +27,7 @@
 #include "cvfTrace.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellLogExtractor instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogExtractor::RigWellLogExtractor( const RigWellPath* wellpath, const std::string& wellCaseErrorMsgName )
     : m_wellPathGeometry( wellpath )
@@ -34,14 +36,14 @@ RigWellLogExtractor::RigWellLogExtractor( const RigWellPath* wellpath, const std
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigWellLogExtractor instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogExtractor::~RigWellLogExtractor()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell intersection m ds.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigWellLogExtractor::cellIntersectionMDs() const
 {
@@ -49,7 +51,7 @@ const std::vector<double>& RigWellLogExtractor::cellIntersectionMDs() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell intersection tv ds.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigWellLogExtractor::cellIntersectionTVDs() const
 {
@@ -57,7 +59,7 @@ const std::vector<double>& RigWellLogExtractor::cellIntersectionTVDs() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell intersection infos along well path.
 //--------------------------------------------------------------------------------------------------
 std::vector<WellPathCellIntersectionInfo> RigWellLogExtractor::cellIntersectionInfosAlongWellPath() const
 {
@@ -156,7 +158,7 @@ void RigWellLogExtractor::resampleIntersections( double maxDistanceBetweenInters
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the average md for cell.
 //--------------------------------------------------------------------------------------------------
 std::optional<double> RigWellLogExtractor::averageMdForCell( size_t cellIndex ) const
 {
@@ -179,7 +181,7 @@ std::optional<double> RigWellLogExtractor::averageMdForCell( size_t cellIndex ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the intersected cells glob idx.
 //--------------------------------------------------------------------------------------------------
 const std::vector<size_t>& RigWellLogExtractor::intersectedCellsGlobIdx() const
 {
@@ -187,7 +189,7 @@ const std::vector<size_t>& RigWellLogExtractor::intersectedCellsGlobIdx() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the intersections.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d>& RigWellLogExtractor::intersections() const
 {
@@ -195,7 +197,7 @@ const std::vector<cvf::Vec3d>& RigWellLogExtractor::intersections() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the intersected cell faces.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::StructGridInterface::FaceType>& RigWellLogExtractor::intersectedCellFaces() const
 {
@@ -203,7 +205,7 @@ const std::vector<cvf::StructGridInterface::FaceType>& RigWellLogExtractor::inte
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well path geometry.
 //--------------------------------------------------------------------------------------------------
 const RigWellPath* RigWellLogExtractor::wellPathGeometry() const
 {
@@ -211,7 +213,7 @@ const RigWellPath* RigWellLogExtractor::wellPathGeometry() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the insert intersections in map.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogExtractor::insertIntersectionsInMap( const std::vector<HexIntersectionInfo>&                   intersections,
                                                     cvf::Vec3d                                                p1,
@@ -247,7 +249,7 @@ void RigWellLogExtractor::insertIntersectionsInMap( const std::vector<HexInterse
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Populates return arrays.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogExtractor::populateReturnArrays( std::map<RigMDCellIdxEnterLeaveKey, HexIntersectionInfo>& uniqueIntersections )
 {
@@ -429,7 +431,7 @@ void RigWellLogExtractor::populateReturnArrays( std::map<RigMDCellIdxEnterLeaveK
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends intersection to arrays.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogExtractor::appendIntersectionToArrays( double measuredDepth, const HexIntersectionInfo& intersection, QStringList* errorMessages )
 {

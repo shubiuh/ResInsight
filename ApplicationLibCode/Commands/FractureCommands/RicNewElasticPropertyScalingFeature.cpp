@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new elastic property scaling command support.
 
 #include "RicNewElasticPropertyScalingFeature.h"
 

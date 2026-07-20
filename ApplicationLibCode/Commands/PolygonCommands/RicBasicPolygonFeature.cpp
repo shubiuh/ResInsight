@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements basic polygon command support.
 
 #include "RicBasicPolygonFeature.h"
 

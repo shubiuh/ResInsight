@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares case to case range filter mapper reservoir-data functionality.
 #pragma once
 
 #include <cstddef>
@@ -25,6 +27,7 @@ class RigMainGrid;
 class RigFemPart;
 struct RigRangeEndPoints;
 
+/// @brief Maps case to case range filter mapper.
 class RigCaseToCaseRangeFilterMapper
 {
 public:

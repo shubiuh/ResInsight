@@ -15,11 +15,14 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares transmissibility equations reservoir-data functionality.
 
 #pragma once
 
 #include "cvfVector3.h"
 
+/// @brief Models transmissibility equations for reservoir-data processing.
 class RigTransmissibilityEquations
 {
 public:

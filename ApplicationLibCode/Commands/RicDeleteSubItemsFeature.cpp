@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete sub items command support.
 
 #include "RicDeleteSubItemsFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements case realization parameters reservoir-data functionality.
 
 #include "RigCaseRealizationParameters.h"
 
@@ -25,7 +27,7 @@
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a Value instance.
 //--------------------------------------------------------------------------------------------------
 RigCaseRealizationParameters::Value::Value()
     : m_valueType( TYPE_NONE )
@@ -34,7 +36,7 @@ RigCaseRealizationParameters::Value::Value()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a Value instance.
 //--------------------------------------------------------------------------------------------------
 RigCaseRealizationParameters::Value::Value( double value )
     : Value()
@@ -43,7 +45,7 @@ RigCaseRealizationParameters::Value::Value( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a Value instance.
 //--------------------------------------------------------------------------------------------------
 RigCaseRealizationParameters::Value::Value( const QString& value )
     : Value()
@@ -52,7 +54,7 @@ RigCaseRealizationParameters::Value::Value( const QString& value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets value.
 //--------------------------------------------------------------------------------------------------
 void RigCaseRealizationParameters::Value::setValue( double value )
 {
@@ -61,7 +63,7 @@ void RigCaseRealizationParameters::Value::setValue( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets value.
 //--------------------------------------------------------------------------------------------------
 void RigCaseRealizationParameters::Value::setValue( const QString& value )
 {
@@ -70,7 +72,7 @@ void RigCaseRealizationParameters::Value::setValue( const QString& value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the numeric value.
 //--------------------------------------------------------------------------------------------------
 double RigCaseRealizationParameters::Value::numericValue() const
 {
@@ -78,7 +80,7 @@ double RigCaseRealizationParameters::Value::numericValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the text value.
 //--------------------------------------------------------------------------------------------------
 const QString& RigCaseRealizationParameters::Value::textValue() const
 {
@@ -86,7 +88,7 @@ const QString& RigCaseRealizationParameters::Value::textValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds parameter.
 //--------------------------------------------------------------------------------------------------
 void RigCaseRealizationParameters::addParameter( const QString& name, double value )
 {
@@ -94,7 +96,7 @@ void RigCaseRealizationParameters::addParameter( const QString& name, double val
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds parameter.
 //--------------------------------------------------------------------------------------------------
 void RigCaseRealizationParameters::addParameter( const QString& name, const QString& value )
 {
@@ -102,7 +104,7 @@ void RigCaseRealizationParameters::addParameter( const QString& name, const QStr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parameter value.
 //--------------------------------------------------------------------------------------------------
 RigCaseRealizationParameters::Value RigCaseRealizationParameters::parameterValue( const QString& name )
 {
@@ -111,7 +113,7 @@ RigCaseRealizationParameters::Value RigCaseRealizationParameters::parameterValue
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parameters.
 //--------------------------------------------------------------------------------------------------
 std::map<QString, RigCaseRealizationParameters::Value> RigCaseRealizationParameters::parameters() const
 {
@@ -119,7 +121,7 @@ std::map<QString, RigCaseRealizationParameters::Value> RigCaseRealizationParamet
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parameter names.
 //--------------------------------------------------------------------------------------------------
 std::set<QString> RigCaseRealizationParameters::parameterNames() const
 {
@@ -130,7 +132,7 @@ std::set<QString> RigCaseRealizationParameters::parameterNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parameter hash.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseRealizationParameters::parameterHash( const QString& name ) const
 {
@@ -160,7 +162,7 @@ size_t RigCaseRealizationParameters::parameterHash( const QString& name ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parameters hash.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseRealizationParameters::parametersHash()
 {
@@ -169,7 +171,7 @@ size_t RigCaseRealizationParameters::parametersHash()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the realization number.
 //--------------------------------------------------------------------------------------------------
 int RigCaseRealizationParameters::realizationNumber() const
 {
@@ -177,7 +179,7 @@ int RigCaseRealizationParameters::realizationNumber() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets realization number.
 //--------------------------------------------------------------------------------------------------
 void RigCaseRealizationParameters::setRealizationNumber( int realization )
 {
@@ -185,7 +187,7 @@ void RigCaseRealizationParameters::setRealizationNumber( int realization )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears parameters hash.
 //--------------------------------------------------------------------------------------------------
 void RigCaseRealizationParameters::clearParametersHash()
 {
@@ -193,7 +195,7 @@ void RigCaseRealizationParameters::clearParametersHash()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates parameters hash.
 //--------------------------------------------------------------------------------------------------
 void RigCaseRealizationParameters::calculateParametersHash( const std::set<QString>& paramNames /*= std::set<QString>()*/ )
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new derived ensemble command support.
 
 #include "RicNewDerivedEnsembleFeature.h"
 

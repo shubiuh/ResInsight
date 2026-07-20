@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste ensemble curve set command support.
 
 #include "RicPasteEnsembleCurveSetFeature.h"
 

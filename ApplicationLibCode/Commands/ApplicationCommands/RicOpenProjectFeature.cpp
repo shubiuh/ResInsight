@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements open project command support.
 
 #include "RicOpenProjectFeature.h"
 

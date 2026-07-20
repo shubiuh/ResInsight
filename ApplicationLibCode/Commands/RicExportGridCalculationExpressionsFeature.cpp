@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export grid calculation expressions command support.
 
 #include "RicExportGridCalculationExpressionsFeature.h"
 

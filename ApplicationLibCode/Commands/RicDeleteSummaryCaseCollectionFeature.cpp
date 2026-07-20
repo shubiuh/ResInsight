@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete summary case collection command support.
 
 #include "RicDeleteSummaryCaseCollectionFeature.h"
 

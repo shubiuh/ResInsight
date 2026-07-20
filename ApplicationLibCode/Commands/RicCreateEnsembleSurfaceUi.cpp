@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create ensemble surface command support.
 
 #include "RicCreateEnsembleSurfaceUi.h"
 

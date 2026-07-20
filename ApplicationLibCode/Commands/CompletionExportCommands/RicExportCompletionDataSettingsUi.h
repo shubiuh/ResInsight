@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export completion data settings command support.
 
 #pragma once
 
@@ -25,8 +27,7 @@
 #include "cafPdmField.h"
 
 //==================================================================================================
-///
-///
+/// @brief UI model for configuring export completion data settings.
 //==================================================================================================
 class RicExportCompletionDataSettingsUi : public RicCaseAndFileExportSettingsUi
 {
@@ -51,6 +52,7 @@ public:
 
     using TransScalingWBHPSource = caf::AppEnum<RicExportFractureCompletionsImpl::PressureDepletionWBHPSource>;
 
+    /// Constructs the command object.
     RicExportCompletionDataSettingsUi();
 
     caf::PdmField<int> timeStep;
@@ -71,30 +73,46 @@ public:
 
     caf::PdmField<bool> includeFractures;
 
+    /// Performs the enable include MSW command operation.
     void enableIncludeMsw();
 
+    /// Shows fracture in.
     void showFractureInUi( bool enable );
+    /// Shows perforations in.
     void showPerforationsInUi( bool enable );
+    /// Shows fishbones in.
     void showFishbonesInUi( bool enable );
 
+    /// Sets export data source as comment.
     void setExportDataSourceAsComment( bool enable );
+    /// Exports data source as comment.
     bool exportDataSourceAsComment() const;
 
+    /// Sets export welspec.
     void setExportWelspec( bool enable );
+    /// Exports welspec.
     bool exportWelspec() const;
 
+    /// Sets export completion welspec after main bore.
     void setExportCompletionWelspecAfterMainBore( bool enable );
+    /// Exports completion welspec after main bore.
     bool exportCompletionWelspecAfterMainBore() const;
 
+    /// Sets custom file name.
     void    setCustomFileName( const QString& fileName );
+    /// @return The custom file name.
     QString customFileName() const;
 
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
 
 protected:
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
+    /// Defines the field ordering used by the command UI.
     void                          defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
+    /// @return The generate well production start strings.
     std::map<int, std::vector<std::pair<QString, QString>>> generateWellProductionStartStrings();
 
 private:

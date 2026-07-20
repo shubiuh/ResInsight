@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares formation names reservoir-data functionality.
 
 #pragma once
 
@@ -25,6 +27,7 @@
 
 #include "cvfColor3.h"
 
+/// @brief Models formation names for reservoir-data processing.
 class RigFormationNames
 {
 public:

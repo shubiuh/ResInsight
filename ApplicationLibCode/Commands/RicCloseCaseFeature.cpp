@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements close case command support.
 
 #include "RicCloseCaseFeature.h"
 

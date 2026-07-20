@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements polygon from image command support.
 
 #include "RicPolygonFromImageDialog.h"
 

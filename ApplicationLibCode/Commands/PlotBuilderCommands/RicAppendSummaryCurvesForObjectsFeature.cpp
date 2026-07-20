@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements append summary curves for objects command support.
 
 #include "RicAppendSummaryCurvesForObjectsFeature.h"
 

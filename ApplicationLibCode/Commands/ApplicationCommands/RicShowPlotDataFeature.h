@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares show plot data command support.
 
 #pragma once
 
@@ -27,21 +29,27 @@ class RimPlotWindow;
 class RimTabbedTextProvider;
 
 //==================================================================================================
-///
+/// @brief Command feature for show plot data.
 //==================================================================================================
 class RicShowPlotDataFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Gets selection.
     void getSelection( std::vector<RimPlotWindow*>& selection ) const;
 
 public:
+    /// Shows tabbed text window.
     static void showTabbedTextWindow( std::unique_ptr<RimTabbedTextProvider> textProvider );
+    /// Shows text window.
     static void showTextWindow( const QString& title, const QString& text );
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new multi plot command support.
 
 #pragma once
 
@@ -28,22 +30,28 @@
 class RimPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for new multi plot.
 //==================================================================================================
 class RicNewMultiPlotFeature : public caf::CmdFeature, public RicfCommandObject
 {
     RICF_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicNewMultiPlotFeature();
 
+    /// Executes command support.
     caf::PdmScriptResponse execute() override;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The selected plots.
     static std::vector<RimPlot*> selectedPlots();
 
 private:

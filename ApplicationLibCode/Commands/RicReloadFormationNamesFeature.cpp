@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reload formation names command support.
 
 #include "RicReloadFormationNamesFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens export to sharing server command support.
 
 #include "RicHoloLensExportToSharingServerFeature.h"
 #include "RicHoloLensSession.h"

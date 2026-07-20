@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements append intersection command support.
 
 #include "RicAppendIntersectionFeature.h"
 

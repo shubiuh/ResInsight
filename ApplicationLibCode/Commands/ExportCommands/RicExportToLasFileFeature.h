@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export to LAS file command support.
 
 #pragma once
 
@@ -29,13 +31,14 @@ class RimWellLogCurve;
 class RimWellLogPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for export to LAS file.
 //==================================================================================================
 class RicExportToLasFileFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Exports to LAS files.
     static std::vector<QString> exportToLasFiles( const QString&        exportFolder,
                                                   const QString&        filePrefix,
                                                   const RimWellLogPlot* plotWindow,
@@ -45,6 +48,7 @@ public:
                                                   double                resampleInterval,
                                                   bool                  convertCurveUnits );
 
+    /// Exports to LAS files.
     static std::vector<QString> exportToLasFiles( const QString&                exportFolder,
                                                   const QString&                filePrefix,
                                                   std::vector<RimWellLogCurve*> curves,
@@ -56,7 +60,10 @@ public:
                                                   bool                          convertCurveUnits );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

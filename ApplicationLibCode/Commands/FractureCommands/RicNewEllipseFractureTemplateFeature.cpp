@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new ellipse fracture template command support.
 
 #include "RicNewEllipseFractureTemplateFeature.h"
 

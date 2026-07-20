@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares edit preferences command support.
 
 #pragma once
 
@@ -24,18 +26,22 @@
 class RiaPreferences;
 
 //==================================================================================================
-///
+/// @brief Command feature for edit preferences.
 //==================================================================================================
 class RicEditPreferencesFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The clone preferences.
     static std::unique_ptr<RiaPreferences> clonePreferences( const RiaPreferences* preferences );
 
 private:
+    /// Shows help.
     void showHelp();
 };

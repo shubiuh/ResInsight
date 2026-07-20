@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares select plot template command support.
 
 #pragma once
 
@@ -29,23 +31,29 @@ class RimPlotTemplateFileItem;
 class RimPlotTemplateFolderItem;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring select plot template.
 //==================================================================================================
 class RicSelectPlotTemplateUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSelectPlotTemplateUi();
 
+    /// Sets multi select mode.
     void setMultiSelectMode( bool multiSelect );
+    /// Sets initial selection.
     void setInitialSelection( const std::vector<QString>& selectedTemplates );
 
+    /// @return The selected plot templates.
     std::vector<RimPlotTemplateFileItem*> selectedPlotTemplates();
 
 private:
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 
 private:

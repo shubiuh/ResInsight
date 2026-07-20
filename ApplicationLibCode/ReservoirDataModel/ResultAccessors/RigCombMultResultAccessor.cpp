@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to comb mult result.
 
 #include "RigCombMultResultAccessor.h"
 
@@ -26,7 +28,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCombMultResultAccessor instance.
 //--------------------------------------------------------------------------------------------------
 RigCombMultResultAccessor::RigCombMultResultAccessor( const RigGridBase* grid )
     : m_grid( grid )
@@ -34,7 +36,7 @@ RigCombMultResultAccessor::RigCombMultResultAccessor( const RigGridBase* grid )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets mult result accessors.
 //--------------------------------------------------------------------------------------------------
 void RigCombMultResultAccessor::setMultResultAccessors( RigResultAccessor* multXPosAccessor,
                                                         RigResultAccessor* multXNegAccessor,
@@ -52,7 +54,7 @@ void RigCombMultResultAccessor::setMultResultAccessors( RigResultAccessor* multX
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar.
 //--------------------------------------------------------------------------------------------------
 double RigCombMultResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 {
@@ -62,7 +64,7 @@ double RigCombMultResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar.
 //--------------------------------------------------------------------------------------------------
 double RigCombMultResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {
@@ -85,7 +87,7 @@ double RigCombMultResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the native mult scalar.
 //--------------------------------------------------------------------------------------------------
 double RigCombMultResultAccessor::nativeMultScalar( size_t gridLocalCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {
@@ -158,7 +160,7 @@ double RigCombMultResultAccessor::nativeMultScalar( size_t gridLocalCellIndex, c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigCombMultResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) const
 {
@@ -168,7 +170,7 @@ double RigCombMultResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigCombMultResultAccessor::cellFaceScalarGlobIdx( size_t globCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {

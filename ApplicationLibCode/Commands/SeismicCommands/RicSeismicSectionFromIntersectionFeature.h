@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares seismic section from intersection command support.
 
 #pragma once
 
@@ -24,17 +26,21 @@
 class RimExtrudedCurveIntersection;
 
 //==================================================================================================
-///
+/// @brief Command feature for seismic section from intersection.
 //==================================================================================================
 class RicSeismicSectionFromIntersectionFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The selected intersection.
     RimExtrudedCurveIntersection* getSelectedIntersection() const;
 };

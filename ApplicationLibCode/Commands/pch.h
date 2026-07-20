@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Precompiled header for the Commands library.
 
 #include "cafAssert.h"
 #include "cafCmdFeature.h"

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares save Eclipse result as input property command support.
 
 #pragma once
 
@@ -25,18 +27,23 @@ class RimEclipseView;
 class RimEclipseCellColors;
 
 //==================================================================================================
-///
+/// @brief Command feature for save Eclipse result as input property.
 //==================================================================================================
 class RicSaveEclipseResultAsInputPropertyFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The selected Eclipse view.
     RimEclipseView*       selectedEclipseView() const;
+    /// @return The selected Eclipse cell colors.
     RimEclipseCellColors* selectedEclipseCellColors() const;
 };

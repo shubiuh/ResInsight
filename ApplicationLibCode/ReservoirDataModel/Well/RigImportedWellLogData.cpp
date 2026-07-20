@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of imported well log data.
 
 #include "RigImportedWellLogData.h"
 
@@ -25,7 +27,7 @@
 const double RigImportedWellLogData::MISSING_VALUE = -9999.0;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigImportedWellLogData instance.
 //--------------------------------------------------------------------------------------------------
 RigImportedWellLogData::RigImportedWellLogData()
     : RigWellLogData()
@@ -33,14 +35,14 @@ RigImportedWellLogData::RigImportedWellLogData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigImportedWellLogData instance.
 //--------------------------------------------------------------------------------------------------
 RigImportedWellLogData::~RigImportedWellLogData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well log channel names.
 //--------------------------------------------------------------------------------------------------
 QStringList RigImportedWellLogData::wellLogChannelNames() const
 {
@@ -53,7 +55,7 @@ QStringList RigImportedWellLogData::wellLogChannelNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigImportedWellLogData::depthValues() const
 {
@@ -61,7 +63,7 @@ std::vector<double> RigImportedWellLogData::depthValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvd msl values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigImportedWellLogData::tvdMslValues() const
 {
@@ -69,7 +71,7 @@ std::vector<double> RigImportedWellLogData::tvdMslValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvd rkb values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigImportedWellLogData::tvdRkbValues() const
 {
@@ -77,7 +79,7 @@ std::vector<double> RigImportedWellLogData::tvdRkbValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigImportedWellLogData::values( const QString& name ) const
 {
@@ -90,7 +92,7 @@ std::vector<double> RigImportedWellLogData::values( const QString& name ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well log channel unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigImportedWellLogData::wellLogChannelUnitString( const QString& wellLogChannelName ) const
 {
@@ -100,7 +102,7 @@ QString RigImportedWellLogData::wellLogChannelUnitString( const QString& wellLog
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigImportedWellLogData::depthUnitString() const
 {
@@ -108,7 +110,7 @@ QString RigImportedWellLogData::depthUnitString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether tvd msl channel is available.
 //--------------------------------------------------------------------------------------------------
 bool RigImportedWellLogData::hasTvdMslChannel() const
 {
@@ -116,7 +118,7 @@ bool RigImportedWellLogData::hasTvdMslChannel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether tvd rkb channel is available.
 //--------------------------------------------------------------------------------------------------
 bool RigImportedWellLogData::hasTvdRkbChannel() const
 {
@@ -124,7 +126,7 @@ bool RigImportedWellLogData::hasTvdRkbChannel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns missing value.
 //--------------------------------------------------------------------------------------------------
 double RigImportedWellLogData::getMissingValue() const
 {
@@ -132,7 +134,7 @@ double RigImportedWellLogData::getMissingValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets channel data.
 //--------------------------------------------------------------------------------------------------
 void RigImportedWellLogData::setChannelData( const QString& channelName, const std::vector<double>& values )
 {
@@ -140,7 +142,7 @@ void RigImportedWellLogData::setChannelData( const QString& channelName, const s
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets depth values.
 //--------------------------------------------------------------------------------------------------
 void RigImportedWellLogData::setDepthValues( const std::vector<double>& depthValues )
 {
@@ -148,7 +150,7 @@ void RigImportedWellLogData::setDepthValues( const std::vector<double>& depthVal
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets tvd msl values.
 //--------------------------------------------------------------------------------------------------
 void RigImportedWellLogData::setTvdMslValues( const std::vector<double>& tvdMslValues )
 {
@@ -156,7 +158,7 @@ void RigImportedWellLogData::setTvdMslValues( const std::vector<double>& tvdMslV
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets tvd rkb values.
 //--------------------------------------------------------------------------------------------------
 void RigImportedWellLogData::setTvdRkbValues( const std::vector<double>& tvdRkbValues )
 {

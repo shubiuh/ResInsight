@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares polyline3d command support.
 
 #pragma once
 
@@ -23,6 +25,7 @@
 
 #include <memory>
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PickEventHandler;
@@ -31,7 +34,7 @@ class PickEventHandler;
 class RicPolylineTarget3dEditor;
 
 //==================================================================================================
-///
+/// @brief Supports polyline3d editor attribute command workflows.
 //==================================================================================================
 class RicPolyline3dEditorAttribute : public caf::PdmUiEditorAttribute
 {
@@ -47,17 +50,20 @@ public:
 };
 
 //==================================================================================================
-///
+/// @brief Interactive editor for polyline3d.
 //==================================================================================================
 class RicPolyline3dEditor : public caf::PdmUi3dObjectEditorHandle
 {
     CAF_PDM_UI_3D_OBJECT_EDITOR_HEADER_INIT;
     Q_OBJECT
 public:
+    /// Constructs the command object.
     RicPolyline3dEditor();
+    /// Destroys the command object.
     ~RicPolyline3dEditor() override;
 
 protected:
+    /// Configures and update.
     void configureAndUpdateUi( const QString& uiConfigName ) override;
 
 private:

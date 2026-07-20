@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements result modifier factory reservoir-data functionality.
 
 #include "RigResultModifierFactory.h"
 
@@ -27,7 +29,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates result modifier.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RigResultModifier> RigResultModifierFactory::createResultModifier( RigEclipseCaseData*            eclipseCase,
                                                                             size_t                         gridIndex,

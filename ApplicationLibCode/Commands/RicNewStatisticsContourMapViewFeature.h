@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new statistics contour map view command support.
 
 #pragma once
 
@@ -24,18 +26,23 @@ class RimStatisticsContourMapView;
 class RimStatisticsContourMap;
 
 //==================================================================================================
-///
+/// @brief Command feature for new statistics contour map view.
 //==================================================================================================
 class RicNewStatisticsContourMapViewFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// Creates and add view.
     static RimStatisticsContourMapView* createAndAddView( RimStatisticsContourMap* statisticsContourMap );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Creates statistics contour map view.
     static RimStatisticsContourMapView* createStatisticsContourMapView( RimStatisticsContourMap* statisticsContourMap );
 };

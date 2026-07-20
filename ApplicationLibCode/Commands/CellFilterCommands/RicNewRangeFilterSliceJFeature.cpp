@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new range filter slice J command support.
 
 #include "RicNewRangeFilterSliceJFeature.h"
 

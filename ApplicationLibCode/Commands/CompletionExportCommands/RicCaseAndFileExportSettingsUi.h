@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares case and file export settings command support.
 
 #pragma once
 
@@ -25,21 +27,23 @@
 #include "cafPdmPtrField.h"
 
 //==================================================================================================
-///
-///
+/// @brief UI model for configuring case and file export settings.
 //==================================================================================================
 class RicCaseAndFileExportSettingsUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicCaseAndFileExportSettingsUi();
 
     caf::PdmField<QString>            folder;
     caf::PdmPtrField<RimEclipseCase*> caseToApply;
 
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 protected:
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 };

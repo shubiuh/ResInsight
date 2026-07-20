@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements set parent well path command support.
 
 #include "RicSetParentWellPathFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well log index depth offset reservoir-data functionality.
 #pragma once
 
 #include "cvfObject.h"
@@ -22,6 +24,7 @@
 #include <map>
 #include <vector>
 
+/// @brief Models well log index depth offset for reservoir-data processing.
 class RigWellLogIndexDepthOffset : public cvf::Object
 {
 public:

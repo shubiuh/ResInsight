@@ -16,19 +16,23 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well paths import OSDU command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for well paths import OSDU.
 //==================================================================================================
 class RicWellPathsImportOsduFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new valve at measured depth command support.
 #include "RicNewValveAtMeasuredDepthFeature.h"
 
 #include "WellPathCommands/RicWellPathsUnitSystemSettingsImpl.h"

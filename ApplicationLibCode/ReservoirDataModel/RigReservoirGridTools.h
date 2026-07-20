@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for reservoir grid.
 
 #pragma once
 
@@ -40,6 +42,7 @@ class QString;
 ///
 ///
 //==================================================================================================
+/// @brief Provides utilities for reservoir grid.
 class RigReservoirGridTools
 {
 public:
@@ -51,6 +54,7 @@ public:
     static const RigActiveCellInfo* activeCellInfo( Rim3dView* rimView );
 
     template <class InputIterator>
+    /// Returns or processes global cell indices to one based ijk text.
     static QString globalCellIndicesToOneBasedIJKText( InputIterator first, InputIterator last, const RigMainGrid* mainGrid );
 
     static void refreshEclipseCaseDataAndViews( RimEclipseCase* eclipseCase );

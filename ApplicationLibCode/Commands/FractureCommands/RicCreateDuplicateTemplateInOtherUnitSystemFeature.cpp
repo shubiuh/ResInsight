@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create duplicate template in other unit system command support.
 
 #include "RicCreateDuplicateTemplateInOtherUnitSystemFeature.h"
 

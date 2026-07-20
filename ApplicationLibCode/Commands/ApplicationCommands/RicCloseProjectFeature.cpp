@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements close project command support.
 
 #include "RicCloseProjectFeature.h"
 

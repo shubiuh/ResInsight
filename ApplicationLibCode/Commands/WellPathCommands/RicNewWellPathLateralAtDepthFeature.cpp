@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well path lateral at depth command support.
 
 #include "RicNewWellPathLateralAtDepthFeature.h"
 

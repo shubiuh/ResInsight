@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well log import command support.
 
 #pragma once
 
@@ -37,6 +39,7 @@ class QTableView;
 
 class RimWellPathImport;
 
+/// @brief Supports OSDU well log table model command workflows.
 class OsduWellLogTableModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -167,19 +170,23 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Supports well log authentication page command workflows.
 //--------------------------------------------------------------------------------------------------
 class WellLogAuthenticationPage : public QWizardPage
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     WellLogAuthenticationPage( RiaOsduConnector* osduConnector, QWidget* parent = nullptr );
 
+    /// Performs the initialize page command operation.
     void initializePage() override;
+    /// @return Whether complete.
     bool isComplete() const override;
 
 private slots:
+    /// Performs the access ok command operation.
     void accessOk();
 
 private:
@@ -189,21 +196,27 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Supports well log selection page command workflows.
 //--------------------------------------------------------------------------------------------------
 class WellLogSelectionPage : public QWizardPage
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     WellLogSelectionPage( RiaOsduConnector* m_osduConnector, QWidget* parent = nullptr );
+    /// Destroys the command object.
     ~WellLogSelectionPage() override;
 
+    /// Performs the initialize page command operation.
     void initializePage() override;
+    /// @return Whether complete.
     bool isComplete() const override;
 
 private slots:
+    /// Performs the well logs finished command operation.
     void wellLogsFinished( const QString& wellboreId );
+    /// Selects well logs.
     void selectWellLogs( const QItemSelection& newSelection, const QItemSelection& oldSelection );
 
 private:
@@ -216,25 +229,33 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Wizard for well log import.
 //--------------------------------------------------------------------------------------------------
 class RiuWellLogImportWizard : public QWizard
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     RiuWellLogImportWizard( RiaOsduConnector* osduConnector, const QString& wellboreId, QWidget* parent = nullptr );
+    /// Destroys the command object.
     ~RiuWellLogImportWizard() override;
 
+    /// Sets selected well logs.
     void                 setSelectedWellLogs( const std::vector<QString>& wellLogIds );
+    /// @return The selected well logs.
     std::vector<QString> selectedWellLogs() const;
 
+    /// Adds well log.
     void                     addWellLog( OsduWellLog wellLogInfo );
+    /// Imports ed well logs.
     std::vector<OsduWellLog> importedWellLogs() const;
 
+    /// @return The wellbore ID.
     QString wellboreId() const;
 
 public slots:
+    /// Performs the download well logs command operation.
     void downloadWellLogs( const QString& wellboreId );
 
 private:

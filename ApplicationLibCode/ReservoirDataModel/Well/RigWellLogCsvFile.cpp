@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well log csv file reservoir-data functionality.
 
 #include "RigWellLogCsvFile.h"
 
@@ -37,7 +39,7 @@
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellLogCsvFile instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogCsvFile::RigWellLogCsvFile()
     : RigWellLogData()
@@ -45,7 +47,7 @@ RigWellLogCsvFile::RigWellLogCsvFile()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigWellLogCsvFile instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogCsvFile::~RigWellLogCsvFile()
 {
@@ -53,7 +55,7 @@ RigWellLogCsvFile::~RigWellLogCsvFile()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the open.
 //--------------------------------------------------------------------------------------------------
 bool RigWellLogCsvFile::open( const QString& fileName, RigWellPath* wellPath, QString* errorMessage )
 {
@@ -136,7 +138,7 @@ bool RigWellLogCsvFile::open( const QString& fileName, RigWellPath* wellPath, QS
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the close.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogCsvFile::close()
 {
@@ -147,7 +149,7 @@ void RigWellLogCsvFile::close()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well log channel names.
 //--------------------------------------------------------------------------------------------------
 QStringList RigWellLogCsvFile::wellLogChannelNames() const
 {
@@ -155,7 +157,7 @@ QStringList RigWellLogCsvFile::wellLogChannelNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCsvFile::depthValues() const
 {
@@ -163,7 +165,7 @@ std::vector<double> RigWellLogCsvFile::depthValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvd msl values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCsvFile::tvdMslValues() const
 {
@@ -171,7 +173,7 @@ std::vector<double> RigWellLogCsvFile::tvdMslValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvd rkb values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCsvFile::tvdRkbValues() const
 {
@@ -180,7 +182,7 @@ std::vector<double> RigWellLogCsvFile::tvdRkbValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCsvFile::values( const QString& name ) const
 {
@@ -189,7 +191,7 @@ std::vector<double> RigWellLogCsvFile::values( const QString& name ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigWellLogCsvFile::depthUnitString() const
 {
@@ -197,7 +199,7 @@ QString RigWellLogCsvFile::depthUnitString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well log channel unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigWellLogCsvFile::wellLogChannelUnitString( const QString& wellLogChannelName ) const
 {
@@ -209,7 +211,7 @@ QString RigWellLogCsvFile::wellLogChannelUnitString( const QString& wellLogChann
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether tvd msl channel is available.
 //--------------------------------------------------------------------------------------------------
 bool RigWellLogCsvFile::hasTvdMslChannel() const
 {
@@ -217,7 +219,7 @@ bool RigWellLogCsvFile::hasTvdMslChannel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether tvd rkb channel is available.
 //--------------------------------------------------------------------------------------------------
 bool RigWellLogCsvFile::hasTvdRkbChannel() const
 {
@@ -225,7 +227,7 @@ bool RigWellLogCsvFile::hasTvdRkbChannel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns missing value.
 //--------------------------------------------------------------------------------------------------
 double RigWellLogCsvFile::getMissingValue() const
 {
@@ -233,7 +235,7 @@ double RigWellLogCsvFile::getMissingValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the resample well path.
 //--------------------------------------------------------------------------------------------------
 RigWellPath* RigWellLogCsvFile::resampleWellPath( const RigWellPath& wellPath, double samplingInterval )
 {
@@ -249,7 +251,7 @@ RigWellPath* RigWellLogCsvFile::resampleWellPath( const RigWellPath& wellPath, d
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the resample measured depths.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCsvFile::resampleMeasuredDepths( const std::vector<double>& measuredDepths, double samplingInterval )
 {

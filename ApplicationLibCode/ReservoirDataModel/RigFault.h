@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fault reservoir-data functionality.
 
 #pragma once
 
@@ -36,6 +38,7 @@ class RigMainGrid;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models faults pr cell accumulator for reservoir-data processing.
 class RigFaultsPrCellAccumulator : public cvf::Object
 {
 public:
@@ -59,13 +62,17 @@ private:
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models fault for reservoir-data processing.
 class RigFault : public cvf::Object
 {
 public:
+    /// Type alias used for cell and face.
     using CellAndFace = std::tuple<size_t, size_t, size_t, cvf::StructGridInterface::FaceType>;
 
+    /// @brief Models fault face for reservoir-data processing.
     struct FaultFace
     {
+        /// Returns or processes fault face.
         FaultFace( size_t nativeReservoirCellIndex, cvf::StructGridInterface::FaceType nativeFace, size_t oppositeReservoirCellIndex )
             : m_nativeReservoirCellIndex( nativeReservoirCellIndex )
             , m_nativeFace( nativeFace )
@@ -73,8 +80,11 @@ public:
         {
         }
 
+        /// Stores native reservoir cell index.
         size_t                             m_nativeReservoirCellIndex;
+        /// Stores native face.
         cvf::StructGridInterface::FaceType m_nativeFace;
+        /// Stores opposite reservoir cell index.
         size_t                             m_oppositeReservoirCellIndex;
     };
 

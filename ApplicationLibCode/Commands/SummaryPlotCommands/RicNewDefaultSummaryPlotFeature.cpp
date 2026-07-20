@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new default summary plot command support.
 
 #include "RicNewDefaultSummaryPlotFeature.h"
 

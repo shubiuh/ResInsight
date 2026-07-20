@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add grid calculation command support.
 
 #include "RicAddGridCalculationFeature.h"
 #include "RicShowGridCalculatorFeature.h"

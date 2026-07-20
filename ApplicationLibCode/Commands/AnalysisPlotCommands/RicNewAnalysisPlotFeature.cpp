@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new analysis plot command support.
 
 #include "RicNewAnalysisPlotFeature.h"
 

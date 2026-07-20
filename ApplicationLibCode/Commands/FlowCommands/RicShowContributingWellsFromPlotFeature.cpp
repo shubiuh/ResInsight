@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show contributing wells from plot command support.
 
 #include "RicShowContributingWellsFromPlotFeature.h"
 

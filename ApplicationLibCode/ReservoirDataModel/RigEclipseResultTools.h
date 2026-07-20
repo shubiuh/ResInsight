@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for eclipse result.
 
 #pragma once
 
@@ -31,6 +33,7 @@ class RigGridExportAdapter;
 
 namespace RigEclipseResultTools
 {
+/// Enumerates the supported border type values.
 enum BorderType : int
 {
     INVISIBLE_CELL = 0,
@@ -38,10 +41,14 @@ enum BorderType : int
     INTERIOR_CELL  = 2
 };
 
+/// @brief Models border cell face for reservoir-data processing.
 struct BorderCellFace
 {
+    /// Stores ijk.
     caf::VecIjk0                       ijk; // Cell indices (0-based)
+    /// Stores face type.
     cvf::StructGridInterface::FaceType faceType;
+    /// Stores boundary condition.
     int                                boundaryCondition; // BCCON grid value
 };
 

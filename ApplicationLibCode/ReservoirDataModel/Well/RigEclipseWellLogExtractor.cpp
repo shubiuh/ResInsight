@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements extraction of eclipse well log extractor.
 
 #include "RigEclipseWellLogExtractor.h"
 
@@ -37,7 +39,7 @@
 #include <map>
 
 //==================================================================================================
-///
+/// Creates a RigEclipseWellLogExtractor instance.
 //==================================================================================================
 
 RigEclipseWellLogExtractor::RigEclipseWellLogExtractor( const RigEclipseCaseData* aCase,
@@ -50,7 +52,7 @@ RigEclipseWellLogExtractor::RigEclipseWellLogExtractor( const RigEclipseCaseData
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates intersection.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseWellLogExtractor::calculateIntersection()
 {
@@ -170,7 +172,7 @@ void RigEclipseWellLogExtractor::calculateIntersection()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the curve data.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseWellLogExtractor::curveData( const RigResultAccessor* resultAccessor, std::vector<double>* values )
 {
@@ -186,7 +188,7 @@ void RigEclipseWellLogExtractor::curveData( const RigResultAccessor* resultAcces
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds close cell indices.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigEclipseWellLogExtractor::findCloseCellIndices( const cvf::BoundingBox& bb )
 {
@@ -194,7 +196,7 @@ std::vector<size_t> RigEclipseWellLogExtractor::findCloseCellIndices( const cvf:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates length in cell.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigEclipseWellLogExtractor::calculateLengthInCell( size_t cellIndex, const cvf::Vec3d& startPoint, const cvf::Vec3d& endPoint ) const
 {
@@ -204,7 +206,7 @@ cvf::Vec3d RigEclipseWellLogExtractor::calculateLengthInCell( size_t cellIndex, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes length threshold.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseWellLogExtractor::computeLengthThreshold() const
 {

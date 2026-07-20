@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fly to object command support.
 
 #pragma once
 
@@ -22,23 +24,28 @@
 
 #include "cvfBoundingBox.h"
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmObject;
 }
 
 //==================================================================================================
-///
+/// @brief Command feature for fly to object.
 //==================================================================================================
 class RicFlyToObjectFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The bounding box for selected objects.
     static cvf::BoundingBox boundingBoxForSelectedObjects();
 };

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements point tangent manipulator command support.
 
 #include "RicPointTangentManipulator.h"
 

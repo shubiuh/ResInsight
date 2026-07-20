@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well measurement import command support.
 
 #include "RicWellMeasurementImportTools.h"
 

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to time history result.
 
 #include "RigTimeHistoryResultAccessor.h"
 
@@ -27,7 +29,7 @@
 // #include <cmath> // Needed for HUGE_VAL on Linux
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time history values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigTimeHistoryResultAccessor::timeHistoryValues( RigEclipseCaseData*         eclipseCaseData,
                                                                      RimEclipseResultDefinition* resultDefinition,
@@ -60,7 +62,7 @@ std::vector<double> RigTimeHistoryResultAccessor::timeHistoryValues( RigEclipseC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the geometry selection text.
 //--------------------------------------------------------------------------------------------------
 QString RigTimeHistoryResultAccessor::geometrySelectionText( RigEclipseCaseData* eclipseCaseData, size_t gridIndex, size_t cellIndex )
 {

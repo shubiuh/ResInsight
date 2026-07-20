@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well log file close command support.
 
 #pragma once
 
@@ -26,16 +28,20 @@ class RimWellLogFile;
 class RimViewWindow;
 
 //==================================================================================================
-///
+/// @brief Command feature for well log file close.
 //==================================================================================================
 class RicWellLogFileCloseFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The referring well log plots.
     std::set<RimViewWindow*> referringWellLogPlots( const RimWellLogFile* wellLogFile );
 };

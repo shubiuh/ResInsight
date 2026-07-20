@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new option item command support.
 
 #include "RicNewOptionItemFeature.h"
 

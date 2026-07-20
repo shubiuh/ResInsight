@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares MSW branch command support.
 
 #pragma once
 
@@ -61,6 +63,7 @@ struct CellSegmentEntry
 /// Convert a WellPathCellIntersectionInfo global-cell index to a RigMswCellIntersection (1-based i,j,k).
 /// Returns std::nullopt for gap-segments (globCellIndex >= totalCellCount).|
 //--------------------------------------------------------------------------------------------------
+/// @return The to MSW cell intersection.
 std::optional<RigMswCellIntersection>
     toMswCellIntersection( const WellPathCellIntersectionInfo& cellInfo, const RigMainGrid* mainGrid, double distanceStart, double distanceEnd );
 
@@ -69,6 +72,7 @@ std::optional<RigMswCellIntersection>
 /// Returns 1 (heel) if cellSegMap is empty; returns the last entry's segment number if md is
 /// beyond the end of all mapped cells.
 //--------------------------------------------------------------------------------------------------
+/// @return The matching outlet segment for MD.
 int findOutletSegmentForMD( const std::vector<CellSegmentEntry>& cellSegMap, double md );
 
 //--------------------------------------------------------------------------------------------------
@@ -76,6 +80,7 @@ int findOutletSegmentForMD( const std::vector<CellSegmentEntry>& cellSegMap, dou
 /// For each grid-cell intersection overlapping a bare perforation (no active valve) a COMPSEGS
 /// entry is embedded.  Optionally fills cellSegMap for later valve outlet-segment lookups.
 //--------------------------------------------------------------------------------------------------
+/// Builds main bore branch.
 RigMswBranch buildMainBoreBranch( const RimWellPath*                                wellPath,
                                   const std::vector<WellPathCellIntersectionInfo>&  filteredIntersections,
                                   const RigMainGrid*                                mainGrid,
@@ -98,6 +103,7 @@ RigMswBranch buildMainBoreBranch( const RimWellPath*                            
 //--------------------------------------------------------------------------------------------------
 /// Build WELSEGS + COMPSEGS segments for ICD/ICV/AICD/SICD valve completions.
 //--------------------------------------------------------------------------------------------------
+/// Builds valve branches.
 std::vector<RigMswBranch> buildValveBranches( const RimWellPath*                                wellPath,
                                               const std::vector<WellPathCellIntersectionInfo>&  filteredIntersections,
                                               const RigMainGrid*                                mainGrid,
@@ -116,6 +122,7 @@ std::vector<RigMswBranch> buildValveBranches( const RimWellPath*                
 //--------------------------------------------------------------------------------------------------
 /// Build WELSEGS + COMPSEGS segments for fracture completions.
 //--------------------------------------------------------------------------------------------------
+/// Builds fracture branches.
 std::vector<RigMswBranch> buildFractureBranches( RimEclipseCase*                      eclipseCase,
                                                  const RimWellPath*                   wellPath,
                                                  const RigMainGrid*                   mainGrid,
@@ -127,6 +134,7 @@ std::vector<RigMswBranch> buildFractureBranches( RimEclipseCase*                
 //--------------------------------------------------------------------------------------------------
 /// Build WELSEGS + COMPSEGS + WSEGVALV segments for fishbones completions.
 //--------------------------------------------------------------------------------------------------
+/// Builds fishbones branches.
 std::vector<RigMswBranch> buildFishbonesBranches( const RimEclipseCase*                            eclipseCase,
                                                   const RimWellPath*                               wellPath,
                                                   const RigMainGrid*                               mainGrid,

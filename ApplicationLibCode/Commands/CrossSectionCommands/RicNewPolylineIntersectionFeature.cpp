@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new polyline intersection command support.
 
 #include "RicNewPolylineIntersectionFeature.h"
 

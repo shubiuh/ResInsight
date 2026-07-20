@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements construction and ordering of RFT/PLT result addresses.
 //
 //  Copyright (C) 2017  Statoil ASA
 //
@@ -170,7 +173,8 @@ bool operator==( const RifEclipseRftAddress& first, const RifEclipseRftAddress& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Orders the identity fields lexicographically. This stable order groups channels
+/// first by well and date, which matches the primary reader and plot queries.
 //--------------------------------------------------------------------------------------------------
 bool operator<( const RifEclipseRftAddress& first, const RifEclipseRftAddress& second )
 {

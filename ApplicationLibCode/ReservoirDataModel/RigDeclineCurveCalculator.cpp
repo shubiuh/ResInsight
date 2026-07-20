@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of decline curve.
 
 #include "RigDeclineCurveCalculator.h"
 
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes decline rate.
 //--------------------------------------------------------------------------------------------------
 double RigDeclineCurveCalculator::computeDeclineRate( double time0, double value0, double time1, double value1 )
 {
@@ -29,7 +31,7 @@ double RigDeclineCurveCalculator::computeDeclineRate( double time0, double value
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes flow rate exponential decline.
 //--------------------------------------------------------------------------------------------------
 double RigDeclineCurveCalculator::computeFlowRateExponentialDecline( double initialProductionRateQi,
                                                                      double initialDeclineRateDi,
@@ -39,7 +41,7 @@ double RigDeclineCurveCalculator::computeFlowRateExponentialDecline( double init
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes flow rate harmonic decline.
 //--------------------------------------------------------------------------------------------------
 double RigDeclineCurveCalculator::computeFlowRateHarmonicDecline( double initialProductionRateQi, double initialDeclineRateDi, double timeSinceStart )
 {
@@ -47,7 +49,7 @@ double RigDeclineCurveCalculator::computeFlowRateHarmonicDecline( double initial
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes flow rate hyperbolic decline.
 //--------------------------------------------------------------------------------------------------
 double RigDeclineCurveCalculator::computeFlowRateHyperbolicDecline( double initialProductionRateQi,
                                                                     double initialDeclineRateDi,
@@ -59,7 +61,7 @@ double RigDeclineCurveCalculator::computeFlowRateHyperbolicDecline( double initi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes cumulative production exponential decline.
 //--------------------------------------------------------------------------------------------------
 double RigDeclineCurveCalculator::computeCumulativeProductionExponentialDecline( double initialProductionRateQi,
                                                                                  double initialDeclineRateDi,
@@ -70,7 +72,7 @@ double RigDeclineCurveCalculator::computeCumulativeProductionExponentialDecline(
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes cumulative production harmonic decline.
 //--------------------------------------------------------------------------------------------------
 double RigDeclineCurveCalculator::computeCumulativeProductionHarmonicDecline( double initialProductionRateQi,
                                                                               double initialDeclineRateDi,
@@ -81,7 +83,7 @@ double RigDeclineCurveCalculator::computeCumulativeProductionHarmonicDecline( do
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes cumulative production hyperbolic decline.
 //--------------------------------------------------------------------------------------------------
 double RigDeclineCurveCalculator::computeCumulativeProductionHyperbolicDecline( double initialProductionRateQi,
                                                                                 double initialDeclineRateDi,

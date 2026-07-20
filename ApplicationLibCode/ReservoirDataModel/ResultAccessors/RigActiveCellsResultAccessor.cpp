@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to active cells result.
 
 #include "RigActiveCellsResultAccessor.h"
 
@@ -34,7 +36,7 @@ RigActiveCellsResultAccessor::RigActiveCellsResultAccessor( const RigGridBase*  
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar.
 //--------------------------------------------------------------------------------------------------
 double RigActiveCellsResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 {
@@ -53,7 +55,7 @@ double RigActiveCellsResultAccessor::cellScalar( size_t gridLocalCellIndex ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar.
 //--------------------------------------------------------------------------------------------------
 double RigActiveCellsResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {
@@ -61,7 +63,7 @@ double RigActiveCellsResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigActiveCellsResultAccessor::cellScalarGlobIdx( size_t reservoirCellIndex ) const
 {
@@ -79,7 +81,7 @@ double RigActiveCellsResultAccessor::cellScalarGlobIdx( size_t reservoirCellInde
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigActiveCellsResultAccessor::cellFaceScalarGlobIdx( size_t globCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {

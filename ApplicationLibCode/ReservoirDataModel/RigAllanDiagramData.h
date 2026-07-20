@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of allan diagram data.
 
 #pragma once
 
@@ -23,14 +25,17 @@
 
 #include <map>
 
+/// @brief Stores allan diagram data.
 class RigAllanDiagramData : public cvf::Object
 {
 public:
     RigAllanDiagramData();
     ~RigAllanDiagramData() override;
 
+    /// Returns or processes formation combination to category.
     const std::map<std::pair<int, int>, int>& formationCombinationToCategory() { return m_formationCombinationToCategory; }
 
+    /// Returns or processes formation index combination from category.
     std::pair<int, int> formationIndexCombinationFromCategory( int category )
     {
         for ( auto it : m_formationCombinationToCategory )
@@ -44,6 +49,7 @@ public:
         return std::make_pair( -1, -1 );
     }
 
+    /// Sets formation combination to categorymap.
     void setFormationCombinationToCategorymap( const std::map<std::pair<int, int>, int>& mapping )
     {
         m_formationCombinationToCategory = mapping;

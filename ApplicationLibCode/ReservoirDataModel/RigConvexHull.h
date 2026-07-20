@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares convex hull reservoir-data functionality.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 ///
 ///
 //==================================================================================================
+/// @brief Models convex hull for reservoir-data processing.
 class RigConvexHull
 {
 public:

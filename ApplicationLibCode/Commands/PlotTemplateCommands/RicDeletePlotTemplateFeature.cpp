@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete plot template command support.
 
 #include "RicDeletePlotTemplateFeature.h"
 

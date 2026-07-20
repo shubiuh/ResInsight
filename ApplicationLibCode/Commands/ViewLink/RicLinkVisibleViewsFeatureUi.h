@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares link visible views feature command support.
 
 #pragma once
 
@@ -28,19 +30,23 @@
 class Rim3dView;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring link visible views feature.
 //==================================================================================================
 class RicLinkVisibleViewsFeatureUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicLinkVisibleViewsFeatureUi();
 
+    /// Sets views.
     void       setViews( const std::vector<Rim3dView*>& allViews );
+    /// @return The master view.
     Rim3dView* masterView();
 
 protected:
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 private:

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares copy intersections to all views in case command support.
 
 #pragma once
 
@@ -29,17 +31,22 @@ class RimBoxIntersection;
 class RimIntersectionCollection;
 
 //==================================================================================================
-///
+/// @brief Command feature for copy intersections to all views in case.
 //==================================================================================================
 class RicCopyIntersectionsToAllViewsInCaseFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Copies intersections to other views.
     void copyIntersectionsToOtherViews( RimCase& gridCase, std::vector<RimExtrudedCurveIntersection*> intersections );
+    /// Copies intersection boxes to other views.
     void copyIntersectionBoxesToOtherViews( RimCase& gridCase, std::vector<RimBoxIntersection*> intersectionBoxes );
 };

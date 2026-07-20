@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path stimplan intersector reservoir-data functionality.
 
 #include "RigWellPathStimplanIntersector.h"
 
@@ -32,7 +34,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellPathStimplanIntersector instance.
 //--------------------------------------------------------------------------------------------------
 RigWellPathStimplanIntersector::RigWellPathStimplanIntersector( const std::vector<cvf::Vec3d>& wellPathPoints, const RimFracture* rimFracture )
 {
@@ -56,7 +58,7 @@ RigWellPathStimplanIntersector::RigWellPathStimplanIntersector( const std::vecto
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the intersections.
 //--------------------------------------------------------------------------------------------------
 const std::map<size_t, RigWellPathStimplanIntersector::RigWellPathStimplanIntersector::WellCellIntersection>&
     RigWellPathStimplanIntersector::intersections() const
@@ -65,7 +67,7 @@ const std::map<size_t, RigWellPathStimplanIntersector::RigWellPathStimplanInters
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigWellPathStimplanIntersector::calculate( const cvf::Mat4d&                           fractureXf,
                                                 const std::vector<cvf::Vec3d>&              wellPathPointsDomainCoords,

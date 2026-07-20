@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new polygon filter3dview command support.
 
 #include "RicNewPolygonFilter3dviewFeature.h"
 

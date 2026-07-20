@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new cell index filter command support.
 
 #include "RicNewCellIndexFilterFeature.h"
 

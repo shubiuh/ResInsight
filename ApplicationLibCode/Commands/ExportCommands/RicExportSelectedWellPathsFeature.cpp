@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export selected well paths command support.
 
 #include "RicExportSelectedWellPathsFeature.h"
 

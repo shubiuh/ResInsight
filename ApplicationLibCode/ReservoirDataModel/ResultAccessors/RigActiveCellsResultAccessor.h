@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares access to active cells result.
 
 #pragma once
 
@@ -27,9 +29,11 @@ class RigActiveCellInfo;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Provides read access to active cells result.
 class RigActiveCellsResultAccessor : public RigResultAccessor
 {
 public:
+    /// Returns or processes active cells result accessor.
     RigActiveCellsResultAccessor( const RigGridBase*         grid,
                                   const std::vector<double>* reservoirResultValues,
                                   const RigActiveCellInfo*   activeCellInfo );

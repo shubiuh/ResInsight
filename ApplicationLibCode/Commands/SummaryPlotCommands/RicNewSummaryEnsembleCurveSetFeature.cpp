@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new summary ensemble curve set command support.
 
 #include "RicNewSummaryEnsembleCurveSetFeature.h"
 

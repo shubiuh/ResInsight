@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements clear source stepping summary curve command support.
 
 #include "RicClearSourceSteppingSummaryCurveFeature.h"
 #include "RicClearSourceSteppingEnsembleCurveSetFeature.h"

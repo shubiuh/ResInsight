@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add3d well log file curve command support.
 
 #include "RicAdd3dWellLogFileCurveFeature.h"
 

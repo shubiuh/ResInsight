@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements append summary plots for objects command support.
 
 #include "RicAppendSummaryPlotsForObjectsFeature.h"
 

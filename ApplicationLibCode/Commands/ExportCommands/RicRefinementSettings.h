@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares refinement settings command support.
 
 #pragma once
 
@@ -32,9 +34,7 @@
 class RigNonUniformRefinement;
 
 //==================================================================================================
-///
 /// Settings for non-uniform grid refinement of a RimRefinementRegion.
-///
 //==================================================================================================
 class RicRefinementSettings : public caf::PdmObject
 {
@@ -50,24 +50,32 @@ public:
 
     using NonUniformSubModeEnum = caf::AppEnum<NonUniformSubMode>;
 
+    /// Constructs the command object.
     RicRefinementSettings();
 
+    /// Sets sector bounds.
     void setSectorBounds( const caf::VecIjk0& min, const caf::VecIjk0& max );
 
     // Data access
     std::unique_ptr<RigRefinement>           effectiveRefinement() const;
+    /// @return The non uniform refinement.
     std::unique_ptr<RigNonUniformRefinement> nonUniformRefinement() const;
+    /// @return Whether non uniform refinement.
     bool                                     hasNonUniformRefinement() const;
 
     // UI integration
     void                       addToUiOrdering( caf::PdmUiOrdering& uiOrdering );
+    /// @return The validate settings.
     std::map<QString, QString> validateSettings() const;
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
 
 private:
+    /// @return The parse widths.
     static std::vector<double> parseWidths( const QString& text );
 
 private:

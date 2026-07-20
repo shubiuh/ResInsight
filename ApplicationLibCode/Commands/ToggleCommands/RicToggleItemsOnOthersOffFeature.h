@@ -16,12 +16,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares toggle items on others off command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 #include "cafPdmField.h"
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmFieldHandle;
@@ -30,19 +33,25 @@ class PdmObjectHandle;
 } // namespace caf
 
 //==================================================================================================
-///
+/// @brief Command feature for toggle items on others off.
 //==================================================================================================
 class RicToggleItemsOnOthersOffFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The common parent for all selections.
     static caf::PdmFieldHandle*               commonParentForAllSelections( const std::vector<caf::PdmObject*>& selectedObjects );
+    /// @return The child objects.
     static std::vector<caf::PdmObjectHandle*> childObjects( caf::PdmFieldHandle* parent );
+    /// @return The object toggle field.
     static caf::PdmField<bool>*               objectToggleField( caf::PdmObjectHandle* objectHandle );
 };

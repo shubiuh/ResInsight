@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new valve template command support.
 
 #pragma once
 
@@ -27,18 +29,23 @@ class RimValveTemplateCollection;
 class RimWellPathValve;
 
 //==================================================================================================
-///
+/// @brief Command feature for new valve template.
 //==================================================================================================
 class RicNewValveTemplateFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Selects valve template and update.
     static void selectValveTemplateAndUpdate( RimValveTemplate* valveTemplate );
+    /// Creates new valve template for valve and update.
     static void createNewValveTemplateForValveAndUpdate( RimWellPathValve* valve );
 
 protected:
+    /// Creates new valve template.
     static RimValveTemplate* createNewValveTemplate();
+    /// Executes the command for the current selection.
     void                     onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void                     setupActionLook( QAction* actionToSetup ) override;
 };

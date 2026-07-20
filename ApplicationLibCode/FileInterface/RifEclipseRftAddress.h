@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Defines the ordered key used to identify RFT and PLT result channels.
 //
 //  Copyright (C) 2017  Statoil ASA
 //
@@ -27,12 +30,16 @@
 #include <QDateTime>
 
 //==================================================================================================
+/// Immutable-style address for one well-log channel at a well and timestamp.
 ///
-///
+/// Segment-result addresses additionally carry a result name, branch index, and
+/// branch type. Equality and ordering make addresses suitable as keys in ordered
+/// sets used throughout the reader interfaces.
 //==================================================================================================
 class RifEclipseRftAddress
 {
 public:
+    /// Supported formation-test, production-log, statistical, and segment channels.
     enum class RftWellLogChannelType
     {
         NONE,
@@ -54,25 +61,30 @@ public:
     };
 
 public:
+    /// Creates a conventional channel address without segment metadata.
     static RifEclipseRftAddress createAddress( const QString& wellName, const QDateTime& timeStep, RftWellLogChannelType wellLogChannel );
 
+    /// Creates a segment-result address not restricted to a particular branch.
     static RifEclipseRftAddress createSegmentAddress( const QString& wellName, const QDateTime& dateTime, const QString& resultName );
 
+    /// Creates a segment-result address for one branch and branch representation.
     static RifEclipseRftAddress createBranchSegmentAddress( const QString&            wellName,
                                                             const QDateTime&          dateTime,
                                                             const QString&            resultName,
                                                             int                       segmentBranchIndex,
                                                             RiaDefines::RftBranchType segmentBranchType );
 
-    QString                   segmentResultName() const;
-    int                       segmentBranchIndex() const;
-    RiaDefines::RftBranchType segmentBranchType() const;
+    QString                   segmentResultName() const;  ///< @return Segment keyword, or empty for conventional channels.
+    int                       segmentBranchIndex() const; ///< @return Branch index, or `-1` when not branch-specific.
+    RiaDefines::RftBranchType segmentBranchType() const;  ///< @return Branch representation used for segment results.
 
-    const QString&               wellName() const;
-    QDateTime                    timeStep() const;
-    const RftWellLogChannelType& wellLogChannel() const;
+    const QString&               wellName() const;       ///< @return Well identifier.
+    QDateTime                    timeStep() const;       ///< @return Result timestamp.
+    const RftWellLogChannelType& wellLogChannel() const; ///< @return Addressed channel.
 
+    /// @return Pressure and pressure-statistics channels normally shown on RFT plots.
     static std::set<RftWellLogChannelType> rftPlotChannelTypes();
+    /// @return Phase-rate channels normally shown on PLT plots.
     static std::set<RftWellLogChannelType> pltPlotChannelTypes();
 
 private:
@@ -84,15 +96,17 @@ private:
                           RiaDefines::RftBranchType segmentBranchType );
 
 private:
-    QString               m_wellName;
-    QDateTime             m_timeStep;
-    RftWellLogChannelType m_wellLogChannel;
+    QString               m_wellName;       ///< Well component of the address.
+    QDateTime             m_timeStep;       ///< Timestamp component of the address.
+    RftWellLogChannelType m_wellLogChannel; ///< Channel component of the address.
 
-    QString                   m_segmentResultName;
-    int                       m_segmentBranchIndex;
-    RiaDefines::RftBranchType m_segmentBranchType;
+    QString                   m_segmentResultName;  ///< Keyword for segment-valued results.
+    int                       m_segmentBranchIndex; ///< Optional branch discriminator.
+    RiaDefines::RftBranchType m_segmentBranchType;  ///< Segment branch representation.
 };
 
+/// Compares every logical address component for equality.
 bool operator==( const RifEclipseRftAddress& first, const RifEclipseRftAddress& second );
 
+/// Provides lexicographic ordering for use in `std::set` and map keys.
 bool operator<( const RifEclipseRftAddress& first, const RifEclipseRftAddress& second );

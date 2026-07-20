@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares holo lens export to folder command support.
 
 #pragma once
 
@@ -25,22 +27,28 @@
 class RimGridView;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring holo lens export to folder.
 //==================================================================================================
 class RicHoloLensExportToFolderUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicHoloLensExportToFolderUi();
 
+    /// Sets view for export.
     void setViewForExport( RimGridView* view );
 
+    /// Exports folder.
     QString      exportFolder() const;
+    /// @return The view for export.
     RimGridView* viewForExport() const;
 
 private:
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 
 private:

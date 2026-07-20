@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements flow diag stat calc reservoir-data functionality.
 
 #include "RigFlowDiagStatCalc.h"
 
@@ -32,7 +34,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFlowDiagStatCalc instance.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagStatCalc::RigFlowDiagStatCalc( RigFlowDiagResults* flowDiagResults, const RigFlowDiagResultAddress& resVarAddr )
     : m_resVarAddr( resVarAddr )
@@ -41,7 +43,7 @@ RigFlowDiagStatCalc::RigFlowDiagStatCalc( RigFlowDiagResults* flowDiagResults, c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagStatCalc::minMaxCellScalarValues( size_t timeStepIndex, double& min, double& max )
 {
@@ -55,7 +57,7 @@ void RigFlowDiagStatCalc::minMaxCellScalarValues( size_t timeStepIndex, double& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagStatCalc::posNegClosestToZero( size_t timeStepIndex, double& pos, double& neg )
 {
@@ -69,7 +71,7 @@ void RigFlowDiagStatCalc::posNegClosestToZero( size_t timeStepIndex, double& pos
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value sum and sample count.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagStatCalc::valueSumAndSampleCount( size_t timeStepIndex, double& valueSum, size_t& sampleCount )
 {
@@ -83,7 +85,7 @@ void RigFlowDiagStatCalc::valueSumAndSampleCount( size_t timeStepIndex, double& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds data to histogram calculator.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagStatCalc::addDataToHistogramCalculator( size_t timeStepIndex, RigHistogramCalculator& histogramCalculator )
 {
@@ -93,7 +95,7 @@ void RigFlowDiagStatCalc::addDataToHistogramCalculator( size_t timeStepIndex, Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique values.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagStatCalc::uniqueValues( size_t timeStepIndex, std::set<int>& uniqueValues )
 {
@@ -105,7 +107,7 @@ void RigFlowDiagStatCalc::uniqueValues( size_t timeStepIndex, std::set<int>& uni
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step count.
 //--------------------------------------------------------------------------------------------------
 size_t RigFlowDiagStatCalc::timeStepCount()
 {
@@ -113,7 +115,7 @@ size_t RigFlowDiagStatCalc::timeStepCount()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagStatCalc::mobileVolumeWeightedMean( size_t timeStepIndex, double& mean )
 {

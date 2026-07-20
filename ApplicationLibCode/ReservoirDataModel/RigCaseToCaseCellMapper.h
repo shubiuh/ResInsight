@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares case to case cell mapper reservoir-data functionality.
 
 #pragma once
 
@@ -30,6 +32,7 @@ class RigFemPart;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Maps case to case cell mapper.
 class RigCaseToCaseCellMapper : public cvf::Object
 {
 public:
@@ -40,9 +43,13 @@ public:
 
     const int* masterCaseCellIndices( int dependentCaseReservoirCellIndex, int* masterCaseCellIndexCount ) const;
 
+    /// Returns or processes master grid.
     const RigMainGrid* masterGrid() const { return m_masterGrid; }
+    /// Returns or processes dependent grid.
     const RigMainGrid* dependentGrid() const { return m_dependentGrid; }
+    /// Returns or processes master fem part.
     const RigFemPart*  masterFemPart() const { return m_masterFemPart; }
+    /// Returns or processes dependent fem part.
     const RigFemPart*  dependentFemPart() const { return m_dependentFemPart; }
 
 private:

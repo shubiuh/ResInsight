@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements facies properties import command support.
 
 #include "RicFaciesPropertiesImportTools.h"
 

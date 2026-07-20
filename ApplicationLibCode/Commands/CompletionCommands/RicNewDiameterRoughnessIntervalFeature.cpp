@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new diameter roughness interval command support.
 #include "RicNewDiameterRoughnessIntervalFeature.h"
 
 #include "RimDiameterRoughnessInterval.h"

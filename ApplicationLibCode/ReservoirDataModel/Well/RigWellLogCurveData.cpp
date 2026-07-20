@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of well log curve data.
 
 #include "RigWellLogCurveData.h"
 
@@ -28,7 +30,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellLogCurveData instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogCurveData::RigWellLogCurveData()
     : m_isExtractionCurve( false )
@@ -41,14 +43,14 @@ RigWellLogCurveData::RigWellLogCurveData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigWellLogCurveData instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogCurveData::~RigWellLogCurveData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears the stored data.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogCurveData::clear()
 {
@@ -59,7 +61,7 @@ void RigWellLogCurveData::clear()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets depth unit.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogCurveData::setDepthUnit( RiaDefines::DepthUnitType depthUnit )
 {
@@ -67,7 +69,7 @@ void RigWellLogCurveData::setDepthUnit( RiaDefines::DepthUnitType depthUnit )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets values and depths.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogCurveData::setValuesAndDepths( const std::vector<double>& xValues,
                                               const std::vector<double>& depths,
@@ -93,7 +95,7 @@ void RigWellLogCurveData::setValuesAndDepths( const std::vector<double>& xValues
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets values and depths.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogCurveData::setValuesAndDepths( const std::vector<double>&                                  xValues,
                                               const std::map<RiaDefines::DepthType, std::vector<double>>& depths,
@@ -121,7 +123,7 @@ void RigWellLogCurveData::setValuesAndDepths( const std::vector<double>&        
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets property value unit.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogCurveData::setPropertyValueUnit( const QString& propertyValueUnitString )
 {
@@ -129,7 +131,7 @@ void RigWellLogCurveData::setPropertyValueUnit( const QString& propertyValueUnit
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCurveData::propertyValues() const
 {
@@ -137,7 +139,7 @@ std::vector<double> RigWellLogCurveData::propertyValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCurveData::propertyValues( const QString& units ) const
 {
@@ -155,7 +157,7 @@ std::vector<double> RigWellLogCurveData::propertyValues( const QString& units ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property value unit.
 //--------------------------------------------------------------------------------------------------
 QString RigWellLogCurveData::propertyValueUnit() const
 {
@@ -163,7 +165,7 @@ QString RigWellLogCurveData::propertyValueUnit() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depths.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCurveData::depths( RiaDefines::DepthType depthType ) const
 {
@@ -196,7 +198,7 @@ std::vector<double> RigWellLogCurveData::depths( RiaDefines::DepthType depthType
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depths.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCurveData::depths( RiaDefines::DepthType depthType, RiaDefines::DepthUnitType destinationDepthUnit ) const
 {
@@ -204,7 +206,7 @@ std::vector<double> RigWellLogCurveData::depths( RiaDefines::DepthType depthType
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the available depth types.
 //--------------------------------------------------------------------------------------------------
 std::set<RiaDefines::DepthType> RigWellLogCurveData::availableDepthTypes() const
 {
@@ -233,7 +235,7 @@ std::set<RiaDefines::DepthType> RigWellLogCurveData::availableDepthTypes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property values by intervals.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCurveData::propertyValuesByIntervals() const
 {
@@ -244,7 +246,7 @@ std::vector<double> RigWellLogCurveData::propertyValuesByIntervals() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth values by intervals.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCurveData::depthValuesByIntervals( RiaDefines::DepthType     depthType,
                                                                  RiaDefines::DepthUnitType destinationDepthUnit ) const
@@ -259,7 +261,7 @@ std::vector<double> RigWellLogCurveData::depthValuesByIntervals( RiaDefines::Dep
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the polyline start stop indices.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<size_t, size_t>> RigWellLogCurveData::polylineStartStopIndices() const
 {
@@ -267,7 +269,7 @@ std::vector<std::pair<size_t, size_t>> RigWellLogCurveData::polylineStartStopInd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates resampled curve data.
 //--------------------------------------------------------------------------------------------------
 RigWellLogCurveData RigWellLogCurveData::calculateResampledCurveData( double newMeasuredDepthStepSize ) const
 {
@@ -393,7 +395,7 @@ void RigWellLogCurveData::createAndAddInterpolatedSegmentValueAndDepths( std::ve
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether left of.
 //--------------------------------------------------------------------------------------------------
 bool isLeftOf( double x1, double x2, bool reverseOrder, double eps )
 {
@@ -405,7 +407,7 @@ bool isLeftOf( double x1, double x2, bool reverseOrder, double eps )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether right of.
 //--------------------------------------------------------------------------------------------------
 bool isRightOf( double x1, double x2, bool reverseOrder, double eps )
 {
@@ -413,7 +415,7 @@ bool isRightOf( double x1, double x2, bool reverseOrder, double eps )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates resampled values and depths.
 //--------------------------------------------------------------------------------------------------
 std::pair<std::vector<double>, std::map<RiaDefines::DepthType, std::vector<double>>>
     RigWellLogCurveData::createResampledValuesAndDepths( RiaDefines::DepthType                                       resamplingDepthType,
@@ -517,7 +519,7 @@ std::pair<std::vector<double>, std::map<RiaDefines::DepthType, std::vector<doubl
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates resampled curve data.
 //--------------------------------------------------------------------------------------------------
 RigWellLogCurveData RigWellLogCurveData::calculateResampledCurveData( RiaDefines::DepthType      resamplingDepthType,
                                                                       const std::vector<double>& depths ) const
@@ -530,7 +532,7 @@ RigWellLogCurveData RigWellLogCurveData::calculateResampledCurveData( RiaDefines
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates intervals of continous valid values.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogCurveData::calculateIntervalsOfContinousValidValues()
 {
@@ -563,7 +565,7 @@ void RigWellLogCurveData::calculateIntervalsOfContinousValidValues()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depths for depth unit.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogCurveData::depthsForDepthUnit( const std::vector<double>& depths,
                                                              RiaDefines::DepthUnitType  sourceDepthUnit,
@@ -625,7 +627,7 @@ void RigWellLogCurveData::splitIntervalAtEmptySpace( const std::vector<double>& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates depth range.
 //--------------------------------------------------------------------------------------------------
 bool RigWellLogCurveData::calculateDepthRange( RiaDefines::DepthType     depthType,
                                                RiaDefines::DepthUnitType depthUnit,
@@ -665,7 +667,7 @@ bool RigWellLogCurveData::calculateDepthRange( RiaDefines::DepthType     depthTy
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth unit.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::DepthUnitType RigWellLogCurveData::depthUnit() const
 {

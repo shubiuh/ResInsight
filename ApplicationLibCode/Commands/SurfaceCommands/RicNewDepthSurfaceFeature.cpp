@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new depth surface command support.
 
 #include "RicNewDepthSurfaceFeature.h"
 

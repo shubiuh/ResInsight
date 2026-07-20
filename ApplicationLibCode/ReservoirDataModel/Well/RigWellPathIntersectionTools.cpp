@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for well path intersection.
 
 #include "RigWellPathIntersectionTools.h"
 
@@ -31,7 +33,7 @@
 #include "RimEclipseCase.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds cell intersection infos along path.
 //--------------------------------------------------------------------------------------------------
 std::vector<WellPathCellIntersectionInfo>
     RigWellPathIntersectionTools::findCellIntersectionInfosAlongPath( const RigEclipseCaseData*      caseData,
@@ -53,7 +55,7 @@ std::vector<WellPathCellIntersectionInfo>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds intersected global cell indices for well path.
 //--------------------------------------------------------------------------------------------------
 std::set<size_t> RigWellPathIntersectionTools::findIntersectedGlobalCellIndicesForWellPath( const RigEclipseCaseData* caseData,
                                                                                             const RigWellPath*        wellPath )
@@ -76,7 +78,7 @@ std::set<size_t> RigWellPathIntersectionTools::findIntersectedGlobalCellIndicesF
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds intersected global cell indices.
 //--------------------------------------------------------------------------------------------------
 std::set<size_t> RigWellPathIntersectionTools::findIntersectedGlobalCellIndices( const RigEclipseCaseData*      caseData,
                                                                                  const std::vector<cvf::Vec3d>& coords,
@@ -106,7 +108,7 @@ std::set<size_t> RigWellPathIntersectionTools::findIntersectedGlobalCellIndices(
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates length in cell.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigWellPathIntersectionTools::calculateLengthInCell( const std::array<cvf::Vec3d, 8>& hexCorners,
                                                                 const cvf::Vec3d&                startPoint,
@@ -135,7 +137,7 @@ cvf::Vec3d RigWellPathIntersectionTools::calculateLengthInCell( const std::array
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates length in cell.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigWellPathIntersectionTools::calculateLengthInCell( const RigMainGrid* grid,
                                                                 size_t             cellIndex,
@@ -148,7 +150,7 @@ cvf::Vec3d RigWellPathIntersectionTools::calculateLengthInCell( const RigMainGri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the build continuous intersections.
 //--------------------------------------------------------------------------------------------------
 std::vector<WellPathCellIntersectionInfo>
     RigWellPathIntersectionTools::buildContinuousIntersections( const std::vector<WellPathCellIntersectionInfo>& originalIntersections,

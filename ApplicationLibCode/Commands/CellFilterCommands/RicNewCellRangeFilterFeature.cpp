@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new cell range filter command support.
 
 #include "RicNewCellRangeFilterFeature.h"
 

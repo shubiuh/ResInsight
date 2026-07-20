@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares ASCII export summary plot command support.
 
 #pragma once
 
@@ -24,22 +26,28 @@
 class RimSummaryPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for ASCII export summary plot.
 //==================================================================================================
 class RicAsciiExportSummaryPlotFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// @return The default export dir.
     static QString defaultExportDir();
+    /// @return The file name from user.
     static QString getFileNameFromUserDialog( const QString& fileNameCandidate, const QString& defaultDir );
+    /// Exports text to file.
     static bool    exportTextToFile( const QString& fileName, const QString& text );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Exports ASCII for summary plot.
     static bool exportAsciiForSummaryPlot( const QString&             fileName,
                                            const RimSummaryPlot*      selectedSummaryPlots,
                                            RiaDefines::DateTimePeriod resamplingPeriod,

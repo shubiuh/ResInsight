@@ -15,8 +15,11 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares grid cross plot curve grouping reservoir-data functionality.
 #pragma once
 
+/// Enumerates the supported grid cross plot curve grouping values.
 enum RigGridCrossPlotCurveGrouping
 {
     NO_GROUPING,

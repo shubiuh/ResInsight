@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create sumo ensemble command support.
 
 #include "RicCreateSumoEnsembleFeature.h"
 

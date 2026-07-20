@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new user defined filter command support.
 
 #include "RicNewUserDefinedFilterFeature.h"
 

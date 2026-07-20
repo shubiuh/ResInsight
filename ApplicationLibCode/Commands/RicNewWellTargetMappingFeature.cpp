@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well target mapping command support.
 
 #include "RicNewWellTargetMappingFeature.h"
 

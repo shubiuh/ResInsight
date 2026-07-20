@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements geo mech contour map projection reservoir-data functionality.
 
 #include "RigGeoMechContourMapProjection.h"
 
@@ -40,7 +42,7 @@
 #include <array>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigGeoMechContourMapProjection instance.
 //--------------------------------------------------------------------------------------------------
 RigGeoMechContourMapProjection::RigGeoMechContourMapProjection( RigGeoMechCaseData*      caseData,
                                                                 const RigContourMapGrid* contourMapGrid,
@@ -59,7 +61,7 @@ RigGeoMechContourMapProjection::RigGeoMechContourMapProjection( RigGeoMechCaseDa
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates expanded por bar b box.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox RigGeoMechContourMapProjection::calculateExpandedPorBarBBox( RigGeoMechCaseData& caseData,
                                                                               const std::string&  resultComponentName,
@@ -108,7 +110,7 @@ cvf::BoundingBox RigGeoMechContourMapProjection::calculateExpandedPorBarBBox( Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns map cell visibility.
 //--------------------------------------------------------------------------------------------------
 std::vector<bool> RigGeoMechContourMapProjection::getMapCellVisibility( int                                            viewStepIndex,
                                                                         RigContourMapCalculator::ResultAggregationType resultAggregation )
@@ -118,7 +120,7 @@ std::vector<bool> RigGeoMechContourMapProjection::getMapCellVisibility( int     
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns map cell visibility.
 //--------------------------------------------------------------------------------------------------
 std::vector<bool> RigGeoMechContourMapProjection::getMapCellVisibility( RigFemResultAddress                            resAddr,
                                                                         int                                            viewStepIndex,
@@ -180,7 +182,7 @@ std::vector<bool> RigGeoMechContourMapProjection::getMapCellVisibility( RigFemRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates and save results.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechContourMapProjection::generateAndSaveResults( RigFemResultAddress                            resultAddress,
                                                              RigContourMapCalculator::ResultAggregationType resultAggregation,
@@ -191,7 +193,7 @@ void RigGeoMechContourMapProjection::generateAndSaveResults( RigFemResultAddress
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates results from address.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigGeoMechContourMapProjection::generateResultsFromAddress( RigFemResultAddress      resultAddress,
                                                                                 const std::vector<bool>& mapCellVisibility,
@@ -256,7 +258,7 @@ std::vector<double> RigGeoMechContourMapProjection::generateResultsFromAddress( 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds intersecting cells.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigGeoMechContourMapProjection::findIntersectingCells( const cvf::BoundingBox& bbox ) const
 {
@@ -264,7 +266,7 @@ std::vector<size_t> RigGeoMechContourMapProjection::findIntersectingCells( const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k layer.
 //--------------------------------------------------------------------------------------------------
 size_t RigGeoMechContourMapProjection::kLayer( size_t globalCellIdx ) const
 {
@@ -274,7 +276,7 @@ size_t RigGeoMechContourMapProjection::kLayer( size_t globalCellIdx ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k layers.
 //--------------------------------------------------------------------------------------------------
 size_t RigGeoMechContourMapProjection::kLayers() const
 {
@@ -282,7 +284,7 @@ size_t RigGeoMechContourMapProjection::kLayers() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates overlap volume.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechContourMapProjection::calculateOverlapVolume( size_t globalCellIdx, const cvf::BoundingBox& bbox ) const
 {
@@ -299,7 +301,7 @@ double RigGeoMechContourMapProjection::calculateOverlapVolume( size_t globalCell
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates ray length in cell.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechContourMapProjection::calculateRayLengthInCell( size_t            globalCellIdx,
                                                                  const cvf::Vec3d& highestPoint,
@@ -318,7 +320,7 @@ double RigGeoMechContourMapProjection::calculateRayLengthInCell( size_t         
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns parameter weight for cell.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechContourMapProjection::getParameterWeightForCell( size_t globalCellIdx, const std::vector<double>& parameterWeights ) const
 {
@@ -328,7 +330,7 @@ double RigGeoMechContourMapProjection::getParameterWeightForCell( size_t globalC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid cell values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigGeoMechContourMapProjection::gridCellValues( RigFemResultAddress resAddr, std::vector<float>& resultValues ) const
 {
@@ -369,7 +371,7 @@ std::vector<double> RigGeoMechContourMapProjection::gridCellValues( RigFemResult
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether cell active.
 //--------------------------------------------------------------------------------------------------
 bool RigGeoMechContourMapProjection::isCellActive( size_t globalCellIdx ) const
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create well targets command support.
 
 #pragma once
 
@@ -26,22 +28,29 @@ class RimWellPathGeometryDef;
 class RigWellPath;
 
 //==================================================================================================
-///
+/// @brief Handles create well targets events.
 //==================================================================================================
 class RicCreateWellTargetsPickEventHandler : public Ric3dViewPickEventHandler
 {
 public:
+    /// Constructs the command object.
     RicCreateWellTargetsPickEventHandler( RimWellPathGeometryDef* wellGeometryDef );
+    /// Destroys the command object.
     ~RicCreateWellTargetsPickEventHandler();
 
+    /// Registers as.
     void registerAsPickEventHandler() override;
 
 protected:
+    /// @return Whether the 3D pick event was handled.
     bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) override;
+    /// Performs the notify unregistered command operation.
     void notifyUnregistered() override;
 
 private:
+    /// @return Whether grid source object.
     static bool       isGridSourceObject( const cvf::Object* object );
+    /// @return The matching hex element intersection.
     static cvf::Vec3d findHexElementIntersection( Rim3dView*             view,
                                                   const RiuPickItemInfo& pickItem,
                                                   const cvf::Vec3d&      domainRayOrigin,

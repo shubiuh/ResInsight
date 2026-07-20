@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for contour polygons.
 
 #include "RigContourPolygonsTools.h"
 
@@ -26,7 +28,7 @@
 #include "cvfGeometryTools.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates contour polygons from line segments.
 //--------------------------------------------------------------------------------------------------
 RigContourPolygonsTools::ContourPolygons
     RigContourPolygonsTools::createContourPolygonsFromLineSegments( caf::ContourLines::ListOfLineSegments& unorderedLineSegments,
@@ -65,7 +67,7 @@ RigContourPolygonsTools::ContourPolygons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the smooth contour polygons.
 //--------------------------------------------------------------------------------------------------
 void RigContourPolygonsTools::smoothContourPolygons( ContourPolygons& contourPolygons, bool favourExpansion, double sampleSpacing )
 {
@@ -112,7 +114,7 @@ void RigContourPolygonsTools::smoothContourPolygons( ContourPolygons& contourPol
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the clip contour polygons.
 //--------------------------------------------------------------------------------------------------
 void RigContourPolygonsTools::clipContourPolygons( ContourPolygons& contourPolygons, const ContourPolygons& clipBy )
 {
@@ -132,7 +134,7 @@ void RigContourPolygonsTools::clipContourPolygons( ContourPolygons& contourPolyg
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sum polygon area.
 //--------------------------------------------------------------------------------------------------
 double RigContourPolygonsTools::sumPolygonArea( const ContourPolygons& contourPolygons )
 {
@@ -145,7 +147,7 @@ double RigContourPolygonsTools::sumPolygonArea( const ContourPolygons& contourPo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the line overlaps with contour polygons.
 //--------------------------------------------------------------------------------------------------
 bool RigContourPolygonsTools::lineOverlapsWithContourPolygons( const cvf::Vec3d&                               lineCenter,
                                                                const RigContourPolygonsTools::ContourPolygons& contourPolygons,
@@ -187,7 +189,7 @@ bool RigContourPolygonsTools::lineOverlapsWithContourPolygons( const cvf::Vec3d&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates pick point polygon.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigContourPolygonsTools::generatePickPointPolygon( const cvf::Vec2d& pickPoint, const RigContourMapGrid& contourMapGrid )
 {

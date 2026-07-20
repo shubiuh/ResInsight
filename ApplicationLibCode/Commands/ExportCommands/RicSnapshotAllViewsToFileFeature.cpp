@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements snapshot all views to file command support.
 
 #include "RicSnapshotAllViewsToFileFeature.h"
 

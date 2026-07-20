@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements intersection box X slice command support.
 
 #include "RicIntersectionBoxXSliceFeature.h"
 

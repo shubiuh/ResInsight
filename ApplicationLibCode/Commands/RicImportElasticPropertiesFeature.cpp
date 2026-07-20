@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import elastic properties command support.
 
 #include "RicImportElasticPropertiesFeature.h"
 

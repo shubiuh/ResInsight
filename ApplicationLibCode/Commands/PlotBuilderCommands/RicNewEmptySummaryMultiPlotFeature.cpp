@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new empty summary multi plot command support.
 
 #include "RicNewEmptySummaryMultiPlotFeature.h"
 

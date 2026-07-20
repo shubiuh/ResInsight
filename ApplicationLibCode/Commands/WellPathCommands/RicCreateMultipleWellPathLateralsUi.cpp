@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create multiple well path laterals command support.
 
 #include "RicCreateMultipleWellPathLateralsUi.h"
 

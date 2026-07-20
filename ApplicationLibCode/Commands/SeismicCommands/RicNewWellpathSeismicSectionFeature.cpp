@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new wellpath seismic section command support.
 
 #include "RicNewWellpathSeismicSectionFeature.h"
 

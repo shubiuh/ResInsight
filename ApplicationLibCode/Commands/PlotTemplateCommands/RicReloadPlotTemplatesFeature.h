@@ -15,22 +15,27 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares reload plot templates command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for reload plot templates.
 //==================================================================================================
 class RicReloadPlotTemplatesFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Performs the rebuild from disc command operation.
     static void rebuildFromDisc();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

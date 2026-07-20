@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import observed data command support.
 
 #pragma once
 
@@ -27,15 +29,20 @@
 //
 //
 //==================================================================================================
+/// @brief Command feature for import observed data.
 class RicImportObservedDataFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Selects observed data file in.
     static void selectObservedDataFileInDialog();
 
 private:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

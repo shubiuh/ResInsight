@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements polyline3d command support.
 
 #include "RicPolyline3dEditor.h"
 

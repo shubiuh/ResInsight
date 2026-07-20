@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export completion data settings command support.
 
 #include "RicExportCompletionDataSettingsUi.h"
 #include "RicExportFractureCompletionsImpl.h"

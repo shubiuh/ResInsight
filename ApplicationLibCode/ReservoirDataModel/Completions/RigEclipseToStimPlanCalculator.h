@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of eclipse to stim plan.
 
 #pragma once
 
@@ -37,6 +39,7 @@ class RimFracture;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates eclipse to stim plan.
 class RigEclipseToStimPlanCalculator
 {
 public:

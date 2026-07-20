@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements simplify polygon command support.
 
 #include "RicSimplifyPolygonFeature.h"
 

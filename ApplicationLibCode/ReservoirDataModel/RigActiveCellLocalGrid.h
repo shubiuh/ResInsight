@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares active cell local grid reservoir-data functionality.
 
 #pragma once
 
@@ -22,9 +24,11 @@
 
 class RigActiveCellGrid;
 
+/// @brief Represents active cell local grid.
 class RigActiveCellLocalGrid : public RigLocalGrid
 {
 public:
+    /// Returns or processes active cell local grid.
     explicit RigActiveCellLocalGrid( RigActiveCellGrid* mainGrid );
     ~RigActiveCellLocalGrid() override;
 

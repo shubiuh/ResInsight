@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares access to time history result.
 
 #pragma once
 
@@ -25,6 +27,7 @@
 class RigEclipseCaseData;
 class RimEclipseResultDefinition;
 
+/// @brief Provides read access to time history result.
 class RigTimeHistoryResultAccessor
 {
 public:

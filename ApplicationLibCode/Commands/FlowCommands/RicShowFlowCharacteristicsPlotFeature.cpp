@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show flow characteristics plot command support.
 
 #include "RicShowFlowCharacteristicsPlotFeature.h"
 

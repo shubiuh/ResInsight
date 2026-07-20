@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new fishbones subs command support.
 
 #pragma once
 
@@ -25,25 +27,34 @@
 class RimFishbonesCollection;
 
 //==================================================================================================
-///
+/// @brief Command feature for new fishbones subs.
 //==================================================================================================
 class RicNewFishbonesSubsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Performs the adjust well path scaling command operation.
     static void adjustWellPathScaling( RimFishbonesCollection* fishboneCollection );
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
 
+    /// Performs the on drilling standard command operation.
     void onDrillingStandard();
+    /// Performs the on drilling extended command operation.
     void onDrillingExtended();
+    /// Performs the on acid jetting command operation.
     void onAcidJetting();
 
+    /// Creates fishbones.
     void createFishbones( const RimFishbonesDefines::RicFishbonesSystemParameters& customParameters );
 
+    /// @return The selected fishbones collection.
     static RimFishbonesCollection* selectedFishbonesCollection();
 };

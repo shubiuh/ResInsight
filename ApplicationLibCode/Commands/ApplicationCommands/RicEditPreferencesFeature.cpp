@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements edit preferences command support.
 
 #include "RicEditPreferencesFeature.h"
 

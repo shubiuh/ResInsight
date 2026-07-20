@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares delete item exec command support.
 
 #pragma once
 
@@ -23,17 +25,22 @@
 #include "cafCmdExecuteCommand.h"
 
 //==================================================================================================
-///
+/// @brief Supports delete item exec command workflows.
 //==================================================================================================
 class RicDeleteItemExec : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     explicit RicDeleteItemExec( caf::NotificationCenter* notificationCenter );
 
+    /// @return The command data.
     RicDeleteItemExecData& commandData();
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:

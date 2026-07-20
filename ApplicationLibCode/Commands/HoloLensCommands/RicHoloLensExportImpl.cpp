@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens export command support.
 
 #include "RicHoloLensExportImpl.h"
 

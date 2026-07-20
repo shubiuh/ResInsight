@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for case to case cell mapper.
 
 #include "RigCaseToCaseCellMapperTools.h"
 #include "RigCaseToCaseCellMapper.h"
@@ -27,12 +29,13 @@
 #include <cmath>
 
 //==================================================================================================
-///
+/// @brief Locates neighboring main-grid cell corners for case-to-case mapping.
 //==================================================================================================
 
 class RigNeighborCornerFinder
 {
 public:
+    /// Returns or processes neighbor corner finder.
     RigNeighborCornerFinder( const RigMainGrid* mainGrid, size_t baseI, size_t baseJ, size_t baseK )
         : m_mainGrid( mainGrid )
         , m_baseI( baseI )
@@ -41,6 +44,7 @@ public:
     {
     }
 
+    /// Returns or processes neighbor indices.
     const std::array<size_t, 8>* neighborIndices( int offsetI, int offsetJ, int offsetK )
     {
         if ( offsetI < 0 && m_baseI == 0 ) return nullptr;
@@ -63,7 +67,7 @@ private:
 };
 
 //==================================================================================================
-///
+/// Returns the estimated fem cell from ecl cell.
 //==================================================================================================
 
 //--------------------------------------------------------------------------------------------------
@@ -215,7 +219,7 @@ void RigCaseToCaseCellMapperTools::estimatedFemCellFromEclCell( const RigMainGri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the rotate quad.
 //--------------------------------------------------------------------------------------------------
 void RigCaseToCaseCellMapperTools::rotateQuad( cvf::Vec3d quad[4], int idxToNewStart )
 {
@@ -239,7 +243,7 @@ void RigCaseToCaseCellMapperTools::rotateQuad( cvf::Vec3d quad[4], int idxToNewS
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the flip quad winding.
 //--------------------------------------------------------------------------------------------------
 void RigCaseToCaseCellMapperTools::flipQuadWinding( cvf::Vec3d quad[4] )
 {
@@ -249,7 +253,7 @@ void RigCaseToCaseCellMapperTools::flipQuadWinding( cvf::Vec3d quad[4] )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the quad vx closest to xy of point.
 //--------------------------------------------------------------------------------------------------
 int RigCaseToCaseCellMapperTools::quadVxClosestToXYOfPoint( const cvf::Vec3d point, const cvf::Vec3d quad[4] )
 {
@@ -272,7 +276,7 @@ int RigCaseToCaseCellMapperTools::quadVxClosestToXYOfPoint( const cvf::Vec3d poi
     return quadVxIdxClosestToPoint;
 }
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the element corners.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseToCaseCellMapperTools::elementCorners( const RigFemPart* femPart, int elmIdx, cvf::Vec3d elmCorners[8] )
 {
@@ -295,7 +299,7 @@ bool RigCaseToCaseCellMapperTools::elementCorners( const RigFemPart* femPart, in
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds matching posk face idx.
 //--------------------------------------------------------------------------------------------------
 int RigCaseToCaseCellMapperTools::findMatchingPOSKFaceIdx( const cvf::Vec3d baseCell[8], bool isBaseCellNormalsOutwards, const cvf::Vec3d c2[8] )
 {
@@ -328,7 +332,7 @@ int RigCaseToCaseCellMapperTools::findMatchingPOSKFaceIdx( const cvf::Vec3d base
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether ecl fem cells matching.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseToCaseCellMapperTools::isEclFemCellsMatching( const cvf::Vec3d baseCell[8], cvf::Vec3d cell[8], double xyTolerance, double zTolerance )
 {
@@ -349,7 +353,7 @@ bool RigCaseToCaseCellMapperTools::isEclFemCellsMatching( const cvf::Vec3d baseC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the rotate cell topologically to match base cell.
 //--------------------------------------------------------------------------------------------------
 void RigCaseToCaseCellMapperTools::rotateCellTopologicallyToMatchBaseCell( const cvf::Vec3d* baseCell,
                                                                            bool              baseCellFaceNormalsIsOutwards,
@@ -480,7 +484,7 @@ for (size_t ij = 0; ij < minIJCount; ++ij )
 #endif
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates cell center.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigCaseToCaseCellMapperTools::calculateCellCenter( cvf::Vec3d elmCorners[8] )
 {

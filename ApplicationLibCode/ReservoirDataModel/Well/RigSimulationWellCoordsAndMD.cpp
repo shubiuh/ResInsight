@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements simulation well coords and md reservoir-data functionality.
 
 #include "RigSimulationWellCoordsAndMD.h"
 
@@ -22,7 +24,7 @@
 #include "cvfMath.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigSimulationWellCoordsAndMD instance.
 //--------------------------------------------------------------------------------------------------
 RigSimulationWellCoordsAndMD::RigSimulationWellCoordsAndMD( const std::vector<cvf::Vec3d>& wellPathPoints )
     : m_wellPathPoints( wellPathPoints )
@@ -31,7 +33,7 @@ RigSimulationWellCoordsAndMD::RigSimulationWellCoordsAndMD( const std::vector<cv
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well path points.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d>& RigSimulationWellCoordsAndMD::wellPathPoints() const
 {
@@ -39,7 +41,7 @@ const std::vector<cvf::Vec3d>& RigSimulationWellCoordsAndMD::wellPathPoints() co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the measured depths.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigSimulationWellCoordsAndMD::measuredDepths() const
 {
@@ -47,7 +49,7 @@ const std::vector<double>& RigSimulationWellCoordsAndMD::measuredDepths() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the interpolated point along well path.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigSimulationWellCoordsAndMD::interpolatedPointAlongWellPath( double measuredDepth ) const
 {
@@ -83,7 +85,7 @@ cvf::Vec3d RigSimulationWellCoordsAndMD::interpolatedPointAlongWellPath( double 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the location along well coords.
 //--------------------------------------------------------------------------------------------------
 double RigSimulationWellCoordsAndMD::locationAlongWellCoords( const cvf::Vec3d& position ) const
 {
@@ -107,7 +109,7 @@ double RigSimulationWellCoordsAndMD::locationAlongWellCoords( const cvf::Vec3d& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds closest index.
 //--------------------------------------------------------------------------------------------------
 size_t RigSimulationWellCoordsAndMD::findClosestIndex( const cvf::Vec3d& position ) const
 {
@@ -130,7 +132,7 @@ size_t RigSimulationWellCoordsAndMD::findClosestIndex( const cvf::Vec3d& positio
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sim well azimuth angle.
 //--------------------------------------------------------------------------------------------------
 double RigSimulationWellCoordsAndMD::simWellAzimuthAngle( const cvf::Vec3d& position ) const
 {
@@ -169,7 +171,7 @@ double RigSimulationWellCoordsAndMD::simWellAzimuthAngle( const cvf::Vec3d& posi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sim well dip angle.
 //--------------------------------------------------------------------------------------------------
 double RigSimulationWellCoordsAndMD::simWellDipAngle( const cvf::Vec3d& position ) const
 {
@@ -210,7 +212,7 @@ double RigSimulationWellCoordsAndMD::simWellDipAngle( const cvf::Vec3d& position
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes measured depths.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationWellCoordsAndMD::computeMeasuredDepths()
 {

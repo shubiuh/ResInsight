@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares paste ASCII data to summary plot feature command support.
 
 #pragma once
 
@@ -34,7 +36,7 @@
 #include <memory>
 
 //==================================================================================================
-///
+/// @brief UI model for configuring paste ASCII data to summary plot feature.
 //==================================================================================================
 class RicPasteAsciiDataToSummaryPlotFeatureUi : public caf::PdmObject
 {
@@ -91,27 +93,41 @@ public:
     using CellSeparatorEnum = caf::AppEnum<CellSeparator>;
 
 public:
+    /// Constructs the command object.
     RicPasteAsciiDataToSummaryPlotFeatureUi();
 
+    /// Sets UI mode import.
     void setUiModeImport( const QString& fileName );
+    /// Sets UI mode paste text.
     void setUiModePasteText( const QString& text );
 
+    /// @return The UI mode import.
     UiMode                         uiModeImport() const;
+    /// @return The parse options.
     const RifAsciiDataParseOptions parseOptions() const;
+    /// Sets create new plot.
     void                           setCreateNewPlot();
 
+    /// @return The context string.
     QString contextString() const;
 
+    /// @return The date format from string.
     static DateFormat dateFormatFromString( const QString& dateString );
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void                          defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
 
 private:
+    /// Performs the initialize command operation.
     void initialize( RifCsvUserDataParser* parser );
+    /// Updates preview text and date format.
     void updatePreviewTextAndDateFormat();
 
 private:

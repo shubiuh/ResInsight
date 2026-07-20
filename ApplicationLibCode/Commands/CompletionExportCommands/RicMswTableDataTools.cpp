@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements MSW table data command support.
 
 #include "RicMswTableDataTools.h"
 

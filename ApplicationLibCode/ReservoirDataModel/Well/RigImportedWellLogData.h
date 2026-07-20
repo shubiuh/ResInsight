@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of imported well log data.
 
 #pragma once
 
@@ -29,6 +31,7 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Stores imported well log data.
 class RigImportedWellLogData : public RigWellLogData
 {
 public:

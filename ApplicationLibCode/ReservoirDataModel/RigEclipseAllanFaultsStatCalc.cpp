@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements eclipse allan faults stat calc reservoir-data functionality.
 
 #include "RigEclipseAllanFaultsStatCalc.h"
 
@@ -28,7 +30,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseAllanFaultsStatCalc instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseAllanFaultsStatCalc::RigEclipseAllanFaultsStatCalc( RigNNCData* cellResultsData, const RigEclipseResultAddress& scalarResultIndex )
     : m_caseData( cellResultsData )
@@ -37,7 +39,7 @@ RigEclipseAllanFaultsStatCalc::RigEclipseAllanFaultsStatCalc( RigNNCData* cellRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseAllanFaultsStatCalc::minMaxCellScalarValues( size_t timeStepIndex, double& min, double& max )
 {
@@ -48,7 +50,7 @@ void RigEclipseAllanFaultsStatCalc::minMaxCellScalarValues( size_t timeStepIndex
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseAllanFaultsStatCalc::posNegClosestToZero( size_t timeStepIndex, double& pos, double& neg )
 {
@@ -59,7 +61,7 @@ void RigEclipseAllanFaultsStatCalc::posNegClosestToZero( size_t timeStepIndex, d
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value sum and sample count.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseAllanFaultsStatCalc::valueSumAndSampleCount( size_t timeStepIndex, double& valueSum, size_t& sampleCount )
 {
@@ -70,7 +72,7 @@ void RigEclipseAllanFaultsStatCalc::valueSumAndSampleCount( size_t timeStepIndex
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds data to histogram calculator.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseAllanFaultsStatCalc::addDataToHistogramCalculator( size_t timeStepIndex, RigHistogramCalculator& histogramCalculator )
 {
@@ -78,7 +80,7 @@ void RigEclipseAllanFaultsStatCalc::addDataToHistogramCalculator( size_t timeSte
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseAllanFaultsStatCalc::uniqueValues( size_t timeStepIndex, std::set<int>& values )
 {
@@ -88,7 +90,7 @@ void RigEclipseAllanFaultsStatCalc::uniqueValues( size_t timeStepIndex, std::set
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step count.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseAllanFaultsStatCalc::timeStepCount()
 {
@@ -96,7 +98,7 @@ size_t RigEclipseAllanFaultsStatCalc::timeStepCount()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseAllanFaultsStatCalc::mobileVolumeWeightedMean( size_t timeStepIndex, double& result )
 {

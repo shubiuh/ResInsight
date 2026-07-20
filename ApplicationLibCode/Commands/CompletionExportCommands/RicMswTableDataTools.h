@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares MSW table data command support.
 
 #pragma once
 
@@ -34,6 +36,7 @@ std::vector<std::pair<double, double>> createSubSegmentMDPairs( double          
                                                                 double                                        maxSegmentLength,
                                                                 const std::vector<std::pair<double, double>>& customSegmentIntervals = {} );
 
+/// @return The tvd from measured depth.
 double tvdFromMeasuredDepth( const RimWellPath* wellPath, double measuredDepth );
 
 inline constexpr double valveSegmentLength = 0.1;

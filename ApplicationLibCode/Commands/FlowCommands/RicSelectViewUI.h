@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares select view command support.
 
 #pragma once
 
@@ -26,26 +28,35 @@ class RimEclipseView;
 class RimEclipseResultCase;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring select view.
 //==================================================================================================
 class RicSelectViewUI : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSelectViewUI();
 
+    /// Sets view.
     void setView( RimEclipseView* currentView );
+    /// Sets case.
     void setCase( RimEclipseResultCase* currentCase );
+    /// Sets new view name.
     void setNewViewName( const QString& name );
 
+    /// @return The selected view.
     RimEclipseView* selectedView() const;
+    /// Creates new view.
     bool            createNewView() const;
+    /// @return The new view name.
     QString         newViewName() const;
 
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
 private:

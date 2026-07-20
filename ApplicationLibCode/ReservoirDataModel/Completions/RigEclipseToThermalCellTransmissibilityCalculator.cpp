@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of eclipse to thermal cell transmissibility.
 
 #include "RigEclipseToThermalCellTransmissibilityCalculator.h"
 
@@ -23,7 +25,7 @@
 #include "RimThermalFractureTemplate.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseToThermalCellTransmissibilityCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseToThermalCellTransmissibilityCalculator::RigEclipseToThermalCellTransmissibilityCalculator(
     const RimEclipseCase*                              caseToApply,
@@ -49,7 +51,7 @@ RigEclipseToThermalCellTransmissibilityCalculator::RigEclipseToThermalCellTransm
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates transmissibility.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseToThermalCellTransmissibilityCalculator::calculateTransmissibility( const cvf::Vec3d& transmissibilityVector,
                                                                                      double            fractureArea )

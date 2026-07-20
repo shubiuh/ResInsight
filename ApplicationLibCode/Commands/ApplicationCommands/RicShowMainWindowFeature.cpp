@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show main window command support.
 
 #include "RicShowMainWindowFeature.h"
 

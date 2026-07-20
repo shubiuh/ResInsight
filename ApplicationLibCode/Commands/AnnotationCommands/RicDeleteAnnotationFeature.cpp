@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete annotation command support.
 
 #include "RicDeleteAnnotationFeature.h"
 

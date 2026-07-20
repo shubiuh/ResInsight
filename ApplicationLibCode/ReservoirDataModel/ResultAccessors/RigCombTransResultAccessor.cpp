@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to comb trans result.
 
 #include "RigCombTransResultAccessor.h"
 
@@ -26,7 +28,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCombTransResultAccessor instance.
 //--------------------------------------------------------------------------------------------------
 RigCombTransResultAccessor::RigCombTransResultAccessor( const RigGridBase* grid )
     : m_grid( grid )
@@ -48,7 +50,7 @@ void RigCombTransResultAccessor::setTransResultAccessors( RigResultAccessor* xTr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar.
 //--------------------------------------------------------------------------------------------------
 double RigCombTransResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 {
@@ -89,7 +91,7 @@ double RigCombTransResultAccessor::neighborCellTran( size_t                     
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar.
 //--------------------------------------------------------------------------------------------------
 double RigCombTransResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {
@@ -142,7 +144,7 @@ double RigCombTransResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cv
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigCombTransResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) const
 {
@@ -152,7 +154,7 @@ double RigCombTransResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigCombTransResultAccessor::cellFaceScalarGlobIdx( size_t globCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {

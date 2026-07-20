@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of histogram data.
 
 #include "RigHistogramData.h"
 
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigHistogramData instance.
 //--------------------------------------------------------------------------------------------------
 RigHistogramData::RigHistogramData()
     : min( std::numeric_limits<double>::infinity() )
@@ -35,7 +37,7 @@ RigHistogramData::RigHistogramData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether min max valid.
 //--------------------------------------------------------------------------------------------------
 bool RigHistogramData::isMinMaxValid() const
 {
@@ -43,7 +45,7 @@ bool RigHistogramData::isMinMaxValid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigHistogramData::isValid( double parameter ) const
 {
@@ -51,7 +53,7 @@ bool RigHistogramData::isValid( double parameter ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether histogram vector valid.
 //--------------------------------------------------------------------------------------------------
 bool RigHistogramData::isHistogramVectorValid() const
 {

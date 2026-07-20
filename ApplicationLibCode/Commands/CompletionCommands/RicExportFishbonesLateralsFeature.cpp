@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export fishbones laterals command support.
 
 #include "RicExportFishbonesLateralsFeature.h"
 

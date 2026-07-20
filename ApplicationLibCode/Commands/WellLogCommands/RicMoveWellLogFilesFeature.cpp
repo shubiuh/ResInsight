@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements move well log files command support.
 
 #include "RicMoveWellLogFilesFeature.h"
 

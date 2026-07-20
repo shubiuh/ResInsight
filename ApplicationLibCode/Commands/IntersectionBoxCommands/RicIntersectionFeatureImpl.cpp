@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements intersection command support.
 #include "RicIntersectionFeatureImpl.h"
 
 #include "RiaApplication.h"

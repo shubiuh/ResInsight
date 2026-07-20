@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements extraction of eclipse cross plot data extractor.
 
 #include "RigEclipseCrossPlotDataExtractor.h"
 
@@ -34,7 +36,7 @@
 #include <set>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the extract.
 //--------------------------------------------------------------------------------------------------
 RigEclipseCrossPlotResult RigEclipseCrossPlotDataExtractor::extract( RigEclipseCaseData*               caseData,
                                                                      int                               resultTimeStep,

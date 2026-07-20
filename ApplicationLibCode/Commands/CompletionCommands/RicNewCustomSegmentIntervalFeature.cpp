@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new custom segment interval command support.
 #include "RicNewCustomSegmentIntervalFeature.h"
 
 #include "RimCustomSegmentInterval.h"

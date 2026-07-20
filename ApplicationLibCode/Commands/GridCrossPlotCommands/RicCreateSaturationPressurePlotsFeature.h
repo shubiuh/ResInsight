@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create saturation pressure plots command support.
 
 #pragma once
 
@@ -24,16 +26,19 @@ class RimEclipseResultCase;
 class RimSaturationPressurePlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for create saturation pressure plots.
 //==================================================================================================
 class RicCreateSaturationPressurePlotsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Creates plots.
     static std::vector<RimSaturationPressurePlot*> createPlots( RimEclipseResultCase* eclipseCase, int timeStep );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

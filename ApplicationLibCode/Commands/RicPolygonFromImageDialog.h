@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares polygon from image command support.
 
 #pragma once
 
@@ -33,31 +35,44 @@
 #include <QSpinBox>
 #include <QVBoxLayout>
 
+/// @brief Dialog for configuring polygon from image.
 class RicPolygonFromImageDialog : public QDialog
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     RicPolygonFromImageDialog( QWidget* parent = nullptr );
 
+    /// @return The processed image data.
     std::vector<std::vector<int>> processedImageData() const;
+    /// Sets source image data.
     void                          setSourceImageData( std::vector<std::vector<int>> imageData );
 
+    /// @return The area threshold.
     int areaThreshold() const;
 
 public slots:
+    /// Updates and show images.
     void updateAndShowImages();
 
 private slots:
+    /// Performs the perform dilation command operation.
     void performDilation();
+    /// Performs the perform erosion command operation.
     void performErosion();
+    /// Shows images.
     void showImages();
 
 private:
+    /// @return The kernel adjusted size.
     int  kernelAdjustedSize() const;
+    /// Computes final.
     void computeFinal();
+    /// Performs the resize and center command operation.
     void resizeAndCenterDialog( double scale );
 
+    /// Performs the resize event command operation.
     void resizeEvent( QResizeEvent* event ) override;
 
 private:

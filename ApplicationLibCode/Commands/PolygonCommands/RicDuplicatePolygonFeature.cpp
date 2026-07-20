@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements duplicate polygon command support.
 
 #include "RicDuplicatePolygonFeature.h"
 

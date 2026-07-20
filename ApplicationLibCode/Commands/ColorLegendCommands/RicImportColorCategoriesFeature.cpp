@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import color categories command support.
 
 #include "RicImportColorCategoriesFeature.h"
 

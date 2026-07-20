@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete unchecked sub items command support.
 
 #include "RicDeleteUncheckedSubItemsFeature.h"
 

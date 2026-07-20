@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements refresh scripts command support.
 
 #include "RicRefreshScriptsFeature.h"
 

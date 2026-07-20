@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of number of flooded pore volumes.
 
 #include "RigNumberOfFloodedPoreVolumesCalculator.h"
 
@@ -39,7 +41,7 @@
 #include <vector>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigNumberOfFloodedPoreVolumesCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigNumberOfFloodedPoreVolumesCalculator::RigNumberOfFloodedPoreVolumesCalculator( RimEclipseCase*             caseToApply,
                                                                                   const std::vector<QString>& tracerNames )
@@ -181,7 +183,7 @@ RigNumberOfFloodedPoreVolumesCalculator::RigNumberOfFloodedPoreVolumesCalculator
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of flooded porevolumes.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>>& RigNumberOfFloodedPoreVolumesCalculator::numberOfFloodedPorevolumes()
 {
@@ -189,7 +191,7 @@ std::vector<std::vector<double>>& RigNumberOfFloodedPoreVolumesCalculator::numbe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigNumberOfFloodedPoreVolumesCalculator::calculate( RigMainGrid*                            mainGrid,
                                                          RimEclipseCase*                         caseToApply,
@@ -285,7 +287,7 @@ void RigNumberOfFloodedPoreVolumesCalculator::calculate( RigMainGrid*           
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the distribute nn cflow.
 //--------------------------------------------------------------------------------------------------
 void RigNumberOfFloodedPoreVolumesCalculator::distributeNNCflow( const RigConnectionContainer& connections,
                                                                  RimEclipseCase*               caseToApply,
@@ -323,7 +325,7 @@ void RigNumberOfFloodedPoreVolumesCalculator::distributeNNCflow( const RigConnec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the distribute neighbour cell flow.
 //--------------------------------------------------------------------------------------------------
 void RigNumberOfFloodedPoreVolumesCalculator::distributeNeighbourCellFlow( RigMainGrid*               mainGrid,
                                                                            RimEclipseCase*            caseToApply,

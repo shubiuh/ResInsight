@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements close observed data command support.
 
 #include "RicCloseObservedDataFeature.h"
 

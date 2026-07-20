@@ -15,18 +15,21 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new cell range filter command support.
 
 #pragma once
 
 #include "RicNewRangeFilterSliceFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for new cell range filter.
 //==================================================================================================
 class RicNewCellRangeFilterFeature : public RicNewRangeFilterSliceFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicNewCellRangeFilterFeature();
 };

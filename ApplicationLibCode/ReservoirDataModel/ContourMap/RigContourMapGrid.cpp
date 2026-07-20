@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements contour map grid reservoir-data functionality.
 
 #include "RigContourMapGrid.h"
 
@@ -24,7 +26,7 @@
 using namespace cvf;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigContourMapGrid instance.
 //--------------------------------------------------------------------------------------------------
 RigContourMapGrid::RigContourMapGrid( const cvf::BoundingBox& originalBoundingBox, double sampleSpacing )
     : m_sampleSpacing( sampleSpacing )
@@ -42,7 +44,7 @@ RigContourMapGrid::RigContourMapGrid( const cvf::BoundingBox& originalBoundingBo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigContourMapGrid instance.
 //--------------------------------------------------------------------------------------------------
 RigContourMapGrid::RigContourMapGrid( const cvf::BoundingBox& originalBoundingBox, const cvf::BoundingBox& expandedBoundingBox, double sampleSpacing )
     : m_sampleSpacing( sampleSpacing )
@@ -57,7 +59,7 @@ RigContourMapGrid::RigContourMapGrid( const cvf::BoundingBox& originalBoundingBo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sample spacing.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapGrid::sampleSpacing() const
 {
@@ -65,7 +67,7 @@ double RigContourMapGrid::sampleSpacing() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of elements ij.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2ui RigContourMapGrid::numberOfElementsIJ() const
 {
@@ -73,7 +75,7 @@ cvf::Vec2ui RigContourMapGrid::numberOfElementsIJ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of vertices ij.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2ui RigContourMapGrid::numberOfVerticesIJ() const
 {
@@ -84,7 +86,7 @@ cvf::Vec2ui RigContourMapGrid::numberOfVerticesIJ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of cells.
 //--------------------------------------------------------------------------------------------------
 uint RigContourMapGrid::numberOfCells() const
 {
@@ -92,7 +94,7 @@ uint RigContourMapGrid::numberOfCells() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of vertices.
 //--------------------------------------------------------------------------------------------------
 size_t RigContourMapGrid::numberOfVertices() const
 {
@@ -101,7 +103,7 @@ size_t RigContourMapGrid::numberOfVertices() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the origin3d.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigContourMapGrid::origin3d() const
 {
@@ -109,7 +111,7 @@ cvf::Vec3d RigContourMapGrid::origin3d() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates vertices.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigContourMapGrid::generateVertices() const
 {
@@ -132,7 +134,7 @@ std::vector<cvf::Vec3d> RigContourMapGrid::generateVertices() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ij from vertex index.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2ui RigContourMapGrid::ijFromVertexIndex( size_t gridIndex ) const
 {
@@ -145,7 +147,7 @@ cvf::Vec2ui RigContourMapGrid::ijFromVertexIndex( size_t gridIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell index from ij.
 //--------------------------------------------------------------------------------------------------
 size_t RigContourMapGrid::cellIndexFromIJ( uint i, uint j ) const
 {
@@ -156,7 +158,7 @@ size_t RigContourMapGrid::cellIndexFromIJ( uint i, uint j ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ij from cell index.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2ui RigContourMapGrid::ijFromCellIndex( size_t cellIndex ) const
 {
@@ -169,7 +171,7 @@ cvf::Vec2ui RigContourMapGrid::ijFromCellIndex( size_t cellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ij from local pos.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2ui RigContourMapGrid::ijFromLocalPos( const cvf::Vec2d& localPos2d ) const
 {
@@ -179,7 +181,7 @@ cvf::Vec2ui RigContourMapGrid::ijFromLocalPos( const cvf::Vec2d& localPos2d ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell center position.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2d RigContourMapGrid::cellCenterPosition( uint i, uint j ) const
 {
@@ -190,7 +192,7 @@ cvf::Vec2d RigContourMapGrid::cellCenterPosition( uint i, uint j ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the origin2d.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2d RigContourMapGrid::origin2d() const
 {
@@ -234,7 +236,7 @@ std::vector<double> RigContourMapGrid::yVertexPositions() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid edge offset.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapGrid::gridEdgeOffset() const
 {
@@ -242,7 +244,7 @@ double RigContourMapGrid::gridEdgeOffset() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the expanded bounding box.
 //--------------------------------------------------------------------------------------------------
 const cvf::BoundingBox& RigContourMapGrid::expandedBoundingBox() const
 {
@@ -250,7 +252,7 @@ const cvf::BoundingBox& RigContourMapGrid::expandedBoundingBox() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the original bounding box.
 //--------------------------------------------------------------------------------------------------
 const cvf::BoundingBox& RigContourMapGrid::originalBoundingBox() const
 {
@@ -258,7 +260,7 @@ const cvf::BoundingBox& RigContourMapGrid::originalBoundingBox() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map size.
 //--------------------------------------------------------------------------------------------------
 const cvf::Vec2ui& RigContourMapGrid::mapSize() const
 {
@@ -266,7 +268,7 @@ const cvf::Vec2ui& RigContourMapGrid::mapSize() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the vertex index from ij.
 //--------------------------------------------------------------------------------------------------
 size_t RigContourMapGrid::vertexIndexFromIJ( uint i, uint j ) const
 {
@@ -274,7 +276,7 @@ size_t RigContourMapGrid::vertexIndexFromIJ( uint i, uint j ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates map size.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2ui RigContourMapGrid::calculateMapSize( const cvf::Vec3d& gridExtent, double sampleSpacing )
 {
@@ -291,7 +293,7 @@ cvf::Vec2ui RigContourMapGrid::calculateMapSize( const cvf::Vec3d& gridExtent, d
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the make max point multiple of cell size.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox
     RigContourMapGrid::makeMaxPointMultipleOfCellSize( const cvf::BoundingBox& boundingBox, const cvf::Vec2ui& mapSize, double sampleSpacing )

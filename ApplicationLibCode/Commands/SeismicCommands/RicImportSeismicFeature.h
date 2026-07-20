@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import seismic command support.
 
 #pragma once
 
@@ -25,19 +27,23 @@
 class RimSEGYConvertOptions;
 
 //==================================================================================================
-///
+/// @brief Command feature for import seismic.
 //==================================================================================================
 class RicImportSeismicFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// @return The convert SEG yto VDS.
     static QString convertSEGYtoVDS( QString filename );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The run SEGY conversion.
     static bool runSEGYConversion( RimSEGYConvertOptions* options );
 };

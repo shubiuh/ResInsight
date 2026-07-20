@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path export completion data command support.
 
 #include "RicWellPathExportCompletionDataFeature.h"
 #include "RicWellPathExportCompletionDataFeatureImpl.h"

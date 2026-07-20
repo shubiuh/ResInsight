@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements uniform refinement reservoir-data functionality.
 
 #include "RigUniformRefinement.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigUniformRefinement instance.
 //--------------------------------------------------------------------------------------------------
 RigUniformRefinement::RigUniformRefinement( const cvf::Vec3st& refinement, const cvf::Vec3st& sectorSize )
     : m_sectorSize( sectorSize )
@@ -32,7 +34,7 @@ RigUniformRefinement::RigUniformRefinement( const cvf::Vec3st& refinement, const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the clone.
 //--------------------------------------------------------------------------------------------------
 std::unique_ptr<RigRefinement> RigUniformRefinement::clone() const
 {
@@ -40,7 +42,7 @@ std::unique_ptr<RigRefinement> RigUniformRefinement::clone() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the subcell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigUniformRefinement::subcellCount( Dimension dim, size_t origIndex ) const
 {
@@ -49,7 +51,7 @@ size_t RigUniformRefinement::subcellCount( Dimension dim, size_t origIndex ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cumulative offset.
 //--------------------------------------------------------------------------------------------------
 size_t RigUniformRefinement::cumulativeOffset( Dimension dim, size_t origIndex ) const
 {
@@ -58,7 +60,7 @@ size_t RigUniformRefinement::cumulativeOffset( Dimension dim, size_t origIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total refined count.
 //--------------------------------------------------------------------------------------------------
 size_t RigUniformRefinement::totalRefinedCount( Dimension dim ) const
 {
@@ -66,7 +68,7 @@ size_t RigUniformRefinement::totalRefinedCount( Dimension dim ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map refined to original.
 //--------------------------------------------------------------------------------------------------
 std::pair<size_t, size_t> RigUniformRefinement::mapRefinedToOriginal( Dimension dim, size_t refinedIndex ) const
 {
@@ -75,7 +77,7 @@ std::pair<size_t, size_t> RigUniformRefinement::mapRefinedToOriginal( Dimension 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cumulative fractions.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigUniformRefinement::cumulativeFractions( Dimension dim, size_t /*origIndex*/ ) const
 {
@@ -83,7 +85,7 @@ const std::vector<double>& RigUniformRefinement::cumulativeFractions( Dimension 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sector size.
 //--------------------------------------------------------------------------------------------------
 size_t RigUniformRefinement::sectorSize( Dimension dim ) const
 {
@@ -91,7 +93,7 @@ size_t RigUniformRefinement::sectorSize( Dimension dim ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether refinement is available.
 //--------------------------------------------------------------------------------------------------
 bool RigUniformRefinement::hasRefinement() const
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create well path from simulation well command support.
 
 #include "RicCreateWellPathFromSimulationWellFeature.h"
 

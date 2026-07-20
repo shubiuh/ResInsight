@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements split multi plot command support.
 
 #include "RicSplitMultiPlotFeature.h"
 

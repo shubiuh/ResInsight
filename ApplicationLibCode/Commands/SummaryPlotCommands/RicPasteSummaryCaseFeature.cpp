@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste summary case command support.
 
 #include "RicPasteSummaryCaseFeature.h"
 

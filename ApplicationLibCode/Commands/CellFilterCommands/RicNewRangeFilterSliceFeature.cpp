@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new range filter slice command support.
 
 #include "RicNewRangeFilterSliceFeature.h"
 

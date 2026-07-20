@@ -15,19 +15,23 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares intersection command support.
 
 #pragma once
 
 #include "RicPickEventHandler.h"
 
 //==================================================================================================
-///
+/// @brief Handles intersection events.
 //==================================================================================================
 class RicIntersectionPickEventHandler : public RicDefaultPickEventHandler
 {
 public:
+    /// @return The instance.
     static RicIntersectionPickEventHandler* instance();
 
 protected:
+    /// @return Whether the 3D pick event was handled.
     bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) override;
 };

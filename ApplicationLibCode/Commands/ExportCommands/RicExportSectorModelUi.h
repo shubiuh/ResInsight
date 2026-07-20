@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export sector model command support.
 
 #pragma once
 
@@ -43,7 +45,7 @@ class RicRefinementSettings;
 class RimRefinementRegion;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring export sector model.
 //==================================================================================================
 class RicExportSectorModelUi : public caf::PdmObject
 {
@@ -53,51 +55,80 @@ class RicExportSectorModelUi : public caf::PdmObject
     using BoundaryConditionEnum = caf::AppEnum<RiaModelExportDefines::BoundaryCondition>;
 
 public:
+    /// Constructs the command object.
     RicExportSectorModelUi();
+    /// Destroys the command object.
     ~RicExportSectorModelUi() override;
 
+    /// @return The page names.
     const QStringList& pageNames() const;
+    /// @return The page sub titles.
     const QStringList& pageSubTitles() const;
 
+    /// Sets Eclipse view.
     void setEclipseView( RimEclipseView* view );
 
     // data access
     caf::VecIjk0 min() const;
+    /// @return The max.
     caf::VecIjk0 max() const;
+    /// Sets min.
     void         setMin( const caf::VecIjk0& min );
+    /// Sets max.
     void         setMax( const caf::VecIjk0& max );
 
+    /// @return The refinement settings.
     RicRefinementSettings* refinementSettings() const;
 
+    /// @return The effective refinement.
     std::unique_ptr<RigRefinement> effectiveRefinement() const;
+    /// @return Whether non uniform refinement.
     bool                           hasNonUniformRefinement() const;
 
+    /// @return The keywords to remove.
     std::vector<QString> keywordsToRemove() const;
 
+    /// @return The bcprop keywords.
     std::vector<RimKeywordBcprop*>           bcpropKeywords() const;
+    /// @return The boundary condition.
     RiaModelExportDefines::BoundaryCondition boundaryCondition() const;
+    /// @return The porv multiplier.
     double                                   porvMultiplier() const;
+    /// Exports deck filename.
     QString                                  exportDeckFilename() const;
+    /// @return The input deck filename.
     QString                                  inputDeckFilename() const;
 
+    /// @return The grid box selection.
     RiaModelExportDefines::GridBoxSelection gridBoxSelection() const;
+    /// @return The well padding.
     int                                     wellPadding() const;
 
+    /// @return Whether create simulation job.
     bool    shouldCreateSimulationJob() const;
+    /// @return The start simulation job after export.
     bool    startSimulationJobAfterExport() const;
+    /// @return The new simulation job folder.
     QString newSimulationJobFolder() const;
+    /// @return The new simulation job name.
     QString newSimulationJobName() const;
 
     // Model padding settings accessor
     RigModelPaddingSettings paddingSettings() const;
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
+    /// @return The validate.
     std::map<QString, QString>    validate( const QString& configName ) const override;
 
+    /// Sets default keywords to remove.
     void setDefaultKeywordsToRemove();
 
 private:
@@ -113,7 +144,9 @@ private:
         TotalPages         = 7
     };
 
+    /// Applies boundary defaults.
     void           applyBoundaryDefaults();
+    /// @return The default folder.
     static QString defaultFolder();
 
 private:

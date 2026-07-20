@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of porv soil sgas results.
 
 #include "RigPorvSoilSgasResultCalculator.h"
 #include "RiaDefines.h"
@@ -25,7 +27,7 @@
 #include "RigMainGrid.h"
 
 //==================================================================================================
-///
+/// Creates a RigPorvSoilSgasResultCalculator instance.
 //==================================================================================================
 RigPorvSoilSgasResultCalculator::RigPorvSoilSgasResultCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -33,14 +35,14 @@ RigPorvSoilSgasResultCalculator::RigPorvSoilSgasResultCalculator( RigCaseCellRes
 }
 
 //==================================================================================================
-///
+/// Destroys the RigPorvSoilSgasResultCalculator instance.
 //==================================================================================================
 RigPorvSoilSgasResultCalculator::~RigPorvSoilSgasResultCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigPorvSoilSgasResultCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -50,7 +52,7 @@ bool RigPorvSoilSgasResultCalculator::isMatching( const RigEclipseResultAddress&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigPorvSoilSgasResultCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -81,7 +83,7 @@ void RigPorvSoilSgasResultCalculator::calculate( const RigEclipseResultAddress& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates product.
 //--------------------------------------------------------------------------------------------------
 void RigPorvSoilSgasResultCalculator::calculateProduct( const RigEclipseResultAddress& in1Addr,
                                                         const RigEclipseResultAddress& in2Addr,
@@ -91,7 +93,7 @@ void RigPorvSoilSgasResultCalculator::calculateProduct( const RigEclipseResultAd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates sum.
 //--------------------------------------------------------------------------------------------------
 void RigPorvSoilSgasResultCalculator::calculateSum( const RigEclipseResultAddress& in1Addr,
                                                     const RigEclipseResultAddress& in2Addr,
@@ -101,7 +103,7 @@ void RigPorvSoilSgasResultCalculator::calculateSum( const RigEclipseResultAddres
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigPorvSoilSgasResultCalculator::calculate( const RigEclipseResultAddress&          in1Addr,
                                                  const RigEclipseResultAddress&          in2Addr,

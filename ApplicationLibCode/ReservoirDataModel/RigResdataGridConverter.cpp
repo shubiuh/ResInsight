@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements resdata grid converter reservoir-data functionality.
 
 #include "RigResdataGridConverter.h"
 
@@ -38,7 +40,7 @@
 #include <vector>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Exports grid.
 //--------------------------------------------------------------------------------------------------
 bool RigResdataGridConverter::exportGrid( const QString&         resultFileName,
                                           RigEclipseCaseData*    eclipseCase,
@@ -161,15 +163,15 @@ bool RigResdataGridConverter::exportGrid( const QString&         resultFileName,
 
 //--------------------------------------------------------------------------------------------------
 /// Convert grid cells to Eclipse corner point arrays (COORD, ZCORN, and ACTNUM)
-///
+/// Converts grid to corner point arrays.
 /// This function converts ResInsight grid data into the Eclipse corner point grid format:
 /// - COORD array contains pillar coordinates (6 values per pillar: x1,y1,z1,x2,y2,z2)
 /// - ZCORN array contains Z values for cell corners (8 Z values per cell)
 /// - ACTNUM array contains activity flags (1 for active, 0 for inactive)
-///
+/// Converts grid to corner point arrays.
 /// Uses RigGridExportAdapter to handle refinement and coordinate transformations uniformly.
 /// See Eclipse_Grid_Format.md for details
-///
+/// Converts grid to corner point arrays.
 //--------------------------------------------------------------------------------------------------
 void RigResdataGridConverter::convertGridToCornerPointArrays( const RigGridExportAdapter& gridAdapter,
                                                               std::vector<float>&         coordArray,

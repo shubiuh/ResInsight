@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of poly lines data.
 
 #pragma once
 
@@ -28,6 +30,7 @@
 ///
 ///
 //==================================================================================================
+/// @brief Stores poly lines data.
 class RigPolyLinesData : public cvf::Object
 {
 public:

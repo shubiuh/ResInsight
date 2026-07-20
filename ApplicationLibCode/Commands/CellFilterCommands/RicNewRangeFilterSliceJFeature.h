@@ -15,18 +15,21 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new range filter slice J command support.
 
 #pragma once
 
 #include "RicNewRangeFilterSliceFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for new range filter slice J.
 //==================================================================================================
 class RicNewRangeFilterSliceJFeature : public RicNewRangeFilterSliceFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicNewRangeFilterSliceJFeature();
 };

@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements configuration for model padding.
 
 #include "RigModelPaddingSettings.h"
 
 #include <QStringList>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigModelPaddingSettings instance.
 //--------------------------------------------------------------------------------------------------
 RigModelPaddingSettings::RigModelPaddingSettings()
     : m_enabled( false )
@@ -39,7 +41,7 @@ RigModelPaddingSettings::RigModelPaddingSettings()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether enabled.
 //--------------------------------------------------------------------------------------------------
 bool RigModelPaddingSettings::isEnabled() const
 {
@@ -47,7 +49,7 @@ bool RigModelPaddingSettings::isEnabled() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets enabled.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setEnabled( bool enabled )
 {
@@ -55,7 +57,7 @@ void RigModelPaddingSettings::setEnabled( bool enabled )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the nz upper.
 //--------------------------------------------------------------------------------------------------
 int RigModelPaddingSettings::nzUpper() const
 {
@@ -63,7 +65,7 @@ int RigModelPaddingSettings::nzUpper() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets nz upper.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setNzUpper( int value )
 {
@@ -71,7 +73,7 @@ void RigModelPaddingSettings::setNzUpper( int value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the top upper.
 //--------------------------------------------------------------------------------------------------
 double RigModelPaddingSettings::topUpper() const
 {
@@ -79,7 +81,7 @@ double RigModelPaddingSettings::topUpper() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets top upper.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setTopUpper( double value )
 {
@@ -87,7 +89,7 @@ void RigModelPaddingSettings::setTopUpper( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the upper porosity.
 //--------------------------------------------------------------------------------------------------
 double RigModelPaddingSettings::upperPorosity() const
 {
@@ -95,7 +97,7 @@ double RigModelPaddingSettings::upperPorosity() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets upper porosity.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setUpperPorosity( double value )
 {
@@ -103,7 +105,7 @@ void RigModelPaddingSettings::setUpperPorosity( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the upper equilnum.
 //--------------------------------------------------------------------------------------------------
 int RigModelPaddingSettings::upperEquilnum() const
 {
@@ -111,7 +113,7 @@ int RigModelPaddingSettings::upperEquilnum() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets upper equilnum.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setUpperEquilnum( int value )
 {
@@ -119,7 +121,7 @@ void RigModelPaddingSettings::setUpperEquilnum( int value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the nz lower.
 //--------------------------------------------------------------------------------------------------
 int RigModelPaddingSettings::nzLower() const
 {
@@ -127,7 +129,7 @@ int RigModelPaddingSettings::nzLower() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets nz lower.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setNzLower( int value )
 {
@@ -135,7 +137,7 @@ void RigModelPaddingSettings::setNzLower( int value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the bottom lower.
 //--------------------------------------------------------------------------------------------------
 double RigModelPaddingSettings::bottomLower() const
 {
@@ -143,7 +145,7 @@ double RigModelPaddingSettings::bottomLower() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets bottom lower.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setBottomLower( double value )
 {
@@ -151,7 +153,7 @@ void RigModelPaddingSettings::setBottomLower( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min layer thickness.
 //--------------------------------------------------------------------------------------------------
 double RigModelPaddingSettings::minLayerThickness() const
 {
@@ -159,7 +161,7 @@ double RigModelPaddingSettings::minLayerThickness() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets min layer thickness.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setMinLayerThickness( double value )
 {
@@ -167,7 +169,7 @@ void RigModelPaddingSettings::setMinLayerThickness( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill gaps.
 //--------------------------------------------------------------------------------------------------
 bool RigModelPaddingSettings::fillGaps() const
 {
@@ -175,7 +177,7 @@ bool RigModelPaddingSettings::fillGaps() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets fill gaps.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setFillGaps( bool value )
 {
@@ -183,7 +185,7 @@ void RigModelPaddingSettings::setFillGaps( bool value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the monotonic zcorn.
 //--------------------------------------------------------------------------------------------------
 bool RigModelPaddingSettings::monotonicZcorn() const
 {
@@ -191,7 +193,7 @@ bool RigModelPaddingSettings::monotonicZcorn() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets monotonic zcorn.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setMonotonicZcorn( bool value )
 {
@@ -199,7 +201,7 @@ void RigModelPaddingSettings::setMonotonicZcorn( bool value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the vertical pillars.
 //--------------------------------------------------------------------------------------------------
 bool RigModelPaddingSettings::verticalPillars() const
 {
@@ -207,7 +209,7 @@ bool RigModelPaddingSettings::verticalPillars() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets vertical pillars.
 //--------------------------------------------------------------------------------------------------
 void RigModelPaddingSettings::setVerticalPillars( bool value )
 {
@@ -215,7 +217,7 @@ void RigModelPaddingSettings::setVerticalPillars( bool value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the validate.
 //--------------------------------------------------------------------------------------------------
 QString RigModelPaddingSettings::validate() const
 {

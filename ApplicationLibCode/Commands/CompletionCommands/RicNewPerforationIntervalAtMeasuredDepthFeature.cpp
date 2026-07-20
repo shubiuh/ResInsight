@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new perforation interval at measured depth command support.
 
 #include "RicNewPerforationIntervalAtMeasuredDepthFeature.h"
 

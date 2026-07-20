@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fracture name generator command support.
 
 #pragma once
 
@@ -24,13 +26,16 @@
 #include <QString>
 
 //==================================================================================================
-///
+/// @brief Supports fracture name generator command workflows.
 //==================================================================================================
 class RicFractureNameGenerator
 {
 public:
+    /// @return The name for new fracture.
     static QString nameForNewFracture();
+    /// @return The name for new stim plan model.
     static QString nameForNewStimPlanModel();
+    /// @return The name for new stim plan model template.
     static QString nameForNewStimPlanModelTemplate();
 
 private:

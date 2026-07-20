@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements pad model reservoir-data functionality.
 
 #include "RigPadModel.h"
 

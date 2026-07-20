@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of selected fault distance results.
 
 #pragma once
 
@@ -28,6 +30,7 @@ class RigFault;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates selected fault distance results.
 class RigSelectedFaultDistanceResultCalculator
 {
 public:

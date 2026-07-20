@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new statistics case command support.
 
 #include "RicNewStatisticsCaseFeature.h"
 

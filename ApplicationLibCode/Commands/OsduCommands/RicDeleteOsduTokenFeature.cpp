@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete OSDU token command support.
 
 #include "RicDeleteOsduTokenFeature.h"
 

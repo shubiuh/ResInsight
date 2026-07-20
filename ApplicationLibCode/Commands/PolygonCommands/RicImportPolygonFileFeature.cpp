@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import polygon file command support.
 
 #include "RicImportPolygonFileFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new user defined index filter command support.
 
 #include "RicNewUserDefinedIndexFilterFeature.h"
 

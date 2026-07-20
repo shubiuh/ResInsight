@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements surface reservoir-data functionality.
 
 #include "RigSurface.h"
 
@@ -23,17 +25,17 @@
 #include "cvfBoundingBoxTree.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigSurface instance.
 //--------------------------------------------------------------------------------------------------
 RigSurface::RigSurface() = default;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigSurface instance.
 //--------------------------------------------------------------------------------------------------
 RigSurface::~RigSurface() = default;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the triangle indices.
 //--------------------------------------------------------------------------------------------------
 const std::vector<unsigned>& RigSurface::triangleIndices() const
 {
@@ -41,7 +43,7 @@ const std::vector<unsigned>& RigSurface::triangleIndices() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the vertices.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d>& RigSurface::vertices() const
 {
@@ -49,7 +51,7 @@ const std::vector<cvf::Vec3d>& RigSurface::vertices() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets triangle data.
 //--------------------------------------------------------------------------------------------------
 void RigSurface::setTriangleData( const std::vector<unsigned>& tringleIndices, const std::vector<cvf::Vec3d>& vertices )
 {
@@ -58,7 +60,7 @@ void RigSurface::setTriangleData( const std::vector<unsigned>& tringleIndices, c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds vertex result.
 //--------------------------------------------------------------------------------------------------
 void RigSurface::addVertexResult( const QString resultName, const std::vector<float>& resultValues )
 {
@@ -66,7 +68,7 @@ void RigSurface::addVertexResult( const QString resultName, const std::vector<fl
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property values.
 //--------------------------------------------------------------------------------------------------
 std::vector<float> RigSurface::propertyValues( const QString& propertyName ) const
 {
@@ -80,7 +82,7 @@ std::vector<float> RigSurface::propertyValues( const QString& propertyName ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property names.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigSurface::propertyNames() const
 {
@@ -95,7 +97,7 @@ std::vector<QString> RigSurface::propertyNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds intersecting triangles.
 //--------------------------------------------------------------------------------------------------
 void RigSurface::findIntersectingTriangles( const cvf::BoundingBox& inputBB, std::vector<size_t>* triangleStartIndices ) const
 {
@@ -105,7 +107,7 @@ void RigSurface::findIntersectingTriangles( const cvf::BoundingBox& inputBB, std
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max extent triangle in x direction.
 //--------------------------------------------------------------------------------------------------
 double RigSurface::maxExtentTriangleInXDirection() const
 {
@@ -113,7 +115,7 @@ double RigSurface::maxExtentTriangleInXDirection() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max extent triangle in y direction.
 //--------------------------------------------------------------------------------------------------
 double RigSurface::maxExtentTriangleInYDirection() const
 {
@@ -121,7 +123,7 @@ double RigSurface::maxExtentTriangleInYDirection() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ensure intersection search tree is built.
 //--------------------------------------------------------------------------------------------------
 void RigSurface::ensureIntersectionSearchTreeIsBuilt()
 {
@@ -159,7 +161,7 @@ void RigSurface::ensureIntersectionSearchTreeIsBuilt()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the triangle count.
 //--------------------------------------------------------------------------------------------------
 size_t RigSurface::triangleCount() const
 {

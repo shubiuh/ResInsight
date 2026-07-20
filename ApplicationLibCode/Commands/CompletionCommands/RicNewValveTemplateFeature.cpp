@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new valve template command support.
 
 #include "RicNewValveTemplateFeature.h"
 

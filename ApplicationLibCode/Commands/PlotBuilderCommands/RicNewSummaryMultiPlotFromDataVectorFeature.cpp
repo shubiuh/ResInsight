@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new summary multi plot from data vector command support.
 
 #include "RicNewSummaryMultiPlotFromDataVectorFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares link well path command support.
 
 #pragma once
 
@@ -23,18 +25,23 @@
 class RimWellPath;
 
 //==================================================================================================
-///
+/// @brief Command feature for link well path.
 //==================================================================================================
 class RicLinkWellPathFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is checked for the current selection.
     bool isCommandChecked() const override;
 
 private:
+    /// @return The well paths.
     static std::vector<RimWellPath*> wellPaths();
 };

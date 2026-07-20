@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import pressure depth data command support.
 
 #include "RicImportPressureDepthDataFeature.h"
 

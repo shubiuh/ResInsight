@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste command support.
 
 #include "RicPasteFeatureImpl.h"
 

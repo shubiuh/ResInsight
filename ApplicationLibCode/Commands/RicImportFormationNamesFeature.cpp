@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import formation names command support.
 
 #include "RicImportFormationNamesFeature.h"
 

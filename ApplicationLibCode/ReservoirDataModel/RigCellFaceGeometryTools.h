@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for cell face geometry.
 
 #pragma once
 
@@ -37,6 +39,7 @@ class RigMainGrid;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Provides utilities for cell face geometry.
 class RigCellFaceGeometryTools
 {
 public:

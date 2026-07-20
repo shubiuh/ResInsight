@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements case and file export settings command support.
 
 #include "RicCaseAndFileExportSettingsUi.h"
 

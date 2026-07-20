@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares save project command support.
 
 #pragma once
 
@@ -24,18 +26,22 @@
 #include "cafPdmField.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for save project.
 //==================================================================================================
 class RicSaveProjectFeature : public caf::CmdFeature, public RicfCommandObject
 {
     RICF_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSaveProjectFeature();
+    /// Executes command support.
     caf::PdmScriptResponse execute() override;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of eclipse to thermal cell transmissibility.
 
 #pragma once
 
@@ -41,6 +43,7 @@ class RimFracture;
 ///  Eclipse reservoir cells open for flow is defined by reservoirCellIndicesOpenForFlow
 ///
 //==================================================================================================
+/// @brief Calculates eclipse to thermal cell transmissibility.
 class RigEclipseToThermalCellTransmissibilityCalculator : public RigEclipseToStimPlanCellTransmissibilityCalculator
 {
 public:
@@ -60,10 +63,16 @@ public:
 protected:
     double calculateTransmissibility( const cvf::Vec3d& transmissibilityVector, double fractureArea ) override;
 
+    /// Stores filter cake pressure drop.
     RimThermalFractureTemplate::FilterCakePressureDrop m_filterCakePressureDrop;
+    /// Stores injectivity factor.
     double                                             m_injectivityFactor;
+    /// Stores filter cake mobility.
     double                                             m_filterCakeMobility;
+    /// Stores filtrate thickness.
     double                                             m_filtrateThickness;
+    /// Stores viscosity.
     double                                             m_viscosity;
+    /// Stores relative permeability.
     double                                             m_relativePermeability;
 };

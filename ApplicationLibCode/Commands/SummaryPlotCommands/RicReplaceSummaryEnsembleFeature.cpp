@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements replace summary ensemble command support.
 
 #include "RicReplaceSummaryEnsembleFeature.h"
 

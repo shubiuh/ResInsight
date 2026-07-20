@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of tof well distribution.
 
 #pragma once
 
@@ -35,6 +37,7 @@ class QString;
 //
 //
 //==================================================================================================
+/// @brief Calculates tof well distribution.
 class RigTofWellDistributionCalculator
 {
 public:
@@ -53,6 +56,7 @@ private:
     static std::vector<QString>
         findCandidateContributingWellNames( const RimFlowDiagSolution& flowDiagSolution, QString targetWellname, size_t timeStepIndex );
 
+    /// @brief Models contrib well entry for reservoir-data processing.
     struct ContribWellEntry
     {
         QString             name;

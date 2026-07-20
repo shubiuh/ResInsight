@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new refinement region command support.
 
 #include "RicNewRefinementRegionFeature.h"
 

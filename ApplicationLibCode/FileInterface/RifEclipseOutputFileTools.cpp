@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements common ERT-based discovery and decoding of Eclipse output files.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -147,7 +150,9 @@ void RifEclipseOutputFileTools::getDayMonthYear( const ecl_kw_type* intehead_kw,
 }
 
 //--------------------------------------------------------------------------------------------------
-/// Get list of time step texts (dates)
+/// Builds report-step dates by pairing INTEHEAD date fields with DOUBHEAD elapsed
+/// time. Header multiplicity is returned because some simulators write empty
+/// per-grid headers that affect unified-file block indexing.
 //--------------------------------------------------------------------------------------------------
 void RifEclipseOutputFileTools::timeSteps( const ecl_file_type*    ecl_file,
                                            std::vector<QDateTime>* timeSteps,
@@ -528,7 +533,9 @@ int RifEclipseOutputFileTools::readUnitsType( const ecl_file_type* ecl_file )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Prefers a unified restart file when the case family contains one; otherwise
+/// installs the sorted split restart files. This keeps storage-format selection out
+/// of higher-level result loading code.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RifEclipseRestartDataAccess> RifEclipseOutputFileTools::createDynamicResultAccess( const QString& fileName )
 {
@@ -602,7 +609,8 @@ std::set<RiaDefines::PhaseType> RifEclipseOutputFileTools::findAvailablePhases( 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses ERT's NNC geometry to align phase-flux arrays with the grid connection
+/// ordering expected by ResInsight, independently for each available phase.
 //--------------------------------------------------------------------------------------------------
 void RifEclipseOutputFileTools::transferNncFluxData( const ecl_grid_type*      grid,
                                                      const ecl_file_view_type* summaryView,
@@ -820,7 +828,9 @@ RifEclipseReportKeywords RifEclipseOutputFileTools::createReportStepsMetaData( c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Accepts only keywords whose per-step item count matches the selected porosity
+/// model's active-cell count. This prevents unrelated arrays and matrix/fracture
+/// data from being exposed as compatible cell results.
 //--------------------------------------------------------------------------------------------------
 std::vector<RifEclipseKeywordValueCount>
     RifEclipseOutputFileTools::validKeywordsForPorosityModel( const std::vector<RifEclipseKeywordValueCount>& keywordItemCounts,
@@ -996,7 +1006,9 @@ std::optional<RiaDefines::EclipseUnitSystem> RifEclipseOutputFileTools::unitValu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses the grid declaration as primary truth, then INIT and restart metadata.
+/// Conflicts are logged because mixing unit conventions would silently corrupt
+/// derived quantities even though the case can still be opened.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::EclipseUnitSystem RifEclipseOutputFileTools::determineUnitSystem( const std::optional<RiaDefines::EclipseUnitSystem>& egridUnit,
                                                                               const std::optional<RiaDefines::EclipseUnitSystem>& initUnit,

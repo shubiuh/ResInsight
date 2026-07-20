@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export contour map to text command support.
 #include "RicExportContourMapToTextFeature.h"
 
 #include "RiaGuiApplication.h"

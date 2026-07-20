@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new view command support.
 
 #pragma once
 
@@ -30,27 +32,38 @@ class RimEclipseViewCollection;
 class RimEclipseCaseEnsemble;
 
 //==================================================================================================
-///
+/// @brief Command feature for new view.
 //==================================================================================================
 class RicNewViewFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Adds reservoir view.
     static Rim3dView* addReservoirView( RimEclipseCase* eclipseCase, RimGeoMechCase* geomCase, RimEclipseViewCollection* viewColl );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Creates reservoir view.
     static Rim3dView* createReservoirView( RimEclipseCase* eclipseCase, RimGeoMechCase* geomCase, RimEclipseViewCollection* viewColl );
 
+    /// @return The selected Eclipse case.
     static RimEclipseCase*           selectedEclipseCase();
+    /// @return The selected geo mech case.
     static RimGeoMechCase*           selectedGeoMechCase();
+    /// @return The selected Eclipse view.
     static RimEclipseView*           selectedEclipseView();
+    /// @return The selected geo mech view.
     static RimGeoMechView*           selectedGeoMechView();
+    /// @return The selected Eclipse view collection.
     static RimEclipseViewCollection* selectedEclipseViewCollection();
+    /// @return The selected Eclipse case ensemble.
     static RimEclipseCaseEnsemble*   selectedEclipseCaseEnsemble();
 };

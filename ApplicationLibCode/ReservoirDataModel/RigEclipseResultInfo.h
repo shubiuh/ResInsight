@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares eclipse result info reservoir-data functionality.
 
 #pragma once
 
@@ -30,6 +32,7 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models eclipse time step info for reservoir-data processing.
 class RigEclipseTimeStepInfo
 {
 public:
@@ -39,14 +42,18 @@ public:
         createTimeStepInfos( std::vector<QDateTime> dates, std::vector<int> reportNumbers, std::vector<double> daysSinceSimulationStarts );
 
 public:
+    /// Stores date.
     QDateTime m_date;
+    /// Stores report number.
     int       m_reportNumber;
+    /// Stores days since simulation start.
     double    m_daysSinceSimulationStart;
 };
 
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models eclipse result info for reservoir-data processing.
 class RigEclipseResultInfo
 {
 public:

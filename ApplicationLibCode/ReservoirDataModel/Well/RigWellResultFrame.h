@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well result frame reservoir-data functionality.
 
 #pragma once
 
@@ -31,6 +33,7 @@
 /// The main content is the vector of RigWellResultBranch which contains all the simple pipe
 /// sections that make up the well
 //==================================================================================================
+/// @brief Models well result frame for reservoir-data processing.
 class RigWellResultFrame
 {
 public:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements plot production rate command support.
 
 #include "RicPlotProductionRateFeature.h"
 

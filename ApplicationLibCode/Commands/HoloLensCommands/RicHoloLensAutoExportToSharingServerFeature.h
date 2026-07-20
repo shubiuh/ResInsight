@@ -15,32 +15,43 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares holo lens auto export to sharing server command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for holo lens auto export to sharing server.
 //==================================================================================================
 class RicHoloLensAutoExportToSharingServerFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicHoloLensAutoExportToSharingServerFeature();
 
+    /// Sets active.
     void setActive( bool enable );
+    /// @return Whether active.
     bool isActive() const;
 
+    /// Performs the trigger update session command operation.
     void triggerUpdateSession();
 
 private:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is checked for the current selection.
     bool isCommandChecked() const override;
 
+    /// @return Whether session valid.
     bool isSessionValid() const;
 
 private:

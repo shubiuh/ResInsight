@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares refresh scripts command support.
 
 #pragma once
 
@@ -23,16 +25,19 @@
 #include <vector>
 
 //==================================================================================================
-///
+/// @brief Command feature for refresh scripts.
 //==================================================================================================
 class RicRefreshScriptsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Performs the refresh script folders command operation.
     static void refreshScriptFolders();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

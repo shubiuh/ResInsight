@@ -15,22 +15,27 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export polygon pol command support.
 
 #pragma once
 
 #include "RicBasicPolygonFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for export polygon pol.
 //==================================================================================================
 class RicExportPolygonPolFeature : public RicBasicPolygonFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicExportPolygonPolFeature();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

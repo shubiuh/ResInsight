@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements measurement command support.
 
 #include "RicMeasurementPickEventHandler.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens server settings command support.
 
 #include "RicHoloLensServerSettings.h"
 

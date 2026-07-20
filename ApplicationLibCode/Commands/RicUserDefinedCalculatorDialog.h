@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares user defined calculator command support.
 
 #pragma once
 
@@ -24,26 +26,34 @@ class RimUserDefinedCalculation;
 class RimUserDefinedCalculationCollection;
 
 //==================================================================================================
-///
-///
+/// @brief Dialog for configuring user defined calculator.
 //==================================================================================================
 class RicUserDefinedCalculatorDialog : public QDialog
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     RicUserDefinedCalculatorDialog( QWidget* parent, const QString& title );
+    /// Destroys the command object.
     ~RicUserDefinedCalculatorDialog() override;
 
+    /// Sets calculation and update.
     virtual void                                 setCalculationAndUpdateUi( RimUserDefinedCalculation* calculation ) = 0;
+    /// @return The calculation collection.
     virtual RimUserDefinedCalculationCollection* calculationCollection() const                                       = 0;
+    /// @return The calculator widget.
     virtual QWidget*                             getCalculatorWidget()                                               = 0;
+    /// Updates command support.
     virtual void                                 updateUi()                                                          = 0;
 
 private slots:
+    /// Performs the slot try close command operation.
     void slotTryCloseDialog();
 
 protected:
+    /// Sets up.
     void   setUp();
+    /// @return The dirty count.
     size_t dirtyCount() const;
 };

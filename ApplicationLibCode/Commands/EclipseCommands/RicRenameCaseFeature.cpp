@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements rename case command support.
 
 #include "RicRenameCaseFeature.h"
 

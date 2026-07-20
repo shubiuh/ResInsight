@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares vde export part command support.
 
 #pragma once
 
@@ -25,7 +27,7 @@
 #include <QString>
 
 //==================================================================================================
-///
+/// @brief Supports vde export part command workflows.
 //==================================================================================================
 class VdeExportPart
 {
@@ -57,28 +59,48 @@ public:
     };
 
 public:
+    /// Constructs the command object.
     VdeExportPart( cvf::Part* part );
 
+    /// Sets texture image.
     void setTextureImage( const cvf::TextureImage* textureImage );
+    /// Sets source object type.
     void setSourceObjectType( SourceObjectType sourceObjectType );
+    /// Sets source object name.
     void setSourceObjectName( const QString& sourceObjectName );
+    /// Sets source object cell set type.
     void setSourceObjectCellSetType( const QString& sourceObjectCellSetType );
+    /// Sets color.
     void setColor( const cvf::Color3f& color );
+    /// Sets opacity.
     void setOpacity( float opacity );
+    /// Sets winding.
     void setWinding( Winding winding );
+    /// Sets cull face.
     void setCullFace( CullFace cullFace );
+    /// Sets role.
     void setRole( Role role );
 
+    /// @return The part.
     const cvf::Part*         part() const;
+    /// @return The texture image.
     const cvf::TextureImage* textureImage() const;
 
+    /// @return The source object name.
     QString          sourceObjectName() const;
+    /// @return The source object cell set type.
     QString          sourceObjectCellSetType() const;
+    /// @return The source object type.
     SourceObjectType sourceObjectType() const;
+    /// @return The color.
     cvf::Color3f     color() const;
+    /// @return The opacity.
     float            opacity() const;
+    /// @return The winding.
     Winding          winding() const;
+    /// @return The cull face.
     CullFace         cullFace() const;
+    /// @return The role.
     Role             role() const;
 
 private:

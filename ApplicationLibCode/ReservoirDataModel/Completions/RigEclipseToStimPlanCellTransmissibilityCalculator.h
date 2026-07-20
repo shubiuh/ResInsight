@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of eclipse to stim plan cell transmissibility.
 
 #pragma once
 
@@ -39,6 +41,7 @@ class RimFracture;
 ///  Eclipse reservoir cells open for flow is defined by reservoirCellIndicesOpenForFlow
 ///
 //==================================================================================================
+/// @brief Calculates eclipse to stim plan cell transmissibility.
 class RigEclipseToStimPlanCellTransmissibilityCalculator
 {
 public:
@@ -48,6 +51,7 @@ public:
                                                                  double                 cDarcy,
                                                                  const RigFractureCell& stimPlanCell,
                                                                  const RimFracture*     fracture );
+    /// Computes values.
     void computeValues( const std::set<size_t>& reservoirCellIndicesOpenForFlow );
 
     // These three vectors have the same size
@@ -72,17 +76,27 @@ private:
     static cvf::ref<RigResultAccessor> createResultAccessor( const RimEclipseCase* eclipseCase, const QString& uiResultName );
 
 protected:
+    /// Stores case.
     const RimEclipseCase* m_case;
+    /// Stores fracture.
     const RimFracture*    m_fracture;
 
+    /// Stores c darcy.
     double                 m_cDarcy;
+    /// Stores fracture skin factor.
     double                 m_fractureSkinFactor;
+    /// Stores fracture transform.
     cvf::Mat4d             m_fractureTransform;
+    /// Stores stim plan cell.
     const RigFractureCell& m_stimPlanCell;
 
     // These three vectors have the same size
+    /// Stores global indicies to contributing eclipse cells.
     std::vector<size_t> m_globalIndiciesToContributingEclipseCells;
+    /// Stores contributing eclipse cell transmissibilities.
     std::vector<double> m_contributingEclipseCellTransmissibilities;
+    /// Stores contributing eclipse cell areas.
     std::vector<double> m_contributingEclipseCellAreas;
+    /// Stores contributing eclipse cell permeabilities.
     std::vector<double> m_contributingEclipseCellPermeabilities;
 };

@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares grid base reservoir-data functionality.
 
 #pragma once
 
@@ -37,18 +39,25 @@ class RigMainGrid;
 class RigCell;
 class RigActiveCellInfo;
 
+/// @brief Models grid base for reservoir-data processing.
 class RigGridBase : public cvf::StructGridInterface
 {
 public:
+    /// Returns or processes grid base.
     explicit RigGridBase( RigMainGrid* mainGrid );
     ~RigGridBase() override;
 
     void setCellCounts( const cvf::Vec3st& cellCounts );
 
+    /// Returns or processes cell count i.
     size_t         cellCountI() const override { return m_cellCounts.x(); }
+    /// Returns or processes cell count j.
     size_t         cellCountJ() const override { return m_cellCounts.y(); }
+    /// Returns or processes cell count k.
     size_t         cellCountK() const override { return m_cellCounts.z(); }
+    /// Returns or processes cell counts.
     cvf::Vec3st    cellCounts() const { return m_cellCounts; }
+    /// Returns or processes cell count.
     virtual size_t cellCount() const { return m_cellCountIJK; }
 
     bool isRadial() const;
@@ -60,12 +69,17 @@ public:
     cvf::Vec3d characteristicCellSizes() const override;
 
     size_t reservoirCellIndex( size_t gridLocalCellIndex ) const;
+    /// Sets index to start of cells.
     void   setIndexToStartOfCells( size_t indexToStartOfCells ) { m_indexToStartOfCells = indexToStartOfCells; }
 
+    /// Sets grid index.
     void   setGridIndex( size_t index ) { m_gridIndex = index; }
+    /// Returns or processes grid index.
     size_t gridIndex() const { return m_gridIndex; }
 
+    /// Sets grid id.
     void setGridId( int id ) { m_gridId = id; }
+    /// Returns or processes grid id.
     int  gridId() const { return m_gridId; }
 
     double characteristicIJCellSize() const;
@@ -74,8 +88,10 @@ public:
     void        setGridName( const std::string& gridName );
 
     bool         isMainGrid() const;
+    /// Returns or processes main grid.
     RigMainGrid* mainGrid() const { return m_mainGrid; }
 
+    /// Returns or processes coarsening box count.
     size_t coarseningBoxCount() const { return m_coarseningBoxInfo.size(); }
     size_t addCoarseningBox( size_t i1, size_t i2, size_t j1, size_t j2, size_t k1, size_t k2 );
 
@@ -83,7 +99,9 @@ public:
 
     cvf::BoundingBox boundingBox();
 
+    /// Returns whether temp grid.
     virtual bool               isTempGrid() const             = 0;
+    /// Returns or processes associated well path name.
     virtual const std::string& associatedWellPathName() const = 0;
 
 protected:
@@ -122,7 +140,9 @@ public:
 
 protected:
     size_t m_indexToStartOfCells; ///< Index into the global cell array stored in main-grid where this grids cells starts.
+    /// Stores cell count ijk.
     size_t m_cellCountIJK;
+    /// Stores cell count ij.
     size_t m_cellCountIJ;
 
 private:
@@ -137,9 +157,11 @@ private:
     std::vector<std::array<size_t, 6>> m_coarseningBoxInfo;
 };
 
+/// @brief Models grid cell face visibility filter for reservoir-data processing.
 class RigGridCellFaceVisibilityFilter : public cvf::CellFaceVisibilityFilter
 {
 public:
+    /// Returns or processes grid cell face visibility filter.
     explicit RigGridCellFaceVisibilityFilter( const RigGridBase* grid )
         : m_grid( grid )
     {

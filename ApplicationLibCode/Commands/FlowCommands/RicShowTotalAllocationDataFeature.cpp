@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show total allocation data command support.
 
 #include "RicShowTotalAllocationDataFeature.h"
 

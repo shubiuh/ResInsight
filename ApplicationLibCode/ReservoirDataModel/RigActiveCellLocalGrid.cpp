@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements active cell local grid reservoir-data functionality.
 
 #include "RigActiveCellLocalGrid.h"
 
@@ -31,7 +33,7 @@ RigActiveCellLocalGrid::~RigActiveCellLocalGrid()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell.
 //--------------------------------------------------------------------------------------------------
 RigCell& RigActiveCellLocalGrid::cell( size_t gridLocalCellIndex )
 {
@@ -39,7 +41,7 @@ RigCell& RigActiveCellLocalGrid::cell( size_t gridLocalCellIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell.
 //--------------------------------------------------------------------------------------------------
 const RigCell& RigActiveCellLocalGrid::cell( size_t gridLocalCellIndex ) const
 {

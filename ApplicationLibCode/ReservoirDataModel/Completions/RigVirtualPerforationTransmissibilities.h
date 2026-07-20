@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares virtual perforation transmissibilities reservoir-data functionality.
 
 #pragma once
 
@@ -33,6 +35,7 @@ class RimWellPath;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models completion data frame for reservoir-data processing.
 class CompletionDataFrame
 {
 public:
@@ -49,6 +52,7 @@ private:
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models virtual perforation transmissibilities for reservoir-data processing.
 class RigVirtualPerforationTransmissibilities : public cvf::Object
 {
 public:

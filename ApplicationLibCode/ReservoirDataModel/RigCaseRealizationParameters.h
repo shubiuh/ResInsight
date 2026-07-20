@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares case realization parameters reservoir-data functionality.
 
 #pragma once
 
@@ -30,10 +32,12 @@
 //
 //
 //==================================================================================================
+/// @brief Models case realization parameters for reservoir-data processing.
 class RigCaseRealizationParameters
 {
 public:
     // Internal class
+    /// @brief Models value for reservoir-data processing.
     class Value
     {
         enum ValueType
@@ -51,8 +55,11 @@ public:
         void setValue( double value );
         void setValue( const QString& value );
 
+        /// Returns whether valid.
         bool isValid() const { return m_valueType != TYPE_NONE; }
+        /// Returns whether numeric.
         bool isNumeric() const { return m_valueType == TYPE_NUMERIC; }
+        /// Returns whether text.
         bool isText() const { return m_valueType == TYPE_TEXT; }
 
         double         numericValue() const;

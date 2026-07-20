@@ -15,105 +15,124 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares help command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for help about.
 //==================================================================================================
 class RicHelpAboutFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// @return The python version.
     static QString getPythonVersion( const QString& pathToPythonExecutable );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for help command line.
 //==================================================================================================
 class RicHelpCommandLineFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for help summary command line.
 //==================================================================================================
 class RicHelpSummaryCommandLineFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for help open users guide.
 //==================================================================================================
 class RicHelpOpenUsersGuideFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for search help.
 //==================================================================================================
 class RicSearchHelpFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for search issues help.
 //==================================================================================================
 class RicSearchIssuesHelpFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for create new issue help.
 //==================================================================================================
 class RicCreateNewIssueHelpFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for open release notes.
 //==================================================================================================
 class RicOpenReleaseNotesFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

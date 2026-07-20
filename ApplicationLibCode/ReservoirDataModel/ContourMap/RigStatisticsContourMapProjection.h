@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares statistics contour map projection reservoir-data functionality.
 
 #pragma once
 
@@ -29,6 +31,7 @@ class RigContourMapGrid;
 ///
 ///
 //==================================================================================================
+/// @brief Models statistics contour map projection for reservoir-data processing.
 class RigStatisticsContourMapProjection : public RigContourMapProjection
 {
 public:
@@ -49,6 +52,7 @@ public:
     bool              isCellActive( size_t globalCellIdx ) const override;
 
 protected:
+    /// Type alias used for cell index and result.
     using CellIndexAndResult = RigContourMapProjection::CellIndexAndResult;
 
     std::vector<size_t> findIntersectingCells( const cvf::BoundingBox& bbox ) const override;

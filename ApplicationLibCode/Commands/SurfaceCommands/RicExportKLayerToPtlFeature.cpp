@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export K layer to ptl command support.
 
 #include "RicExportKLayerToPtlFeature.h"
 

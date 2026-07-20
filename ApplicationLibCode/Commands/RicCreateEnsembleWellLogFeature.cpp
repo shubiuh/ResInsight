@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create ensemble well log command support.
 
 #include "RicCreateEnsembleWellLogFeature.h"
 

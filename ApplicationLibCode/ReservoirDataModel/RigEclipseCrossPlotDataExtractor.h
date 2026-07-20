@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares extraction of eclipse cross plot data extractor.
 #pragma once
 
 #include "RigGridCrossPlotCurveGrouping.h"
@@ -30,14 +32,20 @@ class RimEclipseResultDefinition;
 
 class QString;
 
+/// @brief Stores a eclipse cross plot result result.
 struct RigEclipseCrossPlotResult
 {
+    /// Stores x values.
     std::vector<double> xValues;
+    /// Stores y values.
     std::vector<double> yValues;
+    /// Stores group values continuous.
     std::vector<double> groupValuesContinuous;
+    /// Stores group values discrete.
     std::vector<int>    groupValuesDiscrete;
 };
 
+/// @brief Extracts eclipse cross plot data extractor.
 class RigEclipseCrossPlotDataExtractor
 {
 public:

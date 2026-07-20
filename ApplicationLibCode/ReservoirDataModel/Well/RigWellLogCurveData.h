@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of well log curve data.
 
 #pragma once
 
@@ -33,6 +35,7 @@ class RigWellLogCurveDataTestInterface;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Stores well log curve data.
 class RigWellLogCurveData
 {
 public:

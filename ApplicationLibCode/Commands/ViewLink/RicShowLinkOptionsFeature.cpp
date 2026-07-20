@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show link options command support.
 
 #include "RicShowLinkOptionsFeature.h"
 

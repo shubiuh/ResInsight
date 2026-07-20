@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares save multi plot template command support.
 
 #pragma once
 
@@ -26,25 +28,31 @@ class RimSummaryMultiPlot;
 class RicSaveMultiPlotTemplateFeatureSettings;
 
 //==================================================================================================
-///
+/// @brief Command feature for save multi plot template.
 //==================================================================================================
 class RicSaveMultiPlotTemplateFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Creates text from object.
     static QString createTextFromObject( RimSummaryMultiPlot* summaryPlot, const RicSaveMultiPlotTemplateFeatureSettings& settings );
 
+    /// Performs the replace strings command operation.
     static void replaceStrings( const std::set<QString>& sourceStrings,
                                 const QString&           fieldKeyword,
                                 const QString&           placeholderText,
                                 QString&                 objectAsText );
 
 private:
+    /// @return The selected summary plot.
     RimSummaryMultiPlot* selectedSummaryPlot() const;
 };

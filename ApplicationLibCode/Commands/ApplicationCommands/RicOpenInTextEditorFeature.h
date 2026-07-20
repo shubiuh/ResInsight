@@ -15,21 +15,26 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares open in text editor command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for open in text editor.
 //==================================================================================================
 class RicOpenInTextEditorFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// Performs the open file in text command operation.
     static void openFileInTextEditor( const QString& filePath, QObject* parent );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

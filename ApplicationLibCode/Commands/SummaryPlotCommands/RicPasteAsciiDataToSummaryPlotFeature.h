@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares paste ASCII data to summary plot command support.
 
 #pragma once
 
@@ -29,7 +31,7 @@ class RicPasteAsciiDataToSummaryPlotFeatureUi;
 class RimSummaryPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for paste ASCII data to summary plot.
 //==================================================================================================
 class RicPasteAsciiDataToSummaryPlotFeature : public caf::CmdFeature
 {
@@ -45,15 +47,22 @@ public:
     };
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The pasted data.
     static QString getPastedData();
+    /// @return Whether pasted text.
     static bool    hasPastedText();
 
+    /// @return The parse curves.
     static std::vector<RimAsciiDataCurve*> parseCurves( QString& data, const RicPasteAsciiDataToSummaryPlotFeatureUi& settings );
 
+    /// @return The guess curve type.
     static CurveType guessCurveType( const QString& curveName );
 };

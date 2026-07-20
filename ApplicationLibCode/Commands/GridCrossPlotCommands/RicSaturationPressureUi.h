@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares saturation pressure command support.
 
 #pragma once
 
@@ -25,21 +27,25 @@
 #include "cafPdmPtrField.h"
 
 //==================================================================================================
-///
-///
+/// @brief UI model for configuring saturation pressure.
 //==================================================================================================
 class RicSaturationPressureUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSaturationPressureUi();
 
+    /// Sets selected case.
     void            setSelectedCase( RimEclipseCase* eclipseCase );
+    /// @return The selected case.
     RimEclipseCase* selectedCase() const;
+    /// @return The selected time step.
     int             selectedTimeStep() const;
 
 protected:
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 private:

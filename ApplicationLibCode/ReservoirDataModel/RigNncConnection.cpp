@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements nnc connection reservoir-data functionality.
 
 #include "RigNncConnection.h"
 
 #include "cvfAssert.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigConnection instance.
 //--------------------------------------------------------------------------------------------------
 RigConnection::RigConnection()
     : m_c1GlobIdx( cvf::UNDEFINED_UINT )
@@ -31,7 +33,7 @@ RigConnection::RigConnection()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigConnection instance.
 //--------------------------------------------------------------------------------------------------
 RigConnection::RigConnection( unsigned                           c1GlobIdx,
                               unsigned                           c2GlobIdx,
@@ -57,7 +59,7 @@ RigConnection::RigConnection( unsigned                           c1GlobIdx,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigConnection instance.
 //--------------------------------------------------------------------------------------------------
 RigConnection::RigConnection( size_t c1GlobIdx, size_t c2GlobIdx, cvf::StructGridInterface::FaceType c1Face, const std::vector<cvf::Vec3f>& polygon )
     : m_c1GlobIdx( static_cast<unsigned>( c1GlobIdx ) )
@@ -82,7 +84,7 @@ RigConnection::RigConnection( size_t c1GlobIdx, size_t c2GlobIdx, cvf::StructGri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigConnection instance.
 //--------------------------------------------------------------------------------------------------
 RigConnection::RigConnection( const RigConnection& rhs )
     : m_c1GlobIdx( rhs.m_c1GlobIdx )
@@ -93,7 +95,7 @@ RigConnection::RigConnection( const RigConnection& rhs )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator= operation.
 //--------------------------------------------------------------------------------------------------
 RigConnection& RigConnection::operator=( const RigConnection& rhs )
 {
@@ -105,7 +107,7 @@ RigConnection& RigConnection::operator=( const RigConnection& rhs )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether common area is available.
 //--------------------------------------------------------------------------------------------------
 bool RigConnection::hasCommonArea() const
 {
@@ -113,7 +115,7 @@ bool RigConnection::hasCommonArea() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator== operation.
 //--------------------------------------------------------------------------------------------------
 bool RigConnection::operator==( const RigConnection& rhs ) const
 {
@@ -121,7 +123,7 @@ bool RigConnection::operator==( const RigConnection& rhs ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator< operation.
 //--------------------------------------------------------------------------------------------------
 bool RigConnection::operator<( const RigConnection& other ) const
 {
@@ -134,7 +136,7 @@ bool RigConnection::operator<( const RigConnection& other ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator[] operation.
 //--------------------------------------------------------------------------------------------------
 const RigConnection& RigConnectionContainer::operator[]( size_t i ) const
 {
@@ -142,7 +144,7 @@ const RigConnection& RigConnectionContainer::operator[]( size_t i ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator[] operation.
 //--------------------------------------------------------------------------------------------------
 RigConnection& RigConnectionContainer::operator[]( size_t i )
 {
@@ -150,7 +152,7 @@ RigConnection& RigConnectionContainer::operator[]( size_t i )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the push back.
 //--------------------------------------------------------------------------------------------------
 void RigConnectionContainer::push_back( const RigConnection& connection )
 {
@@ -158,7 +160,7 @@ void RigConnectionContainer::push_back( const RigConnection& connection )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the push back.
 //--------------------------------------------------------------------------------------------------
 void RigConnectionContainer::push_back( const RigConnectionContainer& other )
 {
@@ -166,7 +168,7 @@ void RigConnectionContainer::push_back( const RigConnectionContainer& other )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the size.
 //--------------------------------------------------------------------------------------------------
 size_t RigConnectionContainer::size() const
 {
@@ -174,7 +176,7 @@ size_t RigConnectionContainer::size() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears the stored data.
 //--------------------------------------------------------------------------------------------------
 void RigConnectionContainer::clear()
 {
@@ -182,7 +184,7 @@ void RigConnectionContainer::clear()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the empty.
 //--------------------------------------------------------------------------------------------------
 bool RigConnectionContainer::empty() const
 {
@@ -190,7 +192,7 @@ bool RigConnectionContainer::empty() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removes duplicates.
 //--------------------------------------------------------------------------------------------------
 void RigConnectionContainer::remove_duplicates()
 {
@@ -199,7 +201,7 @@ void RigConnectionContainer::remove_duplicates()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reserve.
 //--------------------------------------------------------------------------------------------------
 void RigConnectionContainer::reserve( size_t requiredSize )
 {

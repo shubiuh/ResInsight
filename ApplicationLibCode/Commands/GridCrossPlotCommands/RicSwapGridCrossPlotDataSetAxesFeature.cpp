@@ -1,3 +1,5 @@
+/// @file
+/// @brief Implements swap grid cross plot data set axes command support.
 #include "RicSwapGridCrossPlotDataSetAxesFeature.h"
 
 #include "RimGridCrossPlot.h"

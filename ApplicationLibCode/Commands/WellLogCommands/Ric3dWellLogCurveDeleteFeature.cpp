@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements 3D well log curve delete command support.
 
 #include "Ric3dWellLogCurveDeleteFeature.h"
 

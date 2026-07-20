@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements store user defined camera command support.
 
 #include "RicStoreUserDefinedCameraFeature.h"
 

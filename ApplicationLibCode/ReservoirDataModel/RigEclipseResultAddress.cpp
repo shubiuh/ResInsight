@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements eclipse result address reservoir-data functionality.
 
 #include "RigEclipseResultAddress.h"
 
 #include "RiaResultNames.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseResultAddress instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseResultAddress::RigEclipseResultAddress( RiaDefines::ResultCatType type, RiaDefines::ResultDataType dataType, const QString& resultName )
     : m_resultCatType( type )
@@ -34,7 +36,7 @@ RigEclipseResultAddress::RigEclipseResultAddress( RiaDefines::ResultCatType type
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseResultAddress instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseResultAddress::RigEclipseResultAddress( RiaDefines::ResultCatType type,
                                                   const QString&            resultName,
@@ -51,7 +53,7 @@ RigEclipseResultAddress::RigEclipseResultAddress( RiaDefines::ResultCatType type
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseResultAddress instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseResultAddress::RigEclipseResultAddress( const QString& resultName )
     : m_resultCatType( RiaDefines::ResultCatType::UNDEFINED )
@@ -64,7 +66,7 @@ RigEclipseResultAddress::RigEclipseResultAddress( const QString& resultName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseResultAddress instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseResultAddress::RigEclipseResultAddress()
     : m_resultCatType( RiaDefines::ResultCatType::UNDEFINED )
@@ -76,7 +78,7 @@ RigEclipseResultAddress::RigEclipseResultAddress()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultAddress::isValid() const
 {
@@ -84,7 +86,7 @@ bool RigEclipseResultAddress::isValid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether delta time step active.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultAddress::isDeltaTimeStepActive() const
 {
@@ -92,7 +94,7 @@ bool RigEclipseResultAddress::isDeltaTimeStepActive() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets delta time step index.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultAddress::setDeltaTimeStepIndex( int timeStepIndex )
 {
@@ -100,7 +102,7 @@ void RigEclipseResultAddress::setDeltaTimeStepIndex( int timeStepIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the delta time step index.
 //--------------------------------------------------------------------------------------------------
 int RigEclipseResultAddress::deltaTimeStepIndex() const
 {
@@ -108,7 +110,7 @@ int RigEclipseResultAddress::deltaTimeStepIndex() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the represents all time lapses.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultAddress::representsAllTimeLapses() const
 {
@@ -116,7 +118,7 @@ bool RigEclipseResultAddress::representsAllTimeLapses() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether delta case active.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultAddress::isDeltaCaseActive() const
 {
@@ -124,7 +126,7 @@ bool RigEclipseResultAddress::isDeltaCaseActive() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets delta case id.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultAddress::setDeltaCaseId( int caseId )
 {
@@ -132,7 +134,7 @@ void RigEclipseResultAddress::setDeltaCaseId( int caseId )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the delta case id.
 //--------------------------------------------------------------------------------------------------
 int RigEclipseResultAddress::deltaCaseId() const
 {
@@ -140,7 +142,7 @@ int RigEclipseResultAddress::deltaCaseId() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the enable divide by cell face area.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultAddress::enableDivideByCellFaceArea( bool enable )
 {
@@ -148,7 +150,7 @@ void RigEclipseResultAddress::enableDivideByCellFaceArea( bool enable )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether divide by cell face area active.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultAddress::isDivideByCellFaceAreaActive() const
 {
@@ -156,7 +158,7 @@ bool RigEclipseResultAddress::isDivideByCellFaceAreaActive() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator< operation.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultAddress::operator<( const RigEclipseResultAddress& other ) const
 {
@@ -184,7 +186,7 @@ bool RigEclipseResultAddress::operator<( const RigEclipseResultAddress& other ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result name.
 //--------------------------------------------------------------------------------------------------
 const QString& RigEclipseResultAddress::resultName() const
 {
@@ -192,7 +194,7 @@ const QString& RigEclipseResultAddress::resultName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets result name.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultAddress::setResultName( QString name )
 {
@@ -200,7 +202,7 @@ void RigEclipseResultAddress::setResultName( QString name )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result cat type.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::ResultCatType RigEclipseResultAddress::resultCatType() const
 {
@@ -208,7 +210,7 @@ RiaDefines::ResultCatType RigEclipseResultAddress::resultCatType() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets result cat type.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultAddress::setResultCatType( RiaDefines::ResultCatType catType )
 {
@@ -216,7 +218,7 @@ void RigEclipseResultAddress::setResultCatType( RiaDefines::ResultCatType catTyp
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator== operation.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultAddress::operator==( const RigEclipseResultAddress& other ) const
 {

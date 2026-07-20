@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste Eclipse views command support.
 
 #include "RicPasteEclipseViewsFeature.h"
 

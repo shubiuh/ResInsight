@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements convert all fracture templates to field command support.
 
 #include "RicConvertAllFractureTemplatesToFieldFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares thermal fracture definition reservoir-data functionality.
 
 #pragma once
 
@@ -32,6 +34,7 @@
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models thermal fracture definition for reservoir-data processing.
 class RigThermalFractureDefinition
 {
 public:

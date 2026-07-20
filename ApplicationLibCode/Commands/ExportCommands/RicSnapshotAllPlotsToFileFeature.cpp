@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements snapshot all plots to file command support.
 
 #include "RicSnapshotAllPlotsToFileFeature.h"
 

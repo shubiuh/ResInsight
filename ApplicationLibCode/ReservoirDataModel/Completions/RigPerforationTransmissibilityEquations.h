@@ -15,12 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares perforation transmissibility equations reservoir-data functionality.
 
 #pragma once
 
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models perforation transmissibility equations for reservoir-data processing.
 class RigPerforationTransmissibilityEquations
 {
 public:

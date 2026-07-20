@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares grid export adapter reservoir-data functionality.
 
 #pragma once
 
@@ -59,6 +61,7 @@ class QString;
 //   }
 //
 //==================================================================================================
+/// @brief Models grid export adapter for reservoir-data processing.
 class RigGridExportAdapter
 {
 public:
@@ -101,10 +104,15 @@ public:
                                                                                  bool                 isBoxMaxCoordinate       = false );
 
     // Helper to calculate original cell indices and subcell indices from refined indices
+    /// @brief Models cell mapping for reservoir-data processing.
     struct CellMapping
     {
-        size_t originalI, originalJ, originalK; // Original cell indices
-        size_t subI, subJ, subK; // Subcell indices within original cell
+        size_t originalI; ///< Original cell I index.
+        size_t originalJ; ///< Original cell J index.
+        size_t originalK; ///< Original cell K index.
+        size_t subI;      ///< Subcell I index within the original cell.
+        size_t subJ;      ///< Subcell J index within the original cell.
+        size_t subK;      ///< Subcell K index within the original cell.
     };
     CellMapping mapRefinedToOriginal( size_t refinedI, size_t refinedJ, size_t refinedK ) const;
 

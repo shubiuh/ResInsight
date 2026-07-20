@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements edit perforation collection command support.
 
 #include "RicEditPerforationCollectionFeature.h"
 

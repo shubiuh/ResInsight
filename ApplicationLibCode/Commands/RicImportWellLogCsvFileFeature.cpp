@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import well log CSV file command support.
 
 #include "RicImportWellLogCsvFileFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements copy grid statistics to clipboard command support.
 
 #include "RicCopyGridStatisticsToClipboardFeature.h"
 

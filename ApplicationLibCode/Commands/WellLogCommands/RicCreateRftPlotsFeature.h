@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create RFT plots command support.
 
 #pragma once
 
@@ -28,17 +30,21 @@ class RimRftPlotCollection;
 class RimWellRftPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for create RFT plots.
 //==================================================================================================
 class RicCreateRftPlotsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// Appends RFT plot for well.
     static void appendRftPlotForWell( const QString& wellName, RimRftPlotCollection* rftPlotColl );
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Appends RFT plot for well.
     void appendRftPlotForWell( const QString& wellName, RimRftPlotCollection* rftPlotColl, RimWellRftPlot* sourcePlot );
 };

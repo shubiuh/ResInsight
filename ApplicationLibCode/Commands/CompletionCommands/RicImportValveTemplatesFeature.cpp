@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import valve templates command support.
 
 #include "RicImportValveTemplatesFeature.h"
 

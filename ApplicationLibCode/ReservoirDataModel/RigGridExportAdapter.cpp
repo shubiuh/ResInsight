@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements grid export adapter reservoir-data functionality.
 
 #include "RigGridExportAdapter.h"
 
@@ -63,7 +65,7 @@ static std::array<cvf::Vec3d, 8> generateRefinedCellCornersNonUniform( const std
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigGridExportAdapter instance.
 //--------------------------------------------------------------------------------------------------
 RigGridExportAdapter::RigGridExportAdapter( RigEclipseCaseData*    eclipseCase,
                                             const cvf::Vec3st&     min,
@@ -95,7 +97,7 @@ RigGridExportAdapter::RigGridExportAdapter( RigEclipseCaseData*    eclipseCase,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns cell corners.
 //--------------------------------------------------------------------------------------------------
 std::array<cvf::Vec3d, 8> RigGridExportAdapter::getCellCorners( size_t i, size_t j, size_t k ) const
 {
@@ -120,7 +122,7 @@ std::array<cvf::Vec3d, 8> RigGridExportAdapter::getCellCorners( size_t i, size_t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns face corners.
 //--------------------------------------------------------------------------------------------------
 std::array<cvf::Vec3d, 4> RigGridExportAdapter::getFaceCorners( size_t i, size_t j, size_t k, cvf::StructGridInterface::FaceType face ) const
 {
@@ -231,7 +233,7 @@ std::array<cvf::Vec3d, 4> RigGridExportAdapter::getFaceCorners( size_t i, size_t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether cell active.
 //--------------------------------------------------------------------------------------------------
 bool RigGridExportAdapter::isCellActive( size_t i, size_t j, size_t k ) const
 {
@@ -254,7 +256,7 @@ bool RigGridExportAdapter::isCellActive( size_t i, size_t j, size_t k ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the use map axes.
 //--------------------------------------------------------------------------------------------------
 bool RigGridExportAdapter::useMapAxes() const
 {
@@ -262,7 +264,7 @@ bool RigGridExportAdapter::useMapAxes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map axis transform.
 //--------------------------------------------------------------------------------------------------
 cvf::Mat4d RigGridExportAdapter::mapAxisTransform() const
 {
@@ -270,7 +272,7 @@ cvf::Mat4d RigGridExportAdapter::mapAxisTransform() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map axes.
 //--------------------------------------------------------------------------------------------------
 std::array<float, 6> RigGridExportAdapter::mapAxes() const
 {
@@ -278,7 +280,7 @@ std::array<float, 6> RigGridExportAdapter::mapAxes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns original cell corners.
 //--------------------------------------------------------------------------------------------------
 std::array<cvf::Vec3d, 8> RigGridExportAdapter::getOriginalCellCorners( size_t origI, size_t origJ, size_t origK ) const
 {
@@ -287,7 +289,7 @@ std::array<cvf::Vec3d, 8> RigGridExportAdapter::getOriginalCellCorners( size_t o
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns refined cell corners.
 //--------------------------------------------------------------------------------------------------
 std::array<cvf::Vec3d, 8>
     RigGridExportAdapter::getRefinedCellCorners( size_t origI, size_t origJ, size_t origK, size_t subI, size_t subJ, size_t subK ) const
@@ -297,7 +299,7 @@ std::array<cvf::Vec3d, 8>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes refined corners.
 //--------------------------------------------------------------------------------------------------
 std::array<cvf::Vec3d, 8> RigGridExportAdapter::computeRefinedCorners( const std::array<cvf::Vec3d, 8>& originalCorners,
                                                                        size_t                           origI,
@@ -321,7 +323,7 @@ std::array<cvf::Vec3d, 8> RigGridExportAdapter::computeRefinedCorners( const std
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the apply coordinate transformation.
 //--------------------------------------------------------------------------------------------------
 void RigGridExportAdapter::applyCoordinateTransformation( std::array<cvf::Vec3d, 8>& corners ) const
 {
@@ -336,7 +338,7 @@ void RigGridExportAdapter::applyCoordinateTransformation( std::array<cvf::Vec3d,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the apply coordinate transformation.
 //--------------------------------------------------------------------------------------------------
 void RigGridExportAdapter::applyCoordinateTransformation( std::array<cvf::Vec3d, 4>& corners ) const
 {
@@ -351,7 +353,7 @@ void RigGridExportAdapter::applyCoordinateTransformation( std::array<cvf::Vec3d,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map refined to original.
 //--------------------------------------------------------------------------------------------------
 RigGridExportAdapter::CellMapping RigGridExportAdapter::mapRefinedToOriginal( size_t refinedI, size_t refinedJ, size_t refinedK ) const
 {
@@ -372,7 +374,7 @@ RigGridExportAdapter::CellMapping RigGridExportAdapter::mapRefinedToOriginal( si
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the original min.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3st RigGridExportAdapter::originalMin() const
 {
@@ -380,7 +382,7 @@ cvf::Vec3st RigGridExportAdapter::originalMin() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the original max.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3st RigGridExportAdapter::originalMax() const
 {
@@ -388,7 +390,7 @@ cvf::Vec3st RigGridExportAdapter::originalMax() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether refinement is available.
 //--------------------------------------------------------------------------------------------------
 bool RigGridExportAdapter::hasRefinement() const
 {
@@ -396,7 +398,7 @@ bool RigGridExportAdapter::hasRefinement() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell count i.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridExportAdapter::cellCountI() const
 {
@@ -404,7 +406,7 @@ size_t RigGridExportAdapter::cellCountI() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell count j.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridExportAdapter::cellCountJ() const
 {
@@ -412,7 +414,7 @@ size_t RigGridExportAdapter::cellCountJ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell count k.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridExportAdapter::cellCountK() const
 {
@@ -420,7 +422,7 @@ size_t RigGridExportAdapter::cellCountK() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total cells.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridExportAdapter::totalCells() const
 {
@@ -428,7 +430,7 @@ size_t RigGridExportAdapter::totalCells() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the refinement.
 //--------------------------------------------------------------------------------------------------
 const RigRefinement& RigGridExportAdapter::refinement() const
 {

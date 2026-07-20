@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements close summary case in collection command support.
 
 #include "RicCloseSummaryCaseInCollectionFeature.h"
 

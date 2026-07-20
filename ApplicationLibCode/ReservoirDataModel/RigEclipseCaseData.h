@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of eclipse case data.
 
 #pragma once
 
@@ -53,12 +55,14 @@ struct RigWellResultPoint;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Stores eclipse case data.
 class RigEclipseCaseData : public cvf::Object
 {
 public:
     explicit RigEclipseCaseData( RimEclipseCase* ownerCase );
     ~RigEclipseCaseData() override;
 
+    /// Returns or processes owner case.
     RimEclipseCase* ownerCase() const { return m_ownerCase; }
 
     RigMainGrid*       mainGrid();
@@ -90,6 +94,7 @@ public:
     RigAllanDiagramData*       allanDiagramData();
 
     void                                   setSimWellData( const cvf::Collection<RigSimWellData>& data );
+    /// Returns or processes well results.
     const cvf::Collection<RigSimWellData>& wellResults() const { return m_simWellData; }
     std::set<QString>                      findSortedWellNames() const;
     const RigSimWellData*                  findSimWellData( QString wellName ) const;
@@ -106,7 +111,9 @@ public:
 
     void computeDepthRelatedResults();
 
+    /// Returns or processes units type.
     RiaDefines::EclipseUnitSystem unitsType() const { return m_unitsType; }
+    /// Sets units type.
     void                          setUnitsType( RiaDefines::EclipseUnitSystem unitsType ) { m_unitsType = unitsType; }
 
     std::set<RiaDefines::PhaseType> availablePhases() const;
@@ -121,6 +128,7 @@ public:
     void setVirtualPerforationTransmissibilities( RigVirtualPerforationTransmissibilities* virtualPerforationTransmissibilities );
     const RigVirtualPerforationTransmissibilities* virtualPerforationTransmissibilities() const;
 
+    /// Returns or processes clear well cells in grid cache.
     void clearWellCellsInGridCache() { m_wellCellsInGrid.clear(); }
 
     void                  ensureDeckIsParsedForEquilData( const QString& dataDeckFile, const QString& includeFileAbsolutePathPrefix );

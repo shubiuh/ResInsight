@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements run well integrity analysis command support.
 
 #include "RicRunWellIntegrityAnalysisFeature.h"
 

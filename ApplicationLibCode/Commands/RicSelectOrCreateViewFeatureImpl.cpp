@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements select or create view command support.
 
 #include "RicSelectOrCreateViewFeatureImpl.h"
 

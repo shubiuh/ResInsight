@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements stop all jobs command support.
 
 #include "RicStopAllJobsFeature.h"
 

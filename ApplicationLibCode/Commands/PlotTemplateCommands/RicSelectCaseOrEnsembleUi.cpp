@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements select case or ensemble command support.
 
 #include "RicSelectCaseOrEnsembleUi.h"
 

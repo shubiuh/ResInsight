@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements grid statistics command support.
 
 #include "RicGridStatisticsDialog.h"
 #include "ExportCommands/RicSnapshotFilenameGenerator.h"

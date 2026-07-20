@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export well paths command support.
 
 #pragma once
 
@@ -25,21 +27,26 @@
 class RimGridView;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring export well paths.
 //==================================================================================================
 class RicExportWellPathsUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicExportWellPathsUi();
 
+    /// Sets export folder.
     void setExportFolder( const QString& exportFolder );
 
+    /// Exports folder.
     QString exportFolder() const;
+    /// @return The md step size.
     double  mdStepSize() const;
 
 private:
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 
 private:

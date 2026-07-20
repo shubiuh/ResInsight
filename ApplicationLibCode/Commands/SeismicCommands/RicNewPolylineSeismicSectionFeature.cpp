@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new polyline seismic section command support.
 
 #include "RicNewPolylineSeismicSectionFeature.h"
 

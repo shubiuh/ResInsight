@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements toggle measurement mode command support.
 
 #include "RicToggleMeasurementModeFeature.h"
 

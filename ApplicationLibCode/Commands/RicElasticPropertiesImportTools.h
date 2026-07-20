@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares elastic properties import command support.
 
 #pragma once
 
@@ -24,11 +26,12 @@
 class RimStimPlanModelTemplate;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Utility functions for elastic properties import.
 //--------------------------------------------------------------------------------------------------
 class RicElasticPropertiesImportTools
 {
 public:
+    /// Imports elastic properties from file.
     static void importElasticPropertiesFromFile( const QString&            filePath,
                                                  RimStimPlanModelTemplate* stimPlanModelTemplate,
                                                  const QString&            formationWildCard = "1*" );
@@ -37,5 +40,6 @@ private:
     // Hidden to avoid instantiation
     RicElasticPropertiesImportTools();
 
+    /// @return The formation names.
     static std::vector<QString> getFormationNames();
 };

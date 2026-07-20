@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares configuration for model padding.
 
 #pragma once
 
@@ -25,6 +27,7 @@
 /// Settings for model padding (adding Z-direction layers to sector models)
 ///
 //==================================================================================================
+/// @brief Stores configuration for model padding.
 class RigModelPaddingSettings
 {
 public:

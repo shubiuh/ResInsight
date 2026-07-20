@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new histogram multi plot command support.
 
 #include "RicNewHistogramMultiPlotFeature.h"
 

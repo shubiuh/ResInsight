@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new contour map view command support.
 
 #pragma once
 
@@ -29,26 +31,36 @@ class RimEclipseView;
 class RimGeoMechView;
 
 //==================================================================================================
-///
+/// @brief Command feature for new contour map view.
 //==================================================================================================
 class RicNewContourMapViewFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Creates Eclipse contour map from existing contour map.
     static RimEclipseContourMapView* createEclipseContourMapFromExistingContourMap( RimEclipseCase*           eclipseCase,
                                                                                     RimEclipseContourMapView* existingContourMap );
+    /// Creates Eclipse contour map from3d view.
     static RimEclipseContourMapView* createEclipseContourMapFrom3dView( RimEclipseCase* eclipseCase, const RimEclipseView* sourceView );
+    /// Creates Eclipse contour map.
     static RimEclipseContourMapView* createEclipseContourMap( RimEclipseCase* eclipseCase );
 
+    /// Creates geo mech contour map from existing contour map.
     static RimGeoMechContourMapView* createGeoMechContourMapFromExistingContourMap( RimGeoMechCase*           geoMechCase,
                                                                                     RimGeoMechContourMapView* existingContourMap );
+    /// Creates geo mech contour map from3d view.
     static RimGeoMechContourMapView* createGeoMechContourMapFrom3dView( RimGeoMechCase* geoMechCase, const RimGeoMechView* sourceView );
+    /// Creates geo mech contour map.
     static RimGeoMechContourMapView* createGeoMechContourMap( RimGeoMechCase* geoMechCase );
 
+    /// Performs the assign default result and legend command operation.
     static void assignDefaultResultAndLegend( RimEclipseContourMapView* contourMap );
 };

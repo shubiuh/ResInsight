@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fishbones create command support.
 
 #include "RicFishbonesCreateHelper.h"
 

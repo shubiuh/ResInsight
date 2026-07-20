@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements non uniform refinement reservoir-data functionality.
 
 #include "RigNonUniformRefinement.h"
 
 #include <algorithm>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigNonUniformRefinement instance.
 //--------------------------------------------------------------------------------------------------
 RigNonUniformRefinement::RigNonUniformRefinement( const cvf::Vec3st& sectorSize )
     : m_sectorSize( sectorSize )
@@ -35,7 +37,7 @@ RigNonUniformRefinement::RigNonUniformRefinement( const cvf::Vec3st& sectorSize 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the clone.
 //--------------------------------------------------------------------------------------------------
 std::unique_ptr<RigRefinement> RigNonUniformRefinement::clone() const
 {
@@ -43,7 +45,7 @@ std::unique_ptr<RigRefinement> RigNonUniformRefinement::clone() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets cumulative fractions.
 //--------------------------------------------------------------------------------------------------
 void RigNonUniformRefinement::setCumulativeFractions( Dimension dim, size_t origIndex, const std::vector<double>& cumulativeFractions )
 {
@@ -54,7 +56,7 @@ void RigNonUniformRefinement::setCumulativeFractions( Dimension dim, size_t orig
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the subcell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigNonUniformRefinement::subcellCount( Dimension dim, size_t origIndex ) const
 {
@@ -63,7 +65,7 @@ size_t RigNonUniformRefinement::subcellCount( Dimension dim, size_t origIndex ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cumulative offset.
 //--------------------------------------------------------------------------------------------------
 size_t RigNonUniformRefinement::cumulativeOffset( Dimension dim, size_t origIndex ) const
 {
@@ -73,7 +75,7 @@ size_t RigNonUniformRefinement::cumulativeOffset( Dimension dim, size_t origInde
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total refined count.
 //--------------------------------------------------------------------------------------------------
 size_t RigNonUniformRefinement::totalRefinedCount( Dimension dim ) const
 {
@@ -99,7 +101,7 @@ std::pair<size_t, size_t> RigNonUniformRefinement::mapRefinedToOriginal( Dimensi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cumulative fractions.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigNonUniformRefinement::cumulativeFractions( Dimension dim, size_t origIndex ) const
 {
@@ -109,7 +111,7 @@ const std::vector<double>& RigNonUniformRefinement::cumulativeFractions( Dimensi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sector size.
 //--------------------------------------------------------------------------------------------------
 size_t RigNonUniformRefinement::sectorSize( Dimension dim ) const
 {
@@ -118,11 +120,11 @@ size_t RigNonUniformRefinement::sectorSize( Dimension dim ) const
 
 //--------------------------------------------------------------------------------------------------
 /// Distribute fractional widths across a range of cells.
-///
+/// Returns the distribute widths across cells.
 /// The widths define subdivision boundaries in the combined range of cells [startIndex, endIndex].
 /// Each original cell occupies 1/numCells of the global range (in index space).
 /// Global subdivision boundaries that fall within a cell are converted to cell-local fractions.
-///
+/// Returns the distribute widths across cells.
 /// Example: 3 cells, widths [0.2, 0.3, 0.5] -> cumulative [0.2, 0.5, 1.0]
 ///   Cell 0 [0, 0.333]: boundary 0.2 falls here -> local fracs [0.6, 1.0] -> 2 subcells
 ///   Cell 1 [0.333, 0.667]: boundary 0.5 falls here -> local fracs [0.5, 1.0] -> 2 subcells
@@ -165,7 +167,7 @@ void RigNonUniformRefinement::distributeWidthsAcrossCells( Dimension dim, size_t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether refinement is available.
 //--------------------------------------------------------------------------------------------------
 bool RigNonUniformRefinement::hasRefinement() const
 {
@@ -177,7 +179,7 @@ bool RigNonUniformRefinement::hasRefinement() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the rebuild offsets.
 //--------------------------------------------------------------------------------------------------
 void RigNonUniformRefinement::rebuildOffsets( Dimension dim )
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements generation of fault reactivation model generator.
 
 #include "RigFaultReactivationModelGenerator.h"
 
@@ -35,7 +37,7 @@
 #include "cafHexGridIntersectionTools/cafHexGridIntersectionTools.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFaultReactivationModelGenerator instance.
 //--------------------------------------------------------------------------------------------------
 RigFaultReactivationModelGenerator::RigFaultReactivationModelGenerator( cvf::Vec3d position, cvf::Vec3d modelNormal, cvf::Vec3d modelDirection )
     : m_startPosition( position )
@@ -60,14 +62,14 @@ RigFaultReactivationModelGenerator::RigFaultReactivationModelGenerator( cvf::Vec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigFaultReactivationModelGenerator instance.
 //--------------------------------------------------------------------------------------------------
 RigFaultReactivationModelGenerator::~RigFaultReactivationModelGenerator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets fault.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setFault( const RigFault* fault )
 {
@@ -75,7 +77,7 @@ void RigFaultReactivationModelGenerator::setFault( const RigFault* fault )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets grid.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setGrid( const RigMainGrid* grid )
 {
@@ -83,7 +85,7 @@ void RigFaultReactivationModelGenerator::setGrid( const RigMainGrid* grid )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets active cell info.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setActiveCellInfo( const RigActiveCellInfo* activeCellInfo )
 {
@@ -91,7 +93,7 @@ void RigFaultReactivationModelGenerator::setActiveCellInfo( const RigActiveCellI
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets fault buffer depth.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setFaultBufferDepth( double aboveFault, double belowFault, int faultZoneCells )
 {
@@ -101,7 +103,7 @@ void RigFaultReactivationModelGenerator::setFaultBufferDepth( double aboveFault,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets model size.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setModelSize( double startDepth, double depthBelowFault, double horzExtentFromFault )
 {
@@ -111,7 +113,7 @@ void RigFaultReactivationModelGenerator::setModelSize( double startDepth, double
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets model thickness.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setModelThickness( double thickness )
 {
@@ -119,7 +121,7 @@ void RigFaultReactivationModelGenerator::setModelThickness( double thickness )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets use local coordinates.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setUseLocalCoordinates( bool useLocalCoordinates )
 {
@@ -127,7 +129,7 @@ void RigFaultReactivationModelGenerator::setUseLocalCoordinates( bool useLocalCo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets model gridding options.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setModelGriddingOptions( double minCellHeight,
                                                                   double maxCellHeight,
@@ -143,7 +145,7 @@ void RigFaultReactivationModelGenerator::setModelGriddingOptions( double minCell
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the model local normals xy.
 //--------------------------------------------------------------------------------------------------
 std::pair<cvf::Vec3d, cvf::Vec3d> RigFaultReactivationModelGenerator::modelLocalNormalsXY()
 {
@@ -154,7 +156,7 @@ std::pair<cvf::Vec3d, cvf::Vec3d> RigFaultReactivationModelGenerator::modelLocal
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets setup local coordinate transform.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::setupLocalCoordinateTransform()
 {
@@ -168,7 +170,7 @@ void RigFaultReactivationModelGenerator::setupLocalCoordinateTransform()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the transform point if needed.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigFaultReactivationModelGenerator::transformPointIfNeeded( const cvf::Vec3d point ) const
 {
@@ -205,7 +207,7 @@ const std::array<int, 4> RigFaultReactivationModelGenerator::faceIJCornerIndexes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the opposite start cell index.
 //--------------------------------------------------------------------------------------------------
 size_t RigFaultReactivationModelGenerator::oppositeStartCellIndex( const std::vector<size_t> cellIndexColumn, FaceType face )
 {
@@ -238,7 +240,7 @@ size_t RigFaultReactivationModelGenerator::oppositeStartCellIndex( const std::ve
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates filters.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::updateFilters( std::vector<size_t> cellsFront, std::vector<size_t> cellsBack )
 {
@@ -257,7 +259,7 @@ void RigFaultReactivationModelGenerator::updateFilters( std::vector<size_t> cell
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the front points.
 //--------------------------------------------------------------------------------------------------
 const std::array<cvf::Vec3d, 12>& RigFaultReactivationModelGenerator::frontPoints() const
 {
@@ -265,7 +267,7 @@ const std::array<cvf::Vec3d, 12>& RigFaultReactivationModelGenerator::frontPoint
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the back points.
 //--------------------------------------------------------------------------------------------------
 const std::array<cvf::Vec3d, 12>& RigFaultReactivationModelGenerator::backPoints() const
 {
@@ -347,7 +349,7 @@ void RigFaultReactivationModelGenerator::generatePointsFrontBack()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the partition.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double> RigFaultReactivationModelGenerator::partition( double distance, double startSize, double sizeFactor )
 {
@@ -372,7 +374,7 @@ const std::vector<double> RigFaultReactivationModelGenerator::partition( double 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the build cell column.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t>
     RigFaultReactivationModelGenerator::buildCellColumn( size_t startCellIndex, FaceType startFace, std::map<double, cvf::Vec3d>& layers )
@@ -441,7 +443,7 @@ std::vector<size_t>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds cell with intersection.
 //--------------------------------------------------------------------------------------------------
 std::pair<size_t, size_t> RigFaultReactivationModelGenerator::findCellWithIntersection( const std::vector<RigCell>& cellRow,
                                                                                         FaceType                    face,
@@ -499,7 +501,7 @@ std::pair<size_t, size_t> RigFaultReactivationModelGenerator::findCellWithInters
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the shift origin.
 //--------------------------------------------------------------------------------------------------
 std::array<cvf::Vec3d, 12> RigFaultReactivationModelGenerator::shiftOrigin( const std::array<cvf::Vec3d, 12>& points,
                                                                             const cvf::Vec3d&                 newOrigin )
@@ -513,7 +515,7 @@ std::array<cvf::Vec3d, 12> RigFaultReactivationModelGenerator::shiftOrigin( cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates geometry.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::generateGeometry( size_t            startCellIndex,
                                                            FaceType          startFace,
@@ -654,7 +656,7 @@ void RigFaultReactivationModelGenerator::generateGeometry( size_t            sta
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the side faces ij.
 //--------------------------------------------------------------------------------------------------
 std::pair<cvf::StructGridInterface::FaceType, cvf::StructGridInterface::FaceType> RigFaultReactivationModelGenerator::sideFacesIJ( FaceType face )
 {
@@ -680,7 +682,7 @@ std::pair<cvf::StructGridInterface::FaceType, cvf::StructGridInterface::FaceType
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the extrapolate point.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigFaultReactivationModelGenerator::extrapolatePoint( cvf::Vec3d startPoint, cvf::Vec3d endPoint, double buffer )
 {
@@ -691,7 +693,7 @@ cvf::Vec3d RigFaultReactivationModelGenerator::extrapolatePoint( cvf::Vec3d star
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the merge tiny layers.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::mergeTinyLayers( std::map<double, cvf::Vec3d>& layers, double minHeight )
 {
@@ -743,7 +745,7 @@ void RigFaultReactivationModelGenerator::mergeTinyLayers( std::map<double, cvf::
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the split large layers.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModelGenerator::splitLargeLayers( std::map<double, cvf::Vec3d>& layers, double maxHeight )
 {
@@ -782,7 +784,7 @@ void RigFaultReactivationModelGenerator::splitLargeLayers( std::map<double, cvf:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the interpolate extra points.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d> RigFaultReactivationModelGenerator::interpolateExtraPoints( cvf::Vec3d from, cvf::Vec3d to, double maxStep )
 {
@@ -808,7 +810,7 @@ const std::vector<cvf::Vec3d> RigFaultReactivationModelGenerator::interpolateExt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the model normal.
 //--------------------------------------------------------------------------------------------------
 const cvf::Vec3d RigFaultReactivationModelGenerator::modelNormal() const
 {
@@ -816,7 +818,7 @@ const cvf::Vec3d RigFaultReactivationModelGenerator::modelNormal() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fault top bottom points.
 //--------------------------------------------------------------------------------------------------
 const std::pair<cvf::Vec3d, cvf::Vec3d> RigFaultReactivationModelGenerator::faultTopBottomPoints() const
 {
@@ -824,7 +826,7 @@ const std::pair<cvf::Vec3d, cvf::Vec3d> RigFaultReactivationModelGenerator::faul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth top bottom.
 //--------------------------------------------------------------------------------------------------
 std::pair<double, double> RigFaultReactivationModelGenerator::depthTopBottom() const
 {
@@ -832,7 +834,7 @@ std::pair<double, double> RigFaultReactivationModelGenerator::depthTopBottom() c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the extract z values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigFaultReactivationModelGenerator::extractZValues( const std::vector<cvf::Vec3d>& points )
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares grid calculator command support.
 
 #pragma once
 
@@ -25,20 +27,25 @@
 class RicCalculatorWidgetCreator;
 
 //==================================================================================================
-///
-///
+/// @brief Dialog for configuring grid calculator.
 //==================================================================================================
 class RicGridCalculatorDialog : public RicUserDefinedCalculatorDialog
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     RicGridCalculatorDialog( QWidget* parent );
+    /// Destroys the command object.
     ~RicGridCalculatorDialog() override;
 
+    /// Sets calculation and update.
     void                                 setCalculationAndUpdateUi( RimUserDefinedCalculation* calculation ) override;
+    /// @return The calculator widget.
     QWidget*                             getCalculatorWidget() override;
+    /// Updates command support.
     void                                 updateUi() override;
+    /// @return The calculation collection.
     RimUserDefinedCalculationCollection* calculationCollection() const override;
 
 private:

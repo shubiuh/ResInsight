@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares contour map projection reservoir-data functionality.
 
 #pragma once
 
@@ -37,9 +39,11 @@ class RigPolyLinesData;
 ///
 ///
 //==================================================================================================
+/// @brief Models contour map projection for reservoir-data processing.
 class RigContourMapProjection
 {
 public:
+    /// Type alias used for cell index and result.
     using CellIndexAndResult = std::pair<size_t, double>;
 
     RigContourMapProjection( const RigContourMapGrid* );
@@ -77,13 +81,21 @@ public:
     // Use this function to get the result index into grid cell results. The index will differ if we have active cells
     virtual size_t gridResultIndex( size_t globalCellIdx ) const;
 
+    /// Returns or processes k layer.
     virtual size_t              kLayer( size_t globalCellIdx ) const                                               = 0;
+    /// Returns or processes k layers.
     virtual size_t              kLayers() const                                                                    = 0;
+    /// Returns or processes find intersecting cells.
     virtual std::vector<size_t> findIntersectingCells( const cvf::BoundingBox& bbox ) const                        = 0;
+    /// Calculates overlap volume.
     virtual double              calculateOverlapVolume( size_t globalCellIdx, const cvf::BoundingBox& bbox ) const = 0;
+    /// Calculates ray length in cell.
     virtual double calculateRayLengthInCell( size_t globalCellIdx, const cvf::Vec3d& highestPoint, const cvf::Vec3d& lowestPoint ) const = 0;
+    /// Returns or processes get parameter weight for cell.
     virtual double getParameterWeightForCell( size_t globalCellIdx, const std::vector<double>& parameterWeights ) const = 0;
+    /// Returns or processes get map cell visibility.
     virtual std::vector<bool> getMapCellVisibility( int viewStepIndex, RigContourMapCalculator::ResultAggregationType resultAggregation ) = 0;
+    /// Returns whether cell active.
     virtual bool isCellActive( size_t globalCellIdx ) const = 0;
 
     void                      setCellVisibility( cvf::ref<cvf::UByteArray> cellVisibility );
@@ -120,15 +132,23 @@ protected:
     bool   contourMapCellContainsOnlyInactiveCells( unsigned int i, unsigned int j ) const;
 
 protected:
+    /// Stores cell grid idx visibility.
     cvf::ref<cvf::UByteArray>                           m_cellGridIdxVisibility;
+    /// Stores aggregated results.
     std::vector<double>                                 m_aggregatedResults;
+    /// Stores aggregated vertex results.
     std::vector<double>                                 m_aggregatedVertexResults;
+    /// Stores projected3d grid indices.
     std::vector<std::vector<std::pair<size_t, double>>> m_projected3dGridIndices;
 
+    /// Stores current result timestep.
     int               m_currentResultTimestep;
+    /// Stores map cell visibility.
     std::vector<bool> m_mapCellVisibility;
 
+    /// Stores value filter.
     std::optional<std::pair<double, double>> m_valueFilter;
 
+    /// Stores contour map grid.
     const RigContourMapGrid* m_contourMapGrid;
 };

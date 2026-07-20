@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import surfaces command support.
 
 #include "RicImportSurfacesFeature.h"
 

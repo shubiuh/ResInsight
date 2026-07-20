@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares cell range command support.
 
 #pragma once
 
@@ -27,30 +29,43 @@ class RimCase;
 class RigActiveCellInfo;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring cell range.
 //==================================================================================================
 class RicCellRangeUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicCellRangeUi();
 
+    /// Sets case.
     void setCase( RimCase* rimCase );
 
+    /// @return The start.
     caf::VecIjk1 start() const;
+    /// @return The count.
     cvf::Vec3st  count() const;
+    /// @return The grid name.
     QString      gridName() const;
 
 private:
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
+    /// Performs the clamp values command operation.
     void               clampValues();
+    /// Sets default values.
     void               setDefaultValues();
+    /// @return The active cell info.
     RigActiveCellInfo* activeCellInfo() const;
+    /// Updates legend text.
     void               updateLegendText();
 
 private:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well paths unit system settings command support.
 
 #pragma once
 
@@ -24,14 +26,14 @@
 #include "cafPdmObject.h"
 
 //==================================================================================================
-///
-///
+/// @brief UI model for configuring well paths unit system settings.
 //==================================================================================================
 class RicWellPathsUnitSystemSettingsUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicWellPathsUnitSystemSettingsUi();
 
     caf::PdmField<caf::AppEnum<RiaDefines::EclipseUnitSystem>> unitSystem;

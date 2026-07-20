@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements stim plan fracture definition reservoir-data functionality.
 
 #include "RigStimPlanFractureDefinition.h"
 
@@ -40,12 +42,12 @@
 size_t findMirrorXIndex( std::vector<double> xs );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Numeric tolerance used when comparing fracture result values.
 //--------------------------------------------------------------------------------------------------
 const double RigStimPlanFractureDefinition::THRESHOLD_VALUE = 1e-5;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigStimPlanFractureDefinition instance.
 //--------------------------------------------------------------------------------------------------
 RigStimPlanFractureDefinition::RigStimPlanFractureDefinition()
     : m_unitSet( RiaDefines::EclipseUnitSystem::UNITS_UNKNOWN )
@@ -60,14 +62,14 @@ RigStimPlanFractureDefinition::RigStimPlanFractureDefinition()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigStimPlanFractureDefinition instance.
 //--------------------------------------------------------------------------------------------------
 RigStimPlanFractureDefinition::~RigStimPlanFractureDefinition()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unit set.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::EclipseUnitSystem RigStimPlanFractureDefinition::unitSet() const
 {
@@ -75,7 +77,7 @@ RiaDefines::EclipseUnitSystem RigStimPlanFractureDefinition::unitSet() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the x count.
 //--------------------------------------------------------------------------------------------------
 size_t RigStimPlanFractureDefinition::xCount() const
 {
@@ -83,7 +85,7 @@ size_t RigStimPlanFractureDefinition::xCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the y count.
 //--------------------------------------------------------------------------------------------------
 size_t RigStimPlanFractureDefinition::yCount() const
 {
@@ -91,7 +93,7 @@ size_t RigStimPlanFractureDefinition::yCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min depth.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::minDepth() const
 {
@@ -99,7 +101,7 @@ double RigStimPlanFractureDefinition::minDepth() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max depth.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::maxDepth() const
 {
@@ -107,7 +109,7 @@ double RigStimPlanFractureDefinition::maxDepth() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the top perf tvd.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::topPerfTvd() const
 {
@@ -115,7 +117,7 @@ double RigStimPlanFractureDefinition::topPerfTvd() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the bottom perf tvd.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::bottomPerfTvd() const
 {
@@ -123,7 +125,7 @@ double RigStimPlanFractureDefinition::bottomPerfTvd() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min y.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::minY() const
 {
@@ -132,7 +134,7 @@ double RigStimPlanFractureDefinition::minY() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max y.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::maxY() const
 {
@@ -141,7 +143,7 @@ double RigStimPlanFractureDefinition::maxY() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ys.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigStimPlanFractureDefinition::ys() const
 {
@@ -149,7 +151,7 @@ const std::vector<double>& RigStimPlanFractureDefinition::ys() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the xs.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigStimPlanFractureDefinition::xs() const
 {
@@ -157,7 +159,7 @@ const std::vector<double>& RigStimPlanFractureDefinition::xs() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes scaled xs.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigStimPlanFractureDefinition::computeScaledXs( const std::vector<double>& xs, double scaleFactor )
 {
@@ -174,7 +176,7 @@ std::vector<double> RigStimPlanFractureDefinition::computeScaledXs( const std::v
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes scaled ys.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>
     RigStimPlanFractureDefinition::computeScaledYs( const std::vector<double>& ys, double scaleFactor, double wellPathIntersectionY )
@@ -192,7 +194,7 @@ std::vector<double>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets tvd to top perf.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::setTvdToTopPerf( double topPerfTvd )
 {
@@ -200,7 +202,7 @@ void RigStimPlanFractureDefinition::setTvdToTopPerf( double topPerfTvd )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets tvd to bottom perf.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::setTvdToBottomPerf( double bottomPerfTvd )
 {
@@ -208,7 +210,7 @@ void RigStimPlanFractureDefinition::setTvdToBottomPerf( double bottomPerfTvd )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the top perf md.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::topPerfMd() const
 {
@@ -216,7 +218,7 @@ double RigStimPlanFractureDefinition::topPerfMd() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the bottom perf md.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::bottomPerfMd() const
 {
@@ -224,7 +226,7 @@ double RigStimPlanFractureDefinition::bottomPerfMd() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets md to top perf.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::setMdToTopPerf( double topPerfMd )
 {
@@ -232,7 +234,7 @@ void RigStimPlanFractureDefinition::setMdToTopPerf( double topPerfMd )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets md to bottom perf.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::setMdToBottomPerf( double bottomPerfMd )
 {
@@ -240,7 +242,7 @@ void RigStimPlanFractureDefinition::setMdToBottomPerf( double bottomPerfMd )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates xs from file xs.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::generateXsFromFileXs( bool xMirrorMode )
 {
@@ -268,7 +270,7 @@ void RigStimPlanFractureDefinition::generateXsFromFileXs( bool xMirrorMode )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates data layout from file data layout.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>>
     RigStimPlanFractureDefinition::generateDataLayoutFromFileDataLayout( std::vector<std::vector<double>> fileXYData ) const
@@ -300,7 +302,7 @@ std::vector<std::vector<double>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of parameter values ok.
 //--------------------------------------------------------------------------------------------------
 bool RigStimPlanFractureDefinition::numberOfParameterValuesOK( std::vector<std::vector<double>> propertyValuesAtTimestep ) const
 {
@@ -316,7 +318,7 @@ bool RigStimPlanFractureDefinition::numberOfParameterValuesOK( std::vector<std::
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the adjusted y coords around well path position.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigStimPlanFractureDefinition::adjustedYCoordsAroundWellPathPosition( const std::vector<double>& ys,
                                                                                           double wellPathIntersectionAtFractureDepth )
@@ -332,7 +334,7 @@ std::vector<double> RigStimPlanFractureDefinition::adjustedYCoordsAroundWellPath
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns stim plan property names units.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<QString, QString>> RigStimPlanFractureDefinition::getStimPlanPropertyNamesUnits() const
 {
@@ -347,7 +349,7 @@ std::vector<std::pair<QString, QString>> RigStimPlanFractureDefinition::getStimP
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the conductivity values at time step.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>> RigStimPlanFractureDefinition::conductivityValuesAtTimeStep( const QString& resultName,
                                                                                               int            activeTimeStepIndex,
@@ -403,7 +405,7 @@ std::vector<std::vector<double>> RigStimPlanFractureDefinition::conductivityValu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates fracture grid.
 //--------------------------------------------------------------------------------------------------
 cvf::cref<RigFractureGrid> RigStimPlanFractureDefinition::createFractureGrid( const QString& resultName,
                                                                               int            activeTimeStepIndex,
@@ -489,7 +491,7 @@ cvf::cref<RigFractureGrid> RigStimPlanFractureDefinition::createFractureGrid( co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fracture grid results.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>
     RigStimPlanFractureDefinition::fractureGridResults( const QString& resultName, const QString& unitName, size_t timeStepIndex ) const
@@ -516,7 +518,7 @@ std::vector<double>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates fracture triangle geometry.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::createFractureTriangleGeometry( double                   xScaleFactor,
                                                                     double                   yScaleFactor,
@@ -570,7 +572,7 @@ void RigStimPlanFractureDefinition::createFractureTriangleGeometry( double      
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time steps.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigStimPlanFractureDefinition::timeSteps() const
 {
@@ -578,7 +580,7 @@ const std::vector<double>& RigStimPlanFractureDefinition::timeSteps() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds time step.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::addTimeStep( double time )
 {
@@ -586,7 +588,7 @@ void RigStimPlanFractureDefinition::addTimeStep( double time )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step exists.
 //--------------------------------------------------------------------------------------------------
 bool RigStimPlanFractureDefinition::timeStepExists( double timeStepValueToCheck ) const
 {
@@ -598,7 +600,7 @@ bool RigStimPlanFractureDefinition::timeStepExists( double timeStepValueToCheck 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns time step index.
 //--------------------------------------------------------------------------------------------------
 size_t RigStimPlanFractureDefinition::getTimeStepIndex( double timeStepValue ) const
 {
@@ -615,7 +617,7 @@ size_t RigStimPlanFractureDefinition::getTimeStepIndex( double timeStepValue ) c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total number time steps.
 //--------------------------------------------------------------------------------------------------
 size_t RigStimPlanFractureDefinition::totalNumberTimeSteps() const
 {
@@ -623,7 +625,7 @@ size_t RigStimPlanFractureDefinition::totalNumberTimeSteps() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result index.
 //--------------------------------------------------------------------------------------------------
 size_t RigStimPlanFractureDefinition::resultIndex( const QString& resultName, const QString& unit ) const
 {
@@ -639,7 +641,7 @@ size_t RigStimPlanFractureDefinition::resultIndex( const QString& resultName, co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets data at time value.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::setDataAtTimeValue( const QString&                          resultName,
                                                         const QString&                          unit,
@@ -668,7 +670,7 @@ void RigStimPlanFractureDefinition::setDataAtTimeValue( const QString&          
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns data at time index.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<double>>&
     RigStimPlanFractureDefinition::getDataAtTimeIndex( const QString& resultName, const QString& unit, size_t timeStepIndex ) const
@@ -688,7 +690,7 @@ const std::vector<std::vector<double>>&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends data to result statistics.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::appendDataToResultStatistics( const QString&     resultName,
                                                                   const QString&     unit,
@@ -709,7 +711,7 @@ void RigStimPlanFractureDefinition::appendDataToResultStatistics( const QString&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the conductivity result names.
 //--------------------------------------------------------------------------------------------------
 QStringList RigStimPlanFractureDefinition::conductivityResultNames() const
 {
@@ -727,7 +729,7 @@ QStringList RigStimPlanFractureDefinition::conductivityResultNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds mirror x index.
 //--------------------------------------------------------------------------------------------------
 size_t findMirrorXIndex( std::vector<double> xs )
 {
@@ -746,7 +748,7 @@ size_t findMirrorXIndex( std::vector<double> xs )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation dip.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanFractureDefinition::formationDip() const
 {
@@ -754,7 +756,7 @@ double RigStimPlanFractureDefinition::formationDip() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets formation dip.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::setFormationDip( double formationDip )
 {
@@ -762,7 +764,7 @@ void RigStimPlanFractureDefinition::setFormationDip( double formationDip )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the orientation.
 //--------------------------------------------------------------------------------------------------
 RigStimPlanFractureDefinition::Orientation RigStimPlanFractureDefinition::orientation() const
 {
@@ -770,7 +772,7 @@ RigStimPlanFractureDefinition::Orientation RigStimPlanFractureDefinition::orient
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets orientation.
 //--------------------------------------------------------------------------------------------------
 void RigStimPlanFractureDefinition::setOrientation( RigStimPlanFractureDefinition::Orientation orientation )
 {

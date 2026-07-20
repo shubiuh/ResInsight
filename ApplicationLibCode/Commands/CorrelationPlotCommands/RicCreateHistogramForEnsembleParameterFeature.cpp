@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create histogram for ensemble parameter command support.
 
 #include "RicCreateHistogramForEnsembleParameterFeature.h"
 

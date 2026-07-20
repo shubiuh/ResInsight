@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import general data command support.
 
 #pragma once
 
@@ -30,13 +32,14 @@
 struct RifReaderSettings;
 
 //==================================================================================================
-///
+/// @brief Command feature for import general data.
 //==================================================================================================
 class RicImportGeneralDataFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// @brief Data used to configure or execute open case results command workflows.
     struct OpenCaseResults
     {
         QStringList eclipseCaseFiles;
@@ -53,37 +56,54 @@ public:
         }
     };
 
+    /// @return The open Eclipse files from file names.
     static OpenCaseResults openEclipseFilesFromFileNames( const QStringList& fileNames, bool doCreateDefaultPlot, bool createDefaultView );
+    /// @return The open Eclipse files from file names.
     static OpenCaseResults openEclipseFilesFromFileNames( const QStringList& fileNames,
                                                           bool               doCreateDefaultPlot,
                                                           bool               createDefaultView,
                                                           RifReaderSettings& readerSettings );
+    /// @return The file names from case names.
     static QStringList     fileNamesFromCaseNames( const QStringList& caseNames );
+    /// @return The Eclipse file names with.
     static QStringList     getEclipseFileNamesWithDialog( RiaDefines::ImportFileType fileTypes );
 
+    /// @return The file pattern.
     static QString getFilePattern( const std::vector<RiaDefines::ImportFileType>& fileTypes, bool allowWildcard );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The file pattern.
     static QString getFilePattern( RiaDefines::ImportFileType fileType );
 
+    /// Performs the open file command operation.
     static void openFileDialog( RiaDefines::ImportFileType fileTypes );
 
+    /// @return The open Eclipse case from file names.
     static bool openEclipseCaseFromFileNames( const QStringList& fileNames,
                                               bool               createDefaultView,
                                               std::vector<int>&  createdCaseIds,
                                               RifReaderSettings& readerSettings );
 
+    /// @return The open summary case from file names.
     static bool openSummaryCaseFromFileNames( const QStringList& fileNames, bool doCreateDefaultPlot = true );
 
+    /// @return The open Eclipse input files from file names.
     static bool openEclipseInputFilesFromFileNames( const QStringList& fileNames, bool createDefaultView, std::vector<int>& createdCaseIds );
+    /// @return The open grdecl cases from file names.
     static bool openGrdeclCasesFromFileNames( const QStringList& fileNames, bool createDefaultView, std::vector<int>& createdCaseIds );
+    /// @return The open grdecl case and properties from file names.
     static bool
         openGrdeclCaseAndPropertiesFromFileNames( const QStringList& fileNames, bool createDefaultView, std::vector<int>& createdCaseIds );
 
+    /// @return The open roff files from file names.
     static bool openRoffFilesFromFileNames( const QStringList& fileNames, bool createDefaultView, std::vector<int>& createdCaseIds );
+    /// @return The open roff cases from file names.
     static bool openRoffCasesFromFileNames( const QStringList& fileNames, bool createDefaultView, std::vector<int>& createdCaseIds );
+    /// @return The open roff case and properties from file names.
     static bool openRoffCaseAndPropertiesFromFileNames( const QStringList& fileNames, bool createDefaultView, std::vector<int>& createdCaseIds );
 };

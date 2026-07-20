@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of eclipse case data.
 
 #include "RigEclipseCaseData.h"
 
@@ -42,7 +44,7 @@
 #include <array>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseCaseData instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseCaseData::RigEclipseCaseData( RimEclipseCase* ownerCase )
     : m_hasParsedDeckForEquilData( false )
@@ -63,14 +65,14 @@ RigEclipseCaseData::RigEclipseCaseData( RimEclipseCase* ownerCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigEclipseCaseData instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseCaseData::~RigEclipseCaseData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the main grid.
 //--------------------------------------------------------------------------------------------------
 RigMainGrid* RigEclipseCaseData::mainGrid()
 {
@@ -78,7 +80,7 @@ RigMainGrid* RigEclipseCaseData::mainGrid()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the main grid.
 //--------------------------------------------------------------------------------------------------
 const RigMainGrid* RigEclipseCaseData::mainGrid() const
 {
@@ -86,7 +88,7 @@ const RigMainGrid* RigEclipseCaseData::mainGrid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets main grid.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::setMainGrid( RigMainGrid* mainGrid )
 {
@@ -97,7 +99,7 @@ void RigEclipseCaseData::setMainGrid( RigMainGrid* mainGrid )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all grids.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::allGrids( std::vector<RigGridBase*>* grids )
 {
@@ -116,7 +118,7 @@ void RigEclipseCaseData::allGrids( std::vector<RigGridBase*>* grids )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all grids.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::allGrids( std::vector<const RigGridBase*>* grids ) const
 {
@@ -153,7 +155,7 @@ RigGridBase* RigEclipseCaseData::grid( size_t index )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid.
 //--------------------------------------------------------------------------------------------------
 const RigGridBase* RigEclipseCaseData::grid( const QString& gridName ) const
 {
@@ -177,7 +179,7 @@ const RigGridBase* RigEclipseCaseData::grid( const QString& gridName ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid count.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseCaseData::gridCount() const
 {
@@ -186,7 +188,7 @@ size_t RigEclipseCaseData::gridCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes well cells pr grid.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::computeWellCellsPrGrid()
 {
@@ -266,7 +268,7 @@ void RigEclipseCaseData::computeWellCellsPrGrid()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets sim well data.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::setSimWellData( const cvf::Collection<RigSimWellData>& data )
 {
@@ -278,7 +280,7 @@ void RigEclipseCaseData::setSimWellData( const cvf::Collection<RigSimWellData>& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds sorted well names.
 //--------------------------------------------------------------------------------------------------
 std::set<QString> RigEclipseCaseData::findSortedWellNames() const
 {
@@ -295,7 +297,7 @@ std::set<QString> RigEclipseCaseData::findSortedWellNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds sim well data.
 //--------------------------------------------------------------------------------------------------
 const RigSimWellData* RigEclipseCaseData::findSimWellData( QString wellName ) const
 {
@@ -311,7 +313,7 @@ const RigSimWellData* RigEclipseCaseData::findSimWellData( QString wellName ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well cells in grid.
 //--------------------------------------------------------------------------------------------------
 const cvf::UByteArray* RigEclipseCaseData::wellCellsInGrid( size_t gridIndex )
 {
@@ -322,7 +324,7 @@ const cvf::UByteArray* RigEclipseCaseData::wellCellsInGrid( size_t gridIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid cell to result well index.
 //--------------------------------------------------------------------------------------------------
 const cvf::UIntArray* RigEclipseCaseData::gridCellToResultWellIndex( size_t gridIndex )
 {
@@ -333,7 +335,7 @@ const cvf::UIntArray* RigEclipseCaseData::gridCellToResultWellIndex( size_t grid
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell from well result cell.
 //--------------------------------------------------------------------------------------------------
 const RigCell& RigEclipseCaseData::cellFromWellResultCell( const RigWellResultPoint& wellResultPoint ) const
 {
@@ -349,7 +351,7 @@ const RigCell& RigEclipseCaseData::cellFromWellResultCell( const RigWellResultPo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds shared source face.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseCaseData::findSharedSourceFace( cvf::StructGridInterface::FaceType& sharedSourceFace,
                                                const RigWellResultPoint&           sourceWellCellResult,
@@ -405,6 +407,7 @@ public:
     {
     }
 
+    /// Returns or processes add.
     void add( size_t i, size_t j, size_t k )
     {
         if ( i < m_min.x() ) m_min.x() = i;
@@ -417,12 +420,14 @@ public:
     }
 
 public:
+    /// Stores min.
     caf::VecIjk0 m_min;
+    /// Stores max.
     caf::VecIjk0 m_max;
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes active cell ijkb box.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::computeActiveCellIJKBBox()
 {
@@ -455,7 +460,7 @@ void RigEclipseCaseData::computeActiveCellIJKBBox()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes active cell bounding boxes.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::computeActiveCellBoundingBoxes( bool useOptimizedVersion )
 {
@@ -468,7 +473,7 @@ void RigEclipseCaseData::computeActiveCellBoundingBoxes( bool useOptimizedVersio
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes depth related results.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::computeDepthRelatedResults()
 {
@@ -476,7 +481,7 @@ void RigEclipseCaseData::computeDepthRelatedResults()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the simulation well names.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigEclipseCaseData::simulationWellNames() const
 {
@@ -489,7 +494,7 @@ std::vector<QString> RigEclipseCaseData::simulationWellNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether simulation well is available.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseCaseData::hasSimulationWell( const QString& simWellName ) const
 {
@@ -498,7 +503,7 @@ bool RigEclipseCaseData::hasSimulationWell( const QString& simWellName ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the simulation well branches.
 //--------------------------------------------------------------------------------------------------
 std::vector<const RigWellPath*>
     RigEclipseCaseData::simulationWellBranches( const QString& simWellName, bool includeAllCellCenters, bool useAutoDetectionOfBranches ) const
@@ -544,7 +549,7 @@ std::vector<const RigWellPath*>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets virtual perforation transmissibilities.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::setVirtualPerforationTransmissibilities( RigVirtualPerforationTransmissibilities* virtualPerforationTransmissibilities )
 {
@@ -552,7 +557,7 @@ void RigEclipseCaseData::setVirtualPerforationTransmissibilities( RigVirtualPerf
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the virtual perforation transmissibilities.
 //--------------------------------------------------------------------------------------------------
 const RigVirtualPerforationTransmissibilities* RigEclipseCaseData::virtualPerforationTransmissibilities() const
 {
@@ -560,7 +565,7 @@ const RigVirtualPerforationTransmissibilities* RigEclipseCaseData::virtualPerfor
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ensure deck is parsed for equil data.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::ensureDeckIsParsedForEquilData( const QString& dataDeckFile, const QString& includeFileAbsolutePathPrefix )
 {
@@ -573,7 +578,7 @@ void RigEclipseCaseData::ensureDeckIsParsedForEquilData( const QString& dataDeck
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the equil data.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigEquil> RigEclipseCaseData::equilData() const
 {
@@ -581,7 +586,7 @@ std::vector<RigEquil> RigEclipseCaseData::equilData() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets equil data.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::setEquilData( const std::vector<RigEquil>& equilObjects )
 {
@@ -589,7 +594,7 @@ void RigEclipseCaseData::setEquilData( const std::vector<RigEquil>& equilObjects
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active cell info.
 //--------------------------------------------------------------------------------------------------
 RigActiveCellInfo* RigEclipseCaseData::activeCellInfo( RiaDefines::PorosityModelType porosityModel )
 {
@@ -602,7 +607,7 @@ RigActiveCellInfo* RigEclipseCaseData::activeCellInfo( RiaDefines::PorosityModel
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active cell info.
 //--------------------------------------------------------------------------------------------------
 const RigActiveCellInfo* RigEclipseCaseData::activeCellInfo( RiaDefines::PorosityModelType porosityModel ) const
 {
@@ -615,7 +620,7 @@ const RigActiveCellInfo* RigEclipseCaseData::activeCellInfo( RiaDefines::Porosit
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets active cell info.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::setActiveCellInfo( RiaDefines::PorosityModelType porosityModel, RigActiveCellInfo* activeCellInfo )
 {
@@ -632,7 +637,7 @@ void RigEclipseCaseData::setActiveCellInfo( RiaDefines::PorosityModelType porosi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether fracture results is available.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseCaseData::hasFractureResults() const
 {
@@ -641,7 +646,7 @@ bool RigEclipseCaseData::hasFractureResults() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes active cells geometry bounding box slow.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::computeActiveCellsGeometryBoundingBoxSlow()
 {
@@ -694,7 +699,7 @@ void RigEclipseCaseData::computeActiveCellsGeometryBoundingBoxSlow()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes active cells geometry bounding box optimized.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::computeActiveCellsGeometryBoundingBoxOptimized()
 {
@@ -787,7 +792,7 @@ void RigEclipseCaseData::computeActiveCellsGeometryBoundingBoxOptimized()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets active formation names.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::setActiveFormationNames( const RigFormationNames* activeFormationNames )
 {
@@ -795,7 +800,7 @@ void RigEclipseCaseData::setActiveFormationNames( const RigFormationNames* activ
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active formation names.
 //--------------------------------------------------------------------------------------------------
 const RigFormationNames* RigEclipseCaseData::activeFormationNames() const
 {
@@ -803,7 +808,7 @@ const RigFormationNames* RigEclipseCaseData::activeFormationNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation names.
 //--------------------------------------------------------------------------------------------------
 const std::vector<QString> RigEclipseCaseData::formationNames() const
 {
@@ -816,7 +821,7 @@ const std::vector<QString> RigEclipseCaseData::formationNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the allan diagram data.
 //--------------------------------------------------------------------------------------------------
 RigAllanDiagramData* RigEclipseCaseData::allanDiagramData()
 {
@@ -824,7 +829,7 @@ RigAllanDiagramData* RigEclipseCaseData::allanDiagramData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the results.
 //--------------------------------------------------------------------------------------------------
 RigCaseCellResultsData* RigEclipseCaseData::results( RiaDefines::PorosityModelType porosityModel )
 {
@@ -837,7 +842,7 @@ RigCaseCellResultsData* RigEclipseCaseData::results( RiaDefines::PorosityModelTy
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the results.
 //--------------------------------------------------------------------------------------------------
 const RigCaseCellResultsData* RigEclipseCaseData::results( RiaDefines::PorosityModelType porosityModel ) const
 {
@@ -850,7 +855,7 @@ const RigCaseCellResultsData* RigEclipseCaseData::results( RiaDefines::PorosityM
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result values.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigEclipseCaseData::resultValues( RiaDefines::PorosityModelType porosityModel,
                                                              RiaDefines::ResultCatType     type,
@@ -869,7 +874,7 @@ const std::vector<double>* RigEclipseCaseData::resultValues( RiaDefines::Porosit
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the available phases.
 //--------------------------------------------------------------------------------------------------
 std::set<RiaDefines::PhaseType> RigEclipseCaseData::availablePhases() const
 {
@@ -877,7 +882,7 @@ std::set<RiaDefines::PhaseType> RigEclipseCaseData::availablePhases() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets available phases.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseCaseData::setAvailablePhases( const std::set<RiaDefines::PhaseType>& phases )
 {

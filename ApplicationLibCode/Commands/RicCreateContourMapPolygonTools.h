@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create contour map polygon command support.
 
 #pragma once
 
@@ -27,21 +29,29 @@ class RigContourMapProjection;
 class RimPolygon;
 
 //==================================================================================================
-///
+/// @brief Utility functions for create contour map polygon.
 //==================================================================================================
 namespace RicCreateContourMapPolygonTools
 {
+/// @return The convert binary to image.
 QImage convertBinaryToImage( const std::vector<std::vector<int>>& data, QColor color, int transparency );
+/// @return The convert binary to grayscale image.
 QImage convertBinaryToGrayscaleImage( const std::vector<std::vector<int>>& data, int colorValue );
 
+/// Exports vector as image.
 void exportVectorAsImage( const std::vector<std::vector<int>>& data, int transparency, const QString& filename );
+/// Exports vector as grayscale image.
 void exportVectorAsGrayscaleImage( const std::vector<std::vector<int>>& data, const QString& filename );
 
+/// @return The convert image to binary.
 std::vector<std::vector<int>> convertImageToBinary( QImage image );
+/// @return The convert to binary image.
 std::vector<std::vector<int>> convertToBinaryImage( const RigContourMapProjection* contourMapProjection );
 
+/// Creates polygon objects.
 void createPolygonObjects( std::vector<std::vector<int>> image, const RigContourMapProjection* contourMapProjection );
 
+/// @return The matching current contour map projection.
 const RigContourMapProjection* findCurrentContourMapProjection();
 
 }; // namespace RicCreateContourMapPolygonTools

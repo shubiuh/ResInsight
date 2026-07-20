@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares vde packet directory command support.
 
 #pragma once
 
@@ -30,17 +32,24 @@
 //
 //
 //==================================================================================================
+/// @brief Supports vde packet directory command workflows.
 class VdePacketDirectory
 {
 public:
+    /// Constructs the command object.
     VdePacketDirectory();
 
+    /// Adds packet.
     void                      addPacket( std::unique_ptr<VdeArrayDataPacket> packet );
+    /// @return The lookup packet.
     const VdeArrayDataPacket* lookupPacket( int arrayId ) const;
 
+    /// Removes or clears command support.
     void clear();
+    /// Performs the prune unreferenced packets command operation.
     void pruneUnreferencedPackets( const std::vector<int>& packetIdsInUseArr );
 
+    /// @return The packets as combined buffer.
     bool getPacketsAsCombinedBuffer( const std::vector<int>& packetIdsToGet, QByteArray* combinedPacketArr ) const;
 
 private:

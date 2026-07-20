@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements open summary plot editor from dock area command support.
 
 #include "RicOpenSummaryPlotEditorFromDockAreaFeature.h"
 

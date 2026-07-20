@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create depth adjusted LAS files command support.
 
 #pragma once
 
@@ -26,20 +28,24 @@ class RimWellPath;
 class RimWellLogLasFile;
 
 //==================================================================================================
-///
+/// @brief Command feature for create depth adjusted LAS files.
 //==================================================================================================
 class RicCreateDepthAdjustedLasFilesFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicCreateDepthAdjustedLasFilesFeature() = default;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Creates depth adjusted well log file from Eclipse case.
     void createDepthAdjustedWellLogFileFromEclipseCase( RimEclipseCase*                 eclipseCase,
                                                         RimWellPath*                    sourceWell,
                                                         RimWellLogLasFile*              soureWellLogFile,
@@ -47,6 +53,7 @@ private:
                                                         const std::vector<QString>&     selectedResultProperties,
                                                         const QString&                  exportFolder );
 
+    /// Creates depth adjusted well log file from geo mech case.
     void createDepthAdjustedWellLogFileFromGeoMechCase( RimGeoMechCase*                 geoMechCase,
                                                         RimWellPath*                    sourceWell,
                                                         RimWellLogLasFile*              soureWellLogFile,

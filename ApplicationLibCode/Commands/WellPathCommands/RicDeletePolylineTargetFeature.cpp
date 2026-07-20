@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete polyline target command support.
 
 #include "RicDeletePolylineTargetFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements open in text editor command support.
 
 #include "RicOpenInTextEditorFeature.h"
 

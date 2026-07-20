@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well result branch reservoir-data functionality.
 
 #include "RigWellResultBranch.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellResultBranch instance.
 //--------------------------------------------------------------------------------------------------
 RigWellResultBranch::RigWellResultBranch()
     : m_ertBranchId( -1 )
@@ -27,7 +29,7 @@ RigWellResultBranch::RigWellResultBranch()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ert branch id.
 //--------------------------------------------------------------------------------------------------
 int RigWellResultBranch::ertBranchId() const
 {
@@ -35,7 +37,7 @@ int RigWellResultBranch::ertBranchId() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets ert branch id.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultBranch::setErtBranchId( int id )
 {
@@ -43,7 +45,7 @@ void RigWellResultBranch::setErtBranchId( int id )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the branch result points.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigWellResultPoint> RigWellResultBranch::branchResultPoints() const
 {
@@ -51,7 +53,7 @@ std::vector<RigWellResultPoint> RigWellResultBranch::branchResultPoints() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds branch result point.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultBranch::addBranchResultPoint( const RigWellResultPoint& point )
 {
@@ -59,7 +61,7 @@ void RigWellResultBranch::addBranchResultPoint( const RigWellResultPoint& point 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets branch result points.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultBranch::setBranchResultPoints( const std::vector<RigWellResultPoint>& points )
 {

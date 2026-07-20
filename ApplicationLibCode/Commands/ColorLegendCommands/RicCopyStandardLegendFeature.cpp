@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements copy standard legend command support.
 
 #include "RicCopyStandardLegendFeature.h"
 

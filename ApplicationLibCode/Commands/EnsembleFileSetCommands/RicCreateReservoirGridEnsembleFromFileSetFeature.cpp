@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create reservoir grid ensemble from file set command support.
 
 #include "RicCreateReservoirGridEnsembleFromFileSetFeature.h"
 

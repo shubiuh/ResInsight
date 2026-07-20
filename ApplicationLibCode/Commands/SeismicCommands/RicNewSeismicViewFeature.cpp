@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new seismic view command support.
 
 #include "RicNewSeismicViewFeature.h"
 

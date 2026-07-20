@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create multiple well path laterals command support.
 
 #pragma once
 
@@ -29,7 +31,7 @@
 class RimModeledWellPath;
 
 //==================================================================================================
-///
+/// @brief Supports create multiple well path laterals command workflows.
 //==================================================================================================
 class RicCreateMultipleWellPathLaterals : public caf::CmdFeature
 {
@@ -37,15 +39,20 @@ class RicCreateMultipleWellPathLaterals : public caf::CmdFeature
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private slots:
+    /// Performs the slot append fractures command operation.
     void slotAppendFractures();
 
 private:
+    /// Updates location of targets.
     void updateLocationOfTargets( RimModeledWellPath* newModeledWellPath, const cvf::Vec3d& sourceLocationOfFirstWellTarget );
 
+    /// Updates location of completions.
     void updateLocationOfCompletions( RimModeledWellPath* newModeledWellPath, const double sourceTieInMeasuredDepth );
 
 private:

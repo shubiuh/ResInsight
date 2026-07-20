@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements sumo data command support.
 
 #include "RicSumoDataFeature.h"
 

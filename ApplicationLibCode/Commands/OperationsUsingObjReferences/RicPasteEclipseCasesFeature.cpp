@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste Eclipse cases command support.
 
 #include "RicPasteEclipseCasesFeature.h"
 

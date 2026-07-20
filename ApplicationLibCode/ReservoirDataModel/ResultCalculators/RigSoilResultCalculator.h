@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of soil results.
 
 #pragma once
 
@@ -28,6 +30,7 @@ class RigEclipseResultAddress;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates soil results.
 class RigSoilResultCalculator : public RigEclipseResultCalculator
 {
 public:

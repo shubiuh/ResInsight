@@ -1,5 +1,7 @@
 #include "RicCreateDepthAdjustedLasFilesFeature.h"
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create depth adjusted LAS files command support.
 //
 //  Copyright (C) 2023- Equinor ASA
 //

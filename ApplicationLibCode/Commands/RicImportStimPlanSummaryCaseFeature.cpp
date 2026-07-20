@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import stim plan summary case command support.
 
 #include "RicImportStimPlanSummaryCaseFeature.h"
 

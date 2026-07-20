@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export Eclipse sector model command support.
 
 #include "RicExportEclipseSectorModelFeature.h"
 

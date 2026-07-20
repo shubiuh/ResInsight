@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new editable well path command support.
 #include "RicNewEditableWellPathFeature.h"
 
 #include "RiaColorTables.h"

@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well result point reservoir-data functionality.
 
 #include "RigWellResultPoint.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellResultPoint instance.
 //--------------------------------------------------------------------------------------------------
 RigWellResultPoint::RigWellResultPoint()
     : m_gridIndex( cvf::UNDEFINED_SIZE_T )
@@ -40,7 +42,7 @@ RigWellResultPoint::RigWellResultPoint()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets grid index.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setGridIndex( size_t gridIndex )
 {
@@ -48,7 +50,7 @@ void RigWellResultPoint::setGridIndex( size_t gridIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets grid cell index.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setGridCellIndex( size_t cellIndex )
 {
@@ -56,7 +58,7 @@ void RigWellResultPoint::setGridCellIndex( size_t cellIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets is open.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setIsOpen( bool isOpen )
 {
@@ -64,7 +66,7 @@ void RigWellResultPoint::setIsOpen( bool isOpen )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets flow data.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setFlowData( double flowRate, double oilRate, double gasRate, double waterRate )
 {
@@ -75,7 +77,7 @@ void RigWellResultPoint::setFlowData( double flowRate, double oilRate, double ga
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets connection factor.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setConnectionFactor( double connectionFactor )
 {
@@ -83,7 +85,7 @@ void RigWellResultPoint::setConnectionFactor( double connectionFactor )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets segment data.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setSegmentData( int branchId, int segmentId )
 {
@@ -92,7 +94,7 @@ void RigWellResultPoint::setSegmentData( int branchId, int segmentId )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets outlet segment data.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setOutletSegmentData( int outletBranchId, int outletSegmentId )
 {
@@ -101,7 +103,7 @@ void RigWellResultPoint::setOutletSegmentData( int outletBranchId, int outletSeg
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets bottom position.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setBottomPosition( const cvf::Vec3d& bottomPosition )
 {
@@ -109,7 +111,7 @@ void RigWellResultPoint::setBottomPosition( const cvf::Vec3d& bottomPosition )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets is connected to valve.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setIsConnectedToValve( bool enable )
 {
@@ -117,7 +119,7 @@ void RigWellResultPoint::setIsConnectedToValve( bool enable )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether point valid.
 //--------------------------------------------------------------------------------------------------
 bool RigWellResultPoint::isPointValid() const
 {
@@ -125,7 +127,7 @@ bool RigWellResultPoint::isPointValid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether cell.
 //--------------------------------------------------------------------------------------------------
 bool RigWellResultPoint::isCell() const
 {
@@ -133,7 +135,7 @@ bool RigWellResultPoint::isCell() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigWellResultPoint::isValid() const
 {
@@ -141,7 +143,7 @@ bool RigWellResultPoint::isValid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether open.
 //--------------------------------------------------------------------------------------------------
 bool RigWellResultPoint::isOpen() const
 {
@@ -149,7 +151,7 @@ bool RigWellResultPoint::isOpen() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether equal.
 //--------------------------------------------------------------------------------------------------
 bool RigWellResultPoint::isEqual( const RigWellResultPoint& other ) const
 {
@@ -159,7 +161,7 @@ bool RigWellResultPoint::isEqual( const RigWellResultPoint& other ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether connected to valve.
 //--------------------------------------------------------------------------------------------------
 bool RigWellResultPoint::isConnectedToValve() const
 {
@@ -167,7 +169,7 @@ bool RigWellResultPoint::isConnectedToValve() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the flow rate.
 //--------------------------------------------------------------------------------------------------
 double RigWellResultPoint::flowRate() const
 {
@@ -182,7 +184,7 @@ double RigWellResultPoint::flowRate() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the oil rate.
 //--------------------------------------------------------------------------------------------------
 double RigWellResultPoint::oilRate() const
 {
@@ -197,7 +199,7 @@ double RigWellResultPoint::oilRate() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the gas rate.
 //--------------------------------------------------------------------------------------------------
 double RigWellResultPoint::gasRate() const
 {
@@ -212,7 +214,7 @@ double RigWellResultPoint::gasRate() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the water rate.
 //--------------------------------------------------------------------------------------------------
 double RigWellResultPoint::waterRate() const
 {
@@ -227,7 +229,7 @@ double RigWellResultPoint::waterRate() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the connection factor.
 //--------------------------------------------------------------------------------------------------
 double RigWellResultPoint::connectionFactor() const
 {
@@ -235,7 +237,7 @@ double RigWellResultPoint::connectionFactor() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears all flow.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::clearAllFlow()
 {
@@ -247,7 +249,7 @@ void RigWellResultPoint::clearAllFlow()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid index.
 //--------------------------------------------------------------------------------------------------
 size_t RigWellResultPoint::gridIndex() const
 {
@@ -255,7 +257,7 @@ size_t RigWellResultPoint::gridIndex() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell index.
 //--------------------------------------------------------------------------------------------------
 size_t RigWellResultPoint::cellIndex() const
 {
@@ -263,7 +265,7 @@ size_t RigWellResultPoint::cellIndex() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the branch id.
 //--------------------------------------------------------------------------------------------------
 int RigWellResultPoint::branchId() const
 {
@@ -271,7 +273,7 @@ int RigWellResultPoint::branchId() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the segment id.
 //--------------------------------------------------------------------------------------------------
 int RigWellResultPoint::segmentId() const
 {
@@ -279,7 +281,7 @@ int RigWellResultPoint::segmentId() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the outlet branch id.
 //--------------------------------------------------------------------------------------------------
 int RigWellResultPoint::outletBranchId() const
 {
@@ -287,7 +289,7 @@ int RigWellResultPoint::outletBranchId() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the outlet segment id.
 //--------------------------------------------------------------------------------------------------
 int RigWellResultPoint::outletSegmentId() const
 {
@@ -295,7 +297,7 @@ int RigWellResultPoint::outletSegmentId() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the bottom position.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigWellResultPoint::bottomPosition() const
 {
@@ -303,7 +305,7 @@ cvf::Vec3d RigWellResultPoint::bottomPosition() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell ijk.
 //--------------------------------------------------------------------------------------------------
 std::optional<caf::VecIjk0> RigWellResultPoint::cellIjk() const
 {
@@ -311,7 +313,7 @@ std::optional<caf::VecIjk0> RigWellResultPoint::cellIjk() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets ijk.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultPoint::setIjk( caf::VecIjk0 cellIJK )
 {

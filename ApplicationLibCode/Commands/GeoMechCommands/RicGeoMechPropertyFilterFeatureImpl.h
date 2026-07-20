@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares geo mech property filter command support.
 
 #pragma once
 
@@ -25,26 +27,34 @@
 class RimGeoMechPropertyFilter;
 class RimGeoMechPropertyFilterCollection;
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmObjectHandle;
 }
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for geo mech property filter commands.
 //==================================================================================================
 class RicGeoMechPropertyFilterFeatureImpl
 {
 public:
+    /// @return The selected property filters.
     static std::vector<RimGeoMechPropertyFilter*>           selectedPropertyFilters();
+    /// @return The selected property filter collections.
     static std::vector<RimGeoMechPropertyFilterCollection*> selectedPropertyFilterCollections();
 
+    /// Adds property filter.
     static void addPropertyFilter( RimGeoMechPropertyFilterCollection* propertyFilterCollection );
+    /// Inserts property filter.
     static void insertPropertyFilter( RimGeoMechPropertyFilterCollection* propertyFilterCollection, size_t index );
 
+    /// @return Whether property filter command available.
     static bool isPropertyFilterCommandAvailable( caf::PdmObjectHandle* object );
 
 private:
+    /// Creates property filter.
     static RimGeoMechPropertyFilter* createPropertyFilter( RimGeoMechPropertyFilterCollection* propertyFilterCollection );
+    /// Sets defaults.
     static void                      setDefaults( RimGeoMechPropertyFilter* propertyFilter );
 };

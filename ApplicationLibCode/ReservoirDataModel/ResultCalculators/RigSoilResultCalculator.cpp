@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of soil results.
 
 #include "RigSoilResultCalculator.h"
 #include "RigCaseCellResultsData.h"
@@ -25,7 +27,7 @@
 #include "RiaResultNames.h"
 
 //==================================================================================================
-///
+/// Creates a RigSoilResultCalculator instance.
 //==================================================================================================
 RigSoilResultCalculator::RigSoilResultCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -33,14 +35,14 @@ RigSoilResultCalculator::RigSoilResultCalculator( RigCaseCellResultsData& result
 }
 
 //==================================================================================================
-///
+/// Destroys the RigSoilResultCalculator instance.
 //==================================================================================================
 RigSoilResultCalculator::~RigSoilResultCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the check and create placeholder entry.
 //--------------------------------------------------------------------------------------------------
 void RigSoilResultCalculator::checkAndCreatePlaceholderEntry( const RigEclipseResultAddress& resVarAddr )
 {
@@ -65,7 +67,7 @@ void RigSoilResultCalculator::checkAndCreatePlaceholderEntry( const RigEclipseRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigSoilResultCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -73,7 +75,7 @@ bool RigSoilResultCalculator::isMatching( const RigEclipseResultAddress& resVarA
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigSoilResultCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -197,7 +199,7 @@ void RigSoilResultCalculator::calculate( const RigEclipseResultAddress& resVarAd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether oil phase is available.
 //--------------------------------------------------------------------------------------------------
 bool RigSoilResultCalculator::hasOilPhase() const
 {

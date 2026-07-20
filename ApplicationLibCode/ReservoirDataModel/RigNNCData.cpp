@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of nnc data.
 
 #include "RigNNCData.h"
 
@@ -33,7 +35,7 @@
 #include <QString>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigNNCData instance.
 //--------------------------------------------------------------------------------------------------
 RigNNCData::RigNNCData()
     : m_eclipseConnectionCount( 0 )
@@ -46,7 +48,7 @@ RigNNCData::RigNNCData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets source data for processing.
 //--------------------------------------------------------------------------------------------------
 void RigNNCData::setSourceDataForProcessing( RigMainGrid* mainGrid, const RigActiveCellInfo* activeCellInfo, bool includeInactiveCells )
 {
@@ -59,7 +61,7 @@ void RigNNCData::setSourceDataForProcessing( RigMainGrid* mainGrid, const RigAct
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the build polygons for eclipse connections.
 //--------------------------------------------------------------------------------------------------
 void RigNNCData::buildPolygonsForEclipseConnections()
 {
@@ -91,7 +93,7 @@ void RigNNCData::buildPolygonsForEclipseConnections()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes additional nncs.
 //--------------------------------------------------------------------------------------------------
 void RigNNCData::computeAdditionalNncs( const RigMainGrid* mainGrid, const RigActiveCellInfo* activeCellInfo, bool includeInactiveCells )
 {
@@ -116,7 +118,7 @@ void RigNNCData::computeAdditionalNncs( const RigMainGrid* mainGrid, const RigAc
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the connections with no common area.
 //--------------------------------------------------------------------------------------------------
 size_t RigNNCData::connectionsWithNoCommonArea( QStringList& connectionTextFirstItems, size_t maxItemCount )
 {
@@ -186,7 +188,7 @@ size_t RigNNCData::connectionsWithNoCommonArea( QStringList& connectionTextFirst
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ensure all connection data is processed.
 //--------------------------------------------------------------------------------------------------
 bool RigNNCData::ensureAllConnectionDataIsProcessed()
 {
@@ -239,7 +241,7 @@ bool RigNNCData::ensureAllConnectionDataIsProcessed()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets eclipse connections.
 //--------------------------------------------------------------------------------------------------
 void RigNNCData::setEclipseConnections( RigConnectionContainer& eclipseConnections )
 {
@@ -250,7 +252,7 @@ void RigNNCData::setEclipseConnections( RigConnectionContainer& eclipseConnectio
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the eclipse connection count.
 //--------------------------------------------------------------------------------------------------
 size_t RigNNCData::eclipseConnectionCount() const
 {
@@ -258,7 +260,7 @@ size_t RigNNCData::eclipseConnectionCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the available connections.
 //--------------------------------------------------------------------------------------------------
 const RigConnectionContainer& RigNNCData::availableConnections() const
 {
@@ -271,7 +273,7 @@ const RigConnectionContainer& RigNNCData::availableConnections() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all connections.
 //--------------------------------------------------------------------------------------------------
 RigConnectionContainer& RigNNCData::allConnections()
 {
@@ -281,7 +283,7 @@ RigConnectionContainer& RigNNCData::allConnections()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the make static connection scalar result.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>& RigNNCData::makeStaticConnectionScalarResult( QString nncDataType )
 {
@@ -294,7 +296,7 @@ std::vector<double>& RigNNCData::makeStaticConnectionScalarResult( QString nncDa
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the make scalar result and set values.
 //--------------------------------------------------------------------------------------------------
 void RigNNCData::makeScalarResultAndSetValues( const QString& nncDataType, const std::vector<double>& values )
 {
@@ -304,7 +306,7 @@ void RigNNCData::makeScalarResultAndSetValues( const QString& nncDataType, const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the static connection scalar result.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigNNCData::staticConnectionScalarResult( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -325,7 +327,7 @@ const std::vector<double>* RigNNCData::staticConnectionScalarResult( const RigEc
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the static connection scalar result by name.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigNNCData::staticConnectionScalarResultByName( const QString& nncDataType ) const
 {
@@ -343,7 +345,7 @@ const std::vector<double>* RigNNCData::staticConnectionScalarResultByName( const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the make dynamic connection scalar result.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>>& RigNNCData::makeDynamicConnectionScalarResult( QString nncDataType, size_t timeStepCount )
 {
@@ -353,7 +355,7 @@ std::vector<std::vector<double>>& RigNNCData::makeDynamicConnectionScalarResult(
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the dynamic connection scalar result.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<double>>* RigNNCData::dynamicConnectionScalarResult( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -373,7 +375,7 @@ const std::vector<std::vector<double>>* RigNNCData::dynamicConnectionScalarResul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the dynamic connection scalar result.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigNNCData::dynamicConnectionScalarResult( const RigEclipseResultAddress& resVarAddr, size_t timeStep ) const
 {
@@ -393,7 +395,7 @@ const std::vector<double>* RigNNCData::dynamicConnectionScalarResult( const RigE
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the dynamic connection scalar result by name.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<double>>* RigNNCData::dynamicConnectionScalarResultByName( const QString& nncDataType ) const
 {
@@ -406,7 +408,7 @@ const std::vector<std::vector<double>>* RigNNCData::dynamicConnectionScalarResul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the dynamic connection scalar result by name.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigNNCData::dynamicConnectionScalarResultByName( const QString& nncDataType, size_t timeStep ) const
 {
@@ -422,7 +424,7 @@ const std::vector<double>* RigNNCData::dynamicConnectionScalarResultByName( cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the make generated connection scalar result.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>>& RigNNCData::makeGeneratedConnectionScalarResult( QString nncDataType, size_t timeStepCount )
 {
@@ -432,7 +434,7 @@ std::vector<std::vector<double>>& RigNNCData::makeGeneratedConnectionScalarResul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates generated connection scalar result.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<double>>* RigNNCData::generatedConnectionScalarResult( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -452,7 +454,7 @@ const std::vector<std::vector<double>>* RigNNCData::generatedConnectionScalarRes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates generated connection scalar result.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigNNCData::generatedConnectionScalarResult( const RigEclipseResultAddress& resVarAddr, size_t timeStep ) const
 {
@@ -472,7 +474,7 @@ const std::vector<double>* RigNNCData::generatedConnectionScalarResult( const Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates generated connection scalar result.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>>* RigNNCData::generatedConnectionScalarResult( const RigEclipseResultAddress& resVarAddr )
 {
@@ -492,7 +494,7 @@ std::vector<std::vector<double>>* RigNNCData::generatedConnectionScalarResult( c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates generated connection scalar result.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigNNCData::generatedConnectionScalarResult( const RigEclipseResultAddress& resVarAddr, size_t timeStep )
 {
@@ -512,7 +514,7 @@ std::vector<double>* RigNNCData::generatedConnectionScalarResult( const RigEclip
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates generated connection scalar result by name.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<double>>* RigNNCData::generatedConnectionScalarResultByName( const QString& nncDataType ) const
 {
@@ -525,7 +527,7 @@ const std::vector<std::vector<double>>* RigNNCData::generatedConnectionScalarRes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates generated connection scalar result by name.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigNNCData::generatedConnectionScalarResultByName( const QString& nncDataType, size_t timeStep ) const
 {
@@ -541,7 +543,7 @@ const std::vector<double>* RigNNCData::generatedConnectionScalarResultByName( co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates generated connection scalar result by name.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>>* RigNNCData::generatedConnectionScalarResultByName( const QString& nncDataType )
 {
@@ -554,7 +556,7 @@ std::vector<std::vector<double>>* RigNNCData::generatedConnectionScalarResultByN
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates generated connection scalar result by name.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigNNCData::generatedConnectionScalarResultByName( const QString& nncDataType, size_t timeStep )
 {
@@ -570,7 +572,7 @@ std::vector<double>* RigNNCData::generatedConnectionScalarResultByName( const QS
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the available properties.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigNNCData::availableProperties( NNCResultType resultType ) const
 {
@@ -596,7 +598,7 @@ std::vector<QString> RigNNCData::availableProperties( NNCResultType resultType )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets ecl result address.
 //--------------------------------------------------------------------------------------------------
 void RigNNCData::setEclResultAddress( const QString& nncDataType, const RigEclipseResultAddress& resVarAddr )
 {
@@ -604,7 +606,7 @@ void RigNNCData::setEclResultAddress( const QString& nncDataType, const RigEclip
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether scalar values is available.
 //--------------------------------------------------------------------------------------------------
 bool RigNNCData::hasScalarValues( const RigEclipseResultAddress& resVarAddr )
 {
@@ -616,7 +618,7 @@ bool RigNNCData::hasScalarValues( const RigEclipseResultAddress& resVarAddr )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates scalar values.
 //--------------------------------------------------------------------------------------------------
 bool RigNNCData::generateScalarValues( const RigEclipseResultAddress& resVarAddr )
 {
@@ -673,7 +675,7 @@ bool RigNNCData::generateScalarValues( const RigEclipseResultAddress& resVarAddr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns nnc data type from scalar result index.
 //--------------------------------------------------------------------------------------------------
 const QString RigNNCData::getNNCDataTypeFromScalarResultIndex( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -687,7 +689,7 @@ const QString RigNNCData::getNNCDataTypeFromScalarResultIndex( const RigEclipseR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether native.
 //--------------------------------------------------------------------------------------------------
 bool RigNNCData::isNative( QString nncDataType ) const
 {

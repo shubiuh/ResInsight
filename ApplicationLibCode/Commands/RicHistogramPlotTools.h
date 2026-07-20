@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares histogram plot command support.
 
 #pragma once
 
@@ -32,7 +34,7 @@ class RimHistogramCurve;
 class RimSummaryEnsemble;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Utility functions for histogram plot.
 //--------------------------------------------------------------------------------------------------
 class RicHistogramPlotTools
 {
@@ -45,21 +47,32 @@ public:
         ENSEMBLE_FRACTURE_STATISTICS
     };
 
+    /// @return All data source types.
     static std::vector<DataSourceType> allDataSourceTypes();
 
+    /// Creates default histogram curve.
     static void createDefaultHistogramCurve( RimHistogramPlot* plot, DataSourceType dataSourceType );
+    /// Creates histogram curve.
     static void createHistogramCurve( RimHistogramPlot* plot, RimHistogramDataSource* dataSource );
+    /// Appends ensemble parameter histogram curve.
     static void appendEnsembleParameterHistogramCurve( RimHistogramPlot* plot, RimEnsembleParameterHistogramDataSource* dataSource );
+    /// Adds histogram curve to plot.
     static void addHistogramCurveToPlot( RimHistogramPlot* plot, RimHistogramCurve* curve, bool resolveRefs = false );
 
+    /// Adds new histogram multiplot.
     static RimHistogramMultiPlot* addNewHistogramMultiplot();
+    /// Adds new histogram multiplot.
     static RimHistogramMultiPlot* addNewHistogramMultiplot( RimHistogramMultiPlotCollection* collection );
+    /// Adds new histogram plot.
     static RimHistogramPlot*      addNewHistogramPlot( RimHistogramMultiPlot* histogramMultiPlot );
 
+    /// Appends ensemble to histogram.
     static void appendEnsembleToHistogram( RimHistogramPlot* plot, RimSummaryEnsemble* ensemble );
 
+    /// @return The existing ensemble parameters.
     static std::set<QString> existingEnsembleParameters( RimHistogramPlot* plot );
 
 private:
+    /// @return The existing data sources.
     static std::vector<RimHistogramDataSource*> existingDataSources( RimHistogramPlot* plot );
 };

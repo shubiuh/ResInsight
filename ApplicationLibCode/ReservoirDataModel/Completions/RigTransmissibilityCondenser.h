@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares transmissibility condenser reservoir-data functionality.
 
 #pragma once
 
@@ -34,6 +36,7 @@ class RigFractureGrid;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models transmissibility condenser for reservoir-data processing.
 class RigTransmissibilityCondenser
 {
 public:
@@ -41,9 +44,11 @@ public:
     RigTransmissibilityCondenser( const RigTransmissibilityCondenser& copyFrom );
     RigTransmissibilityCondenser& operator=( const RigTransmissibilityCondenser& rhs );
 
+    /// @brief Models cell address for reservoir-data processing.
     class CellAddress
     {
     public:
+        /// Enumerates the supported cell index space values.
         enum CellIndexSpace
         {
             ECLIPSE,
@@ -57,6 +62,7 @@ public:
             , m_globalCellIdx( -1 )
         {
         }
+        /// Returns or processes cell address.
         CellAddress( bool isExternal, CellIndexSpace cellType, size_t globalCellIdx )
             : m_isExternal( isExternal )
             , m_cellIndexSpace( cellType )
@@ -64,10 +70,14 @@ public:
         {
         }
 
+        /// Stores is external.
         bool           m_isExternal;
+        /// Stores cell index space.
         CellIndexSpace m_cellIndexSpace;
+        /// Stores global cell idx.
         size_t         m_globalCellIdx;
 
+        /// Implements the operator== operation.
         bool operator==( const CellAddress& o )
         {
             return ( m_isExternal == o.m_isExternal ) && ( m_cellIndexSpace == o.m_cellIndexSpace ) && ( m_globalCellIdx == o.m_globalCellIdx );
@@ -75,6 +85,7 @@ public:
 
         // Ordering external after internal is important for the matrix order internally
 
+        /// Implements the operator< operation.
         bool operator<( const CellAddress& other ) const
         {
             if ( m_isExternal != other.m_isExternal ) return !m_isExternal; // Internal cells < External cells
@@ -110,15 +121,22 @@ public:
     void calculateCondensedTransmissibilities();
 
 protected:
+    /// Type alias used for connection transmissibility.
     using ConnectionTransmissibility   = std::pair<CellAddress, std::map<CellAddress, double>>;
+    /// Type alias used for connection transmissibilities.
     using ConnectionTransmissibilities = std::map<CellAddress, std::map<CellAddress, double>>;
 
+    /// Stores neighbor transmissibilities.
     ConnectionTransmissibilities m_neighborTransmissibilities;
+    /// Stores condensed transmissibilities.
     ConnectionTransmissibilities m_condensedTransmissibilities;
 
+    /// Stores external cell addr set.
     std::set<CellAddress> m_externalCellAddrSet;
 
+    /// Stores tii inv.
     Eigen::MatrixXd m_TiiInv;
+    /// Stores tie.
     Eigen::MatrixXd m_Tie;
 
 private:

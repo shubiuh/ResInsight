@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste summary plot command support.
 
 #include "RicPasteSummaryPlotFeature.h"
 

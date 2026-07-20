@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements vde packet directory command support.
 
 #include "VdePacketDirectory.h"
 

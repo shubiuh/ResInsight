@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares eclipse allan faults stat calc reservoir-data functionality.
 
 #pragma once
 
@@ -31,6 +33,7 @@
 
 #include "cvfArray.h"
 
+/// @brief Models eclipse allan faults stat calc for reservoir-data processing.
 class RigEclipseAllanFaultsStatCalc : public RigStatisticsCalculator
 {
 public:

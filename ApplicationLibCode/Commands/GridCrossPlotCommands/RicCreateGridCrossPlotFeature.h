@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create grid cross plot command support.
 #pragma once
 
 #include "cafCmdFeature.h"
@@ -22,13 +24,15 @@
 #include <vector>
 
 //==================================================================================================
-///
+/// @brief Command feature for create grid cross plot.
 //==================================================================================================
 class RicCreateGridCrossPlotFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

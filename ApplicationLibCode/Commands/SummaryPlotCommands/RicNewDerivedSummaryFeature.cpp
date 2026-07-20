@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new derived summary command support.
 
 #include "RicNewDerivedSummaryFeature.h"
 

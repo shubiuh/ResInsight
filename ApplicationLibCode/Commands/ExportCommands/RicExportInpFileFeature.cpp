@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export inp file command support.
 
 #include "RicExportInpFileFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show cumulative phase plot command support.
 
 #include "RicShowCumulativePhasePlotFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export of las file exporter.
 
 #include "RigLasFileExporter.h"
 
@@ -45,9 +47,11 @@ namespace NRLib
 class LasWell;
 };
 
+/// Supports single channel data reservoir-data processing.
 class SingleChannelData
 {
 public:
+    /// Returns or processes single channel data.
     SingleChannelData( const std::string& channelName, const std::string& unit, const std::string& comment, const RigWellLogCurveData& curveData )
         : m_channelName( channelName )
         , m_unit( unit )
@@ -56,6 +60,7 @@ public:
     {
     }
 
+    /// Returns or processes append data to las file.
     void appendDataToLasFile( NRLib::LasWell* lasFile, double absentValue ) const
     {
         CVF_ASSERT( lasFile );
@@ -76,7 +81,9 @@ public:
         }
     }
 
+    /// Returns or processes channel name.
     std::string                channelName() const { return m_channelName; }
+    /// Returns or processes curve data.
     const RigWellLogCurveData& curveData() const { return m_curveData; }
 
 private:
@@ -86,6 +93,7 @@ private:
     RigWellLogCurveData m_curveData;
 };
 
+/// Supports single las file meta data reservoir-data processing.
 class SingleLasFileMetaData
 {
 public:
@@ -96,20 +104,28 @@ public:
     {
     }
 
+    /// Sets well name.
     void setWellName( const QString& wellName ) { m_wellName = wellName; }
 
+    /// Returns or processes well name.
     QString wellName() { return m_wellName; }
 
+    /// Sets case name.
     void setCaseName( const QString& caseName ) { m_caseName = caseName; }
 
+    /// Sets date.
     void setDate( const QString& date ) { m_date = date; }
 
+    /// Sets rkb diff.
     void setRkbDiff( double rkbDiff ) { m_rkbDiff = rkbDiff; }
 
+    /// Returns or processes enable tvdrkb export.
     void enableTvdrkbExport() { m_exportTvdrkb = true; }
 
+    /// Returns or processes rkb diff.
     double rkbDiff() { return m_rkbDiff; }
 
+    /// Adds log data.
     void addLogData( const std::string& channelName, const std::string& unit, const std::string& comment, const RigWellLogCurveData& curveData )
     {
         m_logCurveData.push_back( SingleChannelData( channelName, unit, comment, curveData ) );
@@ -123,6 +139,7 @@ public:
         }
     }
 
+    /// Returns or processes generate filename.
     std::string generateFilename() const
     {
         QString fileBasenameCandidate;
@@ -159,6 +176,7 @@ public:
         return cleanFileName.toStdString();
     }
 
+    /// Returns or processes append data to las file.
     void appendDataToLasFile( NRLib::LasWell* lasFile ) const
     {
         if ( m_logCurveData.empty() ) return;
@@ -276,7 +294,7 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigLasFileExporter instance.
 //--------------------------------------------------------------------------------------------------
 RigLasFileExporter::RigLasFileExporter( const std::vector<RimWellLogCurve*>& curves )
     : m_curves( curves )
@@ -286,7 +304,7 @@ RigLasFileExporter::RigLasFileExporter( const std::vector<RimWellLogCurve*>& cur
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets resampling interval.
 //--------------------------------------------------------------------------------------------------
 void RigLasFileExporter::setResamplingInterval( double interval )
 {
@@ -296,7 +314,7 @@ void RigLasFileExporter::setResamplingInterval( double interval )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well paths and rkb diff.
 //--------------------------------------------------------------------------------------------------
 void RigLasFileExporter::wellPathsAndRkbDiff( std::vector<QString>* wellNames, std::vector<double>* rkbDiffs )
 {
@@ -321,7 +339,7 @@ void RigLasFileExporter::wellPathsAndRkbDiff( std::vector<QString>* wellNames, s
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets rkb diffs.
 //--------------------------------------------------------------------------------------------------
 void RigLasFileExporter::setRkbDiffs( const std::vector<QString>& wellNames, const std::vector<double>& rkbDiffs )
 {
@@ -342,7 +360,7 @@ void RigLasFileExporter::setRkbDiffs( const std::vector<QString>& wellNames, con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Writes to folder.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigLasFileExporter::writeToFolder( const QString& exportFolder,
                                                         const QString& filePrefix /*= ""*/,
@@ -398,7 +416,7 @@ std::vector<QString> RigLasFileExporter::writeToFolder( const QString& exportFol
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates las file descriptions.
 //--------------------------------------------------------------------------------------------------
 std::vector<SingleLasFileMetaData> RigLasFileExporter::createLasFileDescriptions( const std::vector<RimWellLogCurve*>& curves,
                                                                                   bool                                 convertCurveUnits )
@@ -439,7 +457,7 @@ std::vector<SingleLasFileMetaData> RigLasFileExporter::createLasFileDescriptions
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends las file descriptions.
 //--------------------------------------------------------------------------------------------------
 void RigLasFileExporter::appendLasFileDescriptions( const std::vector<RimWellLogCurve*>& curves,
                                                     std::vector<SingleLasFileMetaData>*  lasFileDescriptions,
@@ -520,7 +538,7 @@ void RigLasFileExporter::appendLasFileDescriptions( const std::vector<RimWellLog
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the case name from curve.
 //--------------------------------------------------------------------------------------------------
 QString RigLasFileExporter::caseNameFromCurve( RimWellLogCurve* curve )
 {
@@ -540,7 +558,7 @@ QString RigLasFileExporter::caseNameFromCurve( RimWellLogCurve* curve )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the rkb diff.
 //--------------------------------------------------------------------------------------------------
 double RigLasFileExporter::rkbDiff( RimWellLogCurve* curve )
 {
@@ -554,7 +572,7 @@ double RigLasFileExporter::rkbDiff( RimWellLogCurve* curve )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the apply user defined rkb offsets.
 //--------------------------------------------------------------------------------------------------
 void RigLasFileExporter::applyUserDefinedRkbOffsets( std::vector<SingleLasFileMetaData>* lasFileDescriptions )
 {

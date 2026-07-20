@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements intersection box Z slice command support.
 
 #include "RicIntersectionBoxZSliceFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements vde caching hashed ID factory command support.
 
 #include "VdeCachingHashedIdFactory.h"
 

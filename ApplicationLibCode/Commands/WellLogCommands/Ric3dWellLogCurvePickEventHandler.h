@@ -16,18 +16,22 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares 3D well log curve command support.
 
 #pragma once
 
 #include "RicPickEventHandler.h"
 
 //==================================================================================================
-///
+/// @brief Handles 3D well log curve events.
 //==================================================================================================
 class Ric3dWellLogCurvePickEventHandler : public RicDefaultPickEventHandler
 {
 public:
+    /// @return The instance.
     static Ric3dWellLogCurvePickEventHandler* instance();
 
+    /// @return Whether the 3D pick event was handled.
     bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) override;
 };

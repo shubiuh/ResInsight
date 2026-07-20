@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares flow diag visible cells stat calc reservoir-data functionality.
 
 #pragma once
 
@@ -32,6 +34,7 @@
 class RigFlowDiagResults;
 class RigActiveCellInfo;
 
+/// @brief Models flow diag visible cells stat calc for reservoir-data processing.
 class RigFlowDiagVisibleCellsStatCalc : public RigStatisticsCalculator
 {
 public:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements refinement settings command support.
 
 #include "RicRefinementSettings.h"
 

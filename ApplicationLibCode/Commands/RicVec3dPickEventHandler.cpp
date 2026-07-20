@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements vec3d command support.
 #include "RicVec3dPickEventHandler.h"
 
 #include "Rim3dView.h"

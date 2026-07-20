@@ -15,21 +15,26 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export grid calculation expressions command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for export grid calculation expressions.
 //==================================================================================================
 class RicExportGridCalculationExpressionsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// @return The grid calculation expression ID.
     static QString gridCalculationExpressionId();
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

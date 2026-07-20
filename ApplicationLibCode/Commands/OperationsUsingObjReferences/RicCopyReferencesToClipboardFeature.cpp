@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements copy references to clipboard command support.
 
 #include "RicCopyReferencesToClipboardFeature.h"
 

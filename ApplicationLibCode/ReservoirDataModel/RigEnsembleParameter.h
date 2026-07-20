@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares ensemble parameter reservoir-data functionality.
 
 #pragma once
 
@@ -29,15 +31,18 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models ensemble parameter for reservoir-data processing.
 class RigEnsembleParameter
 {
 public:
+    /// Enumerates the supported type values.
     enum Type
     {
         TYPE_NONE,
         TYPE_NUMERIC,
         TYPE_TEXT
     };
+    /// Enumerates the supported bins values.
     enum Bins
     {
         NO_VARIATION  = -1,
@@ -47,11 +52,17 @@ public:
         NR_OF_VARIATION_BINS
     };
     QString               uiName() const;
+    /// Stores name.
     QString               name;
+    /// Stores type.
     Type                  type;
+    /// Stores values.
     std::vector<QVariant> values;
+    /// Stores min value.
     double                minValue;
+    /// Stores max value.
     double                maxValue;
+    /// Stores variation bin.
     int                   variationBin;
 
     RigEnsembleParameter()
@@ -62,8 +73,11 @@ public:
     {
     }
 
+    /// Returns whether valid.
     bool   isValid() const { return !name.isEmpty() && type != TYPE_NONE; }
+    /// Returns whether numeric.
     bool   isNumeric() const { return type == TYPE_NUMERIC; }
+    /// Returns whether text.
     bool   isText() const { return type == TYPE_TEXT; }
     double normalizedStdDeviation() const;
 

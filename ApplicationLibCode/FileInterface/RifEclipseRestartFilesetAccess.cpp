@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements lazy access to restart results split across report-step files.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -76,7 +79,9 @@ bool RifEclipseRestartFilesetAccess::open()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sorts by the conventional `.Xnnnn` suffix so vector position remains a stable
+/// proxy for report-step order. Handles are allocated as null placeholders and
+/// opened only when a query touches the corresponding step.
 //--------------------------------------------------------------------------------------------------
 void RifEclipseRestartFilesetAccess::setRestartFiles( const QStringList& fileSet )
 {
@@ -171,7 +176,9 @@ std::vector<RifEclipseKeywordValueCount> RifEclipseRestartFilesetAccess::keyword
 }
 
 //--------------------------------------------------------------------------------------------------
-/// Get result values for given time step
+/// Reads every occurrence because one occurrence normally represents one grid.
+/// Some simulators emit additional empty occurrences; retaining them in the loop
+/// keeps occurrence-to-grid handling consistent while appending no values.
 //--------------------------------------------------------------------------------------------------
 bool RifEclipseRestartFilesetAccess::results( const QString& resultName, size_t timeStep, size_t gridCount, std::vector<double>* values )
 {
@@ -268,7 +275,8 @@ void RifEclipseRestartFilesetAccess::readWellData( well_info_type* well_info, bo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Opens one file on demand and accumulates its phase declarations into the
+/// file-set-wide phase union.
 //--------------------------------------------------------------------------------------------------
 void RifEclipseRestartFilesetAccess::openTimeStep( size_t timeStep )
 {

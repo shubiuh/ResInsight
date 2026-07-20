@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of completion data.
 
 #pragma once
 
@@ -31,24 +33,30 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Stores completion meta data.
 struct RigCompletionMetaData
 {
+    /// Returns or processes completion meta data.
     RigCompletionMetaData( const QString& name, const QString& comment )
         : name( name )
         , comment( comment )
     {
     }
 
+    /// Stores name.
     QString name;
+    /// Stores comment.
     QString comment;
 };
 
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Stores completion data.
 class RigCompletionData
 {
 public:
+    /// Enumerates the supported completion type values.
     enum class CompletionType
     {
         FISHBONES,
@@ -62,6 +70,7 @@ public:
         CT_UNDEFINED
     };
 
+    /// Enumerates the supported cell direction values.
     enum class CellDirection
     {
         DIR_I,
@@ -154,6 +163,7 @@ public:
     void                  setSourcePdmObject( const caf::PdmObject* object );
     const caf::PdmObject* sourcePdmObject() const;
 
+    /// Stores metadata.
     std::vector<RigCompletionMetaData> m_metadata;
 
 private:

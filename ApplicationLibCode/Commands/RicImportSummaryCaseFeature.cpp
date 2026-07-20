@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import summary case command support.
 
 #include "RicImportSummaryCaseFeature.h"
 

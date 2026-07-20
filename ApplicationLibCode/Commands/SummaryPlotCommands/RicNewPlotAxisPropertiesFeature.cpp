@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new plot axis properties command support.
 
 #include "RicNewPlotAxisPropertiesFeature.h"
 

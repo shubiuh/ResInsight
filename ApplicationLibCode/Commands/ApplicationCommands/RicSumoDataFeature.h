@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares sumo data command support.
 
 #pragma once
 
@@ -28,29 +30,45 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+/// @brief Dialog for configuring simple.
 class SimpleDialog : public QDialog
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     SimpleDialog( QWidget* parent = nullptr );
+    /// Destroys the command object.
     ~SimpleDialog() override;
 
+    /// Creates connection.
     void createConnection();
 
 private:
+    /// Performs the on ok clicked command operation.
     void onOkClicked();
+    /// Performs the on cancel clicked command operation.
     void onCancelClicked();
+    /// Performs the on token ready command operation.
     void onTokenReady( const QString& token );
+    /// Performs the on auth clicked command operation.
     void onAuthClicked();
+    /// Performs the on assets clicked command operation.
     void onAssetsClicked();
+    /// Performs the on cases clicked command operation.
     void onCasesClicked();
+    /// Performs the on vector names clicked command operation.
     void onVectorNamesClicked();
+    /// Performs the on find blob ID clicked command operation.
     void onFindBlobIdClicked();
+    /// Performs the on parquet clicked command operation.
     void onParquetClicked();
+    /// Performs the on show content parquet clicked command operation.
     void onShowContentParquetClicked();
+    /// Performs the on realizations clicked command operation.
     void onRealizationsClicked();
 
+    /// @return Whether token valid.
     bool isTokenValid();
 
 private:
@@ -70,14 +88,16 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for sumo data.
 //==================================================================================================
 class RicSumoDataFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:

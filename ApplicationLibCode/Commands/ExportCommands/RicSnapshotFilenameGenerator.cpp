@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements snapshot filename generator command support.
 
 #include "RicSnapshotFilenameGenerator.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste intersections command support.
 
 #include "RicPasteIntersectionsFeature.h"
 

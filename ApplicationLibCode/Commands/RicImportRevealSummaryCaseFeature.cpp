@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import reveal summary case command support.
 
 #include "RicImportRevealSummaryCaseFeature.h"
 

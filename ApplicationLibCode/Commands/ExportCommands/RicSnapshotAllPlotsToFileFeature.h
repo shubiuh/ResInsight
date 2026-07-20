@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares snapshot all plots to file command support.
 
 #pragma once
 
@@ -23,15 +25,17 @@
 class RimViewWindow;
 
 //==================================================================================================
-///
+/// @brief Command feature for snapshot all plots to file.
 //==================================================================================================
 class RicSnapshotAllPlotsToFileFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Saves all plots.
     static void saveAllPlots();
 
+    /// Exports snapshot of plots into folder.
     static void exportSnapshotOfPlotsIntoFolder( const QString& snapshotFolderName,
                                                  int            width               = -1,
                                                  int            height              = -1,
@@ -41,6 +45,8 @@ public:
                                                  const QString& preferredFileSuffix = ".png" );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

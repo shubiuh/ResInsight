@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste well log plot command support.
 
 #include "RicPasteWellLogPlotFeature.h"
 

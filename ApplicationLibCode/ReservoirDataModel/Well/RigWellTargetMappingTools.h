@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for well target mapping.
 
 #pragma once
 
@@ -42,29 +44,47 @@ class RimEclipseCase;
 ///
 ///
 //==================================================================================================
+/// @brief Provides utilities for well target mapping.
 class RigWellTargetMappingTools
 {
 public:
+    /// Type alias used for cell face type.
     using CellFaceType     = cvf::StructGridInterface::FaceType;
+    /// Type alias used for volume type.
     using VolumeType       = RigWellTargetMapping::VolumeType;
+    /// Type alias used for volumes type.
     using VolumesType      = RigWellTargetMapping::VolumesType;
+    /// Type alias used for volume result type.
     using VolumeResultType = RigWellTargetMapping::VolumeResultType;
+    /// Type alias used for clustering limits.
     using ClusteringLimits = RigWellTargetMapping::ClusteringLimits;
 
+    /// @brief Models data container for reservoir-data processing.
     struct DataContainer
     {
+        /// Stores volume.
         std::vector<double>        volume;
+        /// Stores saturation oil.
         std::vector<double>        saturationOil;
+        /// Stores saturation gas.
         std::vector<double>        saturationGas;
+        /// Stores pressure.
         std::vector<double>        pressure;
+        /// Stores permeability x.
         std::vector<double>        permeabilityX;
+        /// Stores permeability nnc.
         std::vector<double>        permeabilityNNC;
+        /// Stores transmissibility x.
         std::vector<double>        transmissibilityX;
+        /// Stores transmissibility y.
         std::vector<double>        transmissibilityY;
+        /// Stores transmissibility z.
         std::vector<double>        transmissibilityZ;
+        /// Stores transmissibility nnc.
         const std::vector<double>* transmissibilityNNC;
     };
 
+    /// @brief Models cluster statistics for reservoir-data processing.
     class ClusterStatistics
     {
     public:
@@ -85,18 +105,31 @@ public:
         {
         }
 
+        /// Stores id.
         int    id;
+        /// Stores num cells.
         size_t numCells;
+        /// Stores total porv soil.
         double totalPorvSoil;
+        /// Stores total porv sgas.
         double totalPorvSgas;
+        /// Stores total porv soil and sgas.
         double totalPorvSoilAndSgas;
+        /// Stores total fip oil.
         double totalFipOil;
+        /// Stores total fip gas.
         double totalFipGas;
+        /// Stores total rfip oil.
         double totalRfipOil;
+        /// Stores total rfip gas.
         double totalRfipGas;
+        /// Stores total sfip oil.
         double totalSfipOil;
+        /// Stores total sfip gas.
         double totalSfipGas;
+        /// Stores permeability.
         double permeability;
+        /// Stores pressure.
         double pressure;
     };
 

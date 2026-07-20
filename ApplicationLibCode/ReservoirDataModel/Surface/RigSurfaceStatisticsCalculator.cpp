@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of surface statistics.
 
 #include "RigSurfaceStatisticsCalculator.h"
 
@@ -43,7 +45,7 @@ void caf::AppEnum<RigSurfaceStatisticsCalculator::StatisticsType>::setUp()
 }; // namespace caf
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes statistics.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RigSurface> RigSurfaceStatisticsCalculator::computeStatistics( const std::vector<cvf::ref<RigSurface>>& surfaces )
 {
@@ -115,7 +117,7 @@ cvf::ref<RigSurface> RigSurfaceStatisticsCalculator::computeStatistics( const st
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the are surfaces same size.
 //--------------------------------------------------------------------------------------------------
 bool RigSurfaceStatisticsCalculator::areSurfacesSameSize( const std::vector<cvf::ref<RigSurface>>& surfaces )
 {

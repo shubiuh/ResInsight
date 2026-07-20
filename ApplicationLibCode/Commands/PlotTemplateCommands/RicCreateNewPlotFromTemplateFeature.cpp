@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create new plot from template command support.
 
 #include "RicCreateNewPlotFromTemplateFeature.h"
 

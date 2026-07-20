@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import seismic command support.
 
 #include "RicImportSeismicFeature.h"
 

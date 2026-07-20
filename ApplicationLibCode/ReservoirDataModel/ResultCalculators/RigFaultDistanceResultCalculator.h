@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of fault distance results.
 
 #pragma once
 
@@ -28,6 +30,7 @@ class RigEclipseResultAddress;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates fault distance results.
 class RigFaultDistanceResultCalculator : public RigEclipseResultCalculator
 {
 public:

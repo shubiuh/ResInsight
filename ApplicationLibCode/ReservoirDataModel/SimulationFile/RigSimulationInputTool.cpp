@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements simulation input tool reservoir-data functionality.
 
 #include "RigSimulationInputTool.h"
 
@@ -61,7 +63,7 @@
 #include <set>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Exports simulation input.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::exportSimulationInput( RimEclipseCase&                   eclipseCase,
                                                                             const RigSimulationInputSettings& settings,
@@ -193,7 +195,7 @@ std::expected<void, QString> RigSimulationInputTool::exportSimulationInput( RimE
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates corner point grid in deck file.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::updateCornerPointGridInDeckFile( RimEclipseCase*                   eclipseCase,
                                                                                       const RigSimulationInputSettings& settings,
@@ -277,7 +279,7 @@ std::expected<void, QString> RigSimulationInputTool::updateCornerPointGridInDeck
 /// filter refined sub-cells whose pore volume falls below the original threshold simply because
 /// refinement shrunk them. Refinement factor is taken as max(subcellCount(I)) × max(subcellCount(J))
 /// × max(subcellCount(K)) over the sector — the worst case sub-cell is 1/factor of its parent.
-///
+/// Returns the scale minpv for refinement.
 /// No-op when MINPV is absent from the deck or refinement is identity (factor == 1).
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::scaleMinpvForRefinement( const RigSimulationInputSettings& settings,
@@ -335,7 +337,7 @@ std::expected<void, QString> RigSimulationInputTool::scaleMinpvForRefinement( co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the replace keyword values in deck file.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::replaceKeywordValuesInDeckFile( RimEclipseCase*                   eclipseCase,
                                                                                      const RigSimulationInputSettings& settings,
@@ -384,7 +386,7 @@ std::expected<void, QString> RigSimulationInputTool::replaceKeywordValuesInDeckF
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the crop data keywords in deck file.
 //--------------------------------------------------------------------------------------------------
 std::set<std::string> RigSimulationInputTool::cropDataKeywordsInDeckFile( RimEclipseCase*                   eclipseCase,
                                                                           const RigSimulationInputSettings& settings,
@@ -484,7 +486,7 @@ std::set<std::string> RigSimulationInputTool::cropDataKeywordsInDeckFile( RimEcl
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds border boundary conditions.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::addBorderBoundaryConditions( RimEclipseCase*                   eclipseCase,
                                                                                   const RigSimulationInputSettings& settings,
@@ -657,16 +659,22 @@ static std::array<int, 6> extractBoxIndicesFromRecord( const Opm::DeckRecord& re
              record.getItem( 7 ).get<int>( 0 ) };
 }
 
+/// Type alias used for record processor func.
 using RecordProcessorFunc = RigSimulationInputTool::RecordProcessorFunc;
 
+/// Supports modification reservoir-data processing.
 struct Modification
 {
+    /// Stores index.
     Opm::FileDeck::Index index;
+    /// Enumerates the supported action values.
     enum Action
     {
         Replace,
         Remove
-    } action;
+    };
+    Action action; ///< Modification to perform on the indexed record.
+    /// Stores replacement.
     Opm::DeckKeyword replacement;
 };
 
@@ -1055,7 +1063,7 @@ std::expected<void, QString> RigSimulationInputTool::replaceKeywordWithBoxIndice
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the replace aqucon keyword indices.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::replaceAquconKeywordIndices( RimEclipseCase*                   eclipseCase,
                                                                                   const RigSimulationInputSettings& settings,
@@ -1065,7 +1073,7 @@ std::expected<void, QString> RigSimulationInputTool::replaceAquconKeywordIndices
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the replace aquancon keyword indices.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::replaceAquanconKeywordIndices( RimEclipseCase*                   eclipseCase,
                                                                                     const RigSimulationInputSettings& settings,
@@ -1075,7 +1083,7 @@ std::expected<void, QString> RigSimulationInputTool::replaceAquanconKeywordIndic
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the replace aqunum keyword indices.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::replaceAqunumKeywordIndices( RimEclipseCase*                   eclipseCase,
                                                                                   const RigSimulationInputSettings& settings,
@@ -1085,7 +1093,7 @@ std::expected<void, QString> RigSimulationInputTool::replaceAqunumKeywordIndices
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates welldims keyword.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::updateWelldimsKeyword( RimEclipseCase*                   eclipseCase,
                                                                             const RigSimulationInputSettings& settings,
@@ -1115,7 +1123,7 @@ std::expected<void, QString> RigSimulationInputTool::updateWelldimsKeyword( RimE
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds faults to deck file.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::addFaultsToDeckFile( RimEclipseCase*                   eclipseCase,
                                                                           const RigSimulationInputSettings& settings,
@@ -1139,7 +1147,7 @@ std::expected<void, QString> RigSimulationInputTool::addFaultsToDeckFile( RimEcl
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds intersecting wells.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigSimWellData*>
     RigSimulationInputTool::findIntersectingWells( RimEclipseCase* eclipseCase, const caf::VecIjk0& min, const caf::VecIjk0& max )
@@ -1194,7 +1202,7 @@ std::vector<RigSimWellData*>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process welspecs record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processWelspecsRecord( const Opm::DeckRecord&            record,
                                                                                        const std::string&                wellName,
@@ -1259,7 +1267,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processWelspecsR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process compdat record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processCompdatRecord( const Opm::DeckRecord&            record,
                                                                                       const std::string&                wellName,
@@ -1323,7 +1331,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processCompdatRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process compsegs record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processCompsegsRecord( const Opm::DeckRecord&            record,
                                                                                        const std::string&                wellName,
@@ -1466,7 +1474,7 @@ std::expected<RigBoundingBoxIjk<caf::VecIjk0>, QString>
     return RigBoundingBoxIjk<caf::VecIjk0>( *transformResult1, *transformResult2 );
 }
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process equals record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processEqualsRecord( const Opm::DeckRecord& record,
                                                                                      const caf::VecIjk0&    min,
@@ -1521,7 +1529,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processEqualsRec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process multiply record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processMultiplyRecord( const Opm::DeckRecord& record,
                                                                                        const caf::VecIjk0&    min,
@@ -1576,7 +1584,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processMultiplyR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process add record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processAddRecord( const Opm::DeckRecord& record,
                                                                                   const caf::VecIjk0&    min,
@@ -1631,7 +1639,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processAddRecord
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process aqucon record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processAquconRecord( const Opm::DeckRecord& record,
                                                                                      const caf::VecIjk0&    min,
@@ -1701,7 +1709,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processAquconRec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process aquancon record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processAquanconRecord( const Opm::DeckRecord& record,
                                                                                        const caf::VecIjk0&    min,
@@ -1771,7 +1779,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processAquanconR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process aqunum record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processAqunumRecord( const Opm::DeckRecord& record,
                                                                                      const caf::VecIjk0&    min,
@@ -1836,7 +1844,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processAqunumRec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process copy record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processCopyRecord( const Opm::DeckRecord& record,
                                                                                    const caf::VecIjk0&    min,
@@ -1902,7 +1910,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processCopyRecor
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the process box record.
 //--------------------------------------------------------------------------------------------------
 std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processBoxRecord( const Opm::DeckRecord& record,
                                                                                   const caf::VecIjk0&    min,
@@ -1945,7 +1953,7 @@ std::expected<Opm::DeckRecord, QString> RigSimulationInputTool::processBoxRecord
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well names to include.
 //--------------------------------------------------------------------------------------------------
 std::set<std::string> RigSimulationInputTool::wellNamesToInclude( RimEclipseCase* eclipseCase, const RigSimulationInputSettings& settings )
 {
@@ -1985,7 +1993,7 @@ std::set<std::string> RigSimulationInputTool::wellNamesToInclude( RimEclipseCase
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates well list keywords.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::updateWellListKeywords( std::set<std::string>&            validWellNames,
                                                                              const RigSimulationInputSettings& settings,
@@ -2095,7 +2103,7 @@ std::expected<void, QString> RigSimulationInputTool::updateWellListKeywords( std
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the filter and update well keywords.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::filterAndUpdateWellKeywords( std::set<std::string>&            validWellNames,
                                                                                   const RigSimulationInputSettings& settings,
@@ -2249,7 +2257,7 @@ std::expected<void, QString> RigSimulationInputTool::filterAndUpdateWellKeywords
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds oper num region and operater.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::addOperNumRegionAndOperater( RifOpmFlowDeckFile&         deckFile,
                                                                                   const RigGridExportAdapter& gridAdapter,
@@ -2335,7 +2343,7 @@ std::expected<void, QString> RigSimulationInputTool::addOperNumRegionAndOperater
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the extract deck edit nnc connections.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigSimulationInputTool::NNCConnection> RigSimulationInputTool::extractDeckEditNncConnections( RifOpmFlowDeckFile& deckFile,
                                                                                                           const RigMainGrid&  mainGrid )
@@ -2378,7 +2386,7 @@ std::vector<RigSimulationInputTool::NNCConnection> RigSimulationInputTool::extra
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the filter internal sector connections.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigSimulationInputTool::NNCConnection>
     RigSimulationInputTool::filterInternalSectorConnections( const std::vector<NNCConnection>& allConnections,
@@ -2407,7 +2415,7 @@ std::vector<RigSimulationInputTool::NNCConnection>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the transform to sector coordinates.
 //--------------------------------------------------------------------------------------------------
 caf::VecIjk0 RigSimulationInputTool::transformToSectorCoordinates( const caf::VecIjk0&  globalIjk,
                                                                    const caf::VecIjk0&  min,
@@ -2425,7 +2433,7 @@ caf::VecIjk0 RigSimulationInputTool::transformToSectorCoordinates( const caf::Ve
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the transform nnc to sector coordinates.
 //--------------------------------------------------------------------------------------------------
 std::expected<RigSimulationInputTool::TransformedNNCConnection, QString>
     RigSimulationInputTool::transformNNCToSectorCoordinates( const NNCConnection& connection,
@@ -2456,7 +2464,7 @@ std::expected<RigSimulationInputTool::TransformedNNCConnection, QString>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the refine edit nnc connection.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigSimulationInputTool::TransformedNNCConnection> RigSimulationInputTool::refineEditNncConnection( const NNCConnection& connection,
                                                                                                                const RigMainGrid&  mainGrid,
@@ -2517,7 +2525,7 @@ std::vector<RigSimulationInputTool::TransformedNNCConnection> RigSimulationInput
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Exports edit nnc keyword.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::exportEditNncKeyword( RimEclipseCase*                   eclipseCase,
                                                                            const RigSimulationInputSettings& settings,
@@ -2595,7 +2603,7 @@ std::expected<void, QString> RigSimulationInputTool::exportEditNncKeyword( RimEc
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the apply model padding.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputTool::applyModelPadding( RifOpmFlowDeckFile&            deckFile,
                                                                         const RigModelPaddingSettings& paddingSettings )

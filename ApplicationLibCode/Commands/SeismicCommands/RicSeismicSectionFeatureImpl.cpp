@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements seismic section command support.
 
 #include "RicSeismicSectionFeatureImpl.h"
 

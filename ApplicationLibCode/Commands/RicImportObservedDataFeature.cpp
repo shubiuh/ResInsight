@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import observed data command support.
 
 #include "RicImportObservedDataFeature.h"
 

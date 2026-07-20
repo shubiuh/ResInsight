@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares refinement reservoir-data functionality.
 
 #pragma once
 
@@ -34,9 +36,11 @@
 //   - RigNonUniformRefinement: per-cell custom cumulative fractions
 //
 //==================================================================================================
+/// @brief Models refinement for reservoir-data processing.
 class RigRefinement
 {
 public:
+    /// Enumerates the supported dimension values.
     enum Dimension : size_t
     {
         DimI = 0,
@@ -46,15 +50,23 @@ public:
 
     virtual ~RigRefinement() = default;
 
+    /// Returns or processes clone.
     virtual std::unique_ptr<RigRefinement> clone() const = 0;
 
     // Query methods
+    /// Returns or processes subcell count.
     virtual size_t                     subcellCount( Dimension dim, size_t origIndex ) const            = 0;
+    /// Returns or processes cumulative offset.
     virtual size_t                     cumulativeOffset( Dimension dim, size_t origIndex ) const        = 0;
+    /// Returns or processes total refined count.
     virtual size_t                     totalRefinedCount( Dimension dim ) const                         = 0;
+    /// Returns or processes map refined to original.
     virtual std::pair<size_t, size_t>  mapRefinedToOriginal( Dimension dim, size_t refinedIndex ) const = 0;
+    /// Returns or processes cumulative fractions.
     virtual const std::vector<double>& cumulativeFractions( Dimension dim, size_t origIndex ) const     = 0;
+    /// Returns or processes sector size.
     virtual size_t                     sectorSize( Dimension dim ) const                                = 0;
+    /// Returns whether refinement is available.
     virtual bool                       hasRefinement() const                                            = 0;
 
     // Static utilities shared by subclasses

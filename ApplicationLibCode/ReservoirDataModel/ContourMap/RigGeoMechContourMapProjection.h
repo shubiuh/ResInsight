@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares geo mech contour map projection reservoir-data functionality.
 
 #pragma once
 
@@ -31,6 +33,7 @@ class RigGeoMechCaseData;
 ///
 ///
 //==================================================================================================
+/// @brief Models geo mech contour map projection for reservoir-data processing.
 class RigGeoMechContourMapProjection : public RigContourMapProjection
 {
 public:
@@ -73,11 +76,18 @@ protected:
     std::vector<double> gridCellValues( RigFemResultAddress resAddr, std::vector<float>& resultValues ) const;
 
 protected:
+    /// Stores case data.
     RigGeoMechCaseData*       m_caseData;
+    /// Stores limit to pore pressure regions.
     bool                      m_limitToPorePressureRegions;
+    /// Stores padding around pore pressure region.
     double                    m_paddingAroundPorePressureRegion;
+    /// Stores fem part.
     cvf::ref<RigFemPart>      m_femPart;
+    /// Stores fem part grid.
     cvf::cref<RigFemPartGrid> m_femPartGrid;
+    /// Stores current result addr.
     RigFemResultAddress       m_currentResultAddr;
+    /// Stores k layers.
     size_t                    m_kLayers;
 };

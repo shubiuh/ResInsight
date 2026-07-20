@@ -1,3 +1,5 @@
+/// @file
+/// @brief Implements calculation of geo mech bore hole stress.
 #include "RigGeoMechBoreHoleStressCalculator.h"
 
 //==================================================================================================
@@ -7,7 +9,7 @@
 //==================================================================================================
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigGeoMechBoreHoleStressCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigGeoMechBoreHoleStressCalculator::RigGeoMechBoreHoleStressCalculator( const caf::Ten3d& tensor,
                                                                         double            porePressure,
@@ -33,7 +35,7 @@ double RigGeoMechBoreHoleStressCalculator::solveFractureGradient( double* thetaO
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the solve stassi dalia.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechBoreHoleStressCalculator::solveStassiDalia( double* thetaOut )
 {
@@ -157,7 +159,7 @@ double RigGeoMechBoreHoleStressCalculator::solveSecant( MemberFunc fn, double* t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sigma t min of min.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechBoreHoleStressCalculator::sigmaTMinOfMin( double wellPressure, double* thetaAtMin ) const
 {
@@ -180,7 +182,7 @@ double RigGeoMechBoreHoleStressCalculator::sigmaTMinOfMin( double wellPressure, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the stassi dalia.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechBoreHoleStressCalculator::stassiDalia( double wellPressure, double* thetaAtMin ) const
 {
@@ -209,7 +211,7 @@ double RigGeoMechBoreHoleStressCalculator::stassiDalia( double wellPressure, dou
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates stress components.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechBoreHoleStressCalculator::calculateStressComponents()
 {
@@ -224,7 +226,7 @@ void RigGeoMechBoreHoleStressCalculator::calculateStressComponents()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates stress components for segment angle.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec4d RigGeoMechBoreHoleStressCalculator::calculateStressComponentsForSegmentAngle( double theta ) const
 {

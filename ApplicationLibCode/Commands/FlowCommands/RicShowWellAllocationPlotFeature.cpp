@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show well allocation plot command support.
 
 #include "RicShowWellAllocationPlotFeature.h"
 

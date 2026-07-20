@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export stim plan model to file command support.
 
 #include "RicExportStimPlanModelToFileFeature.h"
 

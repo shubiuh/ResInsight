@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path geometry3d command support.
 
 #include "RicWellPathGeometry3dEditor.h"
 

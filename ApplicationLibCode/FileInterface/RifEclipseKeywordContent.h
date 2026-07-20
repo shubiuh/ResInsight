@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Defines parsed text and numeric content for one Eclipse deck keyword.
 //
 //  Copyright (C) 2021     Equinor ASA
 //
@@ -21,11 +24,16 @@
 #include <string>
 #include <vector>
 
+/// Parsed representation of an Eclipse keyword occurrence.
+///
+/// Both original text and expanded floating-point values are retained so callers
+/// can choose lossless rewriting or numerical processing. The byte offset links the
+/// occurrence back to its source file for diagnostics and selective reparsing.
 class RifEclipseKeywordContent
 {
 public:
-    std::string        keyword;
-    std::string        content;
-    std::vector<float> values;
-    size_t             offset;
+    std::string        keyword; ///< Keyword token without its data payload.
+    std::string        content; ///< Original textual payload.
+    std::vector<float> values;  ///< Parsed and repetition-expanded numeric values.
+    size_t             offset;  ///< Byte offset of the occurrence in the source stream.
 };

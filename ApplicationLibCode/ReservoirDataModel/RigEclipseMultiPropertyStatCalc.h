@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares eclipse multi property stat calc reservoir-data functionality.
 
 #pragma once
 
@@ -33,6 +35,7 @@ class RigEclipseResultAddress;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models eclipse multi property stat calc for reservoir-data processing.
 class RigEclipseMultiPropertyStatCalc : public RigStatisticsCalculator
 {
 public:

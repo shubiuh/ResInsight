@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new correlation plot command support.
 
 #pragma once
 
@@ -24,6 +26,7 @@
 
 class RimSummaryEnsemble;
 
+/// @brief Supports ensemble plot params command workflows.
 class EnsemblePlotParams
 {
 public:
@@ -33,27 +36,34 @@ public:
     QString             ensembleParameter;
     std::time_t         timeStep;
 
+    /// Constructs the command object.
     EnsemblePlotParams();
+    /// Constructs the command object.
     EnsemblePlotParams( const EnsemblePlotParams& rhs ) = default;
 
+    /// Constructs the command object.
     EnsemblePlotParams( RimSummaryEnsemble* ensemble,
                         const QStringList&  includedQuantityNames,
                         const QString&      mainQuantityName,
                         const std::time_t&  timeStep );
+    /// Destroys the command object.
     ~EnsemblePlotParams() = default;
 };
 
 Q_DECLARE_METATYPE( EnsemblePlotParams );
 
 //==================================================================================================
-///
+/// @brief Command feature for new correlation plot.
 //==================================================================================================
 class RicNewCorrelationPlotFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create grid cross plot command support.
 #include "RicCreateGridCrossPlotFeature.h"
 
 #include "RiaGuiApplication.h"

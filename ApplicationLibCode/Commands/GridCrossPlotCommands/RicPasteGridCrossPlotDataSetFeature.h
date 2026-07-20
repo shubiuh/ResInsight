@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares paste grid cross plot data set command support.
 
 #pragma once
 
@@ -24,17 +26,21 @@
 class RimGridCrossPlotDataSet;
 
 //==================================================================================================
-///
+/// @brief Command feature for paste grid cross plot data set.
 //==================================================================================================
 class RicPasteGridCrossPlotDataSetFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The grid cross plot data sets on clipboard.
     static std::vector<caf::PdmPointer<RimGridCrossPlotDataSet>> gridCrossPlotDataSetsOnClipboard();
 };

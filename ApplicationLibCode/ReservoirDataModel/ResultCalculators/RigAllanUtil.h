@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares allan util reservoir-data functionality.
 
 #pragma once
 
@@ -24,6 +26,7 @@ class RigMainGrid;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models allan util for reservoir-data processing.
 class RigAllanUtil
 {
 public:

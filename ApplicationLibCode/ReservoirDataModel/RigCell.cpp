@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements cell reservoir-data functionality.
 
 #include "RigCell.h"
 #include "RigCellGeometryTools.h"
@@ -36,7 +38,7 @@ static size_t undefinedCornersArray[8] = { cvf::UNDEFINED_SIZE_T,
                                            cvf::UNDEFINED_SIZE_T,
                                            cvf::UNDEFINED_SIZE_T };
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCell instance.
 //--------------------------------------------------------------------------------------------------
 RigCell::RigCell()
     : m_gridLocalCellIndex( cvf::UNDEFINED_SIZE_T )
@@ -51,14 +53,14 @@ RigCell::RigCell()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigCell instance.
 //--------------------------------------------------------------------------------------------------
 RigCell::~RigCell()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the center.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigCell::center() const
 {
@@ -95,7 +97,7 @@ std::array<cvf::Vec3d, 4> RigCell::faceCorners( cvf::StructGridInterface::FaceTy
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether near.
 //--------------------------------------------------------------------------------------------------
 bool isNear( const cvf::Vec3d& p1, const cvf::Vec3d& p2, double tolerance )
 {
@@ -104,7 +106,7 @@ bool isNear( const cvf::Vec3d& p1, const cvf::Vec3d& p2, double tolerance )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether long pyramid cell.
 //--------------------------------------------------------------------------------------------------
 bool RigCell::isLongPyramidCell( double maxHeightFactor, double nodeNearTolerance ) const
 {
@@ -237,7 +239,7 @@ bool RigCell::isLongPyramidCell( double maxHeightFactor, double nodeNearToleranc
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether collapsed cell.
 //--------------------------------------------------------------------------------------------------
 bool RigCell::isCollapsedCell( double nodeNearTolerance ) const
 {
@@ -292,7 +294,7 @@ bool RigCell::isCollapsedCell( double nodeNearTolerance ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the face center.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigCell::faceCenter( cvf::StructGridInterface::FaceType face ) const
 {
@@ -332,7 +334,7 @@ cvf::Vec3d RigCell::faceNormalWithAreaLength( cvf::StructGridInterface::FaceType
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the volume.
 //--------------------------------------------------------------------------------------------------
 double RigCell::volume() const
 {
@@ -399,7 +401,7 @@ int RigCell::firstIntersectionPoint( const cvf::Ray& ray, cvf::Vec3d* intersecti
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the face indices.
 //--------------------------------------------------------------------------------------------------
 void RigCell::faceIndices( cvf::StructGridInterface::FaceType face, std::array<size_t, 4>* indices ) const
 {
@@ -413,7 +415,7 @@ void RigCell::faceIndices( cvf::StructGridInterface::FaceType face, std::array<s
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the bounding box.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox RigCell::boundingBox() const
 {

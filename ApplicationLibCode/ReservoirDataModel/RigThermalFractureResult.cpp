@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements thermal fracture result reservoir-data functionality.
 
 #include "RigThermalFractureResult.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigThermalFractureResult instance.
 //--------------------------------------------------------------------------------------------------
 RigThermalFractureResult::RigThermalFractureResult( const QString& name, const QString& unit )
     : m_name( name )
@@ -28,7 +30,7 @@ RigThermalFractureResult::RigThermalFractureResult( const QString& name, const Q
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the name.
 //--------------------------------------------------------------------------------------------------
 QString RigThermalFractureResult::name() const
 {
@@ -36,7 +38,7 @@ QString RigThermalFractureResult::name() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unit.
 //--------------------------------------------------------------------------------------------------
 QString RigThermalFractureResult::unit() const
 {
@@ -44,7 +46,7 @@ QString RigThermalFractureResult::unit() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends value.
 //--------------------------------------------------------------------------------------------------
 void RigThermalFractureResult::appendValue( int nodeIndex, double value )
 {
@@ -55,7 +57,7 @@ void RigThermalFractureResult::appendValue( int nodeIndex, double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns value.
 //--------------------------------------------------------------------------------------------------
 double RigThermalFractureResult::getValue( int nodeIndex, int timeStepIndex ) const
 {
@@ -63,7 +65,7 @@ double RigThermalFractureResult::getValue( int nodeIndex, int timeStepIndex ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the num nodes.
 //--------------------------------------------------------------------------------------------------
 size_t RigThermalFractureResult::numNodes() const
 {

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of nnc data.
 
 #pragma once
 
@@ -39,9 +41,11 @@ class RigMainGrid;
 class RigCell;
 class RigEclipseResultAddress;
 
+/// @brief Stores nnc data.
 class RigNNCData : public cvf::Object
 {
 public:
+    /// Enumerates the supported nnc result type values.
     enum class NNCResultType
     {
         NNC_DYNAMIC,

@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements Eclipse grid/deck parsing, refined export, INCLUDE traversal, and fault I/O.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -85,7 +88,9 @@ RifEclipseInputFileTools::~RifEclipseInputFileTools()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reads the deck into keyword objects, verifies the required SPECGRID/COORD/ZCORN
+/// geometry set, and constructs the runtime main grid. Optional ACTNUM, MAPAXES,
+/// GRIDUNIT, and fault data are applied only after core geometry succeeds.
 //--------------------------------------------------------------------------------------------------
 bool RifEclipseInputFileTools::openGridFile( const QString& fileName, RigEclipseCaseData* eclipseCase, bool readFaultData, QString* errorMessages )
 {
@@ -237,7 +242,9 @@ bool RifEclipseInputFileTools::exportGrid( const QString&         fileName,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Maps regular output-grid indices back to source cells, honoring crop bounds and
+/// integer refinement. Active-cell storage is expanded to full-grid order before
+/// sampling so inactive cells receive valid export placeholders.
 //--------------------------------------------------------------------------------------------------
 std::expected<std::vector<double>, std::string> RifEclipseInputFileTools::extractKeywordData( RigEclipseCaseData* eclipseCase,
                                                                                               const QString&      keyword,
@@ -338,7 +345,8 @@ std::expected<std::vector<double>, std::string> RifEclipseInputFileTools::extrac
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Applies per-axis refinement intervals rather than one global refinement factor.
+/// This overload shares the same active-to-global result expansion as regular export.
 //--------------------------------------------------------------------------------------------------
 std::expected<std::vector<double>, std::string> RifEclipseInputFileTools::extractKeywordData( RigEclipseCaseData*  eclipseCase,
                                                                                               const QString&       keyword,
@@ -927,7 +935,8 @@ void RifEclipseInputFileTools::parseAndReadFaults( const QString& fileName, cvf:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Starts at the GRID section, follows PATHS-aware INCLUDE statements, and stops at
+/// EDIT so only structural fault definitions become part of imported grid geometry.
 //--------------------------------------------------------------------------------------------------
 void RifEclipseInputFileTools::readFaultsInGridSection( const QString&             fileName,
                                                         cvf::Collection<RigFault>* faults,
@@ -1276,7 +1285,9 @@ bool RifEclipseInputFileTools::readFaultsAndParseIncludeStatementsRecursively( Q
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Traverses nested INCLUDE files while preserving parser state in output arguments.
+/// Alias substitution and an optional absolute-path prefix make project decks
+/// portable across machines with different directory layouts.
 //--------------------------------------------------------------------------------------------------
 bool RifEclipseInputFileTools::readKeywordAndParseIncludeStatementsRecursively( const QString& keyword,
                                                                                 const QString& keywordToStopParsing,

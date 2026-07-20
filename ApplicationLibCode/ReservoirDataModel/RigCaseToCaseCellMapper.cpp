@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements case to case cell mapper reservoir-data functionality.
 
 #include "RigCaseToCaseCellMapper.h"
 #include "RigCaseToCaseCellMapperTools.h"
@@ -25,7 +27,7 @@
 #include "RigMainGrid.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCaseToCaseCellMapper instance.
 //--------------------------------------------------------------------------------------------------
 RigCaseToCaseCellMapper::RigCaseToCaseCellMapper( RigMainGrid* masterEclGrid, RigMainGrid* dependentEclGrid )
     : m_masterGrid( masterEclGrid )
@@ -37,7 +39,7 @@ RigCaseToCaseCellMapper::RigCaseToCaseCellMapper( RigMainGrid* masterEclGrid, Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCaseToCaseCellMapper instance.
 //--------------------------------------------------------------------------------------------------
 RigCaseToCaseCellMapper::RigCaseToCaseCellMapper( RigFemPart* masterFemPart, RigMainGrid* dependentEclGrid )
     : m_masterGrid( nullptr )
@@ -50,7 +52,7 @@ RigCaseToCaseCellMapper::RigCaseToCaseCellMapper( RigFemPart* masterFemPart, Rig
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCaseToCaseCellMapper instance.
 //--------------------------------------------------------------------------------------------------
 RigCaseToCaseCellMapper::RigCaseToCaseCellMapper( RigFemPart* masterFemPart, RigFemPart* dependentFemPart )
     : m_masterGrid( nullptr )
@@ -62,7 +64,7 @@ RigCaseToCaseCellMapper::RigCaseToCaseCellMapper( RigFemPart* masterFemPart, Rig
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCaseToCaseCellMapper instance.
 //--------------------------------------------------------------------------------------------------
 RigCaseToCaseCellMapper::RigCaseToCaseCellMapper( RigMainGrid* masterEclGrid, RigFemPart* dependentFemPart )
     : m_masterGrid( masterEclGrid )
@@ -75,7 +77,7 @@ RigCaseToCaseCellMapper::RigCaseToCaseCellMapper( RigMainGrid* masterEclGrid, Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the master case cell indices.
 //--------------------------------------------------------------------------------------------------
 const int* RigCaseToCaseCellMapper::masterCaseCellIndices( int dependentCaseReservoirCellIndex, int* masterCaseCellIndexCount ) const
 {
@@ -100,7 +102,7 @@ const int* RigCaseToCaseCellMapper::masterCaseCellIndices( int dependentCaseRese
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds mapping.
 //--------------------------------------------------------------------------------------------------
 void RigCaseToCaseCellMapper::addMapping( int depCaseCellIdx, int masterCaseMatchingCell )
 {
@@ -124,7 +126,7 @@ void RigCaseToCaseCellMapper::addMapping( int depCaseCellIdx, int masterCaseMatc
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates ecl to geom cell mapping.
 //--------------------------------------------------------------------------------------------------
 void RigCaseToCaseCellMapper::calculateEclToGeomCellMapping( RigMainGrid* masterEclGrid, RigFemPart* dependentFemPart, bool eclipseIsMaster )
 {

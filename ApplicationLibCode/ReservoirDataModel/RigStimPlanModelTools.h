@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for stim plan model.
 
 #pragma once
 
@@ -33,6 +35,7 @@ struct WellPathCellIntersectionInfo;
 ///
 ///
 //==================================================================================================
+/// @brief Provides utilities for stim plan model.
 class RigStimPlanModelTools
 {
 public:

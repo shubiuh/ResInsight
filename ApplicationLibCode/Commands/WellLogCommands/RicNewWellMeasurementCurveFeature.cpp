@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well measurement curve command support.
 
 #include "RicNewWellMeasurementCurveFeature.h"
 #include "RicWellLogPlotCurveFeatureImpl.h"

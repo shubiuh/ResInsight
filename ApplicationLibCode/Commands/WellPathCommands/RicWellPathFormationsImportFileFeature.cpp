@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path formations import file command support.
 
 #include "RicWellPathFormationsImportFileFeature.h"
 

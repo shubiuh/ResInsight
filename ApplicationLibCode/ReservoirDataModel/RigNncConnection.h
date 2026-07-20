@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares nnc connection reservoir-data functionality.
 
 #pragma once
 
@@ -27,6 +29,7 @@
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models connection for reservoir-data processing.
 class RigConnection
 {
 public:
@@ -48,11 +51,17 @@ public:
     bool           operator<( const RigConnection& other ) const;
     bool           hasCommonArea() const;
 
+    /// Returns or processes c1 glob idx.
     inline size_t                             c1GlobIdx() const { return m_c1GlobIdx; }
+    /// Returns or processes c2 glob idx.
     inline size_t                             c2GlobIdx() const { return m_c2GlobIdx; }
+    /// Returns or processes face.
     inline cvf::StructGridInterface::FaceType face() const { return static_cast<cvf::StructGridInterface::FaceType>( m_c1Face ); }
+    /// Sets face.
     inline void setFace( cvf::StructGridInterface::FaceType face ) { m_c1Face = static_cast<unsigned char>( face ); }
+    /// Returns or processes polygon.
     inline const std::vector<cvf::Vec3f>& polygon() const { return m_polygon; }
+    /// Sets polygon.
     inline void                           setPolygon( const std::vector<cvf::Vec3f>& polygon ) { m_polygon = polygon; }
 
 private:
@@ -62,6 +71,7 @@ private:
     std::vector<cvf::Vec3f> m_polygon;
 };
 
+/// @brief Models connection container for reservoir-data processing.
 class RigConnectionContainer
 {
 public:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares thermal fracture result util reservoir-data functionality.
 
 #pragma once
 
@@ -42,6 +44,7 @@ class BoundingBox;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models thermal fracture result util for reservoir-data processing.
 class RigThermalFractureResultUtil
 {
 public:

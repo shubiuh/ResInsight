@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares flow diag defines reservoir-data functionality.
 #pragma once
 
 #include <string>
@@ -24,8 +26,10 @@
 
 namespace RigFlowDiagDefines
 {
+/// @brief Models rel perm curve for reservoir-data processing.
 struct RelPermCurve
 {
+    /// Enumerates the supported ident values.
     enum Ident
     {
         KRW,
@@ -35,41 +39,55 @@ struct RelPermCurve
         PCOW,
         PCOG
     };
+    /// Enumerates the supported eps mode values.
     enum EpsMode
     {
         EPS_ON,
         EPS_OFF
     };
+    /// Enumerates the supported curve set values.
     enum CurveSet
     {
         DRAINAGE,
         IMBIBITION
     };
 
+    /// Returns whether water curve.
     bool isWaterCurve() const { return ( ident == KRW || ident == KROW || ident == PCOW ); }
+    /// Returns whether gas curve.
     bool isGasCurve() const { return ( ident == KRG || ident == KROG || ident == PCOG ); }
 
+    /// Stores ident.
     Ident               ident;
+    /// Stores name.
     std::string         name;
+    /// Stores eps mode.
     EpsMode             epsMode;
+    /// Stores curve set.
     CurveSet            curveSet;
+    /// Stores saturation vals.
     std::vector<double> saturationVals;
+    /// Stores y vals.
     std::vector<double> yVals;
 };
 
+/// Enumerates the supported pvt curve type values.
 enum PvtCurveType
 {
     PVT_CT_FVF,
     PVT_CT_VISCOSITY
 };
 
+/// @brief Models pvt curve for reservoir-data processing.
 struct PvtCurve
 {
+    /// Enumerates the supported phase values.
     enum Phase
     {
         OIL,
         GAS
     };
+    /// Enumerates the supported ident values.
     enum Ident
     {
         Unknown,
@@ -79,19 +97,29 @@ struct PvtCurve
         Visc_g
     };
 
+    /// Stores ident.
     Ident               ident;
+    /// Stores phase.
     Phase               phase;
+    /// Stores pressure vals.
     std::vector<double> pressureVals;
+    /// Stores y vals.
     std::vector<double> yVals;
+    /// Stores mix rat vals.
     std::vector<double> mixRatVals;
 };
 
+/// @brief Models flow characteristics result frame for reservoir-data processing.
 struct FlowCharacteristicsResultFrame
 {
+    /// Type alias used for curve.
     using Curve = std::pair<std::vector<double>, std::vector<double>>;
 
+    /// Stores storage cap flow cap curve.
     Curve  m_storageCapFlowCapCurve;
+    /// Stores dimensionless time sweep efficiency curve.
     Curve  m_dimensionlessTimeSweepEfficiencyCurve;
+    /// Stores lorenz coefficient.
     double m_lorenzCoefficient = HUGE_VAL;
 };
 

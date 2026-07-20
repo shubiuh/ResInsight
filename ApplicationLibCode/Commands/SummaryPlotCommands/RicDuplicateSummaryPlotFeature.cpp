@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements duplicate summary plot command support.
 
 #include "RicDuplicateSummaryPlotFeature.h"
 

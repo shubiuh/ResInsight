@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create grid case group from files command support.
 
 #include "RicCreateGridCaseGroupFromFilesFeature.h"
 

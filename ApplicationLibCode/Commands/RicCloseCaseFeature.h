@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares close case command support.
 
 #pragma once
 
@@ -29,26 +31,35 @@ class RimCase;
 class RimIdenticalGridCaseGroup;
 
 //==================================================================================================
-///
+/// @brief Command feature for close case.
 //==================================================================================================
 class RicCloseCaseFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Removes or clears Eclipse case.
     static void deleteEclipseCase( RimEclipseCase* eclipseCase );
+    /// @return The user confirmed grid case group change.
     static bool userConfirmedGridCaseGroupChange( const std::vector<RimEclipseCase*>& casesToBeDeleted );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The selected cases.
     std::vector<RimCase*> selectedCases() const;
 
+    /// Removes or clears geo mech case.
     void deleteGeoMechCase( RimGeoMechCase* geoMechCase );
 
+    /// @return Whether any statistics results.
     static bool hasAnyStatisticsResults( RimIdenticalGridCaseGroup* gridCaseGroup );
+    /// Removes or clears case from all groups.
     static void removeCaseFromAllGroups( RimEclipseCase* eclipseCase );
 };

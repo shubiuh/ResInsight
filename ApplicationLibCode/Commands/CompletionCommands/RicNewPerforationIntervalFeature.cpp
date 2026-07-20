@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new perforation interval command support.
 
 #include "RicNewPerforationIntervalFeature.h"
 

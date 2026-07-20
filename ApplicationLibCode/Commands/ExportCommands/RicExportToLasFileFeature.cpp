@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export to LAS file command support.
 
 #include "RicExportToLasFileFeature.h"
 

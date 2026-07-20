@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fishbones geometry reservoir-data functionality.
 
 #include "RigFishbonesGeometry.h"
 
@@ -26,7 +28,7 @@
 #include "cvfAssert.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFisbonesGeometry instance.
 //--------------------------------------------------------------------------------------------------
 RigFisbonesGeometry::RigFisbonesGeometry( RimFishbones* fishbonesSub )
     : m_fishbonesSub( fishbonesSub )
@@ -34,7 +36,7 @@ RigFisbonesGeometry::RigFisbonesGeometry( RimFishbones* fishbonesSub )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the coords for lateral.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<cvf::Vec3d, double>> RigFisbonesGeometry::coordsForLateral( size_t subIndex, size_t lateralIndex ) const
 {
@@ -61,7 +63,7 @@ std::vector<std::pair<cvf::Vec3d, double>> RigFisbonesGeometry::coordsForLateral
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes lateral position and orientation.
 //--------------------------------------------------------------------------------------------------
 void RigFisbonesGeometry::computeLateralPositionAndOrientation( size_t      subIndex,
                                                                 size_t      lateralIndex,
@@ -126,7 +128,7 @@ void RigFisbonesGeometry::computeLateralPositionAndOrientation( size_t      subI
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes coords along lateral.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<cvf::Vec3d, double>> RigFisbonesGeometry::computeCoordsAlongLateral( double            startMeasuredDepth,
                                                                                            double            lateralLength,
@@ -170,7 +172,7 @@ std::vector<std::pair<cvf::Vec3d, double>> RigFisbonesGeometry::computeCoordsAlo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the closest main axis.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigFisbonesGeometry::closestMainAxis( const cvf::Vec3d& vec )
 {

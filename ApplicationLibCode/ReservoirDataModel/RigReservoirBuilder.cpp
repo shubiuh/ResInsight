@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reservoir builder reservoir-data functionality.
 
 #include "RigReservoirBuilder.h"
 
@@ -24,7 +26,7 @@
 #include "RigMainGrid.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigReservoirBuilder instance.
 //--------------------------------------------------------------------------------------------------
 RigReservoirBuilder::RigReservoirBuilder()
     : m_minWorldCoordinate( 0.0, 0.0, 0.0 )
@@ -34,7 +36,7 @@ RigReservoirBuilder::RigReservoirBuilder()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets world coordinates.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilder::setWorldCoordinates( cvf::Vec3d minWorldCoordinate, cvf::Vec3d maxWorldCoordinate )
 {
@@ -43,7 +45,7 @@ void RigReservoirBuilder::setWorldCoordinates( cvf::Vec3d minWorldCoordinate, cv
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets ijk count.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilder::setIJKCount( const cvf::Vec3st& ijkCount )
 {
@@ -51,7 +53,7 @@ void RigReservoirBuilder::setIJKCount( const cvf::Vec3st& ijkCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds local grid refinement.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilder::addLocalGridRefinement( const cvf::Vec3st& minCellPosition,
                                                   const cvf::Vec3st& maxCellPosition,
@@ -156,7 +158,7 @@ void RigReservoirBuilder::createGridsAndCells( RigEclipseCaseData* eclipseCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends cells.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilder::appendCells( size_t nodeStartIndex, size_t cellCount, RigGridBase* hostGrid, std::vector<RigCell>& cells )
 {
@@ -185,7 +187,7 @@ void RigReservoirBuilder::appendCells( size_t nodeStartIndex, size_t cellCount, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends nodes.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilder::appendNodes( const cvf::Vec3d& min, const cvf::Vec3d& max, const cvf::Vec3st& cubeDimension, std::vector<cvf::Vec3d>& nodes )
 {
@@ -221,7 +223,7 @@ void RigReservoirBuilder::appendNodes( const cvf::Vec3d& min, const cvf::Vec3d& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends cube nodes.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilder::appendCubeNodes( const cvf::Vec3d& min, const cvf::Vec3d& max, std::vector<cvf::Vec3d>& nodes )
 {
@@ -256,7 +258,7 @@ void RigReservoirBuilder::appendCubeNodes( const cvf::Vec3d& min, const cvf::Vec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell index from ijk.
 //--------------------------------------------------------------------------------------------------
 size_t RigReservoirBuilder::cellIndexFromIJK( size_t i, size_t j, size_t k ) const
 {
@@ -269,7 +271,7 @@ size_t RigReservoirBuilder::cellIndexFromIJK( size_t i, size_t j, size_t k ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ijk count.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3st RigReservoirBuilder::ijkCount() const
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements open last used file command support.
 
 #include "RicOpenLastUsedFileFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fracture name generator command support.
 
 #include "RicFractureNameGenerator.h"
 

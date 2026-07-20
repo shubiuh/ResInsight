@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares access to all grid cells result.
 
 #pragma once
 
@@ -26,6 +28,7 @@ class RigGridBase;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Provides read access to all grid cells result.
 class RigAllGridCellsResultAccessor : public RigResultAccessor
 {
 public:

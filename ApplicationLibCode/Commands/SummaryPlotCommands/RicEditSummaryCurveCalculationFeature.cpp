@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements edit summary curve calculation command support.
 
 #include "RicEditSummaryCurveCalculationFeature.h"
 

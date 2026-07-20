@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements select summary plot command support.
 
 #include "RicSelectSummaryPlotUI.h"
 

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements toggle items command support.
 
 #include "RicToggleItemsFeature.h"
 

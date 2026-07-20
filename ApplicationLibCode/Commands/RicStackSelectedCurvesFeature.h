@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares stack selected curves command support.
 
 #pragma once
 
@@ -26,23 +28,30 @@
 
 #include <vector>
 //==================================================================================================
-///
+/// @brief Command feature for stack selected curves.
 //==================================================================================================
 class RicStackSelectedCurvesFeature : public caf::CmdFeature, public RicfCommandObject
 {
     RICF_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicStackSelectedCurvesFeature();
+    /// Executes command support.
     caf::PdmScriptResponse execute() override;
 
+    /// @return The plot curves from selection.
     static std::vector<RimStackablePlotCurve*> plotCurvesFromSelection( const std::vector<caf::PdmUiItem*>& selectedItems );
+    /// @return The subset of plot curves from stacking.
     static std::vector<RimStackablePlotCurve*> subsetOfPlotCurvesFromStacking( const std::vector<RimStackablePlotCurve*>& plotCurves,
                                                                                bool                                       isStacked );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:

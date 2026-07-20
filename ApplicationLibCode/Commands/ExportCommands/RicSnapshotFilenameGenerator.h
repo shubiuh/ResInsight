@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares snapshot filename generator command support.
 
 #pragma once
 
@@ -24,15 +26,19 @@ class RimViewWindow;
 class Rim3dView;
 
 //==================================================================================================
-///
+/// @brief Supports snapshot filename generator command workflows.
 //==================================================================================================
 class RicSnapshotFilenameGenerator
 {
 public:
+    /// @return The generate snapshot file name.
     static QString generateSnapshotFileName( RimViewWindow* viewWindow );
 
 private:
+    /// @return The generate snapshot filename for rim view.
     static QString generateSnapshotFilenameForRimView( Rim3dView* rimView );
+    /// @return The result name.
     static QString resultName( Rim3dView* rimView );
+    /// Builds valid file name.
     static QString makeValidFileName( const QString& filename );
 };

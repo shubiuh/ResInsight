@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares access to ternary result.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Provides read access to ternary result.
 class RigTernaryResultAccessor : public cvf::Object
 {
 public:

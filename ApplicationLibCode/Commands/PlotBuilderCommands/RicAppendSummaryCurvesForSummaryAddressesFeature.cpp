@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements append summary curves for summary addresses command support.
 
 #include "RicAppendSummaryCurvesForSummaryAddressesFeature.h"
 

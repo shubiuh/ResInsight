@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export of las file exporter.
 
 #pragma once
 
@@ -26,6 +28,7 @@ class RimWellLogCurve;
 class SingleLasFileMetaData;
 class RigWellLogCurveData;
 
+/// @brief Exports las file exporter.
 class RigLasFileExporter
 {
 public:

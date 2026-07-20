@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export contour map to text command support.
 
 #pragma once
 
@@ -22,22 +24,29 @@
 #include "cafPdmObject.h"
 
 //==================================================================================================
-///
+/// @brief UI model for configuring export contour map to text.
 //==================================================================================================
 class RicExportContourMapToTextUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicExportContourMapToTextUi();
 
+    /// Exports file name.
     QString exportFileName() const;
+    /// Sets export file name.
     void    setExportFileName( const QString& exportFileName );
+    /// Exports local coordinates.
     bool    exportLocalCoordinates() const;
+    /// @return The undefined value label.
     QString undefinedValueLabel() const;
+    /// @return The exclude undefined values.
     bool    excludeUndefinedValues() const;
 
 protected:
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 
 private:

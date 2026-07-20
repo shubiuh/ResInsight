@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new sim well intersection command support.
 
 #pragma once
 
@@ -27,16 +29,21 @@ class RimIntersectionCollection;
 class RimSimWellInView;
 
 //==================================================================================================
-///
+/// @brief Supports new sim well intersection cmd command workflows.
 //==================================================================================================
 class RicNewSimWellIntersectionCmd : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     RicNewSimWellIntersectionCmd( RimIntersectionCollection* intersectionCollection, RimSimWellInView* simWell );
+    /// Destroys the command object.
     ~RicNewSimWellIntersectionCmd() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:
@@ -45,13 +52,15 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for new sim well intersection.
 //==================================================================================================
 class RicNewSimWellIntersectionFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

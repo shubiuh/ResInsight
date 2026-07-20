@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements transmissibility equations reservoir-data functionality.
 
 #include "RigTransmissibilityEquations.h"
 
@@ -22,7 +24,7 @@
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well bore transmissibility component.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityEquations::wellBoreTransmissibilityComponent( double cellPerforationVectorComponent,
                                                                         double permeabilityNormalDirection1,
@@ -54,7 +56,7 @@ double RigTransmissibilityEquations::wellBoreTransmissibilityComponent( double c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total connection factor.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityEquations::totalConnectionFactor( double transX, double transY, double transZ )
 {
@@ -62,7 +64,7 @@ double RigTransmissibilityEquations::totalConnectionFactor( double transX, doubl
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total kh.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityEquations::totalKh( double            cellPermX,
                                               double            cellPermY,
@@ -83,7 +85,7 @@ double RigTransmissibilityEquations::totalKh( double            cellPermX,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the effective k.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityEquations::effectiveK( double            cellPermX,
                                                  double            cellPermY,
@@ -112,7 +114,7 @@ double RigTransmissibilityEquations::effectiveK( double            cellPermX,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the effective h.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityEquations::effectiveH( const cvf::Vec3d& internalCellLengths, double lateralNtg, double ntg )
 {
@@ -126,7 +128,7 @@ double RigTransmissibilityEquations::effectiveH( const cvf::Vec3d& internalCellL
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the permeability.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityEquations::permeability( const double conductivity, const double width )
 {
@@ -145,7 +147,7 @@ double RigTransmissibilityEquations::permeability( const double conductivity, co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the peaceman radius.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityEquations::peacemanRadius( double permeabilityNormalDirection1,
                                                      double permeabilityNormalDirection2,

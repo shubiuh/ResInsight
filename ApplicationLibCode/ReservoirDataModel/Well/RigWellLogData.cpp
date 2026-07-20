@@ -16,11 +16,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of well log data.
 
 #include "RigWellLogData.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellLogData instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogData::RigWellLogData()
     : cvf::Object()
@@ -28,14 +30,14 @@ RigWellLogData::RigWellLogData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigWellLogData instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogData::~RigWellLogData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth unit.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::DepthUnitType RigWellLogData::depthUnit() const
 {
@@ -50,7 +52,7 @@ RiaDefines::DepthUnitType RigWellLogData::depthUnit() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Converts converted well log channel unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigWellLogData::convertedWellLogChannelUnitString( const QString& wellLogChannelName, RiaDefines::DepthUnitType displayDepthUnit ) const
 {

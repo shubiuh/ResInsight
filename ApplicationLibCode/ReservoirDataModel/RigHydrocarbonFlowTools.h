@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for hydrocarbon flow.
 #pragma once
 
 #include <vector>
@@ -22,9 +24,11 @@
 class RigCaseCellResultsData;
 class RigFloodingSettings;
 
+/// @brief Provides utilities for hydrocarbon flow.
 class RigHydrocarbonFlowTools
 {
 public:
+    /// Enumerates the supported result type values.
     enum class ResultType
     {
         NONE,

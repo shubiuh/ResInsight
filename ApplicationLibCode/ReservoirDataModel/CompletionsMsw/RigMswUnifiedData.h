@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of msw unified data.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 //==================================================================================================
 /// Container class for unified MSW table data from multiple wells
 //==================================================================================================
+/// @brief Stores msw unified data.
 class RigMswUnifiedData
 {
 public:
@@ -36,6 +39,7 @@ public:
     void clear();
 
     // Data access
+    /// Returns or processes well data list.
     const std::vector<RigMswTableData>& wellDataList() const { return m_wellDataList; }
 
     // Aggregated data access - combines data from all wells
@@ -45,8 +49,10 @@ public:
     std::vector<WsegsicdRow> getAllWsegsicdRows() const;
 
     // Metadata and analysis
+    /// Returns whether empty.
     bool                     isEmpty() const { return m_wellDataList.empty(); }
     bool                     hasAnyLgrData() const;
+    /// Returns or processes well count.
     size_t                   wellCount() const { return m_wellDataList.size(); }
     std::vector<std::string> wellNames() const;
 

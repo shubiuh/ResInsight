@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new grid time history curve command support.
 
 #include "RicNewGridTimeHistoryCurveFeature.h"
 

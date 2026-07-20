@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new annotation command support.
 
 #include "RicNewAnnotationFeature.h"
 

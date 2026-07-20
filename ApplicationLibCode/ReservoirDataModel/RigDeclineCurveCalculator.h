@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of decline curve.
 
 #pragma once
 
@@ -23,6 +25,7 @@
 //
 //
 //==================================================================================================
+/// @brief Calculates decline curve.
 class RigDeclineCurveCalculator
 {
 public:

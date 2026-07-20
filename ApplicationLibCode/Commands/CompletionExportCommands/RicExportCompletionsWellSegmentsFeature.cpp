@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export completions well segments command support.
 
 #include "RicExportCompletionsWellSegmentsFeature.h"
 

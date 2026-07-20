@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste geo mech views command support.
 
 #include "RicPasteGeoMechViewsFeature.h"
 

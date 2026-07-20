@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for hex intersection.
 #pragma once
 
 #include "cvfPlane.h"
@@ -28,9 +30,11 @@
 ///  Internal class for intersection point info
 //==================================================================================================
 
+/// @brief Models hex intersection info for reservoir-data processing.
 struct HexIntersectionInfo
 {
 public:
+    /// Returns or processes hex intersection info.
     HexIntersectionInfo( cvf::Vec3d intersectionPoint, bool isIntersectionEntering, cvf::StructGridInterface::FaceType face, size_t hexIndex )
         : m_intersectionPoint( intersectionPoint )
         , m_isIntersectionEntering( isIntersectionEntering )
@@ -39,9 +43,13 @@ public:
     {
     }
 
+    /// Stores intersection point.
     cvf::Vec3d                         m_intersectionPoint;
+    /// Stores is intersection entering.
     bool                               m_isIntersectionEntering;
+    /// Stores face.
     cvf::StructGridInterface::FaceType m_face;
+    /// Stores hex index.
     size_t                             m_hexIndex;
 };
 
@@ -50,6 +58,7 @@ bool operator<( const HexIntersectionInfo& hi1, const HexIntersectionInfo& hi2 )
 //--------------------------------------------------------------------------------------------------
 /// Specialized Line - Hex intersection
 //--------------------------------------------------------------------------------------------------
+/// @brief Provides utilities for hex intersection.
 struct RigHexIntersectionTools
 {
     static int lineHexCellIntersection( const cvf::Vec3d&                 p1,

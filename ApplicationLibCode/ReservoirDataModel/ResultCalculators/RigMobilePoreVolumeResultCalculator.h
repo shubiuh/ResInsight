@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of mobile pore volume results.
 
 #pragma once
 
@@ -28,6 +30,7 @@ class RigEclipseResultAddress;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates mobile pore volume results.
 class RigMobilePoreVolumeResultCalculator : public RigEclipseResultCalculator
 {
 public:

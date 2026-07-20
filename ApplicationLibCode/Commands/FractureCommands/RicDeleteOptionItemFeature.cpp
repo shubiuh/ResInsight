@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete option item command support.
 
 #include "RicDeleteOptionItemFeature.h"
 

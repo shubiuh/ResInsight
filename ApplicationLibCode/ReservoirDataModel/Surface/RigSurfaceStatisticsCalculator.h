@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of surface statistics.
 
 #pragma once
 
@@ -28,9 +30,11 @@
 ///
 ///
 //==================================================================================================
+/// @brief Calculates surface statistics.
 class RigSurfaceStatisticsCalculator
 {
 public:
+    /// Enumerates the supported statistics type values.
     enum class StatisticsType
     {
         MIN,

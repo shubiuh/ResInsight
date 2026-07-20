@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new multi phase RFT segment plot command support.
 
 #pragma once
 
@@ -26,17 +28,20 @@ class RimWellLogPlot;
 class RimSummaryCase;
 
 //==================================================================================================
-///
+/// @brief Command feature for new multi phase RFT segment plot.
 //==================================================================================================
 class RicNewMultiPhaseRftSegmentPlotFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
 
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Appends track and curve for branch type.
     void appendTrackAndCurveForBranchType( RimWellLogPlot*             plot,
                                            const QString&              trackName,
                                            const std::vector<QString>& resultNames,

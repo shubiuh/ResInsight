@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements summary plot editor widget creator command support.
 
 #include "RicSummaryPlotEditorWidgetCreator.h"
 

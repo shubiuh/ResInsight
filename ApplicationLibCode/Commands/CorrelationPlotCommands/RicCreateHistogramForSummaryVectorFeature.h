@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create histogram for summary vector command support.
 
 #pragma once
 
@@ -23,16 +25,20 @@
 class RimParameterResultCrossPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for create histogram for summary vector.
 //==================================================================================================
 class RicCreateHistogramForSummaryVectorFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 private:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The selected cross plot.
     static RimParameterResultCrossPlot* selectedCrossPlot();
 };

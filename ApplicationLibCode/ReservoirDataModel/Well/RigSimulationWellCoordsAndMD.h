@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares simulation well coords and md reservoir-data functionality.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 ///
 ///
 //==================================================================================================
+/// @brief Models simulation well coords and md for reservoir-data processing.
 class RigSimulationWellCoordsAndMD
 {
 public:

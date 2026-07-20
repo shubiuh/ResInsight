@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements text annotation3d command support.
 
 #include "RicTextAnnotation3dEditor.h"
 

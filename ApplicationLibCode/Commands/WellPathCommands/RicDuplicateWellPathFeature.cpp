@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements duplicate well path command support.
 
 #include "RicDuplicateWellPathFeature.h"
 

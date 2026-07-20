@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements save project no global paths command support.
 
 #include "RicSaveProjectNoGlobalPathsFeature.h"
 

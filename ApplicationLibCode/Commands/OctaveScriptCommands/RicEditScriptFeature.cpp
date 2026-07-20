@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements edit script command support.
 
 #include "RicEditScriptFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well paths unit system settings command support.
 
 #include "RicWellPathsUnitSystemSettingsImpl.h"
 

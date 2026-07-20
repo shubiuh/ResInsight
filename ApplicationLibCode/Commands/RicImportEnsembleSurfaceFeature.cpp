@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import ensemble surface command support.
 
 #include "RicImportEnsembleSurfaceFeature.h"
 

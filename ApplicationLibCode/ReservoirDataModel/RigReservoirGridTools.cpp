@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for reservoir grid.
 
 #include "RigReservoirGridTools.h"
 
@@ -41,7 +43,7 @@
 #include <QString>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid count.
 //--------------------------------------------------------------------------------------------------
 int RigReservoirGridTools::gridCount( RimCase* rimCase )
 {
@@ -61,7 +63,7 @@ int RigReservoirGridTools::gridCount( RimCase* rimCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the main grid.
 //--------------------------------------------------------------------------------------------------
 const cvf::StructGridInterface* RigReservoirGridTools::mainGrid( RimCase* rimCase )
 {
@@ -69,7 +71,7 @@ const cvf::StructGridInterface* RigReservoirGridTools::mainGrid( RimCase* rimCas
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid by index.
 //--------------------------------------------------------------------------------------------------
 const cvf::StructGridInterface* RigReservoirGridTools::gridByIndex( RimCase* rimCase, int gridIndex )
 {
@@ -89,7 +91,7 @@ const cvf::StructGridInterface* RigReservoirGridTools::gridByIndex( RimCase* rim
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid name.
 //--------------------------------------------------------------------------------------------------
 QString RigReservoirGridTools::gridName( RimCase* rimCase, int gridIndex )
 {
@@ -109,7 +111,7 @@ QString RigReservoirGridTools::gridName( RimCase* rimCase, int gridIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active cell info.
 //--------------------------------------------------------------------------------------------------
 const RigActiveCellInfo* RigReservoirGridTools::activeCellInfo( Rim3dView* rimView )
 {
@@ -123,7 +125,7 @@ const RigActiveCellInfo* RigReservoirGridTools::activeCellInfo( Rim3dView* rimVi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the refresh eclipse case data and views.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirGridTools::refreshEclipseCaseDataAndViews( RimEclipseCase* eclipseCase )
 {
@@ -153,7 +155,7 @@ void RigReservoirGridTools::refreshEclipseCaseDataAndViews( RimEclipseCase* ecli
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the eclipse main grid.
 //--------------------------------------------------------------------------------------------------
 RigMainGrid* RigReservoirGridTools::eclipseMainGrid( RimCase* rimCase )
 {
@@ -167,7 +169,7 @@ RigMainGrid* RigReservoirGridTools::eclipseMainGrid( RimCase* rimCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the geo mech part collection.
 //--------------------------------------------------------------------------------------------------
 RigFemPartCollection* RigReservoirGridTools::geoMechPartCollection( RimCase* rimCase )
 {
@@ -181,7 +183,7 @@ RigFemPartCollection* RigReservoirGridTools::geoMechPartCollection( RimCase* rim
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes cached data.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirGridTools::computeCachedData( RimEclipseCase* eclipseCase )
 {
@@ -206,7 +208,7 @@ void RigReservoirGridTools::computeCachedData( RimEclipseCase* eclipseCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the delete all cached data.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirGridTools::deleteAllCachedData( RimEclipseCase* eclipseCase )
 {

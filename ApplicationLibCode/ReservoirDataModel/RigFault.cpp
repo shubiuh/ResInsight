@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fault reservoir-data functionality.
 
 #include "RigFault.h"
 
@@ -24,14 +26,14 @@
 cvf::ref<RigFaultsPrCellAccumulator> RigFault::m_faultsPrCellAcc;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFault instance.
 //--------------------------------------------------------------------------------------------------
 RigFault::RigFault()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds cell range for face.
 //--------------------------------------------------------------------------------------------------
 void RigFault::addCellRangeForFace( cvf::StructGridInterface::FaceType face, const cvf::CellRange& cellRange )
 {
@@ -42,7 +44,7 @@ void RigFault::addCellRangeForFace( cvf::StructGridInterface::FaceType face, con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets name.
 //--------------------------------------------------------------------------------------------------
 void RigFault::setName( const QString& name )
 {
@@ -50,7 +52,7 @@ void RigFault::setName( const QString& name )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the name.
 //--------------------------------------------------------------------------------------------------
 QString RigFault::name() const
 {
@@ -58,7 +60,7 @@ QString RigFault::name() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fault faces.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigFault::FaultFace>& RigFault::faultFaces()
 {
@@ -66,7 +68,7 @@ std::vector<RigFault::FaultFace>& RigFault::faultFaces()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fault faces.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RigFault::FaultFace>& RigFault::faultFaces() const
 {
@@ -74,7 +76,7 @@ const std::vector<RigFault::FaultFace>& RigFault::faultFaces() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the connection indices.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t>& RigFault::connectionIndices()
 {
@@ -82,7 +84,7 @@ std::vector<size_t>& RigFault::connectionIndices()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the connection indices.
 //--------------------------------------------------------------------------------------------------
 const std::vector<size_t>& RigFault::connectionIndices() const
 {
@@ -123,7 +125,7 @@ bool RigFault::ordering( CellAndFace first, CellAndFace second )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes fault faces from cell ranges.
 //--------------------------------------------------------------------------------------------------
 void RigFault::computeFaultFacesFromCellRanges( const RigMainGrid* mainGrid )
 {
@@ -187,7 +189,7 @@ void RigFault::computeFaultFacesFromCellRanges( const RigMainGrid* mainGrid )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the accumulate faults pr cell.
 //--------------------------------------------------------------------------------------------------
 void RigFault::accumulateFaultsPrCell( RigFaultsPrCellAccumulator* faultsPrCellAcc, int faultIdx )
 {
@@ -203,7 +205,7 @@ void RigFault::accumulateFaultsPrCell( RigFaultsPrCellAccumulator* faultsPrCellA
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFaultsPrCellAccumulator instance.
 //--------------------------------------------------------------------------------------------------
 RigFaultsPrCellAccumulator::RigFaultsPrCellAccumulator( size_t reservoirCellCount )
 {
@@ -212,7 +214,7 @@ RigFaultsPrCellAccumulator::RigFaultsPrCellAccumulator( size_t reservoirCellCoun
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fault idx.
 //--------------------------------------------------------------------------------------------------
 int RigFaultsPrCellAccumulator::faultIdx( size_t reservoirCellIndex, cvf::StructGridInterface::FaceType face ) const
 {
@@ -225,7 +227,7 @@ int RigFaultsPrCellAccumulator::faultIdx( size_t reservoirCellIndex, cvf::Struct
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets fault idx.
 //--------------------------------------------------------------------------------------------------
 void RigFaultsPrCellAccumulator::setFaultIdx( size_t reservoirCellIndex, cvf::StructGridInterface::FaceType face, int faultIdx )
 {
@@ -233,7 +235,7 @@ void RigFaultsPrCellAccumulator::setFaultIdx( size_t reservoirCellIndex, cvf::St
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the minimum distance to point.
 //--------------------------------------------------------------------------------------------------
 std::pair<double, cvf::StructGridInterface::FaceType> RigFault::minimumDistanceToPoint( const cvf::Vec3d& point, const RigMainGrid* mainGrid ) const
 {

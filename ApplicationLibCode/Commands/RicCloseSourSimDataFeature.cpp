@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements close sour sim data command support.
 
 #include "RicCloseSourSimDataFeature.h"
 

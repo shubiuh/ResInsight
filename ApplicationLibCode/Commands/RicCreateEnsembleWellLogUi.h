@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create ensemble well log command support.
 
 #pragma once
 
@@ -31,7 +33,7 @@ class RigEclipseCaseData;
 class RimWellPath;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring create ensemble well log.
 //==================================================================================================
 class RicCreateEnsembleWellLogUi : public caf::PdmObject
 {
@@ -44,35 +46,52 @@ public:
         PROJECT_WELLS
     };
 
+    /// Constructs the command object.
     RicCreateEnsembleWellLogUi();
+    /// Destroys the command object.
     ~RicCreateEnsembleWellLogUi() override;
+    /// @return The tab names.
     const QStringList& tabNames() const;
 
+    /// @return The auto create ensemble well logs.
     bool autoCreateEnsembleWellLogs() const;
 
+    /// @return The time step.
     int     timeStep() const;
+    /// @return The well path file path.
     QString wellPathFilePath() const;
 
+    /// @return The well path source.
     WellPathSource wellPathSource() const;
+    /// Sets well path source.
     void           setWellPathSource( WellPathSource wellPathSource );
 
+    /// Sets well path from project.
     void         setWellPathFromProject( RimWellPath* wellPath );
+    /// @return The well path from project.
     RimWellPath* wellPathFromProject() const;
 
+    /// @return The properties.
     std::vector<std::pair<QString, RiaDefines::ResultCatType>> properties() const;
 
+    /// @return The properties.
     static std::vector<std::pair<QString, RiaDefines::ResultCatType>> properties( const std::vector<QString>& resultNames,
                                                                                   const std::vector<RiaDefines::ResultCatType>& resultCategories,
                                                                                   const RigEclipseCaseData* caseData );
 
+    /// Sets case data.
     void setCaseData( RigEclipseCaseData* caseData );
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 
+    /// @return The valid result categories.
     std::vector<RiaDefines::ResultCatType> validResultCategories() const;
 
 private:

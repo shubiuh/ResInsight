@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of visible categories.
 
 #include "RigVisibleCategoriesCalculator.h"
 
@@ -50,7 +52,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the visible flow diag categories.
 //--------------------------------------------------------------------------------------------------
 std::set<int> RigVisibleCategoriesCalculator::visibleFlowDiagCategories( RimEclipseView&                 eclView,
                                                                          RigFlowDiagResults&             flowDiagResults,
@@ -69,7 +71,7 @@ std::set<int> RigVisibleCategoriesCalculator::visibleFlowDiagCategories( RimEcli
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the visible allan categories.
 //--------------------------------------------------------------------------------------------------
 std::set<size_t> RigVisibleCategoriesCalculator::visibleAllanCategories( RimEclipseView* eclView )
 {
@@ -95,7 +97,7 @@ std::set<size_t> RigVisibleCategoriesCalculator::visibleAllanCategories( RimEcli
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the visible categories.
 //--------------------------------------------------------------------------------------------------
 std::set<int> RigVisibleCategoriesCalculator::visibleCategories( RimEclipseView*                   cellVisibilityView,
                                                                  const RimEclipseResultDefinition* categoryResult )
@@ -144,7 +146,7 @@ std::set<int> RigVisibleCategoriesCalculator::visibleCategories( RimEclipseView*
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the visible nnc connection indices.
 //--------------------------------------------------------------------------------------------------
 std::set<size_t> RigVisibleCategoriesCalculator::visibleNncConnectionIndices( RimEclipseView* eclView )
 {
@@ -171,7 +173,7 @@ std::set<size_t> RigVisibleCategoriesCalculator::visibleNncConnectionIndices( Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends visible fault cells.
 //--------------------------------------------------------------------------------------------------
 void RigVisibleCategoriesCalculator::appendVisibleFaultCells( RimEclipseView* eclView, std::set<size_t>& visibleCells )
 {
@@ -194,7 +196,7 @@ void RigVisibleCategoriesCalculator::appendVisibleFaultCells( RimEclipseView* ec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends visible intersection cells.
 //--------------------------------------------------------------------------------------------------
 void RigVisibleCategoriesCalculator::appendVisibleIntersectionCells( RimEclipseView* eclView, std::set<size_t>& visibleCells )
 {

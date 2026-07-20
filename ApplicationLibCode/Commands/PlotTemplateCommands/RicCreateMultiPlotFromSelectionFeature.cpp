@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create multi plot from selection command support.
 
 #include "RicCreateMultiPlotFromSelectionFeature.h"
 

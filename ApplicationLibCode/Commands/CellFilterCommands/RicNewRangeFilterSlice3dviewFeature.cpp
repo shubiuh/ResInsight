@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new range filter slice3dview command support.
 
 #include "RicNewRangeFilterSlice3dviewFeature.h"
 

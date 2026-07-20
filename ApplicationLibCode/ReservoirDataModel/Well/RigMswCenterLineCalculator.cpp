@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of msw center line.
 
 #include "RigMswCenterLineCalculator.h"
 
@@ -36,7 +38,7 @@
 #include "cvfRay.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates msw well pipe geometry.
 //--------------------------------------------------------------------------------------------------
 std::vector<SimulationWellCellBranch> RigMswCenterLineCalculator::calculateMswWellPipeGeometry( const RimSimWellInView* rimWell )
 {
@@ -64,7 +66,7 @@ std::vector<SimulationWellCellBranch> RigMswCenterLineCalculator::calculateMswWe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates msw well pipe geometry for time step.
 //--------------------------------------------------------------------------------------------------
 std::vector<SimulationWellCellBranch>
     RigMswCenterLineCalculator::calculateMswWellPipeGeometryForTimeStep( const RigEclipseCaseData* eclipseCaseData,
@@ -223,7 +225,7 @@ std::vector<SimulationWellCellBranch>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds coords at cell face intersections and create branch.
 //--------------------------------------------------------------------------------------------------
 SimulationWellCellBranch
     RigMswCenterLineCalculator::addCoordsAtCellFaceIntersectionsAndCreateBranch( const std::vector<cvf::Vec3d>          branchCoords,
@@ -298,7 +300,7 @@ SimulationWellCellBranch
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the merge short branches into long branches.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigMswCenterLineCalculator::WellBranch>
     RigMswCenterLineCalculator::mergeShortBranchesIntoLongBranches( const std::vector<RigWellResultBranch>& resBranches,

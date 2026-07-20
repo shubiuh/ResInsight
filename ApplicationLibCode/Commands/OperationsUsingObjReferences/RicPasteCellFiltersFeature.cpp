@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste cell filters command support.
 
 #include "RicPasteCellFiltersFeature.h"
 

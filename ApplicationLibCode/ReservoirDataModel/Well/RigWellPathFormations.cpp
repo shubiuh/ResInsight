@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path formations reservoir-data functionality.
 
 #include "RigWellPathFormations.h"
 
 #include "QStringList"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellPathFormations instance.
 //--------------------------------------------------------------------------------------------------
 RigWellPathFormations::RigWellPathFormations( const std::vector<RigWellPathFormation>& formations, const QString& filePath, const QString& key )
 {
@@ -45,7 +47,7 @@ RigWellPathFormations::RigWellPathFormations( const std::vector<RigWellPathForma
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth and formation names without duplicates on depth.
 //--------------------------------------------------------------------------------------------------
 void RigWellPathFormations::depthAndFormationNamesWithoutDuplicatesOnDepth( std::vector<QString>* names,
                                                                             std::vector<double>*  measuredDepths,
@@ -100,7 +102,7 @@ void RigWellPathFormations::depthAndFormationNamesWithoutDuplicatesOnDepth( std:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the evaluate formations for one position.
 //--------------------------------------------------------------------------------------------------
 void RigWellPathFormations::evaluateFormationsForOnePosition( const std::vector<std::pair<RigWellPathFormation, FormationLevel>>& formations,
                                                               const FormationLevel&                      maxLevel,
@@ -158,7 +160,7 @@ void RigWellPathFormations::evaluateFormationsForOnePosition( const std::vector<
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the evaluate formations.
 //--------------------------------------------------------------------------------------------------
 void RigWellPathFormations::evaluateFormations( const std::vector<std::pair<RigWellPathFormation, FormationLevel>>& formations,
                                                 const FormationLevel&                                               maxLevel,
@@ -179,7 +181,7 @@ void RigWellPathFormations::evaluateFormations( const std::vector<std::pair<RigW
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the evaluate fluids.
 //--------------------------------------------------------------------------------------------------
 void RigWellPathFormations::evaluateFluids( const std::vector<RigWellPathFormation>& fluidFormations,
                                             std::vector<QString>*                    names,
@@ -230,7 +232,7 @@ void RigWellPathFormations::evaluateFluids( const std::vector<RigWellPathFormati
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth and formation names up to level.
 //--------------------------------------------------------------------------------------------------
 void RigWellPathFormations::depthAndFormationNamesUpToLevel( FormationLevel        level,
                                                              std::vector<QString>* names,
@@ -261,7 +263,7 @@ void RigWellPathFormations::depthAndFormationNamesUpToLevel( FormationLevel     
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formations levels present.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigWellPathFormations::FormationLevel> RigWellPathFormations::formationsLevelsPresent() const
 {
@@ -275,7 +277,7 @@ std::vector<RigWellPathFormations::FormationLevel> RigWellPathFormations::format
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the file path.
 //--------------------------------------------------------------------------------------------------
 QString RigWellPathFormations::filePath() const
 {
@@ -283,7 +285,7 @@ QString RigWellPathFormations::filePath() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the key in file.
 //--------------------------------------------------------------------------------------------------
 QString RigWellPathFormations::keyInFile() const
 {
@@ -291,7 +293,7 @@ QString RigWellPathFormations::keyInFile() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation names count.
 //--------------------------------------------------------------------------------------------------
 size_t RigWellPathFormations::formationNamesCount() const
 {
@@ -299,7 +301,7 @@ size_t RigWellPathFormations::formationNamesCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether fluid.
 //--------------------------------------------------------------------------------------------------
 bool RigWellPathFormations::isFluid( QString formationName )
 {
@@ -309,7 +311,7 @@ bool RigWellPathFormations::isFluid( QString formationName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the detect level.
 //--------------------------------------------------------------------------------------------------
 RigWellPathFormations::FormationLevel RigWellPathFormations::detectLevel( QString formationName )
 {

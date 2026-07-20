@@ -16,20 +16,22 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to cell edge result.
 
 #include "RigCellEdgeResultAccessor.h"
 
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCellEdgeResultAccessor instance.
 //--------------------------------------------------------------------------------------------------
 RigCellEdgeResultAccessor::RigCellEdgeResultAccessor()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets data access object for face.
 //--------------------------------------------------------------------------------------------------
 void RigCellEdgeResultAccessor::setDataAccessObjectForFace( cvf::StructGridInterface::FaceType faceId, RigResultAccessor* resultAccessObject )
 {
@@ -37,7 +39,7 @@ void RigCellEdgeResultAccessor::setDataAccessObjectForFace( cvf::StructGridInter
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar.
 //--------------------------------------------------------------------------------------------------
 double RigCellEdgeResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 {
@@ -48,7 +50,7 @@ double RigCellEdgeResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar.
 //--------------------------------------------------------------------------------------------------
 double RigCellEdgeResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {
@@ -62,7 +64,7 @@ double RigCellEdgeResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigCellEdgeResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) const
 {
@@ -73,7 +75,7 @@ double RigCellEdgeResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigCellEdgeResultAccessor::cellFaceScalarGlobIdx( size_t globCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {

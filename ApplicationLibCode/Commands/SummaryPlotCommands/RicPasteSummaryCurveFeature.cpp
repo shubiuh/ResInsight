@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste summary curve command support.
 
 #include "RicPasteSummaryCurveFeature.h"
 

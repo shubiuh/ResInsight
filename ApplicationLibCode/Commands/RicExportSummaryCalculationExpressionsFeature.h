@@ -15,21 +15,26 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export summary calculation expressions command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for export summary calculation expressions.
 //==================================================================================================
 class RicExportSummaryCalculationExpressionsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// @return The summary calculation expression ID.
     static QString summaryCalculationExpressionId();
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements geo mech property filter insert exec command support.
 
 #include "RicGeoMechPropertyFilterInsertExec.h"
 

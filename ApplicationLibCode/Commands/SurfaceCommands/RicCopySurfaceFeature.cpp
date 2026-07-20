@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements copy surface command support.
 
 #include "RicCopySurfaceFeature.h"
 

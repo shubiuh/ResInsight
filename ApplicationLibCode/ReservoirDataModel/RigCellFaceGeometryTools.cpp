@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for cell face geometry.
 
 #include "RigCellFaceGeometryTools.h"
 
@@ -30,7 +32,7 @@
 #include "cafAssert.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates cell face overlap.
 //--------------------------------------------------------------------------------------------------
 cvf::StructGridInterface::FaceType RigCellFaceGeometryTools::calculateCellFaceOverlap( const RigCell&           c1,
                                                                                        const RigCell&           c2,
@@ -113,6 +115,7 @@ cvf::StructGridInterface::FaceType RigCellFaceGeometryTools::calculateCellFaceOv
     return cvf::StructGridInterface::NO_FACE;
 }
 
+/// Returns or processes assign thread connections.
 void assignThreadConnections( RigConnectionContainer& allConnections, RigConnectionContainer& threadConnections )
 {
 #pragma omp critical
@@ -122,7 +125,7 @@ void assignThreadConnections( RigConnectionContainer& allConnections, RigConnect
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes other nncs.
 //--------------------------------------------------------------------------------------------------
 RigConnectionContainer RigCellFaceGeometryTools::computeOtherNncs( const RigMainGrid*            mainGrid,
                                                                    const RigConnectionContainer& nativeConnections,
@@ -210,7 +213,7 @@ RigConnectionContainer RigCellFaceGeometryTools::computeOtherNncs( const RigMain
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the extract connections for face.
 //--------------------------------------------------------------------------------------------------
 void RigCellFaceGeometryTools::extractConnectionsForFace( const RigFault::FaultFace&                     face,
                                                           const RigMainGrid*                             mainGrid,
@@ -356,7 +359,7 @@ void RigCellFaceGeometryTools::extractConnectionsForFace( const RigFault::FaultF
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the extract polygon.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3f> RigCellFaceGeometryTools::extractPolygon( const std::vector<cvf::Vec3d>& nativeNodes,
                                                                   const std::vector<size_t>&     connectionPolygon,

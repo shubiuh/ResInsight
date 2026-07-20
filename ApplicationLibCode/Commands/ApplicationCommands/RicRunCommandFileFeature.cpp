@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements run command file command support.
 
 #include "RicRunCommandFileFeature.h"
 

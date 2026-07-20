@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create temporary LGR command support.
 
 #include "RicCreateTemporaryLgrFeature.h"
 

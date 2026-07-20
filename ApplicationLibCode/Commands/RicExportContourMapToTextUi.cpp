@@ -1,3 +1,5 @@
+/// @file
+/// @brief Implements export contour map to text command support.
 #include "RicExportContourMapToTextUi.h"
 
 #include "cafPdmUiFilePathEditor.h"

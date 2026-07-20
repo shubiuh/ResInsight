@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements save Eclipse input visible cells command support.
 
 #include "RicSaveEclipseInputVisibleCellsFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of fault distance results.
 
 #include "RigFaultDistanceResultCalculator.h"
 
@@ -28,7 +30,7 @@
 #include "RigMainGrid.h"
 
 //==================================================================================================
-///
+/// Creates a RigFaultDistanceResultCalculator instance.
 //==================================================================================================
 RigFaultDistanceResultCalculator::RigFaultDistanceResultCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -36,14 +38,14 @@ RigFaultDistanceResultCalculator::RigFaultDistanceResultCalculator( RigCaseCellR
 }
 
 //==================================================================================================
-///
+/// Destroys the RigFaultDistanceResultCalculator instance.
 //==================================================================================================
 RigFaultDistanceResultCalculator::~RigFaultDistanceResultCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigFaultDistanceResultCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -52,7 +54,7 @@ bool RigFaultDistanceResultCalculator::isMatching( const RigEclipseResultAddress
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigFaultDistanceResultCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {

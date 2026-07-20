@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of msw center line.
 
 #pragma once
 
@@ -32,18 +34,21 @@ class RigSimWellData;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Calculates msw center line.
 class RigMswCenterLineCalculator
 {
 public:
     static std::vector<SimulationWellCellBranch> calculateMswWellPipeGeometry( const RimSimWellInView* rimWell );
 
 private:
+    /// @brief Models output segment for reservoir-data processing.
     struct OutputSegment
     {
         int outputSegmentId       = -1;
         int outputSegmentBranchId = -1;
     };
 
+    /// @brief Models well branch for reservoir-data processing.
     struct WellBranch
     {
         int m_branchId = -1;

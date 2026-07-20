@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements configuration for flooding.
 
 #include "RigFloodingSettings.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFloodingSettings instance.
 //--------------------------------------------------------------------------------------------------
 RigFloodingSettings::RigFloodingSettings( FloodingType oilFloodingType,
                                           double       userDefFloodingOil,
@@ -33,14 +35,14 @@ RigFloodingSettings::RigFloodingSettings( FloodingType oilFloodingType,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigFloodingSettings instance.
 //--------------------------------------------------------------------------------------------------
 RigFloodingSettings::~RigFloodingSettings()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the oil flooding.
 //--------------------------------------------------------------------------------------------------
 RigFloodingSettings::FloodingType RigFloodingSettings::oilFlooding() const
 {
@@ -48,7 +50,7 @@ RigFloodingSettings::FloodingType RigFloodingSettings::oilFlooding() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the gas flooding.
 //--------------------------------------------------------------------------------------------------
 RigFloodingSettings::FloodingType RigFloodingSettings::gasFlooding() const
 {
@@ -56,7 +58,7 @@ RigFloodingSettings::FloodingType RigFloodingSettings::gasFlooding() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the oil user def flooding.
 //--------------------------------------------------------------------------------------------------
 double RigFloodingSettings::oilUserDefFlooding() const
 {
@@ -64,7 +66,7 @@ double RigFloodingSettings::oilUserDefFlooding() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the gas user def flooding.
 //--------------------------------------------------------------------------------------------------
 double RigFloodingSettings::gasUserDefFlooding() const
 {

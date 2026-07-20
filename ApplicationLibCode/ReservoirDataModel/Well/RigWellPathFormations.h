@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path formations reservoir-data functionality.
 
 #pragma once
 
@@ -30,21 +32,29 @@
 
 #include <QString>
 
+/// @brief Models well path formation for reservoir-data processing.
 struct RigWellPathFormation
 {
+    /// Stores md top.
     double  mdTop{ 0.0 };
+    /// Stores md base.
     double  mdBase{ 0.0 };
+    /// Stores tvd top.
     double  tvdTop{ 0.0 };
+    /// Stores tvd base.
     double  tvdBase{ 0.0 };
+    /// Stores formation name.
     QString formationName;
 };
 
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models well path formations for reservoir-data processing.
 class RigWellPathFormations : public cvf::Object
 {
 public:
+    /// Type alias used for formation level.
     using FormationLevel = RiaDefines::WellLogTrackFormationLevel;
 
 public:
@@ -64,6 +74,7 @@ public:
     size_t formationNamesCount() const;
 
 private:
+    /// @brief Models depth comp for reservoir-data processing.
     struct DepthComp
     {
         bool operator()( const double& depth1, const double& depth2 ) const
@@ -76,6 +87,7 @@ private:
         }
     };
 
+    /// @brief Models level and name for reservoir-data processing.
     struct LevelAndName
     {
         LevelAndName() = default;

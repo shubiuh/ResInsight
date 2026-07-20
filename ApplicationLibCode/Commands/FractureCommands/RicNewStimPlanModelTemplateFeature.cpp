@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new stim plan model template command support.
 
 #include "RicNewStimPlanModelTemplateFeature.h"
 

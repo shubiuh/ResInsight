@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new stim plan model command support.
 
 #pragma once
 
@@ -27,13 +29,14 @@ class RimWellPathCollection;
 class RimEclipseCase;
 
 //==================================================================================================
-///
+/// @brief Command feature for new stim plan model.
 //==================================================================================================
 class RicNewStimPlanModelFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Adds stim plan model.
     static RimStimPlanModel* addStimPlanModel( RimWellPath*           wellPath,
                                                RimWellPathCollection* wellPathCollection,
                                                RimEclipseCase*        eclipseCase   = nullptr,
@@ -41,10 +44,14 @@ public:
                                                double                 measuredDepth = -1.0 );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
 
 private:
+    /// @return The selected stim plan model collection.
     static RimStimPlanModelCollection* selectedStimPlanModelCollection();
 };

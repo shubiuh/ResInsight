@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show well plan command support.
 
 #include "RicShowWellPlanFeature.h"
 

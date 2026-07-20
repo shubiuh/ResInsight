@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete pressure table item command support.
 #include "RicDeletePressureTableItemFeature.h"
 
 #include "RimPressureTable.h"

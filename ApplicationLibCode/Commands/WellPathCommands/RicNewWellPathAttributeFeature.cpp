@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well path attribute command support.
 #include "RicNewWellPathAttributeFeature.h"
 
 #include "RimProject.h"

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements hide intersection box command support.
 
 #include "RicHideIntersectionBoxFeature.h"
 

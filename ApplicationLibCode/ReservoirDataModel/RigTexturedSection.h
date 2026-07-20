@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares textured section reservoir-data functionality.
 
 #pragma once
 
@@ -36,6 +38,7 @@ namespace cvf
 class TextureImage;
 }
 
+/// @brief Models textured section part for reservoir-data processing.
 class RigTexturedSectionPart
 {
 public:
@@ -43,12 +46,17 @@ public:
         : isRectValid( false ) {};
     ~RigTexturedSectionPart() {};
 
+    /// Returns or processes all data valid.
     bool allDataValid() const { return isRectValid && ( sliceData != nullptr ) && texture.notNull(); };
 
 public:
+    /// Stores rect.
     cvf::Vec3dArray                              rect;
+    /// Stores is rect valid.
     bool                                         isRectValid;
+    /// Stores slice data.
     std::shared_ptr<ZGYAccess::SeismicSliceData> sliceData;
+    /// Stores texture.
     cvf::ref<cvf::TextureImage>                  texture;
 };
 
@@ -56,9 +64,11 @@ public:
 ///
 ///
 //==================================================================================================
+/// @brief Models textured section for reservoir-data processing.
 class RigTexturedSection : public cvf::Object
 {
 public:
+    /// Enumerates the supported what to update enum values.
     enum class WhatToUpdateEnum
     {
         UPDATE_NONE     = 0,

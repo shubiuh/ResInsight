@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements advanced snapshot export command support.
 
 #include "RicAdvancedSnapshotExportFeature.h"
 

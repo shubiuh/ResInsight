@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements elastic properties reservoir-data functionality.
 
 #include "RigElasticProperties.h"
 
@@ -23,7 +25,7 @@
 #include "cafAssert.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigElasticProperties instance.
 //--------------------------------------------------------------------------------------------------
 RigElasticProperties::RigElasticProperties( const QString& fieldName, const QString& formationName, const QString& faciesName )
     : m_fieldName( fieldName )
@@ -33,7 +35,7 @@ RigElasticProperties::RigElasticProperties( const QString& fieldName, const QStr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the field name.
 //--------------------------------------------------------------------------------------------------
 const QString& RigElasticProperties::fieldName() const
 {
@@ -41,7 +43,7 @@ const QString& RigElasticProperties::fieldName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation name.
 //--------------------------------------------------------------------------------------------------
 const QString& RigElasticProperties::formationName() const
 {
@@ -49,7 +51,7 @@ const QString& RigElasticProperties::formationName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the facies name.
 //--------------------------------------------------------------------------------------------------
 const QString& RigElasticProperties::faciesName() const
 {
@@ -57,7 +59,7 @@ const QString& RigElasticProperties::faciesName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the porosity.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigElasticProperties::porosity() const
 {
@@ -65,7 +67,7 @@ const std::vector<double>& RigElasticProperties::porosity() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the porosity min.
 //--------------------------------------------------------------------------------------------------
 double RigElasticProperties::porosityMin() const
 {
@@ -74,7 +76,7 @@ double RigElasticProperties::porosityMin() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the porosity max.
 //--------------------------------------------------------------------------------------------------
 double RigElasticProperties::porosityMax() const
 {
@@ -83,7 +85,7 @@ double RigElasticProperties::porosityMax() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends values.
 //--------------------------------------------------------------------------------------------------
 void RigElasticProperties::appendValues( double porosity,
                                          double youngsModulus,
@@ -109,7 +111,7 @@ void RigElasticProperties::appendValues( double porosity,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the num values.
 //--------------------------------------------------------------------------------------------------
 size_t RigElasticProperties::numValues() const
 {
@@ -117,7 +119,7 @@ size_t RigElasticProperties::numValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns value.
 //--------------------------------------------------------------------------------------------------
 double RigElasticProperties::getValue( RiaDefines::CurveProperty property, size_t index, double scale ) const
 {
@@ -127,7 +129,7 @@ double RigElasticProperties::getValue( RiaDefines::CurveProperty property, size_
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns vector.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigElasticProperties::getVector( RiaDefines::CurveProperty property ) const
 {
@@ -146,7 +148,7 @@ const std::vector<double>& RigElasticProperties::getVector( RiaDefines::CurvePro
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns value for porosity.
 //--------------------------------------------------------------------------------------------------
 std::pair<double, bool> RigElasticProperties::getValueForPorosity( RiaDefines::CurveProperty property, double porosity, double scale ) const
 {

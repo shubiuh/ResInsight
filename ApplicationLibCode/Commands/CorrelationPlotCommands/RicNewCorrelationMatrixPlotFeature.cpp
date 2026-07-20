@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new correlation matrix plot command support.
 
 #include "RicNewCorrelationMatrixPlotFeature.h"
 

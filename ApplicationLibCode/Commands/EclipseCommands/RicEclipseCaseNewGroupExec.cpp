@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse case new group exec command support.
 
 #include "RicEclipseCaseNewGroupExec.h"
 

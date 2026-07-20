@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements tracer point reservoir-data functionality.
 
 #include "RigTracerPoint.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigTracerPoint instance.
 //--------------------------------------------------------------------------------------------------
 RigTracerPoint::RigTracerPoint( cvf::Vec3d position, cvf::Vec3d direction, RiaDefines::PhaseType phase )
     : m_position( position )
@@ -30,14 +32,14 @@ RigTracerPoint::RigTracerPoint( cvf::Vec3d position, cvf::Vec3d direction, RiaDe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigTracerPoint instance.
 //--------------------------------------------------------------------------------------------------
 RigTracerPoint::~RigTracerPoint()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the position.
 //--------------------------------------------------------------------------------------------------
 const cvf::Vec3d& RigTracerPoint::position() const
 {
@@ -45,7 +47,7 @@ const cvf::Vec3d& RigTracerPoint::position() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the direction.
 //--------------------------------------------------------------------------------------------------
 const cvf::Vec3d& RigTracerPoint::direction() const
 {
@@ -53,7 +55,7 @@ const cvf::Vec3d& RigTracerPoint::direction() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the abs value.
 //--------------------------------------------------------------------------------------------------
 double RigTracerPoint::absValue() const
 {
@@ -61,7 +63,7 @@ double RigTracerPoint::absValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the phase type.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::PhaseType RigTracerPoint::phaseType() const
 {
@@ -69,7 +71,7 @@ RiaDefines::PhaseType RigTracerPoint::phaseType() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reverse.
 //--------------------------------------------------------------------------------------------------
 void RigTracerPoint::reverse()
 {

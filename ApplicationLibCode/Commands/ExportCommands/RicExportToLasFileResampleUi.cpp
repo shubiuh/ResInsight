@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export to LAS file resample command support.
 
 #include "RicExportToLasFileResampleUi.h"
 

@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares reservoir builder mock reservoir-data functionality.
 
 #pragma once
 
@@ -34,6 +36,7 @@ class RigCell;
 
 class QString;
 
+/// @brief Models reservoir builder mock for reservoir-data processing.
 class RigReservoirBuilderMock
 {
 public:
@@ -44,7 +47,9 @@ public:
     void setResultInfo( size_t resultCount, size_t timeStepCount );
     void enableWellData( bool enableWellData );
 
+    /// Returns or processes result count.
     size_t resultCount() const { return m_resultCount; }
+    /// Returns or processes time step count.
     size_t timeStepCount() const { return m_timeStepCount; }
 
     void addLocalGridRefinement( const cvf::Vec3st& minCellPosition,

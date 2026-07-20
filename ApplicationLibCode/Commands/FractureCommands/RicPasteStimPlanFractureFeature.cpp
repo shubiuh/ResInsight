@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste stim plan fracture command support.
 
 #include "RicPasteStimPlanFractureFeature.h"
 

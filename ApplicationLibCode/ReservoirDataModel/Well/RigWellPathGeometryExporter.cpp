@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export of well path geometry exporter.
 
 #include "RigWellPathGeometryExporter.h"
 
@@ -26,7 +28,7 @@
 #include "RimWellPathGeometryDef.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes well path data for export.
 //--------------------------------------------------------------------------------------------------
 void RigWellPathGeometryExporter::computeWellPathDataForExport( const RimWellPath*   wellPath,
                                                                 double               mdStepSize,
@@ -67,7 +69,7 @@ void RigWellPathGeometryExporter::computeWellPathDataForExport( const RimWellPat
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes well path data for export.
 //--------------------------------------------------------------------------------------------------
 void RigWellPathGeometryExporter::computeWellPathDataForExport( const RigWellPath&   wellPathGeom,
                                                                 double               mdStepSize,

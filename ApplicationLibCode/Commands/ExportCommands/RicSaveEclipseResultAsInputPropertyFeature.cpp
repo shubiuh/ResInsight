@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements save Eclipse result as input property command support.
 
 #include "RicSaveEclipseResultAsInputPropertyFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements apply property filter as cell result command support.
 
 #include "RicApplyPropertyFilterAsCellResultFeature.h"
 

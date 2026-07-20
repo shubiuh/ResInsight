@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements user defined calculator command support.
 
 #include "RicUserDefinedCalculatorUi.h"
 

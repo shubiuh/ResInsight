@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create grid statistics plot command support.
 
 #include "RicCreateGridStatisticsPlotFeature.h"
 

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new ensemble well log curve set command support.
 
 #include "RicNewEnsembleWellLogCurveSetFeature.h"
 

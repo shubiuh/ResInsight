@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of ensemble fracture statistics.
 
 #include "RigEnsembleFractureStatisticsCalculator.h"
 
@@ -55,7 +57,7 @@ void caf::AppEnum<RigEnsembleFractureStatisticsCalculator::PropertyType>::setUp(
 }; // namespace caf
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates statistics data.
 //--------------------------------------------------------------------------------------------------
 RigHistogramData RigEnsembleFractureStatisticsCalculator::createStatisticsData( const RimEnsembleFractureStatistics* esf,
                                                                                 PropertyType                         propertyType,
@@ -72,7 +74,7 @@ RigHistogramData RigEnsembleFractureStatisticsCalculator::createStatisticsData( 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates statistics data.
 //--------------------------------------------------------------------------------------------------
 RigHistogramData
     RigEnsembleFractureStatisticsCalculator::createStatisticsData( const std::vector<cvf::ref<RigStimPlanFractureDefinition>>& fractureDefinitions,
@@ -108,7 +110,7 @@ RigHistogramData
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates property.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>
     RigEnsembleFractureStatisticsCalculator::calculateProperty( const std::vector<cvf::ref<RigStimPlanFractureDefinition>>& fractureDefinitions,
@@ -149,7 +151,7 @@ std::vector<double>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates grid statistics.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigEnsembleFractureStatisticsCalculator::calculateGridStatistics(
     const std::vector<cvf::ref<RigStimPlanFractureDefinition>>& fractureDefinitions,
@@ -177,7 +179,7 @@ std::vector<double> RigEnsembleFractureStatisticsCalculator::calculateGridStatis
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates height.
 //--------------------------------------------------------------------------------------------------
 double RigEnsembleFractureStatisticsCalculator::calculateHeight( cvf::cref<RigFractureGrid> fractureGrid )
 {
@@ -210,7 +212,7 @@ double RigEnsembleFractureStatisticsCalculator::calculateHeight( cvf::cref<RigFr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates area.
 //--------------------------------------------------------------------------------------------------
 double RigEnsembleFractureStatisticsCalculator::calculateArea( cvf::cref<RigFractureGrid> fractureGrid )
 {
@@ -228,7 +230,7 @@ double RigEnsembleFractureStatisticsCalculator::calculateArea( cvf::cref<RigFrac
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates kf wf.
 //--------------------------------------------------------------------------------------------------
 double RigEnsembleFractureStatisticsCalculator::calculateKfWf( cvf::cref<RigFractureGrid> fractureGrid )
 {
@@ -247,7 +249,7 @@ double RigEnsembleFractureStatisticsCalculator::calculateKfWf( cvf::cref<RigFrac
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates area weighted statistics.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigEnsembleFractureStatisticsCalculator::calculateAreaWeightedStatistics(
     const std::vector<cvf::ref<RigStimPlanFractureDefinition>>& fractureDefinitions,
@@ -284,7 +286,7 @@ std::vector<double> RigEnsembleFractureStatisticsCalculator::calculateAreaWeight
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates area weighted width.
 //--------------------------------------------------------------------------------------------------
 double RigEnsembleFractureStatisticsCalculator::calculateAreaWeightedWidth( cvf::cref<RigFractureGrid>    conductivityGrid,
                                                                             cvf::cref<RigFractureGrid>    widthGrid,
@@ -312,7 +314,7 @@ double RigEnsembleFractureStatisticsCalculator::calculateAreaWeightedWidth( cvf:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates area weighted permeability.
 //--------------------------------------------------------------------------------------------------
 double RigEnsembleFractureStatisticsCalculator::calculateAreaWeightedPermeability( cvf::cref<RigFractureGrid>    conductivityGrid,
                                                                                    cvf::cref<RigFractureGrid>    widthGrid,
@@ -341,7 +343,7 @@ double RigEnsembleFractureStatisticsCalculator::calculateAreaWeightedPermeabilit
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates xf.
 //--------------------------------------------------------------------------------------------------
 double RigEnsembleFractureStatisticsCalculator::calculateXf( cvf::cref<RigFractureGrid> fractureGrid )
 {
@@ -359,7 +361,7 @@ double RigEnsembleFractureStatisticsCalculator::calculateXf( cvf::cref<RigFractu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates formation dip.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>
     RigEnsembleFractureStatisticsCalculator::calculateFormationDip( const std::vector<cvf::ref<RigStimPlanFractureDefinition>>& fractureDefinitions )
@@ -374,7 +376,7 @@ std::vector<double>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Converts unit.
 //--------------------------------------------------------------------------------------------------
 double RigEnsembleFractureStatisticsCalculator::convertUnit( double value, RiaDefines::EclipseUnitSystem unitSystem, const QString& unitName )
 {
@@ -390,7 +392,7 @@ double RigEnsembleFractureStatisticsCalculator::convertUnit( double value, RiaDe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removes zero width definitions.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::ref<RigStimPlanFractureDefinition>> RigEnsembleFractureStatisticsCalculator::removeZeroWidthDefinitions(
     const std::vector<cvf::ref<RigStimPlanFractureDefinition>>& fractureDefinitions )
@@ -414,7 +416,7 @@ std::vector<cvf::ref<RigStimPlanFractureDefinition>> RigEnsembleFractureStatisti
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property types.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigEnsembleFractureStatisticsCalculator::PropertyType> RigEnsembleFractureStatisticsCalculator::propertyTypes()
 {
@@ -431,7 +433,7 @@ std::vector<RigEnsembleFractureStatisticsCalculator::PropertyType> RigEnsembleFr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number format for property.
 //--------------------------------------------------------------------------------------------------
 std::pair<caf::NumberFormatType, int> RigEnsembleFractureStatisticsCalculator::numberFormatForProperty( PropertyType propertyType )
 {

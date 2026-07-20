@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements deterministic aggregation of Eclipse keyword metadata.
 //
 //  Copyright (C) 2024 Equinor ASA
 //
@@ -19,7 +22,8 @@
 #include "RifEclipseReportKeywords.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Preserves the type recorded by the first occurrence and accumulates counts from
+/// later report steps. Callers construct collections from format-consistent files.
 //--------------------------------------------------------------------------------------------------
 void RifEclipseReportKeywords::appendKeywordCount( const std::string&                           keyword,
                                                    size_t                                       valueCount,

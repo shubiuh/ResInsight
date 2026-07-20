@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements close summary case command support.
 
 #include "RicCloseSummaryCaseFeature.h"
 

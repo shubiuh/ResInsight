@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares generation of contour map triangles generator.
 
 #pragma once
 
@@ -29,9 +31,11 @@ class RigContourMapProjection;
 ///
 ///
 //==================================================================================================
+/// @brief Generates contour map triangles generator.
 class RigContourMapTrianglesGenerator
 {
 public:
+    /// Type alias used for contour polygons.
     using ContourPolygons = std::vector<RigContourPolygonsTools::ContourPolygon>;
 
     static std::vector<cvf::Vec4d> generateTrianglesWithVertexValues( const RigContourMapGrid&            contourMapGrid,

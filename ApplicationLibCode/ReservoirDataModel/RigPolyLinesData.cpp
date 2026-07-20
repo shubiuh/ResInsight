@@ -15,10 +15,12 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of poly lines data.
 #include "RigPolyLinesData.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigPolyLinesData instance.
 //--------------------------------------------------------------------------------------------------
 RigPolyLinesData::RigPolyLinesData()
     : m_showLines( true )
@@ -35,14 +37,14 @@ RigPolyLinesData::RigPolyLinesData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigPolyLinesData instance.
 //--------------------------------------------------------------------------------------------------
 RigPolyLinesData::~RigPolyLinesData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the raw poly lines.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<cvf::Vec3d>>& RigPolyLinesData::rawPolyLines() const
 {
@@ -76,7 +78,7 @@ const std::vector<std::vector<cvf::Vec3d>> RigPolyLinesData::completePolyLines()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets poly lines.
 //--------------------------------------------------------------------------------------------------
 void RigPolyLinesData::setPolyLines( const std::vector<std::vector<cvf::Vec3d>>& polyLines )
 {
@@ -84,7 +86,7 @@ void RigPolyLinesData::setPolyLines( const std::vector<std::vector<cvf::Vec3d>>&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets poly line.
 //--------------------------------------------------------------------------------------------------
 void RigPolyLinesData::setPolyLine( const std::vector<cvf::Vec3d>& polyline )
 {
@@ -92,7 +94,7 @@ void RigPolyLinesData::setPolyLine( const std::vector<cvf::Vec3d>& polyline )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds poly line.
 //--------------------------------------------------------------------------------------------------
 void RigPolyLinesData::addPolyLine( const std::vector<cvf::Vec3d>& polyline )
 {
@@ -100,7 +102,7 @@ void RigPolyLinesData::addPolyLine( const std::vector<cvf::Vec3d>& polyline )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets visibility.
 //--------------------------------------------------------------------------------------------------
 void RigPolyLinesData::setVisibility( bool showLines, bool showSpheres )
 {
@@ -109,7 +111,7 @@ void RigPolyLinesData::setVisibility( bool showLines, bool showSpheres )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets line appearance.
 //--------------------------------------------------------------------------------------------------
 void RigPolyLinesData::setLineAppearance( int lineThickness, cvf::Color3f color, bool closePolyline )
 {
@@ -119,7 +121,7 @@ void RigPolyLinesData::setLineAppearance( int lineThickness, cvf::Color3f color,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets sphere appearance.
 //--------------------------------------------------------------------------------------------------
 void RigPolyLinesData::setSphereAppearance( double radiusFactor, cvf::Color3f color )
 {
@@ -128,7 +130,7 @@ void RigPolyLinesData::setSphereAppearance( double radiusFactor, cvf::Color3f co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the show lines.
 //--------------------------------------------------------------------------------------------------
 bool RigPolyLinesData::showLines() const
 {
@@ -136,7 +138,7 @@ bool RigPolyLinesData::showLines() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the show spheres.
 //--------------------------------------------------------------------------------------------------
 bool RigPolyLinesData::showSpheres() const
 {
@@ -144,7 +146,7 @@ bool RigPolyLinesData::showSpheres() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the line thickness.
 //--------------------------------------------------------------------------------------------------
 int RigPolyLinesData::lineThickness() const
 {
@@ -152,7 +154,7 @@ int RigPolyLinesData::lineThickness() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the line color.
 //--------------------------------------------------------------------------------------------------
 cvf::Color3f RigPolyLinesData::lineColor() const
 {
@@ -160,7 +162,7 @@ cvf::Color3f RigPolyLinesData::lineColor() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the close polyline.
 //--------------------------------------------------------------------------------------------------
 bool RigPolyLinesData::closePolyline() const
 {
@@ -168,7 +170,7 @@ bool RigPolyLinesData::closePolyline() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sphere color.
 //--------------------------------------------------------------------------------------------------
 cvf::Color3f RigPolyLinesData::sphereColor() const
 {
@@ -176,7 +178,7 @@ cvf::Color3f RigPolyLinesData::sphereColor() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sphere radius factor.
 //--------------------------------------------------------------------------------------------------
 double RigPolyLinesData::sphereRadiusFactor() const
 {
@@ -184,7 +186,7 @@ double RigPolyLinesData::sphereRadiusFactor() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the locked z value.
 //--------------------------------------------------------------------------------------------------
 double RigPolyLinesData::lockedZValue() const
 {
@@ -192,7 +194,7 @@ double RigPolyLinesData::lockedZValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the lock to z plane.
 //--------------------------------------------------------------------------------------------------
 bool RigPolyLinesData::lockToZPlane() const
 {
@@ -200,7 +202,7 @@ bool RigPolyLinesData::lockToZPlane() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets z plane lock.
 //--------------------------------------------------------------------------------------------------
 void RigPolyLinesData::setZPlaneLock( bool lockToZ, double lockZValue )
 {
@@ -209,7 +211,7 @@ void RigPolyLinesData::setZPlaneLock( bool lockToZ, double lockZValue )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets skip bounding box check.
 //--------------------------------------------------------------------------------------------------
 void RigPolyLinesData::setSkipBoundingBoxCheck( bool skipCheck )
 {
@@ -217,7 +219,7 @@ void RigPolyLinesData::setSkipBoundingBoxCheck( bool skipCheck )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the skip bounding box check.
 //--------------------------------------------------------------------------------------------------
 bool RigPolyLinesData::skipBoundingBoxCheck() const
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements histogram plot command support.
 
 #include "RicHistogramPlotTools.h"
 

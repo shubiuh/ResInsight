@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well allocation over time reservoir-data functionality.
 
 #pragma once
 
@@ -26,13 +28,16 @@
 
 class RigAccWellFlowCalculator;
 
+/// @brief Models well allocation over time for reservoir-data processing.
 class RigWellAllocationOverTime
 {
 public:
     RigWellAllocationOverTime( const std::vector<QDateTime>&                        timeStepDates,
                                const std::map<QDateTime, RigAccWellFlowCalculator>& timeStepAndCalculatorPairs );
 
+    /// Returns or processes time step dates.
     const std::vector<QDateTime>                         timeStepDates() const { return m_timeStepDates; }
+    /// Returns or processes well values map.
     const std::map<QString, std::map<QDateTime, double>> wellValuesMap() const { return m_wellValuesMap; }
 
     void fillWithFlowRateFractionValues();

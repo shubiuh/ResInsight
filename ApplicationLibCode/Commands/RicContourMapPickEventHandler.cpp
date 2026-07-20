@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements contour map command support.
 
 #include "RicContourMapPickEventHandler.h"
 

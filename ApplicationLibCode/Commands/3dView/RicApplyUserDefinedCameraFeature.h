@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares apply user defined camera command support.
 
 #pragma once
 
@@ -23,17 +25,21 @@
 #include "cvfVector3.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for apply user defined camera.
 //==================================================================================================
 class RicApplyUserDefinedCameraFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Reads camera from settings.
     static void readCameraFromSettings( cvf::Vec3d& eye, cvf::Vec3d& vrp, cvf::Vec3d& up );
 };

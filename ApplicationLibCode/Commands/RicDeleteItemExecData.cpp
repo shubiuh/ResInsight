@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete item exec data command support.
 
 #include "RicDeleteItemExecData.h"
 

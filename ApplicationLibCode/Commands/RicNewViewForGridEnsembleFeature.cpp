@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new view for grid ensemble command support.
 
 #include "RicNewViewForGridEnsembleFeature.h"
 

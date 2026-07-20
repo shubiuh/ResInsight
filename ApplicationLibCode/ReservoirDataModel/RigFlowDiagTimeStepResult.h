@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares flow diag time step result reservoir-data functionality.
 #pragma once
 
 #include "RigFlowDiagResultAddress.h"
@@ -23,6 +25,7 @@
 #include <string>
 #include <vector>
 
+/// @brief Stores a flow diag time step result result.
 class RigFlowDiagTimeStepResult
 {
 public:
@@ -38,10 +41,13 @@ public:
                                  const std::string&               producerTracerName,
                                  const std::pair<double, double>& injProdFluxes );
 
+    /// Type alias used for curve.
     using Curve = std::pair<std::vector<double>, std::vector<double>>;
 
     // Used to "steal" the data from this one using swap
+    /// Returns or processes native results.
     std::map<RigFlowDiagResultAddress, std::vector<double>>&                  nativeResults() { return m_nativeResults; }
+    /// Returns or processes inj prod well pair fluxes.
     std::map<std::pair<std::string, std::string>, std::pair<double, double>>& injProdWellPairFluxes() { return m_injProdWellPairFluxes; }
 
 private:

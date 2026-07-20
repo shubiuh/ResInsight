@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create RFT correlation report command support.
 
 #include "RicCreateRftCorrelationReportFeature.h"
 

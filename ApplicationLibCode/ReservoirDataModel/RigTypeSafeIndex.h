@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares type safe index reservoir-data functionality.
 
 #pragma once
 
@@ -22,6 +24,7 @@
 #include <functional>
 
 template <typename Tag>
+/// @brief Models type safe index for reservoir-data processing.
 class TypeSafeIndex
 {
 public:
@@ -32,22 +35,28 @@ public:
     }
 
     // Explicit constructor from size_t (prevents implicit conversion)
+    /// Returns or processes type safe index.
     explicit constexpr TypeSafeIndex( size_t value ) noexcept
         : m_value( value )
     {
     }
 
     // Explicit conversion to size_t
+    /// Implements the operatorsize_t operation.
     explicit constexpr operator size_t() const noexcept { return m_value; }
 
     // Getter for when you need the value
+    /// Returns or processes value.
     constexpr size_t value() const noexcept { return m_value; }
 
     // Comparison operators
+    /// Implements the operator== operation.
     constexpr bool operator==( const TypeSafeIndex& other ) const noexcept  = default;
+    /// Implements the operator<=> operation.
     constexpr auto operator<=>( const TypeSafeIndex& other ) const noexcept = default;
 
     // Arithmetic operators (if needed)
+    /// Implements the operator++ operation.
     constexpr TypeSafeIndex& operator++() noexcept
     {
         ++m_value;
@@ -62,8 +71,10 @@ private:
 namespace std
 {
 template <typename Tag>
+/// @brief Models hash for reservoir-data processing.
 struct hash<TypeSafeIndex<Tag>>
 {
+    /// Implements the operator operation.
     size_t operator()( const TypeSafeIndex<Tag>& idx ) const noexcept { return hash<size_t>{}( idx.value() ); }
 };
 
@@ -71,14 +82,18 @@ struct hash<TypeSafeIndex<Tag>>
 
 // Define specific types using tag structs
 
+/// @brief Models reservoir cell index tag for reservoir-data processing.
 struct ReservoirCellIndexTag
 {
 };
 // Global cell index in the full IJK reservoir grid
+/// Type alias used for reservoir cell index.
 using ReservoirCellIndex = TypeSafeIndex<ReservoirCellIndexTag>;
 
+/// @brief Models active cell index tag for reservoir-data processing.
 struct ActiveCellIndexTag
 {
 };
 // Index into the subset of active cells. This is usually the index used to access results data.
+/// Type alias used for active cell index.
 using ActiveCellIndex = TypeSafeIndex<ActiveCellIndexTag>;

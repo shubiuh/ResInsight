@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares pipe in cell evaluator reservoir-data functionality.
 
 #pragma once
 
@@ -24,9 +26,11 @@
 #include "cvfArray.h"
 #include "cvfObject.h"
 
+/// @brief Models pipe in cell evaluator for reservoir-data processing.
 class RigPipeInCellEvaluator : public cvf::Object
 {
 public:
+    /// Returns or processes pipe in cell evaluator.
     RigPipeInCellEvaluator( const std::vector<cvf::ubyte>& isWellPipeVisibleForResultWellIndex,
                             const cvf::UIntArray*          gridCellToResultWellIndexMap )
         : m_isWellPipeVisibleForWellIndex( isWellPipeVisibleForResultWellIndex )
@@ -34,6 +38,7 @@ public:
     {
     }
 
+    /// Returns whether well pipe in cell.
     bool isWellPipeInCell( size_t cellIndex ) const
     {
         cvf::uint wellIndex = m_gridCellToWellIndexMap->get( cellIndex );

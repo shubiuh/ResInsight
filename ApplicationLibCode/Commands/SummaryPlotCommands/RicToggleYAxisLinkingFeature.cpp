@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements toggle Y axis linking command support.
 
 #include "RicToggleYAxisLinkingFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares clear source stepping ensemble curve set command support.
 
 #pragma once
 
@@ -23,18 +25,22 @@
 class RimSummaryPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for clear source stepping ensemble curve set.
 //==================================================================================================
 class RicClearSourceSteppingEnsembleCurveSetFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Removes or clears all source stepping in summary plot.
     static void clearAllSourceSteppingInSummaryPlot( const RimSummaryPlot* summaryPlot );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
 
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

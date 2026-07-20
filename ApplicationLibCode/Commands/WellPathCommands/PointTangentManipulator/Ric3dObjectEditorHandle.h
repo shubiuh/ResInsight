@@ -15,14 +15,18 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares 3D object editor handle command support.
 #pragma once
 
 #include "cafPdmUi3dObjectEditorHandle.h"
 
 class Rim3dView;
 
+/// @brief Supports 3D object editor handle command workflows.
 class Ric3dObjectEditorHandle : public caf::PdmUi3dObjectEditorHandle
 {
 protected:
+    /// @return The main or comparison view.
     Rim3dView* mainOrComparisonView();
 };

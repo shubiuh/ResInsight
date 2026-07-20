@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add linked Eclipse property filter command support.
 
 #include "RicAddLinkedEclipsePropertyFilterFeature.h"
 

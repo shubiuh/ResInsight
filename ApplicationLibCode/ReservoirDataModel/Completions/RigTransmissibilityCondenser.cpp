@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements transmissibility condenser reservoir-data functionality.
 
 #include "RigTransmissibilityCondenser.h"
 
@@ -34,7 +36,7 @@
 #include <fstream>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigTransmissibilityCondenser instance.
 //--------------------------------------------------------------------------------------------------
 RigTransmissibilityCondenser::RigTransmissibilityCondenser()
     : m_transmissibilityThreshold( 1.0e-9 )
@@ -42,7 +44,7 @@ RigTransmissibilityCondenser::RigTransmissibilityCondenser()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigTransmissibilityCondenser instance.
 //--------------------------------------------------------------------------------------------------
 RigTransmissibilityCondenser::RigTransmissibilityCondenser( const RigTransmissibilityCondenser& copyFrom )
     : m_neighborTransmissibilities( copyFrom.m_neighborTransmissibilities )
@@ -55,7 +57,7 @@ RigTransmissibilityCondenser::RigTransmissibilityCondenser( const RigTransmissib
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator= operation.
 //--------------------------------------------------------------------------------------------------
 RigTransmissibilityCondenser& RigTransmissibilityCondenser::operator=( const RigTransmissibilityCondenser& rhs )
 {
@@ -70,7 +72,7 @@ RigTransmissibilityCondenser& RigTransmissibilityCondenser::operator=( const Rig
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets transmissibility threshold.
 //--------------------------------------------------------------------------------------------------
 void RigTransmissibilityCondenser::setTransmissibilityThreshold( double threshold )
 {
@@ -78,7 +80,7 @@ void RigTransmissibilityCondenser::setTransmissibilityThreshold( double threshol
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the transmissibility threshold.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityCondenser::transmissibilityThreshold() const
 {
@@ -86,7 +88,7 @@ double RigTransmissibilityCondenser::transmissibilityThreshold() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds neighbor transmissibility.
 //--------------------------------------------------------------------------------------------------
 void RigTransmissibilityCondenser::addNeighborTransmissibility( CellAddress cell1, CellAddress cell2, double transmissibility )
 {
@@ -101,7 +103,7 @@ void RigTransmissibilityCondenser::addNeighborTransmissibility( CellAddress cell
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the external cells.
 //--------------------------------------------------------------------------------------------------
 std::set<RigTransmissibilityCondenser::CellAddress> RigTransmissibilityCondenser::externalCells()
 {
@@ -114,7 +116,7 @@ std::set<RigTransmissibilityCondenser::CellAddress> RigTransmissibilityCondenser
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the condensed transmissibility.
 //--------------------------------------------------------------------------------------------------
 double RigTransmissibilityCondenser::condensedTransmissibility( CellAddress externalCell1, CellAddress externalCell2 )
 {
@@ -138,7 +140,7 @@ double RigTransmissibilityCondenser::condensedTransmissibility( CellAddress exte
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the scale matrix to frac trans by matrix well dp.
 //--------------------------------------------------------------------------------------------------
 std::map<size_t, double> RigTransmissibilityCondenser::scaleMatrixToFracTransByMatrixWellDP( const RigActiveCellInfo* actCellInfo,
                                                                                              double                   currentWellPressure,
@@ -209,7 +211,7 @@ std::map<size_t, double> RigTransmissibilityCondenser::scaleMatrixToFracTransByM
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates ficticious fracture to well transmissibilities.
 //--------------------------------------------------------------------------------------------------
 std::map<size_t, double> RigTransmissibilityCondenser::calculateFicticiousFractureToWellTransmissibilities()
 {
@@ -253,7 +255,7 @@ std::map<size_t, double> RigTransmissibilityCondenser::calculateFicticiousFractu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates effective matrix to well transmissibilities.
 //--------------------------------------------------------------------------------------------------
 std::map<size_t, double> RigTransmissibilityCondenser::calculateEffectiveMatrixToWellTransmissibilities(
     const std::map<size_t, double>& originalLumpedMatrixToFractureTrans,
@@ -289,7 +291,7 @@ std::map<size_t, double> RigTransmissibilityCondenser::calculateEffectiveMatrixT
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates condensed transmissibilities.
 //--------------------------------------------------------------------------------------------------
 void RigTransmissibilityCondenser::calculateCondensedTransmissibilities()
 {
@@ -405,6 +407,7 @@ void RigTransmissibilityCondenser::calculateCondensedTransmissibilities()
 #include "RigMainGrid.h"
 #include "RimStimPlanFractureTemplate.h"
 
+/// Returns or processes print cell address.
 void printCellAddress( std::stringstream&                        str,
                        const RigMainGrid*                        mainGrid,
                        const RigFractureGrid*                    fractureGrid,
@@ -451,7 +454,7 @@ void printCellAddress( std::stringstream&                        str,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the neighbor trans debug output.
 //--------------------------------------------------------------------------------------------------
 std::string RigTransmissibilityCondenser::neighborTransDebugOutput( const RigMainGrid* mainGrid, const RigFractureGrid* fractureGrid )
 {
@@ -473,7 +476,7 @@ std::string RigTransmissibilityCondenser::neighborTransDebugOutput( const RigMai
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the condensed trans debug output.
 //--------------------------------------------------------------------------------------------------
 std::string RigTransmissibilityCondenser::condensedTransDebugOutput( const RigMainGrid* mainGrid, const RigFractureGrid* fractureGrid )
 {

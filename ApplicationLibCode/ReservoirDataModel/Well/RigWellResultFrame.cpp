@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well result frame reservoir-data functionality.
 
 #include "RigWellResultFrame.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellResultFrame instance.
 //--------------------------------------------------------------------------------------------------
 RigWellResultFrame::RigWellResultFrame()
     : m_productionType( RiaDefines::WellProductionType::UNDEFINED_PRODUCTION_TYPE )
@@ -28,7 +30,7 @@ RigWellResultFrame::RigWellResultFrame()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds result cell well head included.
 //--------------------------------------------------------------------------------------------------
 RigWellResultPoint RigWellResultFrame::findResultCellWellHeadIncluded( size_t gridIndex, size_t gridCellIndex ) const
 {
@@ -51,7 +53,7 @@ RigWellResultPoint RigWellResultFrame::findResultCellWellHeadIncluded( size_t gr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds result cell well head excluded.
 //--------------------------------------------------------------------------------------------------
 RigWellResultPoint RigWellResultFrame::findResultCellWellHeadExcluded( size_t gridIndex, size_t gridCellIndex ) const
 {
@@ -71,7 +73,7 @@ RigWellResultPoint RigWellResultFrame::findResultCellWellHeadExcluded( size_t gr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets well head.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultFrame::setWellHead( RigWellResultPoint wellHead )
 {
@@ -79,7 +81,7 @@ void RigWellResultFrame::setWellHead( RigWellResultPoint wellHead )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well head.
 //--------------------------------------------------------------------------------------------------
 RigWellResultPoint RigWellResultFrame::wellHead() const
 {
@@ -87,7 +89,7 @@ RigWellResultPoint RigWellResultFrame::wellHead() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well head or start cell.
 //--------------------------------------------------------------------------------------------------
 RigWellResultPoint RigWellResultFrame::wellHeadOrStartCell() const
 {
@@ -105,7 +107,7 @@ RigWellResultPoint RigWellResultFrame::wellHeadOrStartCell() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all result points.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigWellResultPoint> RigWellResultFrame::allResultPoints() const
 {
@@ -121,7 +123,7 @@ std::vector<RigWellResultPoint> RigWellResultFrame::allResultPoints() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets is open.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultFrame::setIsOpen( bool isOpen )
 {
@@ -129,7 +131,7 @@ void RigWellResultFrame::setIsOpen( bool isOpen )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether open.
 //--------------------------------------------------------------------------------------------------
 bool RigWellResultFrame::isOpen() const
 {
@@ -137,7 +139,7 @@ bool RigWellResultFrame::isOpen() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets production type.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultFrame::setProductionType( RiaDefines::WellProductionType productionType )
 {
@@ -145,7 +147,7 @@ void RigWellResultFrame::setProductionType( RiaDefines::WellProductionType produ
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the production type.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::WellProductionType RigWellResultFrame::productionType() const
 {
@@ -153,7 +155,7 @@ RiaDefines::WellProductionType RigWellResultFrame::productionType() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets timestamp.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultFrame::setTimestamp( const QDateTime& timeStamp )
 {
@@ -161,7 +163,7 @@ void RigWellResultFrame::setTimestamp( const QDateTime& timeStamp )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the timestamp.
 //--------------------------------------------------------------------------------------------------
 QDateTime RigWellResultFrame::timestamp() const
 {
@@ -169,7 +171,7 @@ QDateTime RigWellResultFrame::timestamp() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well result branches.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigWellResultBranch> RigWellResultFrame::wellResultBranches() const
 {
@@ -177,7 +179,7 @@ std::vector<RigWellResultBranch> RigWellResultFrame::wellResultBranches() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears well result branches.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultFrame::clearWellResultBranches()
 {
@@ -185,7 +187,7 @@ void RigWellResultFrame::clearWellResultBranches()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds well result branch.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultFrame::addWellResultBranch( const RigWellResultBranch& wellResultBranch )
 {
@@ -193,7 +195,7 @@ void RigWellResultFrame::addWellResultBranch( const RigWellResultBranch& wellRes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets well result branches.
 //--------------------------------------------------------------------------------------------------
 void RigWellResultFrame::setWellResultBranches( const std::vector<RigWellResultBranch>& wellResultBranches )
 {
@@ -201,7 +203,7 @@ void RigWellResultFrame::setWellResultBranches( const std::vector<RigWellResultB
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the branch result points from branch index.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigWellResultPoint> RigWellResultFrame::branchResultPointsFromBranchIndex( size_t index ) const
 {

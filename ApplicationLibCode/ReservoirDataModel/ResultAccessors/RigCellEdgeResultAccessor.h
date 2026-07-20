@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares access to cell edge result.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Provides read access to cell edge result.
 class RigCellEdgeResultAccessor : public RigResultAccessor
 {
 public:

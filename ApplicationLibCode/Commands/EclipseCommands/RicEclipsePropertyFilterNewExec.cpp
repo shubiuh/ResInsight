@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse property filter new exec command support.
 
 #include "RicEclipsePropertyFilterNewExec.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well import command support.
 
 #pragma once
 
@@ -36,6 +38,7 @@ class QTextEdit;
 class QTableView;
 class QRadioButton;
 class QComboBox;
+/// @brief Supports OSDU field table model command workflows.
 class OsduFieldTableModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -145,6 +148,7 @@ private:
     std::vector<OsduField> m_osduFields;
 };
 
+/// @brief Supports OSDU wellbore table model command workflows.
 class OsduWellboreTableModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -262,19 +266,23 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Supports authentication page command workflows.
 //--------------------------------------------------------------------------------------------------
 class AuthenticationPage : public QWizardPage
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     AuthenticationPage( RiaOsduConnector* osduConnector, QWidget* parent = nullptr );
 
+    /// Performs the initialize page command operation.
     void initializePage() override;
+    /// @return Whether complete.
     bool isComplete() const override;
 
 private slots:
+    /// Performs the access ok command operation.
     void accessOk();
 
 private:
@@ -283,21 +291,28 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Supports field selection page command workflows.
 //--------------------------------------------------------------------------------------------------
 class FieldSelectionPage : public QWizardPage
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     FieldSelectionPage( RiaOsduConnector* m_osduConnector, QWidget* parent = nullptr );
+    /// Destroys the command object.
     ~FieldSelectionPage() override;
 
+    /// @return Whether complete.
     bool isComplete() const override;
 private slots:
+    /// Performs the fields finished command operation.
     void fieldsFinished();
+    /// Selects field.
     void selectField( const QItemSelection& newSelection, const QItemSelection& oldSelection );
+    /// Performs the on search text changed command operation.
     void onSearchTextChanged( const QString& );
+    /// Performs the search for fields command operation.
     void searchForFields();
 
 private:
@@ -312,21 +327,27 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Supports well selection page command workflows.
 //--------------------------------------------------------------------------------------------------
 class WellSelectionPage : public QWizardPage
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     WellSelectionPage( RiaOsduConnector* m_osduConnector, QWidget* parent = nullptr );
+    /// Destroys the command object.
     ~WellSelectionPage() override;
 
+    /// Performs the initialize page command operation.
     void initializePage() override;
+    /// @return Whether complete.
     bool isComplete() const override;
 
 private slots:
+    /// Performs the wellbores by field ID finished command operation.
     void wellboresByFieldIdFinished( const QString& fieldId );
+    /// Selects wellbore.
     void selectWellbore( const QItemSelection& newSelection, const QItemSelection& oldSelection );
 
 private:
@@ -340,24 +361,31 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Supports well summary page command workflows.
 //--------------------------------------------------------------------------------------------------
 class WellSummaryPage : public QWizardPage
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     WellSummaryPage( RiaOsduConnector* osduConnector, QWidget* parent = nullptr );
 
+    /// Performs the initialize page command operation.
     void initializePage() override;
+    /// @return Whether complete.
     bool isComplete() const override;
 
 private slots:
+    /// Performs the wellbore trajectory finished command operation.
     void wellboreTrajectoryFinished( const QString& wellboreId, int numTrajectories, const QString& errorMessage );
+    /// Performs the on filter changed command operation.
     void onFilterChanged();
 
 private:
+    /// @return Whether include trajectory.
     bool shouldIncludeTrajectory( const QString& existenceKind ) const;
+    /// Updates summary display.
     void updateSummaryDisplay();
 
     RiaOsduConnector*                                      m_osduConnector;
@@ -370,13 +398,14 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Wizard for well import.
 //--------------------------------------------------------------------------------------------------
 class RiuWellImportWizard : public QWizard
 {
     Q_OBJECT
 
 public:
+    /// @brief Data used to configure or execute well info command workflows.
     struct WellInfo
     {
         QString name;
@@ -387,26 +416,39 @@ public:
         double  datumElevation;
     };
 
+    /// Constructs the command object.
     RiuWellImportWizard( RiaOsduConnector* osduConnector, QWidget* parent = nullptr );
+    /// Destroys the command object.
     ~RiuWellImportWizard() override;
 
     // Methods used from the wizard pages
     void resetAuthenticationCount();
 
+    /// Sets selected field ID.
     void                 setSelectedFieldId( const QString& fieldId );
+    /// @return The selected field ID.
     QString              selectedFieldId() const;
+    /// Sets selected wellbore ids.
     void                 setSelectedWellboreIds( const std::vector<QString>& wellboreIds );
+    /// @return The selected wellbore ids.
     std::vector<QString> selectedWellboreIds() const;
 
+    /// Adds well info.
     void                                       addWellInfo( RiuWellImportWizard::WellInfo wellInfo );
+    /// Removes or clears well infos.
     void                                       clearWellInfos();
+    /// Imports ed wells.
     std::vector<RiuWellImportWizard::WellInfo> importedWells() const;
 
 public slots:
+    /// Performs the download well paths command operation.
     void downloadWellPaths( const QString& wellboreId );
+    /// Performs the download wells command operation.
     void downloadWells( const QString& fieldId );
+    /// Performs the download fields command operation.
     void downloadFields( const QString& fieldName );
 
+    /// Performs the slot authentication required command operation.
     void slotAuthenticationRequired( QNetworkReply* networkReply, QAuthenticator* authenticator );
 
 private:

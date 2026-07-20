@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new fault react modeling command support.
 
 #include "RicNewFaultReactModelingFeature.h"
 

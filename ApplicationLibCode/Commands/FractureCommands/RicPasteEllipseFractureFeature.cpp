@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste ellipse fracture command support.
 
 #include "RicPasteEllipseFractureFeature.h"
 

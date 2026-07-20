@@ -1,3 +1,5 @@
+/// @file
+/// @brief Declares ecl lib documented headers reservoir-data functionality.
 
 #if 0 // Simplified ecl library access methods
 typedef double (block_function_ftype) ( const double_vector_type *); 

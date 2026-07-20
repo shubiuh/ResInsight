@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares user defined calculator command support.
 
 #pragma once
 
@@ -30,38 +32,56 @@ class RimUserDefinedCalculationCollection;
 class RimUserDefinedCalculation;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring user defined calculator.
 //==================================================================================================
 class RicUserDefinedCalculatorUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicUserDefinedCalculatorUi();
 
+    /// @return The current calculation.
     RimUserDefinedCalculation* currentCalculation() const;
+    /// Sets current calculation.
     void                       setCurrentCalculation( RimUserDefinedCalculation* calculation );
 
+    /// @return The parse expression.
     bool parseExpression() const;
+    /// Calculates command support.
     bool calculate() const;
 
+    /// @return The calculations group name.
     virtual QString                              calculationsGroupName() const                                       = 0;
+    /// @return The calulation group name.
     virtual QString                              calulationGroupName() const                                         = 0;
+    /// @return The calculation collection.
     virtual RimUserDefinedCalculationCollection* calculationCollection() const                                       = 0;
+    /// Performs the notify calculated name changed command operation.
     virtual void                                 notifyCalculatedNameChanged( int id, const QString& newName ) const = 0;
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
+    /// Performs the on editor widgets created command operation.
     void                          onEditorWidgetsCreated() override;
 
+    /// Exports calculations.
     virtual void exportCalculations() = 0;
+    /// Imports calculations.
     virtual void importCalculations() = 0;
 
 private:
+    /// Performs the on variable updated command operation.
     void onVariableUpdated( const SignalEmitter* emitter );
+    /// Performs the connect signals command operation.
     void connectSignals( RimUserDefinedCalculation* calculation );
+    /// Performs the on delete calculation clicked command operation.
     void onDeleteCalculationClicked();
 
 private:

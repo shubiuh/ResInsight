@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import ensemble command support.
 
 #pragma once
 
@@ -29,19 +31,22 @@ class RimSummaryCase;
 class RimSummaryEnsemble;
 
 //==================================================================================================
-///
+/// @brief Command feature for import ensemble.
 //==================================================================================================
 class RicImportEnsembleFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Creates summary ensemble.
     static RimSummaryEnsemble* createSummaryEnsemble( std::vector<RimSummaryCase*> cases );
+    /// @return The group summary cases.
     static RimSummaryEnsemble* groupSummaryCases( std::vector<RimSummaryCase*>     cases,
                                                   const QString&                   groupName,
                                                   RiaDefines::EnsembleGroupingMode groupingMode,
                                                   bool                             isEnsemble = false );
 
+    /// Imports single ensemble file set.
     static RimSummaryEnsemble* importSingleEnsembleFileSet( const QStringList&               fileNames,
                                                             bool                             useEnsembleNameDialog,
                                                             RiaDefines::EnsembleGroupingMode groupingMode,
@@ -49,10 +54,14 @@ public:
                                                             const QString&                   defaultEnsembleName = QString() );
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The ask for ensemble name.
     static QString             askForEnsembleName( const QString& suggestion );
+    /// Imports single ensemble.
     static RimSummaryEnsemble* importSingleEnsemble( const QStringList&               fileNames,
                                                      bool                             useEnsembleNameDialog,
                                                      RiaDefines::EnsembleGroupingMode groupingMode,

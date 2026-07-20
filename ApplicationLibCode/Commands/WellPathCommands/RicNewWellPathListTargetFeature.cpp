@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well path list target command support.
 #include "RicNewWellPathListTargetFeature.h"
 
 CAF_CMD_SOURCE_INIT( RicNewWellPathListTargetFeature, "RicNewWellPathListTargetFeature" );

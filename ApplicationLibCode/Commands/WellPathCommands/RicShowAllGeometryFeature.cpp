@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show all geometry command support.
 
 #include "RicShowAllGeometryFeature.h"
 

@@ -15,25 +15,27 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of pressure depth data.
 
 #include "RigPressureDepthData.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigPressureDepthData instance.
 //--------------------------------------------------------------------------------------------------
 RigPressureDepthData::RigPressureDepthData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigPressureDepthData instance.
 //--------------------------------------------------------------------------------------------------
 RigPressureDepthData::~RigPressureDepthData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets well name.
 //--------------------------------------------------------------------------------------------------
 void RigPressureDepthData::setWellName( const QString& wellName )
 {
@@ -41,7 +43,7 @@ void RigPressureDepthData::setWellName( const QString& wellName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well name.
 //--------------------------------------------------------------------------------------------------
 QString RigPressureDepthData::wellName() const
 {
@@ -49,7 +51,7 @@ QString RigPressureDepthData::wellName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets time step.
 //--------------------------------------------------------------------------------------------------
 void RigPressureDepthData::setTimeStep( const QDateTime& timeStep )
 {
@@ -57,7 +59,7 @@ void RigPressureDepthData::setTimeStep( const QDateTime& timeStep )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step.
 //--------------------------------------------------------------------------------------------------
 QDateTime RigPressureDepthData::timeStep() const
 {
@@ -65,7 +67,7 @@ QDateTime RigPressureDepthData::timeStep() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds pressure at depth.
 //--------------------------------------------------------------------------------------------------
 void RigPressureDepthData::addPressureAtDepth( double pressure, double depth )
 {
@@ -73,7 +75,7 @@ void RigPressureDepthData::addPressureAtDepth( double pressure, double depth )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns pressure depth values.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<double, double>> RigPressureDepthData::getPressureDepthValues() const
 {
@@ -81,7 +83,7 @@ std::vector<std::pair<double, double>> RigPressureDepthData::getPressureDepthVal
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvdmsl.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigPressureDepthData::tvdmsl() const
 {
@@ -91,7 +93,7 @@ std::vector<double> RigPressureDepthData::tvdmsl() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pressure.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigPressureDepthData::pressure() const
 {

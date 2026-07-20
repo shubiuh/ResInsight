@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares elastic properties reservoir-data functionality.
 
 #pragma once
 
@@ -27,6 +29,7 @@
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models elastic properties for reservoir-data processing.
 class RigElasticProperties
 {
 public:

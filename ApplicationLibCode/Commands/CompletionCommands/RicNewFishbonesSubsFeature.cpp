@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new fishbones subs command support.
 
 #include "RicNewFishbonesSubsFeature.h"
 

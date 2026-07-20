@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements save Eclipse input property command support.
 
 #include "RicSaveEclipseInputPropertyFeature.h"
 

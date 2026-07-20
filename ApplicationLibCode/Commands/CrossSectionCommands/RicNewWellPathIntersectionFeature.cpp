@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well path intersection command support.
 
 #include "RicNewWellPathIntersectionFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares configuration for simulation input.
 
 #pragma once
 
@@ -43,9 +45,11 @@ class DeckRecord;
 /// Settings for exporting simulation input files (sector models)
 ///
 //==================================================================================================
+/// @brief Stores configuration for simulation input.
 class RigSimulationInputSettings
 {
 public:
+    /// Type alias used for boundary condition enum.
     using BoundaryConditionEnum = caf::AppEnum<RiaModelExportDefines::BoundaryCondition>;
 
     RigSimulationInputSettings();

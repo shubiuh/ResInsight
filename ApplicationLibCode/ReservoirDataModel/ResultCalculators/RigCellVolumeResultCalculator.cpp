@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of cell volume results.
 
 #include "RigCellVolumeResultCalculator.h"
 #include "RiaDefines.h"
@@ -26,7 +28,7 @@
 #include "RigMainGrid.h"
 
 //==================================================================================================
-///
+/// Creates a RigCellVolumeResultCalculator instance.
 //==================================================================================================
 RigCellVolumeResultCalculator::RigCellVolumeResultCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -34,14 +36,14 @@ RigCellVolumeResultCalculator::RigCellVolumeResultCalculator( RigCaseCellResults
 }
 
 //==================================================================================================
-///
+/// Destroys the RigCellVolumeResultCalculator instance.
 //==================================================================================================
 RigCellVolumeResultCalculator::~RigCellVolumeResultCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigCellVolumeResultCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -50,7 +52,7 @@ bool RigCellVolumeResultCalculator::isMatching( const RigEclipseResultAddress& r
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigCellVolumeResultCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {

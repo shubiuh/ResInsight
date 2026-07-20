@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export surface to tsurf command support.
 
 #include "RicExportSurfaceToTsurfFeature.h"
 

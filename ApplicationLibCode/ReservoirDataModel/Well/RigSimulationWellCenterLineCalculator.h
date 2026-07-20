@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of simulation well center line.
 
 #pragma once
 
@@ -34,6 +36,7 @@ class RigWellResultFrame;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Calculates simulation well center line.
 class RigSimulationWellCenterLineCalculator
 {
 public:

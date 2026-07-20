@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well log las file reservoir-data functionality.
 
 #pragma once
 
@@ -36,6 +38,7 @@ class RimWellLogCurve;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models well log las file for reservoir-data processing.
 class RigWellLogLasFile : public RigWellLogData
 {
 public:

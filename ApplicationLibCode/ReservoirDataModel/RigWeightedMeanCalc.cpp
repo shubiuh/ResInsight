@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements weighted mean calc reservoir-data functionality.
 
 #include "RigWeightedMeanCalc.h"
 
@@ -26,7 +28,7 @@
 #include <cmath> // Needed for HUGE_VAL on Linux
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the weighted mean over cells.
 //--------------------------------------------------------------------------------------------------
 void RigWeightedMeanCalc::weightedMeanOverCells( const std::vector<double>* weights,
                                                  const std::vector<double>* values,

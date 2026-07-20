@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for well path geometry.
 
 #include "RigWellPathGeometryTools.h"
 
@@ -39,6 +41,7 @@ namespace Internal
 {
 
     // Temporary helper function to method removed from Qwt >= 6.2
+    /// Returns or processes lookup.
     int lookup( double x, const QPolygonF& values )
     {
 #if 0
@@ -71,7 +74,7 @@ namespace Internal
     }
 
     //--------------------------------------------------------------------------------------------------
-    ///
+    /// Returns the value.
     //--------------------------------------------------------------------------------------------------
     double value( double x, const QPolygonF& values )
     {
@@ -90,7 +93,7 @@ namespace Internal
     }
 
     //--------------------------------------------------------------------------------------------------
-    ///
+    /// Returns the interpolate undefined normals.
     //--------------------------------------------------------------------------------------------------
     std::vector<cvf::Vec3d> interpolateUndefinedNormals( const cvf::Vec3d&              planeNormal,
                                                          const std::vector<cvf::Vec3d>& normals,
@@ -153,7 +156,7 @@ namespace Internal
     }
 
     //--------------------------------------------------------------------------------------------------
-    ///
+    /// Returns the estimate dominant direction in xy plane.
     //--------------------------------------------------------------------------------------------------
     cvf::Vec3d estimateDominantDirectionInXYPlane( const std::vector<cvf::Vec3d>& vertices )
     {
@@ -221,7 +224,7 @@ namespace Internal
     }
 
     //--------------------------------------------------------------------------------------------------
-    ///
+    /// Creates spline points.
     //--------------------------------------------------------------------------------------------------
     QPolygonF createSplinePoints( const std::vector<double>& originalMdValues, const std::vector<double>& originalTvdValues )
     {
@@ -266,7 +269,7 @@ namespace Internal
     }
 
     //--------------------------------------------------------------------------------------------------
-    ///
+    /// Finds spline segments containing roots.
     //--------------------------------------------------------------------------------------------------
     std::vector<int> findSplineSegmentsContainingRoots( const QPolygonF& points, const std::vector<double>& tvdValuesToInterpolateFrom )
     {
@@ -316,7 +319,7 @@ namespace Internal
 } // namespace Internal
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates line segment normals.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> calculateLineSegmentNormals( const std::vector<cvf::Vec3d>& vertices, double planeAngle )
 {
@@ -472,7 +475,7 @@ std::vector<double> interpolateMdFromTvd( const std::vector<double>& originalMdV
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates azimuth and inclination at md.
 //--------------------------------------------------------------------------------------------------
 std::pair<double, double> calculateAzimuthAndInclinationAtMd( double measuredDepth, const RigWellPath* wellPathGeometry )
 {
@@ -525,7 +528,7 @@ std::pair<double, double> calculateAzimuthAndInclinationAtMd( double measuredDep
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates measured depth.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> calculateMeasuredDepth( const std::vector<cvf::Vec3d>& wellPathPoints, double startMd /*= 0.0 */ )
 {

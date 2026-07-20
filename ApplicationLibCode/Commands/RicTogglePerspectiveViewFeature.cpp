@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements toggle perspective view command support.
 
 #include "RicTogglePerspectiveViewFeature.h"
 

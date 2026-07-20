@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for well log extraction.
 
 #pragma once
 
@@ -28,8 +30,10 @@
 ///
 //==================================================================================================
 
+/// @brief Provides utilities for well log extraction.
 struct RigWellLogExtractionTools
 {
+    /// Returns whether equal depth.
     static bool isEqualDepth( double d1, double d2, const double tolerance )
     {
         double depthDiff = d1 - d2;
@@ -44,8 +48,10 @@ struct RigWellLogExtractionTools
 /// Sorting according to MD first, then Cell Idx, then Leaving before entering cell
 //==================================================================================================
 
+/// @brief Models md cell idx enter leave key for reservoir-data processing.
 struct RigMDCellIdxEnterLeaveKey
 {
+    /// Returns or processes md cell idx enter leave key.
     RigMDCellIdxEnterLeaveKey( double md, size_t cellIdx, bool entering, double tolerance )
         : measuredDepth( md )
         , hexIndex( cellIdx )
@@ -54,12 +60,18 @@ struct RigMDCellIdxEnterLeaveKey
     {
     }
 
+    /// Stores measured depth.
     double measuredDepth;
+    /// Stores hex index.
     size_t hexIndex;
+    /// Stores is entering cell.
     bool   isEnteringCell; // As opposed to leaving.
+    /// Returns whether leaving cell.
     bool   isLeavingCell() const { return !isEnteringCell; }
+    /// Stores tolerance.
     double tolerance;
 
+    /// Implements the operator< operation.
     bool operator<( const RigMDCellIdxEnterLeaveKey& other ) const
     {
         if ( RigWellLogExtractionTools::isEqualDepth( measuredDepth, other.measuredDepth, tolerance ) )
@@ -90,8 +102,10 @@ struct RigMDCellIdxEnterLeaveKey
 /// Sorting according to MD first,then Leaving before entering cell, then Cell Idx,
 //==================================================================================================
 
+/// @brief Models md enter leave cell idx key for reservoir-data processing.
 struct RigMDEnterLeaveCellIdxKey
 {
+    /// Returns or processes md enter leave cell idx key.
     RigMDEnterLeaveCellIdxKey( double md, bool entering, size_t cellIdx, double tolerance )
         : measuredDepth( md )
         , isEnteringCell( entering )
@@ -100,12 +114,18 @@ struct RigMDEnterLeaveCellIdxKey
     {
     }
 
+    /// Stores measured depth.
     double measuredDepth;
+    /// Stores is entering cell.
     bool   isEnteringCell; // As opposed to leaving.
+    /// Returns whether leaving cell.
     bool   isLeavingCell() const { return !isEnteringCell; }
+    /// Stores hex index.
     size_t hexIndex;
+    /// Stores tolerance.
     double tolerance;
 
+    /// Implements the operator< operation.
     bool operator<( const RigMDEnterLeaveCellIdxKey& other ) const
     {
         if ( RigWellLogExtractionTools::isEqualDepth( measuredDepth, other.measuredDepth, tolerance ) )
@@ -129,6 +149,7 @@ struct RigMDEnterLeaveCellIdxKey
         return ( measuredDepth < other.measuredDepth );
     }
 
+    /// Returns whether proper cell enter leave pair.
     static bool isProperCellEnterLeavePair( const RigMDEnterLeaveCellIdxKey& key1, const RigMDEnterLeaveCellIdxKey& key2 )
     {
         return ( key1.hexIndex == key2.hexIndex && key1.isEnteringCell && key2.isLeavingCell() &&

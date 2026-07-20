@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares generation of fault reactivation model generator.
 #pragma once
 
 #include "cvfMatrix4.h"
@@ -36,6 +38,7 @@ class RigGriddedPart3d;
 class RigActiveCellInfo;
 class RigCell;
 
+/// @brief Generates fault reactivation model generator.
 class RigFaultReactivationModelGenerator : cvf::Object
 {
     using FaceType = cvf::StructGridInterface::FaceType;

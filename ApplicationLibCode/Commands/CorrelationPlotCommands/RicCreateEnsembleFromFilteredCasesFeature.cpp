@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create ensemble from filtered cases command support.
 
 #include "RicCreateEnsembleFromFilteredCasesFeature.h"
 

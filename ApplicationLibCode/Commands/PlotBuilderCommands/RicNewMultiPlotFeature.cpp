@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new multi plot command support.
 
 #include "RicNewMultiPlotFeature.h"
 

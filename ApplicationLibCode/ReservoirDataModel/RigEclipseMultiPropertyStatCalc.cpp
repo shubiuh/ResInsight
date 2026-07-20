@@ -16,19 +16,21 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements eclipse multi property stat calc reservoir-data functionality.
 
 #include "RigEclipseMultiPropertyStatCalc.h"
 #include "RigEclipseNativeStatCalc.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseMultiPropertyStatCalc instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseMultiPropertyStatCalc::RigEclipseMultiPropertyStatCalc()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds statistics calculator.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseMultiPropertyStatCalc::addStatisticsCalculator( RigStatisticsCalculator* statisticsCalculator )
 {
@@ -39,7 +41,7 @@ void RigEclipseMultiPropertyStatCalc::addStatisticsCalculator( RigStatisticsCalc
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseMultiPropertyStatCalc::minMaxCellScalarValues( size_t timeStepIndex, double& min, double& max )
 {
@@ -53,7 +55,7 @@ void RigEclipseMultiPropertyStatCalc::minMaxCellScalarValues( size_t timeStepInd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseMultiPropertyStatCalc::posNegClosestToZero( size_t timeStepIndex, double& pos, double& neg )
 {
@@ -67,7 +69,7 @@ void RigEclipseMultiPropertyStatCalc::posNegClosestToZero( size_t timeStepIndex,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value sum and sample count.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseMultiPropertyStatCalc::valueSumAndSampleCount( size_t timeStepIndex, double& valueSum, size_t& sampleCount )
 {
@@ -81,7 +83,7 @@ void RigEclipseMultiPropertyStatCalc::valueSumAndSampleCount( size_t timeStepInd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds data to histogram calculator.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseMultiPropertyStatCalc::addDataToHistogramCalculator( size_t timeStepIndex, RigHistogramCalculator& histogramCalculator )
 {
@@ -95,7 +97,7 @@ void RigEclipseMultiPropertyStatCalc::addDataToHistogramCalculator( size_t timeS
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseMultiPropertyStatCalc::uniqueValues( size_t timeStepIndex, std::set<int>& values )
 {
@@ -109,7 +111,7 @@ void RigEclipseMultiPropertyStatCalc::uniqueValues( size_t timeStepIndex, std::s
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step count.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseMultiPropertyStatCalc::timeStepCount()
 {
@@ -122,7 +124,7 @@ size_t RigEclipseMultiPropertyStatCalc::timeStepCount()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds native statistics calculator.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseMultiPropertyStatCalc::addNativeStatisticsCalculator( RigCaseCellResultsData*        cellResultsData,
                                                                      const RigEclipseResultAddress& eclipseResultAddress )

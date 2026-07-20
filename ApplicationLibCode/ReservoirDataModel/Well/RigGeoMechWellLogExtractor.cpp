@@ -18,8 +18,10 @@
 /////////////////////////////////////////////////////////////////////////////////
 
 //==================================================================================================
-///
+/// Geo-mechanical well-log extraction implementation details.
 //==================================================================================================
+/// @file
+/// @brief Implements extraction of geo mech well log extractor.
 #include "RigGeoMechWellLogExtractor.h"
 
 #include "RiaDefines.h"
@@ -56,7 +58,7 @@ const double RigGeoMechWellLogExtractor::PURE_WATER_DENSITY_GCM3 = 1.0; // g / c
 const double RigGeoMechWellLogExtractor::GRAVITY_ACCEL           = 9.81; // m / s^2
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigGeoMechWellLogExtractor instance.
 //--------------------------------------------------------------------------------------------------
 RigGeoMechWellLogExtractor::RigGeoMechWellLogExtractor( RigGeoMechCaseData* aCase,
                                                         int                 partId,
@@ -82,7 +84,7 @@ RigGeoMechWellLogExtractor::RigGeoMechWellLogExtractor( RigGeoMechCaseData* aCas
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the perform curve data smoothing.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::performCurveDataSmoothing( int                  timeStepIndex,
                                                             int                  frameIndex,
@@ -255,7 +257,7 @@ QString RigGeoMechWellLogExtractor::curveData( const RigFemResultAddress& resAdd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates wbs parameter for all segments.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigGeoMechWellLogExtractor::WbsParameterSource>
     RigGeoMechWellLogExtractor::calculateWbsParameterForAllSegments( const RigWbsParameter& parameter,
@@ -426,7 +428,7 @@ std::vector<RigGeoMechWellLogExtractor::WbsParameterSource>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates wbs parameter for all segments.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigGeoMechWellLogExtractor::WbsParameterSource>
     RigGeoMechWellLogExtractor::calculateWbsParameterForAllSegments( const RigWbsParameter& parameter,
@@ -444,7 +446,7 @@ std::vector<RigGeoMechWellLogExtractor::WbsParameterSource>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates wbs parameters for all segments.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigGeoMechWellLogExtractor::WbsParameterSource>
     RigGeoMechWellLogExtractor::calculateWbsParametersForAllSegments( const RigFemResultAddress& resAddr,
@@ -465,7 +467,7 @@ std::vector<RigGeoMechWellLogExtractor::WbsParameterSource>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well path angles.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::wellPathAngles( const RigFemResultAddress& resAddr, std::vector<double>* values )
 {
@@ -528,7 +530,7 @@ void RigGeoMechWellLogExtractor::wellPathAngles( const RigFemResultAddress& resA
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well path scaled curve data.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigGeoMechWellLogExtractor::WbsParameterSource>
     RigGeoMechWellLogExtractor::wellPathScaledCurveData( const RigFemResultAddress& resAddr,
@@ -609,7 +611,7 @@ std::vector<RigGeoMechWellLogExtractor::WbsParameterSource>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well bore wall curve data.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::wellBoreWallCurveData( const RigFemResultAddress& resAddr,
                                                         int                        timeStepIndex,
@@ -783,7 +785,7 @@ void RigGeoMechWellLogExtractor::wellBoreWallCurveData( const RigFemResultAddres
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well bore fg shale.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::wellBoreFGShale( const RigWbsParameter& parameter, int timeStepIndex, int frameIndex, std::vector<double>* values )
 {
@@ -816,7 +818,7 @@ void RigGeoMechWellLogExtractor::wellBoreFGShale( const RigWbsParameter& paramet
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well bore fg derived from k0 fg.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::wellBoreFGDerivedFromK0FG( const QString&       ppResult,
                                                             int                  timeStepIndex,
@@ -865,7 +867,7 @@ void RigGeoMechWellLogExtractor::wellBoreFGDerivedFromK0FG( const QString&      
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well bore sh matthews kelly.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::wellBoreSH_MatthewsKelly( int                  timeStepIndex,
                                                            int                  frameIndex,
@@ -910,7 +912,7 @@ void RigGeoMechWellLogExtractor::wellBoreSH_MatthewsKelly( int                  
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the case data.
 //--------------------------------------------------------------------------------------------------
 const RigGeoMechCaseData* RigGeoMechWellLogExtractor::caseData()
 {
@@ -918,7 +920,7 @@ const RigGeoMechCaseData* RigGeoMechWellLogExtractor::caseData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets wbs las values.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::setWbsLasValues( const RigWbsParameter& parameter, const std::vector<std::pair<double, double>>& values )
 {
@@ -926,7 +928,7 @@ void RigGeoMechWellLogExtractor::setWbsLasValues( const RigWbsParameter& paramet
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets wbs parameters source.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::setWbsParametersSource( RigWbsParameter parameter, WbsParameterSource source )
 {
@@ -934,7 +936,7 @@ void RigGeoMechWellLogExtractor::setWbsParametersSource( RigWbsParameter paramet
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets wbs user defined value.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::setWbsUserDefinedValue( RigWbsParameter parameter, double userDefinedValue )
 {
@@ -942,7 +944,7 @@ void RigGeoMechWellLogExtractor::setWbsUserDefinedValue( RigWbsParameter paramet
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parameter input units.
 //--------------------------------------------------------------------------------------------------
 QString RigGeoMechWellLogExtractor::parameterInputUnits( const RigWbsParameter& parameter )
 {
@@ -964,7 +966,7 @@ QString RigGeoMechWellLogExtractor::parameterInputUnits( const RigWbsParameter& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pore pressure source regions.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigGeoMechWellLogExtractor::porePressureSourceRegions( int timeStepIndex, int frameIndex )
 {
@@ -982,7 +984,7 @@ std::vector<double> RigGeoMechWellLogExtractor::porePressureSourceRegions( int t
     return doubleSources;
 }
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the poisson source regions.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigGeoMechWellLogExtractor::poissonSourceRegions( int timeStepIndex, int frameIndex )
 {
@@ -1000,7 +1002,7 @@ std::vector<double> RigGeoMechWellLogExtractor::poissonSourceRegions( int timeSt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ucs source regions.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigGeoMechWellLogExtractor::ucsSourceRegions( int timeStepIndex, int frameIndex )
 {
@@ -1018,7 +1020,7 @@ std::vector<double> RigGeoMechWellLogExtractor::ucsSourceRegions( int timeStepIn
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the interpolate grid result value.
 //--------------------------------------------------------------------------------------------------
 template <typename T>
 T RigGeoMechWellLogExtractor::interpolateGridResultValue( RigFemResultPosEnum   resultPosType,
@@ -1112,7 +1114,7 @@ T RigGeoMechWellLogExtractor::interpolateGridResultValue( RigFemResultPosEnum   
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid result index face.
 //--------------------------------------------------------------------------------------------------
 size_t RigGeoMechWellLogExtractor::gridResultIndexFace( size_t elementIdx, cvf::StructGridInterface::FaceType cellFace, int faceLocalNodeIdx ) const
 {
@@ -1121,7 +1123,7 @@ size_t RigGeoMechWellLogExtractor::gridResultIndexFace( size_t elementIdx, cvf::
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates intersection.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::calculateIntersection()
 {
@@ -1183,7 +1185,7 @@ void RigGeoMechWellLogExtractor::calculateIntersection()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds close cells.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigGeoMechWellLogExtractor::findCloseCells( const cvf::BoundingBox& bb )
 {
@@ -1196,7 +1198,7 @@ std::vector<size_t> RigGeoMechWellLogExtractor::findCloseCells( const cvf::Bound
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates length in cell.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigGeoMechWellLogExtractor::calculateLengthInCell( size_t cellIndex, const cvf::Vec3d& startPoint, const cvf::Vec3d& endPoint ) const
 {
@@ -1219,7 +1221,7 @@ cvf::Vec3d RigGeoMechWellLogExtractor::calculateLengthInCell( size_t cellIndex, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates well path tangent.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigGeoMechWellLogExtractor::calculateWellPathTangent( int64_t intersectionIdx, WellPathTangentCalculation calculationType ) const
 {
@@ -1246,7 +1248,7 @@ cvf::Vec3d RigGeoMechWellLogExtractor::calculateWellPathTangent( int64_t interse
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the transform tensor to well path orientation.
 //--------------------------------------------------------------------------------------------------
 caf::Ten3d RigGeoMechWellLogExtractor::transformTensorToWellPathOrientation( const cvf::Vec3d& wellPathTangent, const caf::Ten3d& tensor )
 {
@@ -1261,7 +1263,7 @@ caf::Ten3d RigGeoMechWellLogExtractor::transformTensorToWellPathOrientation( con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell centroid.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3f RigGeoMechWellLogExtractor::cellCentroid( size_t intersectionIdx ) const
 {
@@ -1283,7 +1285,7 @@ cvf::Vec3f RigGeoMechWellLogExtractor::cellCentroid( size_t intersectionIdx ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns well log intersection value.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::getWellLogIntersectionValue( size_t                                        intersectionIdx,
                                                                 const std::vector<std::pair<double, double>>& wellLogValues ) const
@@ -1336,7 +1338,7 @@ double RigGeoMechWellLogExtractor::getWellLogIntersectionValue( size_t          
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pascal to bar.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::pascalToBar( double pascalValue )
 {
@@ -1344,7 +1346,7 @@ double RigGeoMechWellLogExtractor::pascalToBar( double pascalValue )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the average intersection values to segment value.
 //--------------------------------------------------------------------------------------------------
 template <typename T>
 bool RigGeoMechWellLogExtractor::averageIntersectionValuesToSegmentValue( size_t                intersectionIdx,
@@ -1392,7 +1394,7 @@ bool RigGeoMechWellLogExtractor::averageIntersectionValuesToSegmentValue( size_t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the interpolate interface values.
 //--------------------------------------------------------------------------------------------------
 template <typename T>
 std::vector<T> RigGeoMechWellLogExtractor::interpolateInterfaceValues( RigFemResultAddress   nativeAddr,
@@ -1431,7 +1433,7 @@ std::vector<T> RigGeoMechWellLogExtractor::interpolateInterfaceValues( RigFemRes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the initialize result values.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::initializeResultValues( std::vector<float>& resultValues, size_t resultCount )
 {
@@ -1439,7 +1441,7 @@ void RigGeoMechWellLogExtractor::initializeResultValues( std::vector<float>& res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the initialize result values.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::initializeResultValues( std::vector<caf::Ten3d>& resultValues, size_t resultCount )
 {
@@ -1447,7 +1449,7 @@ void RigGeoMechWellLogExtractor::initializeResultValues( std::vector<caf::Ten3d>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the smooth segments.
 //--------------------------------------------------------------------------------------------------
 void RigGeoMechWellLogExtractor::smoothSegments( std::vector<double>*              mds,
                                                  std::vector<double>*              tvds,
@@ -1536,7 +1538,7 @@ std::vector<unsigned char> RigGeoMechWellLogExtractor::determineFilteringOrSmoot
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the hydro static pore pressure for intersection.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::hydroStaticPorePressureForIntersection( size_t intersectionIdx, double waterDensityGCM3 ) const
 {
@@ -1546,7 +1548,7 @@ double RigGeoMechWellLogExtractor::hydroStaticPorePressureForIntersection( size_
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the hydro static pore pressure for segment.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::hydroStaticPorePressureForSegment( size_t intersectionIdx, double waterDensityGCM3 ) const
 {
@@ -1557,7 +1559,7 @@ double RigGeoMechWellLogExtractor::hydroStaticPorePressureForSegment( size_t int
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the hydro static pore pressure at depth.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::hydroStaticPorePressureAtDepth( double effectiveDepthMeters, double waterDensityGCM3 )
 {
@@ -1567,7 +1569,7 @@ double RigGeoMechWellLogExtractor::hydroStaticPorePressureAtDepth( double effect
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the wbs curve values at msl.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::wbsCurveValuesAtMsl() const
 {
@@ -1588,7 +1590,7 @@ double RigGeoMechWellLogExtractor::wbsCurveValuesAtMsl() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigGeoMechWellLogExtractor::isValid( double value )
 {
@@ -1596,7 +1598,7 @@ bool RigGeoMechWellLogExtractor::isValid( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigGeoMechWellLogExtractor::isValid( float value )
 {
@@ -1604,7 +1606,7 @@ bool RigGeoMechWellLogExtractor::isValid( float value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates water depth.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::calculateWaterDepth() const
 {
@@ -1627,7 +1629,7 @@ double RigGeoMechWellLogExtractor::calculateWaterDepth() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the estimate water depth.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::estimateWaterDepth() const
 {
@@ -1638,7 +1640,7 @@ double RigGeoMechWellLogExtractor::estimateWaterDepth() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the water depth.
 //--------------------------------------------------------------------------------------------------
 double RigGeoMechWellLogExtractor::waterDepth() const
 {
@@ -1646,7 +1648,7 @@ double RigGeoMechWellLogExtractor::waterDepth() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the part id.
 //--------------------------------------------------------------------------------------------------
 int RigGeoMechWellLogExtractor::partId() const
 {
@@ -1654,7 +1656,7 @@ int RigGeoMechWellLogExtractor::partId() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the valid.
 //--------------------------------------------------------------------------------------------------
 bool RigGeoMechWellLogExtractor::valid() const
 {

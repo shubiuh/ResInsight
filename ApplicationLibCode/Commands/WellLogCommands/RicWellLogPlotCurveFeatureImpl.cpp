@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well log plot curve command support.
 
 #include "RicWellLogPlotCurveFeatureImpl.h"
 

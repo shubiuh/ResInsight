@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reservoir builder mock reservoir-data functionality.
 
 #include "RigReservoirBuilderMock.h"
 
@@ -37,7 +39,7 @@
 #include <ctime>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigReservoirBuilderMock instance.
 //--------------------------------------------------------------------------------------------------
 RigReservoirBuilderMock::RigReservoirBuilderMock()
 {
@@ -47,7 +49,7 @@ RigReservoirBuilderMock::RigReservoirBuilderMock()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets cell counts.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::setCellCounts( const cvf::Vec3st& cellCounts )
 {
@@ -55,7 +57,7 @@ void RigReservoirBuilderMock::setCellCounts( const cvf::Vec3st& cellCounts )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets result info.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::setResultInfo( size_t resultCount, size_t timeStepCount )
 {
@@ -64,7 +66,7 @@ void RigReservoirBuilderMock::setResultInfo( size_t resultCount, size_t timeStep
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Populates reservoir.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::populateReservoir( RigEclipseCaseData* eclipseCase )
 {
@@ -86,7 +88,7 @@ void RigReservoirBuilderMock::populateReservoir( RigEclipseCaseData* eclipseCase
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds local grid refinement.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::addLocalGridRefinement( const cvf::Vec3st& mainGridStart,
                                                       const cvf::Vec3st& mainGridEnd,
@@ -96,7 +98,7 @@ void RigReservoirBuilderMock::addLocalGridRefinement( const cvf::Vec3st& mainGri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets world coordinates.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::setWorldCoordinates( cvf::Vec3d minWorldCoordinate, cvf::Vec3d maxWorldCoordinate )
 {
@@ -104,7 +106,7 @@ void RigReservoirBuilderMock::setWorldCoordinates( cvf::Vec3d minWorldCoordinate
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the input property.
 //--------------------------------------------------------------------------------------------------
 bool RigReservoirBuilderMock::inputProperty( RigEclipseCaseData* eclipseCase, const QString& propertyName, std::vector<double>* values )
 {
@@ -125,7 +127,7 @@ bool RigReservoirBuilderMock::inputProperty( RigEclipseCaseData* eclipseCase, co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the static result.
 //--------------------------------------------------------------------------------------------------
 bool RigReservoirBuilderMock::staticResult( RigEclipseCaseData* eclipseCase, const QString& result, std::vector<double>* values )
 {
@@ -141,7 +143,7 @@ bool RigReservoirBuilderMock::staticResult( RigEclipseCaseData* eclipseCase, con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the dynamic result.
 //--------------------------------------------------------------------------------------------------
 bool RigReservoirBuilderMock::dynamicResult( RigEclipseCaseData* eclipseCase, const QString& result, size_t stepIndex, std::vector<double>* values )
 {
@@ -176,7 +178,7 @@ bool RigReservoirBuilderMock::dynamicResult( RigEclipseCaseData* eclipseCase, co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds well data.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::addWellData( RigEclipseCaseData* eclipseCase, RigGridBase* grid )
 {
@@ -296,7 +298,7 @@ void RigReservoirBuilderMock::addWellData( RigEclipseCaseData* eclipseCase, RigG
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds faults.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::addFaults( RigEclipseCaseData* eclipseCase )
 {
@@ -372,7 +374,7 @@ void RigReservoirBuilderMock::addFaults( RigEclipseCaseData* eclipseCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the enable well data.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::enableWellData( bool enableWellData )
 {
@@ -380,7 +382,7 @@ void RigReservoirBuilderMock::enableWellData( bool enableWellData )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds nnc.
 //--------------------------------------------------------------------------------------------------
 void RigReservoirBuilderMock::addNnc( RigMainGrid* grid, size_t i1, size_t j1, size_t k1, size_t i2, size_t j2, size_t k2, RigConnectionContainer& nncConnections )
 {

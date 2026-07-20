@@ -15,16 +15,19 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export command support.
 
 #pragma once
 
 class QDialogButtonBox;
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for export commands.
 //==================================================================================================
 class RicExportFeatureImpl
 {
 public:
+    /// Configures for export.
     static void configureForExport( QDialogButtonBox* propertyViewDialog );
 };

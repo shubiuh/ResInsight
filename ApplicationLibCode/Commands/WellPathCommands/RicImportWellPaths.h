@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import well paths command support.
 
 #pragma once
 
@@ -32,22 +34,28 @@
 class RimWellPath;
 
 //==================================================================================================
-///
+/// @brief Supports import well paths command workflows.
 //==================================================================================================
 class RicImportWellPaths : public caf::CmdFeature, public RicfCommandObject
 {
     RICF_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicImportWellPaths();
+    /// Executes command support.
     caf::PdmScriptResponse execute() override;
 
+    /// Imports well paths.
     static std::vector<RimWellPath*> importWellPaths( const QStringList& wellPathFilePaths, QStringList* errorMessages );
 
 protected:
+    /// @return The well path name filters.
     static QStringList wellPathNameFilters();
 
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 protected:

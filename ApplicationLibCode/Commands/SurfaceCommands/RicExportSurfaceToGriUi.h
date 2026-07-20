@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export surface to gri command support.
 
 #pragma once
 
@@ -38,15 +40,21 @@ public:
         IRAP
     };
 
+    /// Constructs the command object.
     RicExportSurfaceToGriUi();
 
+    /// Sets defaults.
     void setDefaults( const QString& exportFolder, int nx, int ny, double originX, double originY, double incrementX, double incrementY );
 
+    /// @return The grid params.
     RigRegularSurfaceData gridParams() const;
+    /// Exports folder.
     QString               exportFolder() const;
+    /// Exports format.
     ExportFormat          exportFormat() const;
 
 protected:
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 
 private:

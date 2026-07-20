@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new summary curve command support.
 
 #include "RicNewSummaryCurveFeature.h"
 

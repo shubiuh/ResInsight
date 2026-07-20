@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements saturation pressure command support.
 
 #include "RicSaturationPressureUi.h"
 

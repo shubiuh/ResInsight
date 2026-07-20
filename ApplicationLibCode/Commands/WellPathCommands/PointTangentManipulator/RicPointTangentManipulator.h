@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares point tangent manipulator command support.
 
 #pragma once
 
@@ -24,12 +26,14 @@
 #include <QObject>
 #include <QPointer>
 
+/// @brief Utilities for cvf command workflows.
 namespace cvf
 {
 class Model;
 class ModelBasicList;
 }; // namespace cvf
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class Viewer;
@@ -43,27 +47,39 @@ class RicPointTangentManipulatorPartMgr;
 //
 //
 //==================================================================================================
+/// @brief Supports point tangent manipulator command workflows.
 class RicPointTangentManipulator : public QObject
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     explicit RicPointTangentManipulator( caf::Viewer* viewer );
+    /// Destroys the command object.
     ~RicPointTangentManipulator() override;
 
+    /// Sets origin.
     void setOrigin( const cvf::Vec3d& origin );
+    /// Sets tangent.
     void setTangent( const cvf::Vec3d& tangent );
+    /// Sets handle size.
     void setHandleSize( double handleSize );
+    /// Sets polyline.
     void setPolyline( const std::vector<cvf::Vec3d>& polyline );
 
+    /// Appends parts to model.
     void appendPartsToModel( cvf::ModelBasicList* model );
 
 signals:
+    /// Performs the notify selected command operation.
     void notifySelected();
+    /// Performs the notify drag finished command operation.
     void notifyDragFinished();
+    /// Performs the notify update command operation.
     void notifyUpdate( const cvf::Vec3d& origin, const cvf::Vec3d& tangent );
 
 protected:
+    /// @return The event filter.
     bool eventFilter( QObject* obj, QEvent* event ) override;
 
 private:

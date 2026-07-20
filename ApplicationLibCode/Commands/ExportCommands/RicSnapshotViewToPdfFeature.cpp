@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements snapshot view to PDF command support.
 
 #include "RicSnapshotViewToPdfFeature.h"
 

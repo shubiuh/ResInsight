@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements edit summary plot command support.
 
 #include "RicEditSummaryPlotFeature.h"
 

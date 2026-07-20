@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements collapse siblings command support.
 
 #include "RicCollapseSiblingsFeature.h"
 

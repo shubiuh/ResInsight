@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new parameter result cross plot command support.
 
 #include "RicNewParameterResultCrossPlotFeature.h"
 

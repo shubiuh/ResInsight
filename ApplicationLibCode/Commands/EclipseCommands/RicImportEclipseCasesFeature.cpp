@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import Eclipse cases command support.
 
 #include "RicImportEclipseCasesFeature.h"
 

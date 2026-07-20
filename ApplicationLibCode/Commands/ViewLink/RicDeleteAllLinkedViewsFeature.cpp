@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete all linked views command support.
 
 #include "RicDeleteAllLinkedViewsFeature.h"
 

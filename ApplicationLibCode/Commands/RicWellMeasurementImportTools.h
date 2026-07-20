@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well measurement import command support.
 
 #pragma once
 
@@ -26,17 +28,22 @@ class RimWellPathCollection;
 class RimWellMeasurementFilePath;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Utility functions for well measurement import.
 //--------------------------------------------------------------------------------------------------
 class RicWellMeasurementImportTools
 {
 public:
+    /// Imports well measurements from files.
     static void importWellMeasurementsFromFiles( const std::vector<RimWellMeasurementFilePath*>& filePaths );
+    /// Removes or clears well measurements from files.
     static void removeWellMeasurementsFromFiles( const std::vector<RimWellMeasurementFilePath*>& filePaths );
+    /// Removes or clears all empty measurement curves.
     static void deleteAllEmptyMeasurementCurves();
 
+    /// Imports well measurements from files.
     static void importWellMeasurementsFromFiles( const QStringList& filePaths, RimWellPathCollection* wellPathCollection );
 
+    /// @return The selected well path collection.
     static RimWellPathCollection* selectedWellPathCollection();
 
 private:

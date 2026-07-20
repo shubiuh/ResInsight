@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of msw table data.
 
 #include "RigMswTableData.h"
 
 #include <algorithm>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigMswTableData instance.
 //--------------------------------------------------------------------------------------------------
 RigMswTableData::RigMswTableData( const std::string& wellName, RiaDefines::EclipseUnitSystem unitSystem )
     : m_wellName( wellName )
@@ -30,7 +32,7 @@ RigMswTableData::RigMswTableData( const std::string& wellName, RiaDefines::Eclip
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets welsegs header.
 //--------------------------------------------------------------------------------------------------
 void RigMswTableData::setWelsegsHeader( const WelsegsHeader& header )
 {
@@ -38,7 +40,7 @@ void RigMswTableData::setWelsegsHeader( const WelsegsHeader& header )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds welsegs row.
 //--------------------------------------------------------------------------------------------------
 void RigMswTableData::addWelsegsRow( const WelsegsRow& row )
 {
@@ -46,7 +48,7 @@ void RigMswTableData::addWelsegsRow( const WelsegsRow& row )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds compsegs row.
 //--------------------------------------------------------------------------------------------------
 void RigMswTableData::addCompsegsRow( const CompsegsRow& row )
 {
@@ -54,7 +56,7 @@ void RigMswTableData::addCompsegsRow( const CompsegsRow& row )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds wsegvalv row.
 //--------------------------------------------------------------------------------------------------
 void RigMswTableData::addWsegvalvRow( const WsegvalvRow& row )
 {
@@ -62,7 +64,7 @@ void RigMswTableData::addWsegvalvRow( const WsegvalvRow& row )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds wsegaicd row.
 //--------------------------------------------------------------------------------------------------
 void RigMswTableData::addWsegaicdRow( const WsegaicdRow& row )
 {
@@ -70,7 +72,7 @@ void RigMswTableData::addWsegaicdRow( const WsegaicdRow& row )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds wsegsicd row.
 //--------------------------------------------------------------------------------------------------
 void RigMswTableData::addWsegsicdRow( const WsegsicdRow& row )
 {
@@ -78,7 +80,7 @@ void RigMswTableData::addWsegsicdRow( const WsegsicdRow& row )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds msw branch.
 //--------------------------------------------------------------------------------------------------
 void RigMswTableData::addMswBranch( RigMswBranch branch )
 {
@@ -86,7 +88,7 @@ void RigMswTableData::addMswBranch( RigMswBranch branch )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the msw branches.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RigMswBranch>& RigMswTableData::mswBranches() const
 {
@@ -94,7 +96,7 @@ const std::vector<RigMswBranch>& RigMswTableData::mswBranches() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether lgr data is available.
 //--------------------------------------------------------------------------------------------------
 bool RigMswTableData::hasLgrData() const
 {
@@ -102,7 +104,7 @@ bool RigMswTableData::hasLgrData() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether empty.
 //--------------------------------------------------------------------------------------------------
 bool RigMswTableData::isEmpty() const
 {
@@ -110,7 +112,7 @@ bool RigMswTableData::isEmpty() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the main grid compsegs data.
 //--------------------------------------------------------------------------------------------------
 std::vector<CompsegsRow> RigMswTableData::mainGridCompsegsData() const
 {
@@ -123,7 +125,7 @@ std::vector<CompsegsRow> RigMswTableData::mainGridCompsegsData() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the lgr compsegs data.
 //--------------------------------------------------------------------------------------------------
 std::vector<CompsegsRow> RigMswTableData::lgrCompsegsData() const
 {
@@ -136,7 +138,7 @@ std::vector<CompsegsRow> RigMswTableData::lgrCompsegsData() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigMswTableData::isValid() const
 {
@@ -144,7 +146,7 @@ bool RigMswTableData::isValid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the validation errors.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigMswTableData::validationErrors() const
 {

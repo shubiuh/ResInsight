@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of eclipse to stim plan.
 
 #include "RigEclipseToStimPlanCalculator.h"
 
@@ -45,7 +47,7 @@
 #include "RimThermalFractureTemplate.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseToStimPlanCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseToStimPlanCalculator::RigEclipseToStimPlanCalculator( const RimEclipseCase*  caseToApply,
                                                                 cvf::Mat4d             fractureTransform,
@@ -64,7 +66,7 @@ RigEclipseToStimPlanCalculator::RigEclipseToStimPlanCalculator( const RimEclipse
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseToStimPlanCalculator::computeValues()
 {
@@ -173,10 +175,11 @@ void RigEclipseToStimPlanCalculator::computeValues()
     }
 }
 
+/// Type alias used for cell idx space.
 using CellIdxSpace = RigTransmissibilityCondenser::CellAddress;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends data to transmissibility condenser.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseToStimPlanCalculator::appendDataToTransmissibilityCondenser( bool                          useFiniteConductivityInFracture,
                                                                             RigTransmissibilityCondenser* condenser ) const
@@ -210,7 +213,7 @@ void RigEclipseToStimPlanCalculator::appendDataToTransmissibilityCondenser( bool
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total eclipse area open for flow.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseToStimPlanCalculator::totalEclipseAreaOpenForFlow() const
 {
@@ -227,7 +230,7 @@ double RigEclipseToStimPlanCalculator::totalEclipseAreaOpenForFlow() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the area weighted matrix permeability.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseToStimPlanCalculator::areaWeightedMatrixPermeability() const
 {
@@ -251,7 +254,7 @@ double RigEclipseToStimPlanCalculator::areaWeightedMatrixPermeability() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the area weighted width.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseToStimPlanCalculator::areaWeightedWidth() const
 {
@@ -296,7 +299,7 @@ double RigEclipseToStimPlanCalculator::areaWeightedWidth() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the area weighted conductivity.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseToStimPlanCalculator::areaWeightedConductivity() const
 {
@@ -317,7 +320,7 @@ double RigEclipseToStimPlanCalculator::areaWeightedConductivity() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the longest y section open for flow.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseToStimPlanCalculator::longestYSectionOpenForFlow() const
 {

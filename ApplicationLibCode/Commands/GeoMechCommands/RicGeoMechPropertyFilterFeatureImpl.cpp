@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements geo mech property filter command support.
 
 #include "RicGeoMechPropertyFilterFeatureImpl.h"
 #include "RicEclipsePropertyFilterFeatureImpl.h"

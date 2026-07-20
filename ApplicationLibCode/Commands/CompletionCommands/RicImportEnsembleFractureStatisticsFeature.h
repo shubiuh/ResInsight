@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import ensemble fracture statistics command support.
 
 #pragma once
 
@@ -25,7 +27,7 @@
 #include <QString>
 
 //==================================================================================================
-///
+/// @brief Command feature for import ensemble fracture statistics.
 //==================================================================================================
 class RicImportEnsembleFractureStatisticsFeature : public caf::CmdFeature
 {
@@ -34,13 +36,17 @@ class RicImportEnsembleFractureStatisticsFeature : public caf::CmdFeature
 public:
     RicImportEnsembleFractureStatisticsFeature() {}
 
+    /// @return The run recursive file search.
     static std::pair<QStringList, RiaDefines::EnsembleGroupingMode> runRecursiveFileSearchDialog( const QString& dialogTitle,
                                                                                                   const QString& pathCacheName );
 
 protected:
+    /// Imports single ensemble fracture statistics.
     static void importSingleEnsembleFractureStatistics( const QStringList& fileNames );
 
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:

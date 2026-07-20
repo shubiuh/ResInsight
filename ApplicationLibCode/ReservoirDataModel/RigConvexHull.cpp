@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements convex hull reservoir-data functionality.
 
 #include "RigConvexHull.h"
 
 #include <algorithm>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the compute2d.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigConvexHull::compute2d( const std::vector<cvf::Vec3d>& points )
 {
@@ -55,7 +57,7 @@ std::vector<cvf::Vec3d> RigConvexHull::compute2d( const std::vector<cvf::Vec3d>&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sort points.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigConvexHull::sortPoints( const std::vector<cvf::Vec3d>& unsorted )
 {
@@ -68,7 +70,7 @@ std::vector<cvf::Vec3d> RigConvexHull::sortPoints( const std::vector<cvf::Vec3d>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removes points without convex angle.
 //--------------------------------------------------------------------------------------------------
 void RigConvexHull::removePointsWithoutConvexAngle( std::vector<cvf::Vec3d>& points, const cvf::Vec3d& current )
 {

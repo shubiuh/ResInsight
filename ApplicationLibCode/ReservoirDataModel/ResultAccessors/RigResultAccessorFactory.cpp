@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements result accessor factory reservoir-data functionality.
 
 #include "RigResultAccessorFactory.h"
 
@@ -40,7 +42,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates from result definition.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RigResultAccessor> RigResultAccessorFactory::createFromResultDefinition( const RigEclipseCaseData*         eclipseCase,
                                                                                   size_t                            gridIndex,
@@ -76,7 +78,7 @@ cvf::ref<RigResultAccessor> RigResultAccessorFactory::createFromResultDefinition
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates from result address.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RigResultAccessor> RigResultAccessorFactory::createFromResultAddress( const RigEclipseCaseData*      eclipseCase,
                                                                                size_t                         gridIndex,
@@ -118,7 +120,7 @@ cvf::ref<RigResultAccessor> RigResultAccessorFactory::createFromResultAddress( c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates combined result accessor.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RigResultAccessor> RigResultAccessorFactory::createCombinedResultAccessor( const RigEclipseCaseData*      eclipseCase,
                                                                                     size_t                         gridIndex,
@@ -321,7 +323,7 @@ cvf::ref<RigResultAccessor> RigResultAccessorFactory::createCombinedResultAccess
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates native from result address.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RigResultAccessor> RigResultAccessorFactory::createNativeFromResultAddress( const RigEclipseCaseData*      eclipseCase,
                                                                                      size_t                         gridIndex,

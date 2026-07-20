@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements equil reservoir-data functionality.
 
 #include "RigEquil.h"
 
@@ -23,7 +25,7 @@
 #include <QStringList>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEquil instance.
 //--------------------------------------------------------------------------------------------------
 RigEquil::RigEquil( double datumDepth,
                     double datumDepthPressure,
@@ -92,7 +94,7 @@ int RigEquil::initializationTargetAccuracy() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the default object.
 //--------------------------------------------------------------------------------------------------
 RigEquil RigEquil::defaultObject()
 {
@@ -118,7 +120,7 @@ RigEquil RigEquil::defaultObject()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parse string.
 //--------------------------------------------------------------------------------------------------
 RigEquil RigEquil::parseString( const QString& keywordData )
 {

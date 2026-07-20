@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares show contributing wells command support.
 
 #pragma once
 
@@ -29,16 +31,19 @@ class RimFlowDiagSolution;
 class RimSimWellInView;
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for show contributing wells commands.
 //==================================================================================================
 class RicShowContributingWellsFeatureImpl
 {
 public:
+    /// @return The manipulate selected view.
     static RimEclipseView* manipulateSelectedView( RimEclipseResultCase* wellAllocationResultCase, QString wellName, int timeStep );
 
 private:
+    /// Performs the modify view to show contributing wells command operation.
     static void modifyViewToShowContributingWells( RimEclipseView* viewToModify, const QString& wellName, int timeStep );
 
+    /// @return The matching contributing tracer names.
     static std::vector<QString>
         findContributingTracerNames( const RimFlowDiagSolution* flowDiagSolution, const RigSimWellData* wellResults, int timeStep );
 };

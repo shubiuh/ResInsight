@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste well log track command support.
 
 #include "RicPasteWellLogTrackFeature.h"
 

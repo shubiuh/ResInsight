@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares Eclipse cell result to file command support.
 
 #pragma once
 
@@ -29,11 +31,12 @@ class RimEclipseResultDefinition;
 class RigResultAccessor;
 
 //==================================================================================================
-///
+/// @brief Supports Eclipse cell result to file command workflows.
 //==================================================================================================
 class RicEclipseCellResultToFileImpl
 {
 public:
+    /// Writes property to text file.
     static bool writePropertyToTextFile( const QString&      fileName,
                                          RigEclipseCaseData* eclipseCase,
                                          size_t              timeStep,
@@ -43,6 +46,7 @@ public:
                                          bool                writeEchoKeywords,
                                          QString*            errorMsg );
 
+    /// Writes binary result to text file.
     static bool writeBinaryResultToTextFile( const QString&              fileName,
                                              RigEclipseCaseData*         eclipseCase,
                                              size_t                      timeStep,
@@ -53,6 +57,7 @@ public:
                                              bool                        writeEchoKeywords,
                                              QString*                    errorMsg );
 
+    /// Writes result to text file.
     static bool writeResultToTextFile( const QString&      fileName,
                                        RigEclipseCaseData* eclipseCase,
                                        RigResultAccessor*  resultAccessor,
@@ -62,6 +67,7 @@ public:
                                        bool                writeEchoKeywords,
                                        QString*            errorMsg );
 
+    /// Writes data to text file.
     static void writeDataToTextFile( QFile*                     file,
                                      bool                       writeEchoKeywords,
                                      const QString&             eclipseKeyword,

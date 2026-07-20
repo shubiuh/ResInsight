@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of acc well flow.
 
 #pragma once
 
@@ -32,9 +34,11 @@
 class RigMainGrid;
 class RigActiveCellInfo;
 
+/// @brief Calculates ecl cell index.
 class RigEclCellIndexCalculator
 {
 public:
+    /// Returns or processes ecl cell index calculator.
     RigEclCellIndexCalculator( const RigMainGrid* mainGrid, const RigActiveCellInfo* activeCellInfo, const cvf::UByteArray* cellVisibilities )
         : m_mainGrid( mainGrid )
         , m_activeCellInfo( activeCellInfo )
@@ -62,6 +66,7 @@ private:
 
 struct RigWellResultPoint;
 
+/// @brief Calculates acc well flow.
 class RigAccWellFlowCalculator
 {
 public:
@@ -90,6 +95,7 @@ public:
     const std::vector<double>& accumulatedTracerFlowPrPseudoLength( const QString& tracerName, size_t branchIdx ) const;
     const std::vector<double>& tracerFlowPrPseudoLength( const QString& tracerName, size_t branchIdx ) const;
 
+    /// Returns or processes tracer names.
     const std::vector<QString>& tracerNames() const { return m_tracerNames; }
 
     std::vector<std::pair<QString, double>> totalTracerFractions() const;
@@ -130,6 +136,7 @@ private:
     bool                                                 m_isProducer;
     bool                                                 m_useTotalWellPhaseRateOnly;
 
+    /// @brief Models branch flow for reservoir-data processing.
     struct BranchFlow
     {
         std::vector<double>                    depthValuesFromTop;

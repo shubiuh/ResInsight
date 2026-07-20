@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares run job command support.
 
 #pragma once
 
@@ -23,16 +25,19 @@
 class RimGenericJob;
 
 //==================================================================================================
-///
+/// @brief Command feature for run job.
 //==================================================================================================
 class RicRunJobFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// @return The run job.
     static bool runJob( RimGenericJob* job );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse property filter insert exec command support.
 
 #include "RicEclipsePropertyFilterInsertExec.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of sim well data.
 
 #pragma once
 
@@ -35,6 +37,7 @@ class RigWellResultFrame;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Stores sim well data.
 class RigSimWellData : public cvf::Object
 {
 public:
@@ -57,9 +60,12 @@ public:
     void computeMappingFromResultTimeIndicesToWellTimeIndices( const std::vector<QDateTime>& resultTimes );
 
 public: // Todo: Clean up this regarding public members and constness etc.
+    /// Stores well name.
     QString m_wellName;
 
+    /// Stores result time step index to well time step index.
     std::vector<size_t>             m_resultTimeStepIndexToWellTimeStepIndex; // Well result timesteps may differ from result timesteps
+    /// Stores well cells time steps.
     std::vector<RigWellResultFrame> m_wellCellsTimeSteps;
 
 private:

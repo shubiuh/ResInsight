@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import VFP data command support.
 
 #include "RicImportVfpDataFeature.h"
 

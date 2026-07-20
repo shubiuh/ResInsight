@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements configuration for simulation input.
 
 #include "RigSimulationInputSettings.h"
 
@@ -23,7 +25,7 @@
 #include "opm/input/eclipse/Deck/DeckRecord.hpp"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigSimulationInputSettings instance.
 //--------------------------------------------------------------------------------------------------
 RigSimulationInputSettings::RigSimulationInputSettings()
     : m_min( caf::VecIjk0::ZERO )
@@ -35,7 +37,7 @@ RigSimulationInputSettings::RigSimulationInputSettings()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min.
 //--------------------------------------------------------------------------------------------------
 caf::VecIjk0 RigSimulationInputSettings::min() const
 {
@@ -43,7 +45,7 @@ caf::VecIjk0 RigSimulationInputSettings::min() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max.
 //--------------------------------------------------------------------------------------------------
 caf::VecIjk0 RigSimulationInputSettings::max() const
 {
@@ -51,7 +53,7 @@ caf::VecIjk0 RigSimulationInputSettings::max() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets min.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setMin( const caf::VecIjk0& min )
 {
@@ -59,7 +61,7 @@ void RigSimulationInputSettings::setMin( const caf::VecIjk0& min )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets max.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setMax( const caf::VecIjk0& max )
 {
@@ -67,7 +69,7 @@ void RigSimulationInputSettings::setMax( const caf::VecIjk0& max )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the validate box.
 //--------------------------------------------------------------------------------------------------
 std::expected<void, QString> RigSimulationInputSettings::validateBox() const
 {
@@ -80,7 +82,7 @@ std::expected<void, QString> RigSimulationInputSettings::validateBox() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the refinement.
 //--------------------------------------------------------------------------------------------------
 const RigRefinement& RigSimulationInputSettings::refinement() const
 {
@@ -88,7 +90,7 @@ const RigRefinement& RigSimulationInputSettings::refinement() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets refinement.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setRefinement( std::unique_ptr<RigRefinement> refinement )
 {
@@ -96,7 +98,7 @@ void RigSimulationInputSettings::setRefinement( std::unique_ptr<RigRefinement> r
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether refinement is available.
 //--------------------------------------------------------------------------------------------------
 bool RigSimulationInputSettings::hasRefinement() const
 {
@@ -104,7 +106,7 @@ bool RigSimulationInputSettings::hasRefinement() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets keywords to remove.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setKeywordsToRemove( const std::vector<std::string>& keywords )
 {
@@ -112,7 +114,7 @@ void RigSimulationInputSettings::setKeywordsToRemove( const std::vector<std::str
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the keywords to remove.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::string>& RigSimulationInputSettings::keywordsToRemove() const
 {
@@ -120,7 +122,7 @@ const std::vector<std::string>& RigSimulationInputSettings::keywordsToRemove() c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the bcprop keywords.
 //--------------------------------------------------------------------------------------------------
 std::vector<Opm::DeckRecord> RigSimulationInputSettings::bcpropKeywords() const
 {
@@ -128,7 +130,7 @@ std::vector<Opm::DeckRecord> RigSimulationInputSettings::bcpropKeywords() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets bcprop keywords.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setBcpropKeywords( const std::vector<Opm::DeckRecord>& keywords )
 {
@@ -136,7 +138,7 @@ void RigSimulationInputSettings::setBcpropKeywords( const std::vector<Opm::DeckR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the boundary condition.
 //--------------------------------------------------------------------------------------------------
 RiaModelExportDefines::BoundaryCondition RigSimulationInputSettings::boundaryCondition() const
 {
@@ -144,7 +146,7 @@ RiaModelExportDefines::BoundaryCondition RigSimulationInputSettings::boundaryCon
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets boundary condition.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setBoundaryCondition( RiaModelExportDefines::BoundaryCondition value )
 {
@@ -152,7 +154,7 @@ void RigSimulationInputSettings::setBoundaryCondition( RiaModelExportDefines::Bo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the porv multiplier.
 //--------------------------------------------------------------------------------------------------
 double RigSimulationInputSettings::porvMultiplier() const
 {
@@ -160,7 +162,7 @@ double RigSimulationInputSettings::porvMultiplier() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets porv multiplier.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setPorvMultiplier( double value )
 {
@@ -168,7 +170,7 @@ void RigSimulationInputSettings::setPorvMultiplier( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the input deck file name.
 //--------------------------------------------------------------------------------------------------
 QString RigSimulationInputSettings::inputDeckFileName() const
 {
@@ -176,7 +178,7 @@ QString RigSimulationInputSettings::inputDeckFileName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets input deck file name.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setInputDeckFileName( const QString& fileName )
 {
@@ -184,7 +186,7 @@ void RigSimulationInputSettings::setInputDeckFileName( const QString& fileName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the output deck file name.
 //--------------------------------------------------------------------------------------------------
 QString RigSimulationInputSettings::outputDeckFileName() const
 {
@@ -192,7 +194,7 @@ QString RigSimulationInputSettings::outputDeckFileName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets output deck file name.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setOutputDeckFileName( const QString& fileName )
 {
@@ -200,7 +202,7 @@ void RigSimulationInputSettings::setOutputDeckFileName( const QString& fileName 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the padding settings.
 //--------------------------------------------------------------------------------------------------
 const RigModelPaddingSettings& RigSimulationInputSettings::paddingSettings() const
 {
@@ -208,7 +210,7 @@ const RigModelPaddingSettings& RigSimulationInputSettings::paddingSettings() con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets padding settings.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationInputSettings::setPaddingSettings( const RigModelPaddingSettings& settings )
 {

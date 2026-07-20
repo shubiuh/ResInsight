@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export completions for temporary lgrs command support.
 
 #include "RicExportCompletionsForTemporaryLgrsFeature.h"
 

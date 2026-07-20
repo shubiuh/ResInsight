@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares command support command support.
 
 #pragma once
 
@@ -28,6 +30,7 @@
 #include "cvfObject.h"
 #include "cvfVector3.h"
 
+/// @brief Utilities for cvf command workflows.
 namespace cvf
 {
 class Part;
@@ -36,7 +39,7 @@ class Part;
 class Rim3dView;
 
 //==================================================================================================
-///
+/// @brief Supports 3D pick event command workflows.
 //==================================================================================================
 class Ric3dPickEvent : public caf::PickEvent
 {
@@ -59,5 +62,6 @@ public:
 class RicDefaultPickEventHandler
 {
 public:
+    /// @return Whether the 3D pick event was handled.
     virtual bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) = 0;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements unstack selected curves command support.
 
 #include "RicUnstackSelectedCurvesFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export sector model command support.
 
 #include "RicExportSectorModelFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reload summary case command support.
 
 #include "RicReloadSummaryCaseFeature.h"
 

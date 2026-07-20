@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import grid model from summary curve command support.
 
 #include "RicImportGridModelFromSummaryCurveFeature.h"
 

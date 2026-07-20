@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements ASCII export well log plot command support.
 
 #include "RicAsciiExportWellLogPlotFeature.h"
 

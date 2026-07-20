@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares set parent well path command support.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 
 #include <vector>
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmOptionItemInfo;
@@ -33,19 +36,25 @@ class PdmOptionItemInfo;
 
 class RimWellPath;
 
+/// @brief UI model for configuring select well path.
 class RicSelectWellPathUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSelectWellPathUi();
 
+    /// Sets well paths.
     void setWellPaths( const std::vector<RimWellPath*>& wellPaths );
+    /// Sets selected well.
     void setSelectedWell( RimWellPath* selectedWell );
 
+    /// @return The well path.
     RimWellPath* wellPath() const;
 
 protected:
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 private:
@@ -54,13 +63,15 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for set parent well path.
 //==================================================================================================
 class RicSetParentWellPathFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

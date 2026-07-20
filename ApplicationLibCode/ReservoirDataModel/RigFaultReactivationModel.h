@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fault reactivation model reservoir-data functionality.
 
 #pragma once
 
@@ -38,13 +40,16 @@ class RigGriddedPart3d;
 class RigFaultReactivationModelGenerator;
 class RimEclipseCase;
 
+/// @brief Models fr model part for reservoir-data processing.
 class RigFRModelPart
 {
 public:
     RigFRModelPart() {};
     ~RigFRModelPart() {};
 
+    /// Stores rect.
     std::vector<cvf::Vec3d>     rect;
+    /// Stores texture.
     cvf::ref<cvf::TextureImage> texture;
 };
 
@@ -52,6 +57,7 @@ public:
 ///
 ///
 //==================================================================================================
+/// @brief Models fault reactivation model for reservoir-data processing.
 class RigFaultReactivationModel : public cvf::Object
 {
     using GridPart = RimFaultReactivation::GridPart;
@@ -60,6 +66,7 @@ public:
     RigFaultReactivationModel();
     ~RigFaultReactivationModel() override;
 
+    /// Returns or processes num model parts.
     static int            numModelParts() { return 10; };
     std::vector<GridPart> allGridParts() const;
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export Eclipse sector model command support.
 
 #pragma once
 
@@ -33,6 +35,7 @@ class RicExportEclipseSectorModelUi;
 class RifOpmFlowDeckFile;
 class RigSimWellData;
 
+/// @brief Utilities for OPM command workflows.
 namespace Opm
 {
 class DeckRecord;
@@ -40,24 +43,33 @@ class DeckKeyword;
 } // namespace Opm
 
 //==================================================================================================
-///
+/// @brief Command feature for export Eclipse sector model.
 //==================================================================================================
 class RicExportEclipseSectorModelFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Performs the open dialog and execute command command operation.
     static void openDialogAndExecuteCommand( RimEclipseView* view );
+    /// Executes command.
     static void executeCommand( RimEclipseView* view, const RicExportEclipseSectorModelUi& exportSettings, const QString& logPrefix );
+    /// @return The selected view.
     static RimEclipseView* selectedView();
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Exports grid.
     static void exportGrid( RimEclipseView* view, const RicExportEclipseSectorModelUi& exportSettings );
+    /// Exports faults.
     static void exportFaults( RimEclipseView* view, const RicExportEclipseSectorModelUi& exportSettings );
+    /// Exports parameters.
     static void exportParameters( RimEclipseView* view, const RicExportEclipseSectorModelUi& exportSettings );
 };

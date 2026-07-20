@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for well target mapping.
 
 #include "RigWellTargetMappingTools.h"
 
@@ -49,7 +51,7 @@
 #include <set>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns value for face.
 //--------------------------------------------------------------------------------------------------
 double RigWellTargetMappingTools::getValueForFace( const std::vector<double>& x,
                                                    const std::vector<double>& y,
@@ -67,7 +69,7 @@ double RigWellTargetMappingTools::getValueForFace( const std::vector<double>& x,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns transmissibility value for face.
 //--------------------------------------------------------------------------------------------------
 double RigWellTargetMappingTools::getTransmissibilityValueForFace( const std::vector<double>& x,
                                                                    const std::vector<double>& y,
@@ -84,7 +86,7 @@ double RigWellTargetMappingTools::getTransmissibilityValueForFace( const std::ve
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns oil vector name.
 //--------------------------------------------------------------------------------------------------
 QString RigWellTargetMappingTools::getOilVectorName( VolumesType volumesType )
 {
@@ -107,7 +109,7 @@ QString RigWellTargetMappingTools::getOilVectorName( VolumesType volumesType )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns gas vector name.
 //--------------------------------------------------------------------------------------------------
 QString RigWellTargetMappingTools::getGasVectorName( VolumesType volumesType )
 {
@@ -130,7 +132,7 @@ QString RigWellTargetMappingTools::getGasVectorName( VolumesType volumesType )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether saturation sufficient.
 //--------------------------------------------------------------------------------------------------
 bool RigWellTargetMappingTools::isSaturationSufficient( VolumeType              volumeType,
                                                         const DataContainer&    data,
@@ -146,7 +148,7 @@ bool RigWellTargetMappingTools::isSaturationSufficient( VolumeType              
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the assign cluster id to cells.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::assignClusterIdToCells( const RigActiveCellInfo&               activeCellInfo,
                                                         const std::vector<ReservoirCellIndex>& cells,
@@ -161,7 +163,7 @@ void RigWellTargetMappingTools::assignClusterIdToCells( const RigActiveCellInfo&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the nnc connection cell and result.
 //--------------------------------------------------------------------------------------------------
 std::list<std::pair<std::pair<ReservoirCellIndex, RigWellTargetMappingTools::CellFaceType>, size_t>>
     RigWellTargetMappingTools::nncConnectionCellAndResult( ReservoirCellIndex cellIdx, RigMainGrid* mainGrid )
@@ -184,7 +186,7 @@ std::list<std::pair<std::pair<ReservoirCellIndex, RigWellTargetMappingTools::Cel
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates dynamic result entry.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::createDynamicResultEntry( RigCaseCellResultsData* resultsData, const RigEclipseResultAddress& address )
 {
@@ -200,7 +202,7 @@ void RigWellTargetMappingTools::createDynamicResultEntry( RigCaseCellResultsData
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates result vector.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::createResultVector( RimEclipseCase&         eclipseCase,
                                                     const QString&          resultName,
@@ -232,7 +234,7 @@ void RigWellTargetMappingTools::createResultVector( RimEclipseCase&         ecli
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates result vector.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::createResultVector( RimEclipseCase&            eclipseCase,
                                                     const QString&             resultName,
@@ -253,7 +255,7 @@ void RigWellTargetMappingTools::createResultVector( RimEclipseCase&            e
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates static result vector.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::createStaticResultVector( RimEclipseCase& eclipseCase, const QString& resultName, const std::vector<int>& intValues )
 {
@@ -280,7 +282,7 @@ void RigWellTargetMappingTools::createStaticResultVector( RimEclipseCase& eclips
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates static result vector.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::createStaticResultVector( RimEclipseCase& eclipseCase, const QString& resultName, const std::vector<double>& values )
 {
@@ -299,7 +301,7 @@ void RigWellTargetMappingTools::createStaticResultVector( RimEclipseCase& eclips
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates result vector if defined.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::createResultVectorIfDefined( RimEclipseCase&            eclipseCase,
                                                              const QString&             resultName,
@@ -320,7 +322,7 @@ void RigWellTargetMappingTools::createResultVectorIfDefined( RimEclipseCase&    
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds start cell.
 //--------------------------------------------------------------------------------------------------
 std::optional<caf::VecIjk0> RigWellTargetMappingTools::findStartCell( RimEclipseCase*            eclipseCase,
                                                                       size_t                     timeStepIdx,
@@ -369,7 +371,7 @@ std::optional<caf::VecIjk0> RigWellTargetMappingTools::findStartCell( RimEclipse
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grow cluster.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::growCluster( RimEclipseCase*            eclipseCase,
                                              const caf::VecIjk0&        startCell,
@@ -398,7 +400,7 @@ void RigWellTargetMappingTools::growCluster( RimEclipseCase*            eclipseC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds candidates.
 //--------------------------------------------------------------------------------------------------
 std::vector<ReservoirCellIndex> RigWellTargetMappingTools::findCandidates( RimEclipseCase*                        eclipseCase,
                                                                            const std::vector<ReservoirCellIndex>& previousCells,
@@ -496,7 +498,7 @@ std::vector<ReservoirCellIndex> RigWellTargetMappingTools::findCandidates( RimEc
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns active cell count.
 //--------------------------------------------------------------------------------------------------
 std::optional<size_t> RigWellTargetMappingTools::getActiveCellCount( RimEclipseCase* eclipseCase )
 {
@@ -507,7 +509,7 @@ std::optional<size_t> RigWellTargetMappingTools::getActiveCellCount( RimEclipseC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Loads vector by name.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>
     RigWellTargetMappingTools::loadVectorByName( RigCaseCellResultsData& resultsData, const QString& resultName, size_t timeStepIdx )
@@ -518,7 +520,7 @@ std::vector<double>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Loads oil vector by name.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellTargetMappingTools::loadOilVectorByName( RigCaseCellResultsData&    resultsData,
                                                                     VolumesType                volumesType,
@@ -567,7 +569,7 @@ std::vector<double> RigWellTargetMappingTools::loadOilVectorByName( RigCaseCellR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Loads gas vector by name.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellTargetMappingTools::loadGasVectorByName( RigCaseCellResultsData&       resultsData,
                                                                     RiaDefines::EclipseUnitSystem unitsType,
@@ -624,7 +626,7 @@ std::vector<double> RigWellTargetMappingTools::loadGasVectorByName( RigCaseCellR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates statistics.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigWellTargetMappingTools::ClusterStatistics> RigWellTargetMappingTools::generateStatistics( RimEclipseCase* eclipseCase,
                                                                                                          const std::vector<double>& pressure,
@@ -721,7 +723,7 @@ std::vector<RigWellTargetMappingTools::ClusterStatistics> RigWellTargetMappingTo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes statistics and create vectors.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::computeStatisticsAndCreateVectors( RimEclipseCase&                         targetCase,
                                                                    const QString&                          resultName,
@@ -775,7 +777,7 @@ void RigWellTargetMappingTools::computeStatisticsAndCreateVectors( RimEclipseCas
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the accumulate results for single case.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMappingTools::accumulateResultsForSingleCase( RimEclipseCase&                                      eclipseCase,
                                                                 RimEclipseCase&                                      targetCase,
@@ -849,7 +851,7 @@ void RigWellTargetMappingTools::accumulateResultsForSingleCase( RimEclipseCase& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes bounding box for result.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox
     RigWellTargetMappingTools::computeBoundingBoxForResult( RimEclipseCase& eclipseCase, const QString& resultName, size_t timeStepIndex )

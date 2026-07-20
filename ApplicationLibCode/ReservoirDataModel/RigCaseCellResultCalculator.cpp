@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of case cell results.
 
 #include "RigCaseCellResultCalculator.h"
 
@@ -36,7 +38,7 @@
 
 #include <algorithm>
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes difference.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultCalculator::computeDifference( RigEclipseCaseData*            sourceCase,
                                                      RiaDefines::PorosityModelType  porosityModel,
@@ -204,7 +206,7 @@ bool RigCaseCellResultCalculator::computeDifference( RigEclipseCaseData*        
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes divide by cell face area.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultCalculator::computeDivideByCellFaceArea( RigMainGrid*                   mainGrid,
                                                                RigEclipseCaseData*            destination,

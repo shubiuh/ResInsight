@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste well log curve command support.
 
 #include "RicPasteWellLogCurveFeature.h"
 #include "RicWellLogPlotCurveFeatureImpl.h"

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create depth adjusted LAS files command support.
 
 #pragma once
 
@@ -37,10 +39,14 @@ class RimWellLogLasFile;
 class LasDepthValueAndIndexPerKLayer
 {
 public:
+    /// Constructs the command object.
     LasDepthValueAndIndexPerKLayer() = default;
 
+    /// Inserts index and value.
     void                     insertIndexAndValue( int kLayer, size_t index, double value );
+    /// @return The index and value pairs.
     std::map<size_t, double> indexAndValuePairs( int kLayer ) const;
+    /// @return Whether K layer.
     bool                     hasKLayer( int kLayer ) const;
 
 private:
@@ -49,10 +55,11 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Utilities for create depth adjusted LAS files command workflows.
 //==================================================================================================
 namespace RicCreateDepthAdjustedLasFilesImpl
 {
+/// @brief Data used to configure or execute index K depth data command workflows.
 struct IndexKDepthData
 {
     double mdTop     = 0.0;
@@ -61,8 +68,10 @@ struct IndexKDepthData
     double tvdBottom = 0.0;
 };
 
+/// Creates index K result accessor.
 cvf::ref<RigResultAccessor> createIndexKResultAccessor( RimEclipseCase* selectedCase );
 
+/// Creates destination wells LAS files.
 void createDestinationWellsLasFiles( RimCase*                        selectedCase,
                                      RimWellPath*                    sourceWell,
                                      RimWellLogLasFile*              soureWellLogFile,
@@ -71,6 +80,7 @@ void createDestinationWellsLasFiles( RimCase*                        selectedCas
                                      const QString&                  exportFolder,
                                      double                          rkbDiff );
 
+/// Creates destination well LAS file.
 void createDestinationWellLasFile( const QString&                                wellName,
                                    const QString&                                caseDescription,
                                    const std::vector<double>&                    mdValues,
@@ -80,20 +90,28 @@ void createDestinationWellLasFile( const QString&                               
                                    const RigWellLogLasFile*                      sourceWellLogData,
                                    const QString&                                exportFolder );
 
+/// Creates depth unit text.
 std::string createDepthUnitText( RiaDefines::DepthUnitType depthUnitType );
+/// Creates depth unit comment.
 std::string createDepthUnitComment( RiaDefines::DepthUnitType depthUnitType );
 
+/// Creates LAS depth index and perc value per K layer from map.
 LasDepthValueAndIndexPerKLayer createLasDepthIndexAndPercValuePerKLayerFromMap( const std::vector<double>&            lasWellDepths,
                                                                                 const std::map<int, IndexKDepthData>& indexKDepthDataMap );
+/// Creates index K depth data map from case.
 std::map<int, IndexKDepthData> createIndexKDepthDataMapFromCase( RimCase* selectedCase, RimWellPath* wellPath );
+/// Creates index K depth data map.
 std::map<int, IndexKDepthData> createIndexKDepthDataMap( cvf::ref<RigEclipseWellLogExtractor> wellExtractor,
                                                          cvf::ref<RigResultAccessor>          indexKResAcc );
+/// Creates index K depth data map.
 std::map<int, IndexKDepthData> createIndexKDepthDataMap( cvf::ref<RigGeoMechWellLogExtractor> wellExtractor );
 
+/// Creates index K depth data map from vectors.
 std::map<int, IndexKDepthData> createIndexKDepthDataMapFromVectors( const std::vector<double>& wellMdValues,
                                                                     const std::vector<double>& wellTvdValues,
                                                                     const std::vector<double>& wellIndexKValues );
 
+/// Creates default property map.
 std::map<QString, std::vector<double>> createDefaultPropertyMap( const std::vector<QString>& selectedProperties,
                                                                  const RigWellLogLasFile*    wellLogFile );
 

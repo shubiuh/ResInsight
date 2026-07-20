@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reload case command support.
 
 #include "RicReloadCaseFeature.h"
 

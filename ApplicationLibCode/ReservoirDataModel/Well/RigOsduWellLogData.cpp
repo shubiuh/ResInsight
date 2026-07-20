@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of osdu well log data.
 
 #include "RigOsduWellLogData.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigOsduWellLogData instance.
 //--------------------------------------------------------------------------------------------------
 RigOsduWellLogData::RigOsduWellLogData()
     : RigWellLogData()
@@ -27,14 +29,14 @@ RigOsduWellLogData::RigOsduWellLogData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigOsduWellLogData instance.
 //--------------------------------------------------------------------------------------------------
 RigOsduWellLogData::~RigOsduWellLogData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well log channel names.
 //--------------------------------------------------------------------------------------------------
 QStringList RigOsduWellLogData::wellLogChannelNames() const
 {
@@ -48,7 +50,7 @@ QStringList RigOsduWellLogData::wellLogChannelNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigOsduWellLogData::depthValues() const
 {
@@ -56,7 +58,7 @@ std::vector<double> RigOsduWellLogData::depthValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvd msl values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigOsduWellLogData::tvdMslValues() const
 {
@@ -64,7 +66,7 @@ std::vector<double> RigOsduWellLogData::tvdMslValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvd rkb values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigOsduWellLogData::tvdRkbValues() const
 {
@@ -73,7 +75,7 @@ std::vector<double> RigOsduWellLogData::tvdRkbValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets values.
 //--------------------------------------------------------------------------------------------------
 void RigOsduWellLogData::setValues( const QString& name, const std::vector<double>& values )
 {
@@ -81,7 +83,7 @@ void RigOsduWellLogData::setValues( const QString& name, const std::vector<doubl
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigOsduWellLogData::values( const QString& name ) const
 {
@@ -90,7 +92,7 @@ std::vector<double> RigOsduWellLogData::values( const QString& name ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether tvd msl channel is available.
 //--------------------------------------------------------------------------------------------------
 bool RigOsduWellLogData::hasTvdMslChannel() const
 {
@@ -98,7 +100,7 @@ bool RigOsduWellLogData::hasTvdMslChannel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether tvd rkb channel is available.
 //--------------------------------------------------------------------------------------------------
 bool RigOsduWellLogData::hasTvdRkbChannel() const
 {
@@ -106,7 +108,7 @@ bool RigOsduWellLogData::hasTvdRkbChannel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigOsduWellLogData::depthUnitString() const
 {
@@ -114,7 +116,7 @@ QString RigOsduWellLogData::depthUnitString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well log channel unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigOsduWellLogData::wellLogChannelUnitString( const QString& wellLogChannelName ) const
 {
@@ -126,7 +128,7 @@ QString RigOsduWellLogData::wellLogChannelUnitString( const QString& wellLogChan
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns missing value.
 //--------------------------------------------------------------------------------------------------
 double RigOsduWellLogData::getMissingValue() const
 {
@@ -134,7 +136,7 @@ double RigOsduWellLogData::getMissingValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the finalize data.
 //--------------------------------------------------------------------------------------------------
 void RigOsduWellLogData::finalizeData()
 {

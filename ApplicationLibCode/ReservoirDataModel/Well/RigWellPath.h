@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path reservoir-data functionality.
 
 #pragma once
 
@@ -33,9 +35,11 @@ class BoundingBox;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models well path for reservoir-data processing.
 class RigWellPath : public cvf::Object, public caf::SignalEmitter
 {
 public:
+    /// Stores object being deleted.
     caf::Signal<> objectBeingDeleted;
 
 public:

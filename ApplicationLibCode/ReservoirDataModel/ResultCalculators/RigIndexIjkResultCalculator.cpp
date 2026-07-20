@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of index ijk results.
 
 #include "RigIndexIjkResultCalculator.h"
 #include "RiaDefines.h"
@@ -26,7 +28,7 @@
 #include "RigMainGrid.h"
 
 //==================================================================================================
-///
+/// Creates a RigIndexIjkResultCalculator instance.
 //==================================================================================================
 RigIndexIjkResultCalculator::RigIndexIjkResultCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -34,14 +36,14 @@ RigIndexIjkResultCalculator::RigIndexIjkResultCalculator( RigCaseCellResultsData
 }
 
 //==================================================================================================
-///
+/// Destroys the RigIndexIjkResultCalculator instance.
 //==================================================================================================
 RigIndexIjkResultCalculator::~RigIndexIjkResultCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigIndexIjkResultCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -52,7 +54,7 @@ bool RigIndexIjkResultCalculator::isMatching( const RigEclipseResultAddress& res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigIndexIjkResultCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {

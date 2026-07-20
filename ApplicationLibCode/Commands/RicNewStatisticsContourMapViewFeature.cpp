@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new statistics contour map view command support.
 
 #include "RicNewStatisticsContourMapViewFeature.h"
 

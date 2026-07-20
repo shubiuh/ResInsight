@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new regular surface command support.
 
 #include "RicNewRegularSurfaceFeature.h"
 

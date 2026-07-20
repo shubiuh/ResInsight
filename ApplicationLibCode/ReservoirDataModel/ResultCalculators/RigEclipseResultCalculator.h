@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of eclipse results.
 
 #pragma once
 
@@ -26,6 +28,7 @@ class RigEclipseResultAddress;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates eclipse results.
 class RigEclipseResultCalculator
 {
 public:
@@ -33,9 +36,12 @@ public:
     virtual ~RigEclipseResultCalculator();
 
     virtual void checkAndCreatePlaceholderEntry( const RigEclipseResultAddress& resVarAddr );
+    /// Returns whether matching.
     virtual bool isMatching( const RigEclipseResultAddress& resVarAddr ) const                = 0;
+    /// Returns or processes calculate.
     virtual void calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex ) = 0;
 
 protected:
+    /// Stores results data.
     RigCaseCellResultsData* m_resultsData;
 };

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares access to comb mult result.
 
 #pragma once
 
@@ -28,6 +30,7 @@ class RigGridBase;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Provides read access to comb mult result.
 class RigCombMultResultAccessor : public RigResultAccessor
 {
 public:

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements un link view command support.
 
 #include "RicUnLinkViewFeature.h"
 

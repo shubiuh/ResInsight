@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add well log to plot command support.
 
 #include "RicAddWellLogToPlotFeature.h"
 

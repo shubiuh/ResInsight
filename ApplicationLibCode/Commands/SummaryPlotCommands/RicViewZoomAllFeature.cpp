@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements view zoom all command support.
 
 #include "RicViewZoomAllFeature.h"
 

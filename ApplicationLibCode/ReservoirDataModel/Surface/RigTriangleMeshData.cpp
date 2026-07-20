@@ -15,25 +15,27 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of triangle mesh data.
 
 #include "RigTriangleMeshData.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigTriangleMeshData instance.
 //--------------------------------------------------------------------------------------------------
 RigTriangleMeshData::RigTriangleMeshData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigTriangleMeshData instance.
 //--------------------------------------------------------------------------------------------------
 RigTriangleMeshData::~RigTriangleMeshData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property names.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigTriangleMeshData::propertyNames() const
 {
@@ -41,7 +43,7 @@ std::vector<QString> RigTriangleMeshData::propertyNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the geometry.
 //--------------------------------------------------------------------------------------------------
 std::pair<std::vector<cvf::Vec3d>, std::vector<unsigned>> RigTriangleMeshData::geometry() const
 {
@@ -49,7 +51,7 @@ std::pair<std::vector<cvf::Vec3d>, std::vector<unsigned>> RigTriangleMeshData::g
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the property values.
 //--------------------------------------------------------------------------------------------------
 std::vector<float> RigTriangleMeshData::propertyValues( const QString& property ) const
 {
@@ -65,7 +67,7 @@ std::vector<float> RigTriangleMeshData::propertyValues( const QString& property 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets geometry data.
 //--------------------------------------------------------------------------------------------------
 void RigTriangleMeshData::setGeometryData( const std::vector<cvf::Vec3d>& nodeCoord, const std::vector<unsigned>& connectivities )
 {
@@ -74,7 +76,7 @@ void RigTriangleMeshData::setGeometryData( const std::vector<cvf::Vec3d>& nodeCo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets property data.
 //--------------------------------------------------------------------------------------------------
 void RigTriangleMeshData::setPropertyData( const std::vector<QString>& propertyNames, std::vector<std::vector<float>>& propertyValues )
 {
@@ -83,7 +85,7 @@ void RigTriangleMeshData::setPropertyData( const std::vector<QString>& propertyN
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds property data.
 //--------------------------------------------------------------------------------------------------
 void RigTriangleMeshData::addPropertyData( const QString& propertyName, std::vector<float>& propertyValues )
 {

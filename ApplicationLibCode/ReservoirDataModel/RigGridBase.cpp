@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements grid base reservoir-data functionality.
 
 #include "RigGridBase.h"
 #include "RigCaseCellResultsData.h"
@@ -52,7 +54,7 @@ RigGridBase::~RigGridBase()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets cell counts.
 //--------------------------------------------------------------------------------------------------
 void RigGridBase::setCellCounts( const cvf::Vec3st& cellCount )
 {
@@ -62,7 +64,7 @@ void RigGridBase::setCellCounts( const cvf::Vec3st& cellCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets grid name.
 //--------------------------------------------------------------------------------------------------
 void RigGridBase::setGridName( const std::string& gridName )
 {
@@ -70,7 +72,7 @@ void RigGridBase::setGridName( const std::string& gridName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid name.
 //--------------------------------------------------------------------------------------------------
 std::string RigGridBase::gridName() const
 {
@@ -78,7 +80,7 @@ std::string RigGridBase::gridName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether radial.
 //--------------------------------------------------------------------------------------------------
 bool RigGridBase::isRadial() const
 {
@@ -86,7 +88,7 @@ bool RigGridBase::isRadial() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets is radial.
 //--------------------------------------------------------------------------------------------------
 void RigGridBase::setIsRadial( bool isRadial )
 {
@@ -94,7 +96,7 @@ void RigGridBase::setIsRadial( bool isRadial )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell.
 //--------------------------------------------------------------------------------------------------
 RigCell& RigGridBase::cell( size_t gridLocalCellIndex )
 {
@@ -105,7 +107,7 @@ RigCell& RigGridBase::cell( size_t gridLocalCellIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell.
 //--------------------------------------------------------------------------------------------------
 const RigCell& RigGridBase::cell( size_t gridLocalCellIndex ) const
 {
@@ -115,7 +117,7 @@ const RigCell& RigGridBase::cell( size_t gridLocalCellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the init sub grid parent pointer.
 //--------------------------------------------------------------------------------------------------
 void RigGridBase::initSubGridParentPointer()
 {
@@ -196,7 +198,7 @@ std::array<cvf::Vec3d, 8> RigGridBase::cellCornerVertices( size_t cellIndex ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell index from ijk.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridBase::cellIndexFromIJK( const caf::VecIjk0& ijk ) const
 {
@@ -204,7 +206,7 @@ size_t RigGridBase::cellIndexFromIJK( const caf::VecIjk0& ijk ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell index from ijk.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridBase::cellIndexFromIJK( size_t i, size_t j, size_t k ) const
 {
@@ -215,7 +217,7 @@ size_t RigGridBase::cellIndexFromIJK( size_t i, size_t j, size_t k ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell index from ijk unguarded.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridBase::cellIndexFromIJKUnguarded( size_t i, size_t j, size_t k ) const
 {
@@ -223,14 +225,14 @@ size_t RigGridBase::cellIndexFromIJKUnguarded( size_t i, size_t j, size_t k ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell min max cordinates.
 //--------------------------------------------------------------------------------------------------
 void RigGridBase::cellMinMaxCordinates( size_t cellIndex, cvf::Vec3d* minCoordinate, cvf::Vec3d* maxCoordinate ) const
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ijk from cell index.
 //--------------------------------------------------------------------------------------------------
 bool RigGridBase::ijkFromCellIndex( size_t cellIndex, size_t* i, size_t* j, size_t* k ) const
 {
@@ -255,7 +257,7 @@ bool RigGridBase::ijkFromCellIndex( size_t cellIndex, size_t* i, size_t* j, size
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ijk from cell index.
 //--------------------------------------------------------------------------------------------------
 std::optional<caf::VecIjk0> RigGridBase::ijkFromCellIndex( size_t cellIndex ) const
 {
@@ -286,7 +288,7 @@ void RigGridBase::ijkFromCellIndexUnguarded( size_t cellIndex, size_t* i, size_t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid point index from ijk.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridBase::gridPointIndexFromIJK( size_t i, size_t j, size_t k ) const
 {
@@ -294,7 +296,7 @@ size_t RigGridBase::gridPointIndexFromIJK( size_t i, size_t j, size_t k ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell ijk from coordinate.
 //--------------------------------------------------------------------------------------------------
 bool RigGridBase::cellIJKFromCoordinate( const cvf::Vec3d& coord, size_t* i, size_t* j, size_t* k ) const
 {
@@ -302,7 +304,7 @@ bool RigGridBase::cellIJKFromCoordinate( const cvf::Vec3d& coord, size_t* i, siz
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid point coordinate.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigGridBase::gridPointCoordinate( size_t i, size_t j, size_t k ) const
 {
@@ -312,7 +314,7 @@ cvf::Vec3d RigGridBase::gridPointCoordinate( size_t i, size_t j, size_t k ) cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min coordinate.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigGridBase::minCoordinate() const
 {
@@ -322,7 +324,7 @@ cvf::Vec3d RigGridBase::minCoordinate() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell centroid.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigGridBase::cellCentroid( size_t cellIndex ) const
 {
@@ -332,7 +334,7 @@ cvf::Vec3d RigGridBase::cellCentroid( size_t cellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max coordinate.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigGridBase::maxCoordinate() const
 {
@@ -342,7 +344,7 @@ cvf::Vec3d RigGridBase::maxCoordinate() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether cell valid.
 //--------------------------------------------------------------------------------------------------
 bool RigGridBase::isCellValid( size_t i, size_t j, size_t k ) const
 {
@@ -357,7 +359,7 @@ bool RigGridBase::isCellValid( size_t i, size_t j, size_t k ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell ijk neighbor.
 //--------------------------------------------------------------------------------------------------
 bool RigGridBase::cellIJKNeighbor( size_t i, size_t j, size_t k, FaceType face, size_t* neighborCellIndex ) const
 {
@@ -378,7 +380,7 @@ bool RigGridBase::cellIJKNeighbor( size_t i, size_t j, size_t k, FaceType face, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell ijk neighbor unguarded.
 //--------------------------------------------------------------------------------------------------
 void RigGridBase::cellIJKNeighborUnguarded( size_t i, size_t j, size_t k, FaceType face, size_t* neighborCellIndex ) const
 {
@@ -389,7 +391,7 @@ void RigGridBase::cellIJKNeighborUnguarded( size_t i, size_t j, size_t k, FaceTy
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether main grid.
 //--------------------------------------------------------------------------------------------------
 bool RigGridBase::isMainGrid() const
 {
@@ -420,7 +422,7 @@ double RigGridBase::characteristicIJCellSize() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the characteristic cell sizes.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigGridBase::characteristicCellSizes() const
 {
@@ -437,7 +439,7 @@ cvf::Vec3d RigGridBase::characteristicCellSizes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reservoir cell index.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridBase::reservoirCellIndex( size_t gridLocalCellIndex ) const
 {
@@ -445,7 +447,7 @@ size_t RigGridBase::reservoirCellIndex( size_t gridLocalCellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds coarsening box.
 //--------------------------------------------------------------------------------------------------
 size_t RigGridBase::addCoarseningBox( size_t i1, size_t i2, size_t j1, size_t j2, size_t k1, size_t k2 )
 {
@@ -481,7 +483,7 @@ size_t RigGridBase::addCoarseningBox( size_t i1, size_t i2, size_t j1, size_t j2
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the coarsening box.
 //--------------------------------------------------------------------------------------------------
 void RigGridBase::coarseningBox( size_t coarseningBoxIndex, size_t* i1, size_t* i2, size_t* j1, size_t* j2, size_t* k1, size_t* k2 ) const
 {
@@ -499,7 +501,7 @@ void RigGridBase::coarseningBox( size_t coarseningBoxIndex, size_t* i1, size_t* 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the bounding box.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox RigGridBase::boundingBox()
 {
@@ -519,7 +521,7 @@ cvf::BoundingBox RigGridBase::boundingBox()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the neighbor cells.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigGridBase::neighborCells( size_t cellIndex, bool ignoreInvalidKLayers ) const
 {
@@ -571,7 +573,7 @@ std::vector<size_t> RigGridBase::neighborCells( size_t cellIndex, bool ignoreInv
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether face visible.
 //--------------------------------------------------------------------------------------------------
 bool RigGridCellFaceVisibilityFilter::isFaceVisible( size_t                             i,
                                                      size_t                             j,

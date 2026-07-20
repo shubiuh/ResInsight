@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares geo mech property filter new exec command support.
 
 #pragma once
 
@@ -25,16 +27,21 @@
 class RimGeoMechPropertyFilterCollection;
 
 //==================================================================================================
-///
+/// @brief Supports geo mech property filter new exec command workflows.
 //==================================================================================================
 class RicGeoMechPropertyFilterNewExec : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     explicit RicGeoMechPropertyFilterNewExec( RimGeoMechPropertyFilterCollection* propertyFilterCollection );
+    /// Destroys the command object.
     ~RicGeoMechPropertyFilterNewExec() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:

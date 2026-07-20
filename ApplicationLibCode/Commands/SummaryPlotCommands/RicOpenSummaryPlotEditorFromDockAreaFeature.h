@@ -15,18 +15,21 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares open summary plot editor from dock area command support.
 
 #pragma once
 
 #include "RicOpenSummaryPlotEditorFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for open summary plot editor from dock area.
 //==================================================================================================
 class RicOpenSummaryPlotEditorFromDockAreaFeature : public RicOpenSummaryPlotEditorFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
 };

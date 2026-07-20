@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add field to quick access command support.
 
 #include "RicAddFieldToQuickAccessFeature.h"
 

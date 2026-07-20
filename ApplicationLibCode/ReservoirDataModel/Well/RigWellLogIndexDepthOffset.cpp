@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well log index depth offset reservoir-data functionality.
 #include "RigWellLogIndexDepthOffset.h"
 
 #include <algorithm>
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets index offset depth.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogIndexDepthOffset::setIndexOffsetDepth( int kIndex, double topMd, double bottomMd, double topTvd, double bottomTvd )
 {
@@ -30,7 +32,7 @@ void RigWellLogIndexDepthOffset::setIndexOffsetDepth( int kIndex, double topMd, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns top md.
 //--------------------------------------------------------------------------------------------------
 double RigWellLogIndexDepthOffset::getTopMd( int kIndex ) const
 {
@@ -44,7 +46,7 @@ double RigWellLogIndexDepthOffset::getTopMd( int kIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns bottom md.
 //--------------------------------------------------------------------------------------------------
 double RigWellLogIndexDepthOffset::getBottomMd( int kIndex ) const
 {
@@ -58,7 +60,7 @@ double RigWellLogIndexDepthOffset::getBottomMd( int kIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns top tvd.
 //--------------------------------------------------------------------------------------------------
 double RigWellLogIndexDepthOffset::getTopTvd( int kIndex ) const
 {
@@ -72,7 +74,7 @@ double RigWellLogIndexDepthOffset::getTopTvd( int kIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns bottom tvd.
 //--------------------------------------------------------------------------------------------------
 double RigWellLogIndexDepthOffset::getBottomTvd( int kIndex ) const
 {
@@ -86,7 +88,7 @@ double RigWellLogIndexDepthOffset::getBottomTvd( int kIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sorted indexes.
 //--------------------------------------------------------------------------------------------------
 std::vector<int> RigWellLogIndexDepthOffset::sortedIndexes() const
 {
@@ -101,7 +103,7 @@ std::vector<int> RigWellLogIndexDepthOffset::sortedIndexes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether index is available.
 //--------------------------------------------------------------------------------------------------
 bool RigWellLogIndexDepthOffset::hasIndex( int kIndex ) const
 {

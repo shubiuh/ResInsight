@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for tesselator.
 
 #pragma once
 
@@ -25,6 +27,7 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models ellipsis tesselator for reservoir-data processing.
 class RigEllipsisTesselator
 {
 public:

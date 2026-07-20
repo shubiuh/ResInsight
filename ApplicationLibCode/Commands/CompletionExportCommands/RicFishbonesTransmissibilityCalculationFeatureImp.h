@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fishbones transmissibility calculation command support.
 
 #pragma once
 
@@ -31,18 +33,21 @@ class RicExportCompletionDataSettingsUi;
 class RigEclipseCaseData;
 
 //==================================================================================================
-///
+/// @brief Supports fishbones transmissibility calculation command workflows.
 //==================================================================================================
 class RicFishbonesTransmissibilityCalculationFeatureImp
 {
 public:
+    /// @return The generate fishbone compdat values using adjusted cell volume.
     static std::vector<RigCompletionData>
         generateFishboneCompdatValuesUsingAdjustedCellVolume( const RimWellPath* wellPath, const RicExportCompletionDataSettingsUi& settings );
 
+    /// @return The matching fishbone laterals well bore parts.
     static std::map<size_t, std::vector<WellBorePartForTransCalc>> findFishboneLateralsWellBoreParts( const RimWellPath*    wellPath,
                                                                                                       const RimEclipseCase* eclipseCase );
 
 private:
+    /// Appends main well bore parts.
     static void appendMainWellBoreParts( std::map<size_t, std::vector<WellBorePartForTransCalc>>& wellBorePartsInCells,
                                          const RimWellPath*                                       wellPath,
                                          const RigEclipseCaseData*                                eclipseCaseData,

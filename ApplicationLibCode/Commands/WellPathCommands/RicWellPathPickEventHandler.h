@@ -16,18 +16,22 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path command support.
 
 #pragma once
 
 #include "RicPickEventHandler.h"
 
 //==================================================================================================
-///
+/// @brief Handles well path events.
 //==================================================================================================
 class RicWellPathPickEventHandler : public RicDefaultPickEventHandler
 {
 public:
+    /// @return The instance.
     static RicWellPathPickEventHandler* instance();
 
+    /// @return Whether the 3D pick event was handled.
     bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) override;
 };

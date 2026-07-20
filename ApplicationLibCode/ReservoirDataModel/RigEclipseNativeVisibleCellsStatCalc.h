@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares eclipse native visible cells stat calc reservoir-data functionality.
 
 #pragma once
 
@@ -30,6 +32,7 @@
 
 #include "cvfArray.h"
 
+/// @brief Models eclipse native visible cells stat calc for reservoir-data processing.
 class RigEclipseNativeVisibleCellsStatCalc : public RigStatisticsCalculator
 {
 public:

@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of case cell results data.
 
 #include "RigCaseCellResultsData.h"
 
@@ -69,7 +71,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCaseCellResultsData instance.
 //--------------------------------------------------------------------------------------------------
 RigCaseCellResultsData::RigCaseCellResultsData( RigEclipseCaseData* ownerCaseData, RiaDefines::PorosityModelType porosityModel )
     : m_activeCellInfo( nullptr )
@@ -85,7 +87,7 @@ RigCaseCellResultsData::RigCaseCellResultsData( RigEclipseCaseData* ownerCaseDat
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets main grid.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setMainGrid( RigMainGrid* ownerGrid )
 {
@@ -93,7 +95,7 @@ void RigCaseCellResultsData::setMainGrid( RigMainGrid* ownerGrid )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets active cell info.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setActiveCellInfo( RigActiveCellInfo* activeCellInfo )
 {
@@ -101,7 +103,7 @@ void RigCaseCellResultsData::setActiveCellInfo( RigActiveCellInfo* activeCellInf
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::minMaxCellScalarValues( const RigEclipseResultAddress& resVarAddr, double& min, double& max )
 {
@@ -109,7 +111,7 @@ void RigCaseCellResultsData::minMaxCellScalarValues( const RigEclipseResultAddre
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::minMaxCellScalarValues( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex, double& min, double& max )
 {
@@ -117,7 +119,7 @@ void RigCaseCellResultsData::minMaxCellScalarValues( const RigEclipseResultAddre
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::posNegClosestToZero( const RigEclipseResultAddress& resVarAddr, double& pos, double& neg )
 {
@@ -125,7 +127,7 @@ void RigCaseCellResultsData::posNegClosestToZero( const RigEclipseResultAddress&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::posNegClosestToZero( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex, double& pos, double& neg )
 {
@@ -133,7 +135,7 @@ void RigCaseCellResultsData::posNegClosestToZero( const RigEclipseResultAddress&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar values histogram.
 //--------------------------------------------------------------------------------------------------
 const std::vector<size_t>& RigCaseCellResultsData::cellScalarValuesHistogram( const RigEclipseResultAddress& resVarAddr )
 {
@@ -141,7 +143,7 @@ const std::vector<size_t>& RigCaseCellResultsData::cellScalarValuesHistogram( co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar values histogram.
 //--------------------------------------------------------------------------------------------------
 const std::vector<size_t>& RigCaseCellResultsData::cellScalarValuesHistogram( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -149,7 +151,7 @@ const std::vector<size_t>& RigCaseCellResultsData::cellScalarValuesHistogram( co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the p10p90 cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::p10p90CellScalarValues( const RigEclipseResultAddress& resVarAddr, double& p10, double& p90 )
 {
@@ -157,7 +159,7 @@ void RigCaseCellResultsData::p10p90CellScalarValues( const RigEclipseResultAddre
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the p10p90 cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::p10p90CellScalarValues( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex, double& p10, double& p90 )
 {
@@ -165,7 +167,7 @@ void RigCaseCellResultsData::p10p90CellScalarValues( const RigEclipseResultAddre
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mean cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::meanCellScalarValues( const RigEclipseResultAddress& resVarAddr, double& meanValue )
 {
@@ -173,7 +175,7 @@ void RigCaseCellResultsData::meanCellScalarValues( const RigEclipseResultAddress
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mean cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::meanCellScalarValues( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex, double& meanValue )
 {
@@ -181,7 +183,7 @@ void RigCaseCellResultsData::meanCellScalarValues( const RigEclipseResultAddress
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique cell scalar values.
 //--------------------------------------------------------------------------------------------------
 const std::vector<int>& RigCaseCellResultsData::uniqueCellScalarValues( const RigEclipseResultAddress& resVarAddr )
 {
@@ -189,7 +191,7 @@ const std::vector<int>& RigCaseCellResultsData::uniqueCellScalarValues( const Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sum cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::sumCellScalarValues( const RigEclipseResultAddress& resVarAddr, double& sumValue )
 {
@@ -197,7 +199,7 @@ void RigCaseCellResultsData::sumCellScalarValues( const RigEclipseResultAddress&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sum cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::sumCellScalarValues( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex, double& sumValue )
 {
@@ -205,7 +207,7 @@ void RigCaseCellResultsData::sumCellScalarValues( const RigEclipseResultAddress&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::mobileVolumeWeightedMean( const RigEclipseResultAddress& resVarAddr, double& meanValue )
 {
@@ -213,7 +215,7 @@ void RigCaseCellResultsData::mobileVolumeWeightedMean( const RigEclipseResultAdd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::mobileVolumeWeightedMean( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex, double& meanValue )
 {
@@ -221,7 +223,7 @@ void RigCaseCellResultsData::mobileVolumeWeightedMean( const RigEclipseResultAdd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result value count.
 //--------------------------------------------------------------------------------------------------
 std::map<std::string, size_t> RigCaseCellResultsData::resultValueCount() const
 {
@@ -239,7 +241,7 @@ std::map<std::string, size_t> RigCaseCellResultsData::resultValueCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result count.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseCellResultsData::resultCount() const
 {
@@ -247,7 +249,7 @@ size_t RigCaseCellResultsData::resultCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step count.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseCellResultsData::timeStepCount( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -258,7 +260,7 @@ size_t RigCaseCellResultsData::timeStepCount( const RigEclipseResultAddress& res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar results.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<double>>& RigCaseCellResultsData::cellScalarResults( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -270,7 +272,7 @@ const std::vector<std::vector<double>>& RigCaseCellResultsData::cellScalarResult
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the modifiable cell scalar result timesteps.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>>* RigCaseCellResultsData::modifiableCellScalarResultTimesteps( const RigEclipseResultAddress& resVarAddr )
 {
@@ -282,7 +284,7 @@ std::vector<std::vector<double>>* RigCaseCellResultsData::modifiableCellScalarRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the modifiable cell scalar result.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigCaseCellResultsData::modifiableCellScalarResult( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -295,7 +297,7 @@ std::vector<double>* RigCaseCellResultsData::modifiableCellScalarResult( const R
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar results.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigCaseCellResultsData::cellScalarResults( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex ) const
 {
@@ -462,7 +464,7 @@ size_t RigCaseCellResultsData::findOrCreateScalarResultIndex( const RigEclipseRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result names.
 //--------------------------------------------------------------------------------------------------
 QStringList RigCaseCellResultsData::resultNames( RiaDefines::ResultCatType resType, bool includeAliases ) const
 {
@@ -497,7 +499,7 @@ QStringList RigCaseCellResultsData::resultNames( RiaDefines::ResultCatType resTy
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active cell info.
 //--------------------------------------------------------------------------------------------------
 RigActiveCellInfo* RigCaseCellResultsData::activeCellInfo()
 {
@@ -505,7 +507,7 @@ RigActiveCellInfo* RigCaseCellResultsData::activeCellInfo()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active cell info.
 //--------------------------------------------------------------------------------------------------
 const RigActiveCellInfo* RigCaseCellResultsData::activeCellInfo() const
 {
@@ -513,7 +515,7 @@ const RigActiveCellInfo* RigCaseCellResultsData::activeCellInfo() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the recalculate statistics.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::recalculateStatistics( const RigEclipseResultAddress& resVarAddr, const std::set<int>& uniqueValuesOverride )
 {
@@ -543,7 +545,7 @@ bool RigCaseCellResultsData::isUsingGlobalActiveIndex( const RigEclipseResultAdd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether flow diag usable fluxes is available.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::hasFlowDiagUsableFluxes() const
 {
@@ -557,7 +559,7 @@ bool RigCaseCellResultsData::hasFlowDiagUsableFluxes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all time step dates from eclipse reader.
 //--------------------------------------------------------------------------------------------------
 std::vector<QDateTime> RigCaseCellResultsData::allTimeStepDatesFromEclipseReader() const
 {
@@ -573,7 +575,7 @@ std::vector<QDateTime> RigCaseCellResultsData::allTimeStepDatesFromEclipseReader
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step dates.
 //--------------------------------------------------------------------------------------------------
 std::vector<QDateTime> RigCaseCellResultsData::timeStepDates( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -586,7 +588,7 @@ std::vector<QDateTime> RigCaseCellResultsData::timeStepDates( const RigEclipseRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step dates.
 //--------------------------------------------------------------------------------------------------
 std::vector<QDateTime> RigCaseCellResultsData::timeStepDates() const
 {
@@ -597,7 +599,7 @@ std::vector<QDateTime> RigCaseCellResultsData::timeStepDates() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the days since simulation start.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigCaseCellResultsData::daysSinceSimulationStart() const
 {
@@ -608,7 +610,7 @@ std::vector<double> RigCaseCellResultsData::daysSinceSimulationStart() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the days since simulation start.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigCaseCellResultsData::daysSinceSimulationStart( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -623,7 +625,7 @@ std::vector<double> RigCaseCellResultsData::daysSinceSimulationStart( const RigE
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the report step number.
 //--------------------------------------------------------------------------------------------------
 int RigCaseCellResultsData::reportStepNumber( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex ) const
 {
@@ -635,7 +637,7 @@ int RigCaseCellResultsData::reportStepNumber( const RigEclipseResultAddress& res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step infos.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigEclipseTimeStepInfo> RigCaseCellResultsData::timeStepInfos( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -646,7 +648,7 @@ std::vector<RigEclipseTimeStepInfo> RigCaseCellResultsData::timeStepInfos( const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets time step infos.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setTimeStepInfos( const RigEclipseResultAddress&             resVarAddr,
                                                const std::vector<RigEclipseTimeStepInfo>& timeStepInfos )
@@ -660,7 +662,7 @@ void RigCaseCellResultsData::setTimeStepInfos( const RigEclipseResultAddress&   
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max time step count.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseCellResultsData::maxTimeStepCount( RigEclipseResultAddress* resultAddressWithMostTimeSteps ) const
 {
@@ -684,7 +686,7 @@ size_t RigCaseCellResultsData::maxTimeStepCount( RigEclipseResultAddress* result
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the make result name unique.
 //--------------------------------------------------------------------------------------------------
 QString RigCaseCellResultsData::makeResultNameUnique( const QString& resultNameProposal ) const
 {
@@ -704,7 +706,7 @@ QString RigCaseCellResultsData::makeResultNameUnique( const QString& resultNameP
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears scalar result.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::clearScalarResult( RiaDefines::ResultCatType type, const QString& resultName )
 {
@@ -712,7 +714,7 @@ void RigCaseCellResultsData::clearScalarResult( RiaDefines::ResultCatType type, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears scalar result.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::clearScalarResult( const RigEclipseResultAddress& resultAddress )
 {
@@ -730,7 +732,7 @@ void RigCaseCellResultsData::clearScalarResult( const RigEclipseResultAddress& r
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears all results.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::clearAllResults()
 {
@@ -781,7 +783,7 @@ void RigCaseCellResultsData::freeAllocatedResultsData( const std::vector<RiaDefi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether result loaded.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::isResultLoaded( const RigEclipseResultAddress& resultAddr ) const
 {
@@ -813,7 +815,7 @@ size_t RigCaseCellResultsData::addStaticScalarResult( RiaDefines::ResultCatType 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the default result.
 //--------------------------------------------------------------------------------------------------
 RigEclipseResultAddress RigCaseCellResultsData::defaultResult() const
 {
@@ -876,7 +878,7 @@ RigEclipseResultAddress RigCaseCellResultsData::defaultResult() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates result name.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::updateResultName( RiaDefines::ResultCatType resultType, const QString& oldName, const QString& newName )
 {
@@ -895,7 +897,7 @@ bool RigCaseCellResultsData::updateResultName( RiaDefines::ResultCatType resultT
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns result indexable static result.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigCaseCellResultsData::getResultIndexableStaticResult( RigActiveCellInfo*      actCellInfo,
                                                                                    RigCaseCellResultsData* gridCellResults,
@@ -935,7 +937,7 @@ const std::vector<double>* RigCaseCellResultsData::getResultIndexableStaticResul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the info for each result index.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RigEclipseResultInfo>& RigCaseCellResultsData::infoForEachResultIndex() const
 {
@@ -943,7 +945,7 @@ const std::vector<RigEclipseResultInfo>& RigCaseCellResultsData::infoForEachResu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the must be calculated.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::mustBeCalculated( size_t scalarResultIndex ) const
 {
@@ -960,7 +962,7 @@ bool RigCaseCellResultsData::mustBeCalculated( size_t scalarResultIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets must be calculated.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setMustBeCalculated( size_t scalarResultIndex )
 {
@@ -975,7 +977,7 @@ void RigCaseCellResultsData::setMustBeCalculated( size_t scalarResultIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the erase all sour sim data.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::eraseAllSourSimData()
 {
@@ -990,7 +992,7 @@ void RigCaseCellResultsData::eraseAllSourSimData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets removed tag on generated result.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setRemovedTagOnGeneratedResult( const RigEclipseResultAddress& resultAddress )
 {
@@ -1007,7 +1009,7 @@ void RigCaseCellResultsData::setRemovedTagOnGeneratedResult( const RigEclipseRes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates placeholder result entries.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::createPlaceholderResultEntries()
 {
@@ -1237,7 +1239,7 @@ void RigCaseCellResultsData::createPlaceholderResultEntries()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether complete transmissibility results is available.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::hasCompleteTransmissibilityResults() const
 {
@@ -1247,7 +1249,7 @@ bool RigCaseCellResultsData::hasCompleteTransmissibilityResults() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the existing results.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigEclipseResultAddress> RigCaseCellResultsData::existingResults() const
 {
@@ -1261,7 +1263,7 @@ std::vector<RigEclipseResultAddress> RigCaseCellResultsData::existingResults() c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result info.
 //--------------------------------------------------------------------------------------------------
 const RigEclipseResultInfo* RigCaseCellResultsData::resultInfo( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -1275,7 +1277,7 @@ const RigEclipseResultInfo* RigCaseCellResultsData::resultInfo( const RigEclipse
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ensure known result loaded.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::ensureKnownResultLoaded( const RigEclipseResultAddress& resultAddress )
 {
@@ -1285,7 +1287,7 @@ bool RigCaseCellResultsData::ensureKnownResultLoaded( const RigEclipseResultAddr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds and load result by name.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::findAndLoadResultByName( const QString&                                resultName,
                                                       const std::vector<RiaDefines::ResultCatType>& resultCategorySearchOrder )
@@ -1298,7 +1300,7 @@ bool RigCaseCellResultsData::findAndLoadResultByName( const QString&            
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether result entry is available.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::hasResultEntry( const RigEclipseResultAddress& resultAddress ) const
 {
@@ -1308,7 +1310,7 @@ bool RigCaseCellResultsData::hasResultEntry( const RigEclipseResultAddress& resu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates result entry.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::createResultEntry( const RigEclipseResultAddress& resultAddress, bool needsToBeStored )
 {
@@ -1330,7 +1332,7 @@ bool RigCaseCellResultsData::updateResultDataType( const RigEclipseResultAddress
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds or load known scalar result.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseCellResultsData::findOrLoadKnownScalarResult( const RigEclipseResultAddress& resVarAddrOrg )
 {
@@ -1663,7 +1665,7 @@ size_t RigCaseCellResultsData::findOrLoadKnownScalarResult( const RigEclipseResu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds or load known scalar result by result type order.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseCellResultsData::findOrLoadKnownScalarResultByResultTypeOrder( const RigEclipseResultAddress& resVarAddr,
                                                                              const std::vector<RiaDefines::ResultCatType>& resultCategorySearchOrder )
@@ -1811,7 +1813,7 @@ size_t RigCaseCellResultsData::findOrLoadKnownScalarResultForTimeStep( const Rig
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes soil for time step.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeSOILForTimeStep( size_t timeStepIndex )
 {
@@ -1821,7 +1823,7 @@ void RigCaseCellResultsData::computeSOILForTimeStep( size_t timeStepIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the test and compute sgas for time step.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::testAndComputeSgasForTimeStep( size_t timeStepIndex )
 {
@@ -1897,7 +1899,7 @@ void RigCaseCellResultsData::testAndComputeSgasForTimeStep( size_t timeStepIndex
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the prepare depth related result arrays.
 //--------------------------------------------------------------------------------------------------
 RigCaseCellResultsData::DepthResultBuffers RigCaseCellResultsData::prepareDepthRelatedResultArrays()
 {
@@ -2010,7 +2012,7 @@ RigCaseCellResultsData::DepthResultBuffers RigCaseCellResultsData::prepareDepthR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes depth related results.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeDepthRelatedResults( RigCaseCellResultsData* matrixResults, RigCaseCellResultsData* fractureResults )
 {
@@ -2108,7 +2110,7 @@ void RigCaseCellResultsData::computeDepthRelatedResults( RigCaseCellResultsData*
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes index results.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeIndexResults()
 {
@@ -2118,7 +2120,7 @@ void RigCaseCellResultsData::computeIndexResults()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes fault distance.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeFaultDistance()
 {
@@ -2128,7 +2130,7 @@ void RigCaseCellResultsData::computeFaultDistance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes nncs cells.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeNncsCells()
 {
@@ -2139,6 +2141,7 @@ void RigCaseCellResultsData::computeNncsCells()
 
 namespace RigTransmissibilityCalcTools
 {
+/// Calculates connection geometry.
 void calculateConnectionGeometry( const RigCell&                     c1,
                                   const RigCell&                     c2,
                                   const std::vector<cvf::Vec3d>&     nodes,
@@ -2183,7 +2186,7 @@ void calculateConnectionGeometry( const RigCell&                     c1,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the half cell transmissibility.
 //--------------------------------------------------------------------------------------------------
 double halfCellTransmissibility( double perm, double ntg, const cvf::Vec3d& centerToFace, const cvf::Vec3d& faceAreaVec )
 {
@@ -2191,7 +2194,7 @@ double halfCellTransmissibility( double perm, double ntg, const cvf::Vec3d& cent
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the newtran.
 //--------------------------------------------------------------------------------------------------
 double newtran( double cdarchy, double mult, double halfCellTrans, double neighborHalfCellTrans )
 {
@@ -2206,12 +2209,12 @@ double newtran( double cdarchy, double mult, double halfCellTrans, double neighb
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the size t.
 //--------------------------------------------------------------------------------------------------
 using ResultIndexFunction = size_t ( * )( const RigActiveCellInfo*, size_t );
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the direct reservoir cell index.
 //--------------------------------------------------------------------------------------------------
 
 size_t directReservoirCellIndex( const RigActiveCellInfo* activeCellinfo, size_t reservoirCellIndex )
@@ -2220,7 +2223,7 @@ size_t directReservoirCellIndex( const RigActiveCellInfo* activeCellinfo, size_t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reservoir active cell index.
 //--------------------------------------------------------------------------------------------------
 
 size_t reservoirActiveCellIndex( const RigActiveCellInfo* activeCellinfo, size_t reservoirCellIndex )
@@ -2232,7 +2235,7 @@ size_t reservoirActiveCellIndex( const RigActiveCellInfo* activeCellinfo, size_t
 using namespace RigTransmissibilityCalcTools;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes ri trans component.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeRiTransComponent( const QString& riTransComponentResultName )
 {
@@ -2414,7 +2417,7 @@ void RigCaseCellResultsData::computeRiTransComponent( const QString& riTransComp
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes nnc comb ri trans.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeNncCombRiTrans()
 {
@@ -2582,6 +2585,7 @@ void RigCaseCellResultsData::computeNncCombRiTrans()
     }
 }
 
+/// Returns or processes ri mult.
 double riMult( double transResults, double riTransResults )
 {
     if ( transResults == HUGE_VAL || riTransResults == HUGE_VAL ) return HUGE_VAL;
@@ -2604,7 +2608,7 @@ double riMult( double transResults, double riTransResults )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes ri mult component.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeRiMULTComponent( const QString& riMultCompName )
 {
@@ -2668,7 +2672,7 @@ void RigCaseCellResultsData::computeRiMULTComponent( const QString& riMultCompNa
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes nnc comb ri mult.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeNncCombRiMULT()
 {
@@ -2699,7 +2703,7 @@ void RigCaseCellResultsData::computeNncCombRiMULT()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes ri tran sby area component.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeRiTRANSbyAreaComponent( const QString& riTransByAreaCompResultName )
 {
@@ -2809,7 +2813,7 @@ void RigCaseCellResultsData::computeRiTRANSbyAreaComponent( const QString& riTra
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes nnc comb ri tran sby area.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeNncCombRiTRANSbyArea()
 {
@@ -2844,7 +2848,7 @@ void RigCaseCellResultsData::computeNncCombRiTRANSbyArea()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes completion type for time step.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeCompletionTypeForTimeStep( size_t timeStep )
 {
@@ -2932,7 +2936,7 @@ void RigCaseCellResultsData::triggerGeneratedPermeabilityCalculations( RimEclips
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the darchys value.
 //--------------------------------------------------------------------------------------------------
 double RigCaseCellResultsData::darchysValue()
 {
@@ -2940,7 +2944,7 @@ double RigCaseCellResultsData::darchysValue()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes cell volumes.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeCellVolumes()
 {
@@ -2950,7 +2954,7 @@ void RigCaseCellResultsData::computeCellVolumes()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes oil volumes.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeOilVolumes()
 {
@@ -2961,7 +2965,7 @@ void RigCaseCellResultsData::computeOilVolumes()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes porv soil sgas.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computePorvSoilSgas()
 {
@@ -2979,7 +2983,7 @@ void RigCaseCellResultsData::computePorvSoilSgas()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes mobile pv.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::computeMobilePV()
 {
@@ -2989,7 +2993,7 @@ void RigCaseCellResultsData::computeMobilePV()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets reader interface.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setReaderInterface( RifReaderInterface* readerInterface )
 {
@@ -3002,7 +3006,7 @@ void RigCaseCellResultsData::setReaderInterface( RifReaderInterface* readerInter
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Reads reader interface.
 //--------------------------------------------------------------------------------------------------
 const RifReaderInterface* RigCaseCellResultsData::readerInterface() const
 {
@@ -3010,7 +3014,7 @@ const RifReaderInterface* RigCaseCellResultsData::readerInterface() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets hdf5 filename.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setHdf5Filename( const QString& hdf5SourSimFilename )
 {
@@ -3022,7 +3026,7 @@ void RigCaseCellResultsData::setHdf5Filename( const QString& hdf5SourSimFilename
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets active formation names.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setActiveFormationNames( const RigFormationNames* activeFormationNames )
 {
@@ -3096,7 +3100,7 @@ void RigCaseCellResultsData::setActiveFormationNames( const RigFormationNames* a
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active formation names.
 //--------------------------------------------------------------------------------------------------
 const RigFormationNames* RigCaseCellResultsData::activeFormationNames() const
 {
@@ -3104,7 +3108,7 @@ const RigFormationNames* RigCaseCellResultsData::activeFormationNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the allan diagram data.
 //--------------------------------------------------------------------------------------------------
 RigAllanDiagramData* RigCaseCellResultsData::allanDiagramData()
 {
@@ -3120,7 +3124,7 @@ bool RigCaseCellResultsData::isDataPresent( size_t scalarResultIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the allocated value count.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseCellResultsData::allocatedValueCount( size_t scalarResultIndex ) const
 {
@@ -3138,7 +3142,7 @@ size_t RigCaseCellResultsData::allocatedValueCount( size_t scalarResultIndex ) c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the assign values to temporary lgrs.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::assignValuesToTemporaryLgrs( const QString& resultName, std::vector<double>& valuesForAllReservoirCells )
 {
@@ -3198,7 +3202,7 @@ void RigCaseCellResultsData::assignValuesToTemporaryLgrs( const QString& resultN
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the statistics.
 //--------------------------------------------------------------------------------------------------
 RigStatisticsDataCache* RigCaseCellResultsData::statistics( const RigEclipseResultAddress& resVarAddr )
 {
@@ -3208,7 +3212,7 @@ RigStatisticsDataCache* RigCaseCellResultsData::statistics( const RigEclipseResu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether radial model.
 //--------------------------------------------------------------------------------------------------
 bool RigCaseCellResultsData::isRadialModel() const
 {
@@ -3218,7 +3222,7 @@ bool RigCaseCellResultsData::isRadialModel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds scalar result index from address.
 //--------------------------------------------------------------------------------------------------
 size_t RigCaseCellResultsData::findScalarResultIndexFromAddress( const RigEclipseResultAddress& resVarAddrOrg ) const
 {
@@ -3340,7 +3344,7 @@ void RigCaseCellResultsData::copyResultsMetaDataFromMainCase( RigEclipseCaseData
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets statistics data cache num bins.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::setStatisticsDataCacheNumBins( const RigEclipseResultAddress& resultAddress, size_t numBins )
 {
@@ -3348,7 +3352,7 @@ void RigCaseCellResultsData::setStatisticsDataCacheNumBins( const RigEclipseResu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds result alias.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::addResultAlias( QString originalResultName, QString aliasResultName )
 {
@@ -3356,7 +3360,7 @@ void RigCaseCellResultsData::addResultAlias( QString originalResultName, QString
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears all result aliases.
 //--------------------------------------------------------------------------------------------------
 void RigCaseCellResultsData::clearAllResultAliases()
 {

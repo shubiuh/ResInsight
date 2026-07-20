@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create surface intersection curve command support.
 
 #include "RicCreateSurfaceIntersectionCurveFeature.h"
 

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares script command support.
 
 #pragma once
 
@@ -27,11 +29,13 @@ class RimCalcScript;
 class RimScriptCollection;
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for script commands.
 //==================================================================================================
 class RicScriptFeatureImpl
 {
 public:
+    /// @return The selected scripts.
     static std::vector<RimCalcScript*>       selectedScripts();
+    /// @return The selected script collections.
     static std::vector<RimScriptCollection*> selectedScriptCollections();
 };

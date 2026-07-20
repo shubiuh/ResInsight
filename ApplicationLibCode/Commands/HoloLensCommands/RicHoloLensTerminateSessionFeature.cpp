@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens terminate session command support.
 
 #include "RicHoloLensTerminateSessionFeature.h"
 

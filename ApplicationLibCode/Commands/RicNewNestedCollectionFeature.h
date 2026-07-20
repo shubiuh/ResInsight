@@ -15,23 +15,27 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new nested collection command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
 /// Adds a new subcollection ("folder") to the selected caf::PdmNestedCollection-derived object.
 /// Works with any nested collection type via caf::PdmNestedCollectionBase.
-///
+/// @brief Command feature for new nested collection.
 //==================================================================================================
 class RicNewNestedCollectionFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 private:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

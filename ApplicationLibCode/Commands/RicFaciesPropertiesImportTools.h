@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares facies properties import command support.
 
 #pragma once
 
@@ -24,6 +26,7 @@
 class RimColorLegend;
 class RimStimPlanModelTemplate;
 
+/// @brief Utilities for cvf command workflows.
 namespace cvf
 {
 class Color3f;
@@ -32,21 +35,27 @@ class Color3f;
 class QString;
 
 //==================================================================================================
-///
+/// @brief Utility functions for facies properties import.
 //==================================================================================================
 class RicFaciesPropertiesImportTools
 {
 public:
+    /// Imports facies properties from file.
     static void importFaciesPropertiesFromFile( const QString&            filePath,
                                                 RimStimPlanModelTemplate* stimPlanModelTemplate,
                                                 bool                      createColorLegend = false );
 
+    /// Creates color legend match default rock colors.
     static RimColorLegend* createColorLegendMatchDefaultRockColors( const std::map<int, QString>& codeNames );
 
+    /// @return The match default rock colors.
     static std::vector<cvf::Color3f> matchDefaultRockColors( const std::map<int, QString>& codeNames );
 
 private:
+    /// Computes edit distance.
     static int  computeEditDistance( const QString& a, const QString& b );
+    /// @return The match by name.
     static bool matchByName( const QString& name, RimColorLegend* colorLegend, cvf::Color3f& color );
+    /// @return The predefined color match.
     static bool predefinedColorMatch( const QString& name, RimColorLegend* colorLegend, cvf::Color3f& color );
 };

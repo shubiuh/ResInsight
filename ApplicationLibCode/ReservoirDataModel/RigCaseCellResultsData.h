@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of case cell results data.
 
 #pragma once
 
@@ -47,6 +49,7 @@ class RimEclipseCase;
 //==================================================================================================
 /// Class containing the results for the complete number of active cells. Both main grid and LGR's
 //==================================================================================================
+/// @brief Stores case cell results data.
 class RigCaseCellResultsData : public cvf::Object
 {
 public:
@@ -168,6 +171,7 @@ private:
     // Per-model buffers used by computeDepthRelatedResults(). Holds pointers to the result rows
     // and per-property flags telling whether the row still needs to be computed. A buffer with
     // actCellCount == 0 is disabled (the porosity model has no active cells).
+    /// @brief Models depth result buffers for reservoir-data processing.
     struct DepthResultBuffers
     {
         RigActiveCellInfo*   activeCellInfo = nullptr;

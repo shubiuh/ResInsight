@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new PLT plot command support.
 
 #include "RicNewPltPlotFeature.h"
 

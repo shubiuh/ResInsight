@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares point tangent manipulator command support.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 
 #include <map>
 
+/// @brief Utilities for cvf command workflows.
 namespace cvf
 {
 class ModelBasicList;
@@ -42,6 +45,7 @@ using UIntArray  = Array<uint>;
 
 } // namespace cvf
 
+/// @brief Builds and manages visualization parts for point tangent manipulator.
 class RicPointTangentManipulatorPartMgr : public cvf::Object
 {
 public:
@@ -56,41 +60,66 @@ public:
     };
 
 public:
+    /// Constructs the command object.
     RicPointTangentManipulatorPartMgr();
+    /// Destroys the command object.
     ~RicPointTangentManipulatorPartMgr() override;
 
+    /// Sets origin.
     void setOrigin( const cvf::Vec3d& origin );
+    /// Sets tangent.
     void setTangent( const cvf::Vec3d& tangent );
+    /// Sets handle size.
     void setHandleSize( double handleSize );
+    /// Performs the origin and tangent command operation.
     void originAndTangent( cvf::Vec3d* origin, cvf::Vec3d* tangent );
+    /// Sets polyline.
     void setPolyline( const std::vector<cvf::Vec3d>& polyline );
 
+    /// @return Whether manipulator active.
     bool isManipulatorActive() const;
+    /// Performs the try to activate manipulator command operation.
     void tryToActivateManipulator( const cvf::HitItem* hitItem );
+    /// Updates manipulator from ray.
     void updateManipulatorFromRay( const cvf::Ray* ray );
+    /// Performs the end manipulator command operation.
     void endManipulator();
 
+    /// Appends parts to model.
     void appendPartsToModel( cvf::ModelBasicList* model );
 
 private:
+    /// Creates geometry only.
     void createGeometryOnly();
+    /// Performs the recreate all geometry and parts command operation.
     void recreateAllGeometryAndParts();
 
+    /// Creates horizontal plane handle.
     void                       createHorizontalPlaneHandle();
+    /// Creates horizontal plane geo.
     cvf::ref<cvf::DrawableGeo> createHorizontalPlaneGeo();
 
+    /// Creates vertical axis handle.
     void                       createVerticalAxisHandle();
+    /// Creates vertical axis geo.
     cvf::ref<cvf::DrawableGeo> createVerticalAxisGeo();
 
+    /// Creates polyline handle.
     void                       createPolylineHandle();
+    /// Creates polyline geo.
     cvf::ref<cvf::DrawableGeo> createPolylineGeo();
 
+    /// Adds handle part.
     void addHandlePart( cvf::DrawableGeo* geo, const cvf::Color4f& color, HandleType handleId, const cvf::String& partName );
 
+    /// Adds active mode part.
     void addActiveModePart( cvf::DrawableGeo* geo, const cvf::Color4f& color, HandleType handleId, const cvf::String& partName );
 
+    /// Creates triangel drawable geo.
     static cvf::ref<cvf::DrawableGeo> createTriangelDrawableGeo( cvf::Vec3fArray* triangleVertexArray );
+    /// Creates indexed triangel drawable geo.
     static cvf::ref<cvf::DrawableGeo> createIndexedTriangelDrawableGeo( cvf::Vec3fArray* triangleVertexArray, cvf::UIntArray* triangleIndices );
+    /// Creates part.
     static cvf::ref<cvf::Part> createPart( cvf::DrawableGeo* geo, const cvf::Color4f& color, const cvf::String& partName );
 
 private:

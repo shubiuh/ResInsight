@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new default histogram plot command support.
 
 #include "RicNewDefaultHistogramPlotFeature.h"
 

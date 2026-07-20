@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares snapshot view to clipboard command support.
 
 #pragma once
 
@@ -24,18 +26,23 @@ class RimViewWindow;
 class QImage;
 
 //==================================================================================================
-///
+/// @brief Command feature for snapshot view to clipboard.
 //==================================================================================================
 class RicSnapshotViewToClipboardFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Copies to clipboard.
     static void    copyToClipboard( const QImage& image );
+    /// @return The icon.
     static QIcon   icon();
+    /// @return The text.
     static QString text();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

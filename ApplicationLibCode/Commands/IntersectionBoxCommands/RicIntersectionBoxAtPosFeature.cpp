@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements intersection box at pos command support.
 
 #include "RicIntersectionBoxAtPosFeature.h"
 

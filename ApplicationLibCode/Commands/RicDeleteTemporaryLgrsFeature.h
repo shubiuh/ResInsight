@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares delete temporary lgrs command support.
 
 #pragma once
 
@@ -23,14 +25,19 @@
 
 class RimEclipseCase;
 
+/// @brief Command feature for delete temporary lgrs.
 class RicDeleteTemporaryLgrsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// Removes or clears all temporary lgrs.
     static void deleteAllTemporaryLgrs( RimEclipseCase* eclipseCase );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

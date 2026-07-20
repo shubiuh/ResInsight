@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements perforation transmissibility equations reservoir-data functionality.
 
 #include "RigPerforationTransmissibilityEquations.h"
 
@@ -23,7 +25,7 @@
 const double RigPerforationTransmissibilityEquations::EPSILON = 1.0e-9;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the beta factor.
 //--------------------------------------------------------------------------------------------------
 double RigPerforationTransmissibilityEquations::betaFactor( double intertialCoefficient,
                                                             double effectivePermeability,
@@ -38,7 +40,7 @@ double RigPerforationTransmissibilityEquations::betaFactor( double intertialCoef
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the d factor.
 //--------------------------------------------------------------------------------------------------
 double RigPerforationTransmissibilityEquations::dFactor( double unitConstant,
                                                          double betaFactor,

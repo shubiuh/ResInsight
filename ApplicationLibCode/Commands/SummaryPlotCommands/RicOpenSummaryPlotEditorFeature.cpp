@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements open summary plot editor command support.
 
 #include "RicOpenSummaryPlotEditorFeature.h"
 

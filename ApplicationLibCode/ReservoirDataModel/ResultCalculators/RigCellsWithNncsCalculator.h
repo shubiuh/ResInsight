@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of cells with nncs.
 
 #pragma once
 
@@ -23,6 +25,7 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates cells with nncs.
 class RigCellsWithNncsCalculator : public RigEclipseResultCalculator
 {
 public:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares resample command support.
 
 #pragma once
 
@@ -36,24 +38,31 @@ class RicResampleDialogResult;
 class DateTimePeriodInfo;
 
 //==================================================================================================
-///
+/// @brief Dialog for configuring resample.
 //==================================================================================================
 class RicResampleDialog : public QDialog
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     RicResampleDialog( QWidget* parent );
+    /// Destroys the command object.
     ~RicResampleDialog() override;
 
+    /// @return The open.
     static RicResampleDialogResult openDialog( QWidget* parent = nullptr, const QString& caption = QString() );
 
 private:
+    /// Sets period options.
     void                       setPeriodOptions( const std::vector<RiaDefines::DateTimePeriod>& dateTimePeriods );
+    /// @return The selected date time period.
     RiaDefines::DateTimePeriod selectedDateTimePeriod() const;
 
 private slots:
+    /// Performs the slot dialog ok clicked command operation.
     void slotDialogOkClicked();
+    /// Performs the slot dialog cancel clicked command operation.
     void slotDialogCancelClicked();
 
 private:
@@ -64,7 +73,7 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Supports resample dialog result command workflows.
 //==================================================================================================
 class RicResampleDialogResult
 {

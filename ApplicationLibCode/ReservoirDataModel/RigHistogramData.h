@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of histogram data.
 
 #pragma once
 
@@ -25,18 +27,27 @@
 ///
 ///
 //==================================================================================================
+/// @brief Stores histogram data.
 class RigHistogramData
 {
 public:
     RigHistogramData();
 
+    /// Stores min.
     double              min;
+    /// Stores max.
     double              max;
+    /// Stores p10.
     double              p10;
+    /// Stores p90.
     double              p90;
+    /// Stores mean.
     double              mean;
+    /// Stores sum.
     double              sum;
+    /// Stores weighted mean.
     double              weightedMean;
+    /// Stores histogram.
     std::vector<size_t> histogram;
 
     bool isMinMaxValid() const;

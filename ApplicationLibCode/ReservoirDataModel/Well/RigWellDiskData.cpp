@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of well disk data.
 
 #include "RigWellDiskData.h"
 
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellDiskData instance.
 //--------------------------------------------------------------------------------------------------
 RigWellDiskData::RigWellDiskData()
     : m_isSingleProperty( false )
@@ -33,7 +35,7 @@ RigWellDiskData::RigWellDiskData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets single property value.
 //--------------------------------------------------------------------------------------------------
 void RigWellDiskData::setSinglePropertyValue( double value )
 {
@@ -42,7 +44,7 @@ void RigWellDiskData::setSinglePropertyValue( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets oil gas water.
 //--------------------------------------------------------------------------------------------------
 void RigWellDiskData::setOilGasWater( double oil, double gas, double water )
 {
@@ -54,7 +56,7 @@ void RigWellDiskData::setOilGasWater( double oil, double gas, double water )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::total() const
 {
@@ -69,7 +71,7 @@ double RigWellDiskData::total() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the oil.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::oil() const
 {
@@ -77,7 +79,7 @@ double RigWellDiskData::oil() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the oil signed.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::oilSigned() const
 {
@@ -85,7 +87,7 @@ double RigWellDiskData::oilSigned() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the gas.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::gas() const
 {
@@ -93,7 +95,7 @@ double RigWellDiskData::gas() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the gas signed.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::gasSigned() const
 {
@@ -101,7 +103,7 @@ double RigWellDiskData::gasSigned() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the water.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::water() const
 {
@@ -109,7 +111,7 @@ double RigWellDiskData::water() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the water signed.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::waterSigned() const
 {
@@ -117,7 +119,7 @@ double RigWellDiskData::waterSigned() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the single property value.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::singlePropertyValue() const
 {
@@ -125,7 +127,7 @@ double RigWellDiskData::singlePropertyValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the single property value signed.
 //--------------------------------------------------------------------------------------------------
 double RigWellDiskData::singlePropertyValueSigned() const
 {
@@ -133,7 +135,7 @@ double RigWellDiskData::singlePropertyValueSigned() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether single property.
 //--------------------------------------------------------------------------------------------------
 bool RigWellDiskData::isSingleProperty() const
 {

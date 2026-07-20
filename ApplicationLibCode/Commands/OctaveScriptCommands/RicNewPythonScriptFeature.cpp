@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new python script command support.
 
 #include "RicNewPythonScriptFeature.h"
 

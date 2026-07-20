@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new polygon filter command support.
 
 #include "RicNewPolygonFilterFeature.h"
 

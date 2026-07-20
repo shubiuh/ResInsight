@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares non uniform refinement reservoir-data functionality.
 
 #pragma once
 
@@ -39,6 +41,7 @@
 // and O(log n) reverse lookup via binary search.
 //
 //==================================================================================================
+/// @brief Models non uniform refinement for reservoir-data processing.
 class RigNonUniformRefinement : public RigRefinement
 {
 public:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of contour map.
 
 #include "RigContourMapCalculator.h"
 
@@ -33,7 +35,7 @@
 #include <map>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates value in map cell.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapCalculator::calculateValueInMapCell( const RigContourMapProjection&                contourMapProjection,
                                                          const std::vector<std::pair<size_t, double>>& matchingCells,
@@ -73,7 +75,7 @@ double RigContourMapCalculator::calculateValueInMapCell( const RigContourMapProj
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates top value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapCalculator::calculateTopValue( const RigContourMapProjection&                contourMapProjection,
                                                    const std::vector<std::pair<size_t, double>>& matchingCells,
@@ -115,7 +117,7 @@ double RigContourMapCalculator::calculateTopValue( const RigContourMapProjection
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates mean value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapCalculator::calculateMeanValue( const RigContourMapProjection&                contourMapProjection,
                                                     const std::vector<std::pair<size_t, double>>& matchingCells,
@@ -143,7 +145,7 @@ double RigContourMapCalculator::calculateMeanValue( const RigContourMapProjectio
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates geometric mean value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapCalculator::calculateGeometricMeanValue( const RigContourMapProjection&                contourMapProjection,
                                                              const std::vector<std::pair<size_t, double>>& matchingCells,
@@ -175,7 +177,7 @@ double RigContourMapCalculator::calculateGeometricMeanValue( const RigContourMap
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates harmonic mean value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapCalculator::calculateHarmonicMeanValue( const RigContourMapProjection&                contourMapProjection,
                                                             const std::vector<std::pair<size_t, double>>& matchingCells,
@@ -207,7 +209,7 @@ double RigContourMapCalculator::calculateHarmonicMeanValue( const RigContourMapP
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates max value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapCalculator::calculateMaxValue( const RigContourMapProjection&                contourMapProjection,
                                                    const std::vector<std::pair<size_t, double>>& matchingCells,
@@ -235,7 +237,7 @@ double RigContourMapCalculator::calculateMaxValue( const RigContourMapProjection
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates min value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapCalculator::calculateMinValue( const RigContourMapProjection&                contourMapProjection,
                                                    const std::vector<std::pair<size_t, double>>& matchingCells,
@@ -256,7 +258,7 @@ double RigContourMapCalculator::calculateMinValue( const RigContourMapProjection
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates sum.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapCalculator::calculateSum( const RigContourMapProjection&                contourMapProjection,
                                               const std::vector<std::pair<size_t, double>>& matchingCells,
@@ -280,7 +282,7 @@ double RigContourMapCalculator::calculateSum( const RigContourMapProjection&    
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether point inside polygons.
 //--------------------------------------------------------------------------------------------------
 bool RigContourMapCalculator::isPointInsidePolygons( cvf::Vec2d point, const std::vector<std::vector<cvf::Vec3d>>& polygons )
 {
@@ -300,7 +302,7 @@ bool RigContourMapCalculator::isPointInsidePolygons( cvf::Vec2d point, const std
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates grid mapping.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<std::pair<size_t, double>>>
     RigContourMapCalculator::generateGridMapping( RigContourMapProjection&                    contourMapProjection,
@@ -347,7 +349,7 @@ std::vector<std::vector<std::pair<size_t, double>>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell overlap volumes and results.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigContourMapCalculator::CellIndexAndResult>
     RigContourMapCalculator::cellOverlapVolumesAndResults( const RigContourMapProjection& contourMapProjection,
@@ -419,7 +421,7 @@ std::vector<RigContourMapCalculator::CellIndexAndResult>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell ray intersection and results.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigContourMapCalculator::CellIndexAndResult>
     RigContourMapCalculator::cellRayIntersectionAndResults( const RigContourMapProjection& contourMapProjection,
@@ -489,7 +491,7 @@ std::vector<RigContourMapCalculator::CellIndexAndResult>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether column result.
 //--------------------------------------------------------------------------------------------------
 bool RigContourMapCalculator::isColumnResult( ResultAggregationType aggregationType )
 {
@@ -498,7 +500,7 @@ bool RigContourMapCalculator::isColumnResult( ResultAggregationType aggregationT
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether mean result.
 //--------------------------------------------------------------------------------------------------
 bool RigContourMapCalculator::isMeanResult( ResultAggregationType aggregationType )
 {
@@ -506,7 +508,7 @@ bool RigContourMapCalculator::isMeanResult( ResultAggregationType aggregationTyp
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether straight summation result.
 //--------------------------------------------------------------------------------------------------
 bool RigContourMapCalculator::isStraightSummationResult( ResultAggregationType aggregationType )
 {
@@ -514,7 +516,7 @@ bool RigContourMapCalculator::isStraightSummationResult( ResultAggregationType a
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether mobile column result.
 //--------------------------------------------------------------------------------------------------
 bool RigContourMapCalculator::isMobileColumnResult( ResultAggregationType aggregationType )
 {

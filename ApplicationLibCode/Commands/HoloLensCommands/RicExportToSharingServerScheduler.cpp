@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export to sharing server scheduler command support.
 
 #include "RicExportToSharingServerScheduler.h"
 

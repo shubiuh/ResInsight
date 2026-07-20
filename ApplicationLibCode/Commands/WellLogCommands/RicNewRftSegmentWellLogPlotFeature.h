@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new RFT segment well log plot command support.
 
 #pragma once
 
@@ -29,24 +31,31 @@ class RimWellLogTrack;
 class RimWellLogRftCurve;
 
 //==================================================================================================
-///
+/// @brief Command feature for new RFT segment well log plot.
 //==================================================================================================
 class RicNewRftSegmentWellLogPlotFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Appends topology track.
     static void appendTopologyTrack( RimWellLogPlot* plot, const QString& wellName, RimSummaryCase* summaryCase );
+    /// Appends pressure track.
     static void appendPressureTrack( RimWellLogPlot* plot, const QString& wellName, RimSummaryCase* summaryCase );
+    /// Appends connection factor track.
     static void appendConnectionFactorTrack( RimWellLogPlot* plot, const QString& wellName, RimSummaryCase* summaryCase );
 
+    /// @return The selected or first RFT case.
     static RimSummaryCase* getSelectedOrFirstRftCase();
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
 
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Appends track and curve for branch type.
     static RimWellLogRftCurve* appendTrackAndCurveForBranchType( RimWellLogPlot*           plot,
                                                                  const QString&            trackName,
                                                                  const QString&            resultName,
@@ -54,12 +63,14 @@ private:
                                                                  RiaDefines::RftBranchType branchType,
                                                                  RimSummaryCase*           summaryCase );
 
+    /// Creates and add curve.
     static RimWellLogRftCurve* createAndAddCurve( RimWellLogTrack*          track,
                                                   const QString&            resultName,
                                                   const QString&            wellName,
                                                   RiaDefines::RftBranchType branchType,
                                                   RimSummaryCase*           summaryCase );
 
+    /// Appends additional data source track.
     static std::vector<RimPlotCurve*>
         appendAdditionalDataSourceTrack( RimWellLogPlot* plot, const QString& wellName, RimSummaryCase* summaryCase );
 };

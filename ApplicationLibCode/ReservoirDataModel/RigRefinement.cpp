@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements refinement reservoir-data functionality.
 
 #include "RigRefinement.h"
 
@@ -22,7 +24,7 @@
 #include <numeric>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the widths to cumulative fractions.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigRefinement::widthsToCumulativeFractions( const std::vector<double>& widths )
 {

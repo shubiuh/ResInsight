@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fracture cell reservoir-data functionality.
 
 #include "RigFractureCell.h"
 
@@ -25,7 +27,7 @@
 #include <QString>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFractureCell instance.
 //--------------------------------------------------------------------------------------------------
 RigFractureCell::RigFractureCell( std::vector<cvf::Vec3d> polygon, size_t i, size_t j )
     : m_polygon( polygon )
@@ -36,7 +38,7 @@ RigFractureCell::RigFractureCell( std::vector<cvf::Vec3d> polygon, size_t i, siz
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns polygon.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d>& RigFractureCell::getPolygon() const
 {
@@ -44,7 +46,7 @@ const std::vector<cvf::Vec3d>& RigFractureCell::getPolygon() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns conductivity value.
 //--------------------------------------------------------------------------------------------------
 double RigFractureCell::getConductivityValue() const
 {
@@ -52,7 +54,7 @@ double RigFractureCell::getConductivityValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns i.
 //--------------------------------------------------------------------------------------------------
 size_t RigFractureCell::getI() const
 {
@@ -60,7 +62,7 @@ size_t RigFractureCell::getI() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns j.
 //--------------------------------------------------------------------------------------------------
 size_t RigFractureCell::getJ() const
 {
@@ -68,7 +70,7 @@ size_t RigFractureCell::getJ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether non zero conductivity is available.
 //--------------------------------------------------------------------------------------------------
 bool RigFractureCell::hasNonZeroConductivity() const
 {
@@ -76,7 +78,7 @@ bool RigFractureCell::hasNonZeroConductivity() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets conductivity value.
 //--------------------------------------------------------------------------------------------------
 void RigFractureCell::setConductivityValue( double cond )
 {
@@ -84,7 +86,7 @@ void RigFractureCell::setConductivityValue( double cond )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell size x.
 //--------------------------------------------------------------------------------------------------
 double RigFractureCell::cellSizeX() const
 {
@@ -94,7 +96,7 @@ double RigFractureCell::cellSizeX() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell size z.
 //--------------------------------------------------------------------------------------------------
 double RigFractureCell::cellSizeZ() const
 {
@@ -103,7 +105,7 @@ double RigFractureCell::cellSizeZ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the area.
 //--------------------------------------------------------------------------------------------------
 double RigFractureCell::area() const
 {
@@ -111,7 +113,7 @@ double RigFractureCell::area() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the center position.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigFractureCell::centerPosition() const
 {

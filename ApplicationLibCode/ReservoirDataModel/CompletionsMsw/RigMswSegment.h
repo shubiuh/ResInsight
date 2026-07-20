@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares msw segment reservoir-data functionality.
 #pragma once
 
 #include "RigMswTableRows.h"
@@ -30,11 +32,17 @@
 /// Grid-cell intersection for a single MSW segment.
 /// Used to populate the COMPSEGS (main grid) and COMPSEGL (LGR sub-grid) tables.
 //==================================================================================================
+/// @brief Models msw cell intersection for reservoir-data processing.
 struct RigMswCellIntersection
 {
-    size_t      i, j, k;        // Grid cell IJK indices (1-based)
+    size_t      i;              ///< Grid cell I index (1-based).
+    size_t      j;              ///< Grid cell J index (1-based).
+    size_t      k;              ///< Grid cell K index (1-based).
+    /// Stores distance start.
     double      distanceStart;  // Distance from well heel to start of intersection [m or ft]
+    /// Stores distance end.
     double      distanceEnd;    // Distance from well heel to end of intersection [m or ft]
+    /// Stores grid name.
     std::string gridName;       // Empty for main grid; LGR name for sub-grids (COMPSEGL)
 };
 
@@ -44,26 +52,39 @@ struct RigMswCellIntersection
 /// Cell intersections (COMPSEGS/COMPSEGL) and optional valve data are embedded.
 /// The branch number lives on the containing RigMswBranch, not here.
 //==================================================================================================
+/// @brief Models msw segment for reservoir-data processing.
 struct RigMswSegment
 {
     // WELSEGS fields
+    /// Stores segment number.
     int    segmentNumber;        // ISEG1 / ISEG2
+    /// Stores outlet segment number.
     int    outletSegmentNumber;  // ISEG3 (parent/outlet segment)
 
+    /// Stores length.
     double                length;    // LENGTH (incremental or absolute MD)
+    /// Stores depth.
     double                depth;     // DEPTH  (incremental or absolute TVD)
+    /// Stores diameter.
     std::optional<double> diameter;  // ID      (liner inner diameter)
+    /// Stores roughness.
     std::optional<double> roughness; // EPSILON (roughness factor)
 
+    /// Stores description.
     std::string description;     // Comment shown in WELSEGS output
+    /// Stores source well name.
     std::string sourceWellName;  // Name of the source well path object
 
     // COMPSEGS / COMPSEGL: grid-cell intersections for this segment
+    /// Stores intersections.
     std::vector<RigMswCellIntersection> intersections;
 
     // Valve data — at most one type per segment
+    /// Stores wsegvalv data.
     std::optional<WsegvalvRow> wsegvalvData;  // WSEGVALV: ICV / ICD valves
+    /// Stores wsegaicd data.
     std::optional<WsegaicdRow> wsegaicdData;  // WSEGAICD: Autonomous ICD valves
+    /// Stores wsegsicd data.
     std::optional<WsegsicdRow> wsegsicdData;  // WSEGSICD: Spiral ICD valves
 };
 
@@ -73,10 +94,14 @@ struct RigMswSegment
 /// All segments share the same IBRANCH number, which is stored here rather than per-segment.
 /// An optional tie-in valve segment (ICV) may appear at the start of lateral branches.
 //==================================================================================================
+/// @brief Models msw branch for reservoir-data processing.
 struct RigMswBranch
 {
+    /// Stores branch number.
     int                          branchNumber;  // IBRANCH for all segments in this branch
+    /// Stores tie in valve.
     std::optional<RigMswSegment> tieInValve;    // Optional ICV at the tie-in point (laterals only)
+    /// Stores segments.
     std::vector<RigMswSegment>   segments;      // Segments of this branch
 };
 
@@ -86,9 +111,12 @@ struct RigMswBranch
 /// Contains all information needed to write WELSEGS, COMPSEGS, and valve tables without
 /// any further tree traversal.
 //==================================================================================================
+/// @brief Stores msw well export data.
 struct RigMswWellExportData
 {
+    /// Stores header.
     WelsegsHeader               header;    // WELSEGS well-level header
+    /// Stores branches.
     std::vector<RigMswBranch>   branches;  // One entry per branch
 };
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements textured section reservoir-data functionality.
 
 #include "RigTexturedSection.h"
 
@@ -23,21 +25,21 @@
 #include <zgyaccess/seismicslice.h>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigTexturedSection instance.
 //--------------------------------------------------------------------------------------------------
 RigTexturedSection::RigTexturedSection()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigTexturedSection instance.
 //--------------------------------------------------------------------------------------------------
 RigTexturedSection::~RigTexturedSection()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets what to update.
 //--------------------------------------------------------------------------------------------------
 void RigTexturedSection::setWhatToUpdate( WhatToUpdateEnum updateInfo, int index /*=-1*/ )
 {
@@ -73,7 +75,7 @@ void RigTexturedSection::setWhatToUpdate( WhatToUpdateEnum updateInfo, int index
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigTexturedSection::isValid() const
 {
@@ -90,7 +92,7 @@ bool RigTexturedSection::isValid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parts count.
 //--------------------------------------------------------------------------------------------------
 int RigTexturedSection::partsCount() const
 {
@@ -98,7 +100,7 @@ int RigTexturedSection::partsCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the resize.
 //--------------------------------------------------------------------------------------------------
 void RigTexturedSection::resize( int size )
 {
@@ -106,7 +108,7 @@ void RigTexturedSection::resize( int size )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the part.
 //--------------------------------------------------------------------------------------------------
 RigTexturedSectionPart& RigTexturedSection::part( int index )
 {
@@ -115,7 +117,7 @@ RigTexturedSectionPart& RigTexturedSection::part( int index )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets section part rect.
 //--------------------------------------------------------------------------------------------------
 void RigTexturedSection::setSectionPartRect( int index, cvf::Vec3dArray rect )
 {
@@ -131,7 +133,7 @@ void RigTexturedSection::setSectionPartRect( int index, cvf::Vec3dArray rect )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets section part data.
 //--------------------------------------------------------------------------------------------------
 void RigTexturedSection::setSectionPartData( int index, std::shared_ptr<ZGYAccess::SeismicSliceData> data )
 {

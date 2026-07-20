@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements save project as command support.
 
 #include "RicSaveProjectAsFeature.h"
 

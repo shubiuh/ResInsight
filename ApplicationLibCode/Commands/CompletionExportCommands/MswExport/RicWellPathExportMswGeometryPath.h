@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path export MSW geometry path command support.
 
 #pragma once
 
@@ -39,6 +41,7 @@ class RigMainGrid;
 namespace RicWellPathExportMswGeometryPath
 {
 
+/// Builds lateral branches.
 std::vector<RigMswBranch> buildLateralBranches( RimEclipseCase*                               eclipseCase,
                                                 const RimWellPath*                            wellPath,
                                                 const RigMainGrid*                            mainGrid,
@@ -49,6 +52,7 @@ std::vector<RigMswBranch> buildLateralBranches( RimEclipseCase*                 
                                                 int&                                          branchNumber,
                                                 RiaDefines::EclipseUnitSystem                 unitSystem );
 
+/// Builds MSW well export data.
 RigMswWellExportData buildMswWellExportData( RimEclipseCase*                               eclipseCase,
                                              const RimWellPath*                            wellPath,
                                              double                                        maxSegmentLength,
@@ -56,6 +60,7 @@ RigMswWellExportData buildMswWellExportData( RimEclipseCase*                    
                                              RicWellPathExportMswTableData::CompletionType completionType,
                                              const std::optional<QDateTime>&               exportDate );
 
+/// @return The collect table data.
 RigMswTableData collectTableData( const RigMswWellExportData& exportData, RiaDefines::EclipseUnitSystem unitSystem );
 
 } // namespace RicWellPathExportMswGeometryPath

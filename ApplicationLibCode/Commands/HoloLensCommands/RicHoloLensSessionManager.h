@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares holo lens session manager command support.
 
 #pragma once
 
@@ -29,23 +31,32 @@ class RicHoloLensSession;
 //
 //
 //==================================================================================================
+/// @brief Supports holo lens session manager command workflows.
 class RicHoloLensSessionManager : private RicHoloLensSessionObserver
 {
 public:
+    /// @return The instance.
     static RicHoloLensSessionManager* instance();
 
+    /// Creates session.
     bool createSession( const QString& serverUrl, const QString& sessionName, const QString& sessionPinCode );
+    /// Creates dummy file backed session.
     bool createDummyFileBackedSession();
+    /// Performs the terminate session command operation.
     void terminateSession();
 
+    /// @return The session.
     RicHoloLensSession* session();
 
+    /// Performs the refresh toolbar state command operation.
     static void refreshToolbarState();
 
 private:
+    /// Handles session notification.
     void handleSessionNotification( const RicHoloLensSession* session, Notification notification ) override;
 
 private:
+    /// Constructs the command object.
     RicHoloLensSessionManager();
 
 private:

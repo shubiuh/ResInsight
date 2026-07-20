@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show memory cleanup dialog command support.
 
 #include "RicShowMemoryCleanupDialogFeature.h"
 

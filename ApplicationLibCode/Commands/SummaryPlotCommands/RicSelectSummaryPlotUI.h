@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares select summary plot command support.
 
 #pragma once
 
@@ -25,25 +27,33 @@
 class RimSummaryPlot;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring select summary plot.
 //==================================================================================================
 class RicSelectSummaryPlotUI : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSelectSummaryPlotUI();
 
+    /// Sets default summary plot.
     void setDefaultSummaryPlot( RimSummaryPlot* summaryPlot );
+    /// Sets suggested plot name.
     void setSuggestedPlotName( const QString& name );
 
+    /// @return The selected summary plot.
     RimSummaryPlot* selectedSummaryPlot() const;
+    /// @return Whether create new plot checked.
     bool            isCreateNewPlotChecked() const;
+    /// @return The new plot name.
     QString         newPlotName() const;
 
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
 private:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for flow diag interface.
 
 #pragma once
 
@@ -36,6 +38,7 @@
 
 namespace RigFlowDiagInterfaceTools
 {
+/// Returns or processes get phases.
 std::vector<Opm::ECLPhaseIndex> getPhases( RigFlowDiagResultAddress::PhaseSelection phaseSelection )
 {
     std::vector<Opm::ECLPhaseIndex> phases;
@@ -58,6 +61,7 @@ std::vector<Opm::ECLPhaseIndex> getPhases( RigFlowDiagResultAddress::PhaseSelect
 
 template <class FluxCalc>
 inline Opm::FlowDiagnostics::ConnectionValues
+    /// Returns or processes extract flux field.
     extractFluxField( const Opm::ECLGraph& G, FluxCalc&& getFlux, std::vector<Opm::ECLPhaseIndex> actPh )
 {
     using ConnVals = Opm::FlowDiagnostics::ConnectionValues;
@@ -88,6 +92,7 @@ inline Opm::FlowDiagnostics::ConnectionValues
     return flux;
 }
 
+/// Returns or processes extract flux field from restart file.
 inline Opm::FlowDiagnostics::ConnectionValues extractFluxFieldFromRestartFile( const Opm::ECLGraph&                     G,
                                                                                const Opm::ECLRestartData&               rstrt,
                                                                                RigFlowDiagResultAddress::PhaseSelection phaseSelection )
@@ -97,6 +102,7 @@ inline Opm::FlowDiagnostics::ConnectionValues extractFluxFieldFromRestartFile( c
     return extractFluxField( G, getFlux, getPhases( phaseSelection ) );
 }
 
+/// Calculates flux field.
 inline Opm::FlowDiagnostics::ConnectionValues calculateFluxField( const Opm::ECLGraph&                     G,
                                                                   const Opm::ECLInitFileData&              init,
                                                                   const Opm::ECLRestartData&               rstrt,
@@ -113,6 +119,7 @@ inline Opm::FlowDiagnostics::ConnectionValues calculateFluxField( const Opm::ECL
 
 template <class WellFluxes>
 std::map<Opm::FlowDiagnostics::CellSetID, Opm::FlowDiagnostics::CellSetValues>
+    /// Returns or processes extract well flows.
     extractWellFlows( const Opm::ECLGraph& G, const WellFluxes& well_fluxes )
 {
     std::map<Opm::FlowDiagnostics::CellSetID, Opm::FlowDiagnostics::CellSetValues> well_flows;

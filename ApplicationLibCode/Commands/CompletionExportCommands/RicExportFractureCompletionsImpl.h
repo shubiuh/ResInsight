@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export fracture completions command support.
 
 #pragma once
 
@@ -41,7 +43,7 @@ class QTextStream;
 class QString;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Supports export fracture completions command workflows.
 //--------------------------------------------------------------------------------------------------
 class RicExportFractureCompletionsImpl
 {
@@ -53,7 +55,7 @@ public:
     };
 
     //--------------------------------------------------------------------------------------------------
-    ///
+/// @brief Data used to configure or execute pressure depletion parameters command workflows.
     //--------------------------------------------------------------------------------------------------
     struct PressureDepletionParameters
     {
@@ -74,6 +76,7 @@ public:
         double                      userWBHP;
     };
 
+    /// @return The generate compdat values for well path.
     static std::vector<RigCompletionData>
         generateCompdatValuesForWellPath( RimWellPath*                                wellPath,
                                           RimEclipseCase*                             caseToApply,
@@ -81,6 +84,7 @@ public:
                                           QTextStream*                                outputStreamForIntermediateResultsText,
                                           PressureDepletionParameters                 pdParams = PressureDepletionParameters() );
 
+    /// @return The generate compdat values.
     static std::vector<RigCompletionData> generateCompdatValues( RimEclipseCase*                             caseToApply,
                                                                  const QString&                              wellNameForExport,
                                                                  const RigWellPath*                          wellPathGeometry,
@@ -89,6 +93,7 @@ public:
                                                                  QTextStream*                outputStreamForIntermediateResultsText,
                                                                  PressureDepletionParameters pdParams = PressureDepletionParameters() );
 
+    /// Gets well pressures and initial production time step from summary data.
     static void getWellPressuresAndInitialProductionTimeStepFromSummaryData( const RimEclipseCase* caseToApply,
                                                                              const QString&        wellPathName,
                                                                              int                   currentTimeStep,
@@ -97,6 +102,7 @@ public:
                                                                              double*               currentWellPressure );
 
 private:
+    /// @return The generate compdat values const.
     static std::vector<RigCompletionData> generateCompdatValuesConst( const RimEclipseCase*                       caseToApply,
                                                                       const QString&                              wellPathName,
                                                                       const RigWellPath*                          wellPathGeometry,
@@ -105,12 +111,15 @@ private:
                                                                       QTextStream*                outputStreamForIntermediateResultsText,
                                                                       PressureDepletionParameters pdParams );
 
+    /// @return The check for stim plan conductivity.
     static bool checkForStimPlanConductivity( const RimFractureTemplate* fracTemplate, const RimFracture* fracture );
 
+    /// Calculates internal fracture transmissibilities.
     static void calculateInternalFractureTransmissibilities( const RigFractureGrid*        fractureGrid,
                                                              double                        cDarcyInCorrectUnit,
                                                              RigTransmissibilityCondenser& transCondenser );
 
+    /// Calculates fracture to well transmissibilities.
     static void calculateFractureToWellTransmissibilities( const RimFractureTemplate*    fracTemplate,
                                                            const RigFractureGrid*        fractureGrid,
                                                            const RimFracture*            fracture,
@@ -119,29 +128,37 @@ private:
                                                            RigTransmissibilityCondenser& transCondenser,
                                                            bool                          useInfiniteWellPI );
 
+    /// Calculates matrix to well transmissibilities.
     static std::map<size_t, double> calculateMatrixToWellTransmissibilities( RigTransmissibilityCondenser& transCondenser );
 
+    /// @return The generate compdat values for fracture.
     static std::vector<RigCompletionData> generateCompdatValuesForFracture( const std::map<size_t, double>& matrixToWellTransmissibilites,
                                                                             const QString&                  wellPathName,
                                                                             const RimEclipseCase*           caseToApply,
                                                                             const RimFracture*              fracture,
                                                                             const RimFractureTemplate*      fracTemplate );
 
+    /// Computes non darcy flow parameters.
     static void computeNonDarcyFlowParameters( const RimFracture* fracture, std::vector<RigCompletionData>& allCompletionsForOneFracture );
 
+    /// @return The sum up transmissibilities.
     static double sumUpTransmissibilities( const std::vector<RigCompletionData>& allCompletionsForOneFracture );
 
+    /// Calculates and set report item data.
     static void calculateAndSetReportItemData( const std::vector<RigCompletionData>& allCompletionsForOneFracture,
                                                const RigEclipseToStimPlanCalculator& calculator,
                                                RicWellPathFractureReportItem&        reportItem );
 
+    /// Performs the output intermediate results text command operation.
     static void outputIntermediateResultsText( QTextStream*                  outputStreamForIntermediateResultsText,
                                                const RimFracture*            fracture,
                                                RigTransmissibilityCondenser& transCondenser,
                                                const RigMainGrid*            mainGrid,
                                                const RigFractureGrid*        fractureGrid );
 
+    /// Computes well points in fracture plane.
     static std::vector<cvf::Vec3d> computeWellPointsInFracturePlane( const RimFracture* fracture, const RigWellPath* wellPathGeometry );
 
+    /// Loads results by name.
     static bool loadResultsByName( RigCaseCellResultsData* cellResultsData, const std::vector<QString>& resultNames );
 };

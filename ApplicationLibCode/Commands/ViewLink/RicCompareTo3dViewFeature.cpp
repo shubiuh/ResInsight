@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements compare to3d view command support.
 #include "RicCompareTo3dViewFeature.h"
 
 #include "RiaApplication.h"

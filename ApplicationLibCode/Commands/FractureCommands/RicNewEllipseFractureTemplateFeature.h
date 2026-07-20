@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new ellipse fracture template command support.
 
 #pragma once
 
@@ -30,18 +32,23 @@ class RimFractureTemplate;
 class RimFractureTemplateCollection;
 
 //==================================================================================================
-///
+/// @brief Command feature for new ellipse fracture template.
 //==================================================================================================
 class RicNewEllipseFractureTemplateFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Creates new template for fracture and update.
     static void createNewTemplateForFractureAndUpdate( RimFracture* fracture );
+    /// Selects fracture template and update.
     static void selectFractureTemplateAndUpdate( RimFractureTemplate* fractureTemplate );
 
 protected:
+    /// Creates new template.
     static RimEllipseFractureTemplate* createNewTemplate();
+    /// Executes the command for the current selection.
     void                               onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void                               setupActionLook( QAction* actionToSetup ) override;
 };

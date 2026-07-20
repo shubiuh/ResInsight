@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well log command support.
 
 #pragma once
 
@@ -41,21 +43,31 @@ class RimWellLogCurve;
 class RimWellLogCalculatedCurve;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Utility functions for well log.
 //--------------------------------------------------------------------------------------------------
 class RicWellLogTools
 {
 public:
+    /// @return The selected simulation well.
     static RimSimWellInView* selectedSimulationWell( int* branchIndex );
+    /// @return Whether RFT data.
     static bool              hasRftData();
+    /// @return Whether RFT data for well.
     static bool              hasRftDataForWell( const QString& wellName );
+    /// @return Whether well path or sim well selected in view.
     static bool              isWellPathOrSimWellSelectedInView();
+    /// Adds well log channels to plot track.
     static void addWellLogChannelsToPlotTrack( RimWellLogTrack* plotTrack, const std::vector<RimWellLogChannel*>& wellLogFileChannels );
+    /// @return The selected well path with log.
     static RimWellPath*            selectedWellPathWithLog();
+    /// @return The matching well path with log from selection.
     static RimWellPath*            findWellPathWithLogFromSelection();
+    /// Adds RFT curve.
     static RimWellLogRftCurve*     addRftCurve( RimWellLogTrack* plotTrack, const RimSimWellInView* simWell, bool showPlotWindow = true );
+    /// Adds file curve.
     static RimWellLogLasFileCurve* addFileCurve( RimWellLogTrack* plotTrack, bool showPlotWindow = true );
 
+    /// Adds well log extraction curve.
     static RimWellLogExtractionCurve* addWellLogExtractionCurve( RimWellLogTrack*        plotTrack,
                                                                  RimCase*                rimCase,
                                                                  Rim3dView*              view,
@@ -64,6 +76,7 @@ public:
                                                                  int                     branchIndex,
                                                                  bool                    useBranchDetection,
                                                                  bool                    showPlotWindow = true );
+    /// Adds well log WBS curve.
     static RimWellLogWbsCurve*        addWellLogWbsCurve( RimWellLogTrack* plotTrack,
                                                           RimCase*         rimCase,
                                                           Rim3dView*       view,
@@ -71,19 +84,25 @@ public:
                                                           int              branchIndex,
                                                           bool             useBranchDetection,
                                                           bool             showPlotWindow = true );
+    /// Adds well measurement curve.
     static RimWellMeasurementCurve*
         addWellMeasurementCurve( RimWellLogTrack* plotTrack, RimWellPath* wellPath, const QString& measurementName, bool showPlotWindow = true );
+    /// Adds well log calculated curve.
     static RimWellLogCalculatedCurve* addWellLogCalculatedCurve( RimWellLogTrack* plotTrack, bool showPlotWindow = true );
 
+    /// Adds summary RFT curve.
     static RimWellLogCurve*    addSummaryRftCurve( RimWellLogTrack* plotTrack, RimSummaryCase* rimCase );
+    /// Adds summary RFT segment curve.
     static RimWellLogRftCurve* addSummaryRftSegmentCurve( RimWellLogTrack*          plotTrack,
                                                           const QString&            resultName,
                                                           const QString&            wellName,
                                                           RiaDefines::RftBranchType branchType,
                                                           RimSummaryCase*           rimCase );
+    /// @return Whether data.
     static bool hasData( const QString& resultName, const QString& wellName, RiaDefines::RftBranchType branchType, RimSummaryCase* rimCase );
 
 private:
+    /// Adds extraction curve.
     template <typename ExtractionCurveType>
     static ExtractionCurveType* addExtractionCurve( RimWellLogTrack*        plotTrack,
                                                     RimCase*                rimCase,

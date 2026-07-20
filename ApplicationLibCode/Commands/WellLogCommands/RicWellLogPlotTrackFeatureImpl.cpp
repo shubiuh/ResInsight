@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well log plot track command support.
 
 #include "RicWellLogPlotTrackFeatureImpl.h"
 

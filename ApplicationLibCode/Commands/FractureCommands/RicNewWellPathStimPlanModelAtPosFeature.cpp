@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well path stim plan model at pos command support.
 
 #include "RicNewWellPathStimPlanModelAtPosFeature.h"
 

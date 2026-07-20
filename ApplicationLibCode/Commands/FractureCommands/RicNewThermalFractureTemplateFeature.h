@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new thermal fracture template command support.
 
 #pragma once
 
@@ -27,23 +29,33 @@ class RimFractureTemplate;
 class RimThermalFractureTemplate;
 
 //==================================================================================================
-///
+/// @brief Command feature for new thermal fracture template.
 //==================================================================================================
 class RicNewThermalFractureTemplateFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
+    /// Creates new template for fracture and update.
     static void                                     createNewTemplateForFractureAndUpdate( RimFracture* fracture );
+    /// Selects fracture template and update.
     static void                                     selectFractureTemplateAndUpdate( RimFractureTemplate* fractureTemplate );
+    /// Creates new templates from files.
     static std::vector<RimThermalFractureTemplate*> createNewTemplatesFromFiles( const std::vector<QString>& fileNames,
                                                                                  bool reuseExistingTemplatesWithMatchingNames = false );
 
 protected:
+    /// Creates new templates.
     static std::vector<RimThermalFractureTemplate*> createNewTemplates();
+    /// Executes the command for the current selection.
     void                                            onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void                                            setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The file filter.
     static QString fileFilter();
+    /// @return The title.
     static QString title();
+    /// @return The default template name.
     static QString defaultTemplateName();
+    /// @return The last used dialog fallback.
     static QString lastUsedDialogFallback();
 };

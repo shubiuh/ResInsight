@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new summary table command support.
 
 #include "RicNewSummaryTableFeature.h"
 

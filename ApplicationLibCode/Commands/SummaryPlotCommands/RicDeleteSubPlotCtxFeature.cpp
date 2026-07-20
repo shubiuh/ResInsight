@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete sub plot ctx command support.
 
 #include "RicDeleteSubPlotCtxFeature.h"
 

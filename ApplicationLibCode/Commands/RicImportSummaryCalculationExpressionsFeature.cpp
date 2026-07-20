@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import summary calculation expressions command support.
 
 #include "RicImportSummaryCalculationExpressionsFeature.h"
 #include "RicExportSummaryCalculationExpressionsFeature.h"

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements allan util reservoir-data functionality.
 
 #include "RigAllanUtil.h"
 
@@ -29,7 +31,7 @@
 #include "RigNncConnection.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes allan results.
 //--------------------------------------------------------------------------------------------------
 void RigAllanUtil::computeAllanResults( RigCaseCellResultsData* cellResultsData, RigMainGrid* mainGrid, bool includeInactiveCells )
 {

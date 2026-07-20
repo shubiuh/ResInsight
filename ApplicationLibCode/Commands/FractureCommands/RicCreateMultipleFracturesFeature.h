@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create multiple fractures command support.
 
 #pragma once
 
@@ -31,13 +33,14 @@
 class RiuCreateMultipleFractionsUi;
 class RimEclipseCase;
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmUiPropertyViewDialog;
 }
 
 //==================================================================================================
-///
+/// @brief Command feature for create multiple fractures.
 //==================================================================================================
 class RicCreateMultipleFracturesFeature : public caf::CmdFeature
 {
@@ -47,20 +50,30 @@ class RicCreateMultipleFracturesFeature : public caf::CmdFeature
 public:
     RicCreateMultipleFracturesFeature() {}
 
+    /// Appends fractures.
     void                            appendFractures();
+    /// Performs the replace fractures command operation.
     void                            replaceFractures();
+    /// @return The ijk range for grid.
     RigBoundingBoxIjk<caf::VecIjk0> ijkRangeForGrid( RimEclipseCase* gridCase ) const;
 
 private slots:
+    /// Performs the slot delete and append fractures command operation.
     void slotDeleteAndAppendFractures();
+    /// Performs the slot append fractures command operation.
     void slotAppendFractures();
+    /// Performs the slot close command operation.
     void slotClose();
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
 
+    /// @return The multiple fractions.
     RiuCreateMultipleFractionsUi* multipleFractionsUi() const;
 
 private:

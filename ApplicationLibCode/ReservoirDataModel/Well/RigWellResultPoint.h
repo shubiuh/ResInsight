@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well result point reservoir-data functionality.
 
 #pragma once
 
@@ -33,6 +35,7 @@
 /// Stores the info on a significant point in the well. Either a well-to-grid connection, or the
 /// bottom position of a connection less well-segment
 //==================================================================================================
+/// @brief Models well result point for reservoir-data processing.
 struct RigWellResultPoint
 {
     RigWellResultPoint();

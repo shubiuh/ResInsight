@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements set master view command support.
 
 #include "RicSetMasterViewFeature.h"
 

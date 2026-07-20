@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares vde caching hashed ID factory command support.
 
 #pragma once
 
@@ -28,6 +30,7 @@
 //
 //
 //==================================================================================================
+/// @brief Supports vde caching hashed ID factory command workflows.
 class VdeCachingHashedIdFactory
 {
 public:
@@ -40,12 +43,17 @@ public:
     };
 
 public:
+    /// Constructs the command object.
     VdeCachingHashedIdFactory();
 
+    /// @return The or create ID for float arr.
     int getOrCreateIdForFloatArr( ArrayRole arrayRole, const void* floatArr, size_t elementCount );
+    /// @return The or create ID for uint32 arr.
     int getOrCreateIdForUint32Arr( ArrayRole arrayRole, const unsigned int* uint32Arr, size_t elementCount );
+    /// @return The or create ID for uint8 arr.
     int getOrCreateIdForUint8Arr( ArrayRole arrayRole, const unsigned char* uint8Arr, size_t elementCount );
 
+    /// @return The last assigned ID.
     int lastAssignedId() const;
 
 private:
@@ -56,6 +64,7 @@ private:
         Uint8,
     };
 
+    /// @brief Data used to configure or execute key command workflows.
     struct Key
     {
         std::pair<uint64_t, uint64_t> hashVal;
@@ -63,10 +72,12 @@ private:
         ElementType                   elementType;
         size_t                        elementCount;
 
+        /// Provides the corresponding operator for command data.
         bool operator<( const Key& other ) const;
     };
 
 private:
+    /// @return The or create ID for arr of type.
     int getOrCreateIdForArrOfType( ArrayRole arrayRole, ElementType elementType, size_t elementSizeInBytes, const void* data, size_t elementCount );
 
 private:

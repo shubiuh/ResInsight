@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements flow diag time step result reservoir-data functionality.
 
 #include "RigFlowDiagTimeStepResult.h"
 
@@ -25,7 +27,7 @@
 #include <set>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFlowDiagTimeStepResult instance.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagTimeStepResult::RigFlowDiagTimeStepResult( size_t activeCellCount )
     : m_activeCellCount( activeCellCount )
@@ -33,7 +35,7 @@ RigFlowDiagTimeStepResult::RigFlowDiagTimeStepResult( size_t activeCellCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets tracer tof.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagTimeStepResult::setTracerTOF( const std::string&                       tracerName,
                                               RigFlowDiagResultAddress::PhaseSelection phaseSelection,
@@ -54,7 +56,7 @@ void RigFlowDiagTimeStepResult::setTracerTOF( const std::string&                
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets tracer fraction.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagTimeStepResult::setTracerFraction( const std::string&                       tracerName,
                                                    RigFlowDiagResultAddress::PhaseSelection phaseSelection,
@@ -67,7 +69,7 @@ void RigFlowDiagTimeStepResult::setTracerFraction( const std::string&           
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets inj prod well pair flux.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagTimeStepResult::setInjProdWellPairFlux( const std::string&               injectorTracerName,
                                                         const std::string&               producerTracerName,
@@ -77,7 +79,7 @@ void RigFlowDiagTimeStepResult::setInjProdWellPairFlux( const std::string&      
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds result.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagTimeStepResult::addResult( const RigFlowDiagResultAddress& resAddr, const std::map<int, double>& cellValues )
 {

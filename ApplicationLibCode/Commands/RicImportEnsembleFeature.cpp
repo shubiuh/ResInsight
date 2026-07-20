@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import ensemble command support.
 
 #include "RicImportEnsembleFeature.h"
 

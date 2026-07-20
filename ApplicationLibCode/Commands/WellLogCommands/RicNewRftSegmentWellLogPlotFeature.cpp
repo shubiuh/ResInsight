@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new RFT segment well log plot command support.
 
 #include "RicNewRftSegmentWellLogPlotFeature.h"
 

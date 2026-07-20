@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares holo lens export command support.
 
 #pragma once
 
@@ -27,25 +29,33 @@
 class QString;
 class RimGridView;
 
+/// @brief Utilities for cvf command workflows.
 namespace cvf
 {
 class Part;
 } // namespace cvf
 
 //==================================================================================================
-///
+/// @brief Supports holo lens export command workflows.
 //==================================================================================================
 class RicHoloLensExportImpl
 {
 public:
+    /// @return The parts for export.
     static std::vector<VdeExportPart>                      partsForExport( const RimGridView& view );
+    /// @return The labels for export.
     static std::vector<std::pair<cvf::Vec3f, cvf::String>> labelsForExport( const RimGridView& view );
 
 private:
+    /// Appends texture image.
     static void    appendTextureImage( VdeExportPart& exportPart, cvf::Part* part );
+    /// @return The grid cell set type text.
     static QString gridCellSetTypeText( RivCellSetEnum cellSetType );
 
+    /// @return Whether grid.
     static bool isGrid( const cvf::Part* part );
+    /// @return Whether pipe.
     static bool isPipe( const cvf::Part* part );
+    /// @return Whether mesh lines.
     static bool isMeshLines( const cvf::Part* part );
 };

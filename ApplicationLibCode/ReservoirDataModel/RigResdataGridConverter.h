@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares resdata grid converter reservoir-data functionality.
 
 #pragma once
 
@@ -35,6 +37,7 @@ class RigGridExportAdapter;
 // Utility class for converting Eclipse grids to various formats
 //
 //==================================================================================================
+/// @brief Converts resdata grid converter between supported representations.
 class RigResdataGridConverter
 {
 public:

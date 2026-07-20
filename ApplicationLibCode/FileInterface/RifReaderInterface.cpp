@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements shared reservoir-reader settings, time-step mapping, and fault import.
 //
 //  Copyright (C) Statoil ASA
 //  Copyright (C) Ceetron Solutions AS
@@ -114,7 +117,8 @@ std::set<RiaDefines::PhaseType> RifReaderInterface::availablePhases() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Treats an empty filter as identity so readers incur no mapping overhead unless
+/// the user explicitly selects a subset of file time steps.
 //--------------------------------------------------------------------------------------------------
 bool RifReaderInterface::isTimeStepIncludedByFilter( size_t timeStepIndex ) const
 {
@@ -153,7 +157,9 @@ void RifReaderInterface::setReaderSettings( RifReaderSettings readerSettings )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses explicit fault include files when available. Otherwise, fault discovery
+/// starts from the DATA grid section and falls back to PFLOTRAN input when no DATA
+/// file belongs to the case. Discovered includes are retained for later reloads.
 //--------------------------------------------------------------------------------------------------
 void RifReaderInterface::importFaults( const QStringList& fileSet, cvf::Collection<RigFault>* faults )
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new summary multi plot command support.
 
 #include "RicNewSummaryMultiPlotFeature.h"
 

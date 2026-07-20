@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add Eclipse input property command support.
 
 #include "RicAddEclipseInputPropertyFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements select plot template command support.
 
 #include "RicSelectPlotTemplateUi.h"
 

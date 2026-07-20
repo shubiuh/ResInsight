@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares holo lens session observer command support.
 
 #pragma once
 
@@ -25,6 +27,7 @@ class RicHoloLensSession;
 //
 //
 //==================================================================================================
+/// @brief Supports holo lens session observer command workflows.
 class RicHoloLensSessionObserver
 {
 public:
@@ -37,5 +40,6 @@ public:
 
 public:
     virtual ~RicHoloLensSessionObserver() {}
+    /// Handles session notification.
     virtual void handleSessionNotification( const RicHoloLensSession* session, Notification notification ) = 0;
 };

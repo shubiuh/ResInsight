@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares append separate intersection result command support.
 
 #pragma once
 
@@ -25,16 +27,21 @@
 class RimIntersectionResultsDefinitionCollection;
 
 //==================================================================================================
-///
+/// @brief Supports append separate intersection result feature cmd command workflows.
 //==================================================================================================
 class RicAppendSeparateIntersectionResultFeatureCmd : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     explicit RicAppendSeparateIntersectionResultFeatureCmd( RimIntersectionResultsDefinitionCollection* intersectionCollection );
+    /// Destroys the command object.
     ~RicAppendSeparateIntersectionResultFeatureCmd() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:
@@ -42,13 +49,15 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for append separate intersection result.
 //==================================================================================================
 class RicAppendSeparateIntersectionResultFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

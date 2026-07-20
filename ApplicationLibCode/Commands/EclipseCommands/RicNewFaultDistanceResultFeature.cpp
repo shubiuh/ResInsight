@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new fault distance result command support.
 
 #include "RicNewFaultDistanceResultFeature.h"
 

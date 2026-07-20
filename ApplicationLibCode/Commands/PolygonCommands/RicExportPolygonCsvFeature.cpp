@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export polygon CSV command support.
 
 #include "RicExportPolygonCsvFeature.h"
 

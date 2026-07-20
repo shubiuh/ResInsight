@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste histogram curve command support.
 
 #include "RicPasteHistogramCurveFeature.h"
 

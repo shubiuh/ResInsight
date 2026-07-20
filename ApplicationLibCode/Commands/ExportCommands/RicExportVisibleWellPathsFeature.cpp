@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export visible well paths command support.
 
 #include "RicExportVisibleWellPathsFeature.h"
 

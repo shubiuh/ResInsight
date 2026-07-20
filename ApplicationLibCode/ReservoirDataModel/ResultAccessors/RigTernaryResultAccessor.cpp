@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to ternary result.
 
 #include "RigTernaryResultAccessor.h"
 
@@ -24,7 +26,7 @@
 #include <cmath> // Needed for HUGE_VAL on Linux
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigTernaryResultAccessor instance.
 //--------------------------------------------------------------------------------------------------
 RigTernaryResultAccessor::RigTernaryResultAccessor()
 {
@@ -90,7 +92,7 @@ cvf::Vec2d RigTernaryResultAccessor::cellScalar( size_t gridLocalCellIndex ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2d RigTernaryResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {
@@ -98,7 +100,7 @@ cvf::Vec2d RigTernaryResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2d RigTernaryResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) const
 {

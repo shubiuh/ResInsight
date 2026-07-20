@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements surface resampler reservoir-data functionality.
 
 #include "RigSurfaceResampler.h"
 #include "Well/RigWellPath.h"
@@ -180,7 +182,7 @@ bool RigSurfaceResampler::findClosestPointOnSurface( RigSurface* surface, const 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes resampled polyline.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigSurfaceResampler::computeResampledPolyline( const std::vector<cvf::Vec3d>& polyline, double resamplingDistance )
 {
@@ -190,7 +192,7 @@ std::vector<cvf::Vec3d> RigSurfaceResampler::computeResampledPolyline( const std
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes resampled polyline with segment info.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<cvf::Vec3d, size_t>>
     RigSurfaceResampler::computeResampledPolylineWithSegmentInfo( const std::vector<cvf::Vec3d>& polyline, double resamplingDistance )
@@ -267,7 +269,7 @@ bool RigSurfaceResampler::findClosestPointXY( const cvf::Vec3d&                t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes max distance.
 //--------------------------------------------------------------------------------------------------
 double RigSurfaceResampler::computeMaxDistance( RigSurface* surface )
 {
@@ -290,7 +292,7 @@ double RigSurfaceResampler::computeMaxDistance( RigSurface* surface )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes resampled polyline with segment info impl.
 //--------------------------------------------------------------------------------------------------
 std::pair<std::vector<cvf::Vec3d>, std::vector<size_t>>
     RigSurfaceResampler::computeResampledPolylineWithSegmentInfoImpl( const std::vector<cvf::Vec3d>& polyline, double resamplingDistance )

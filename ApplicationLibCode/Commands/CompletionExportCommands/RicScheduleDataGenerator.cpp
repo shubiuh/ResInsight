@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements schedule data generator command support.
 
 #include "RicScheduleDataGenerator.h"
 

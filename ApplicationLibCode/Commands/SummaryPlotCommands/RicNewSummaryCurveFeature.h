@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new summary curve command support.
 
 #pragma once
 
@@ -25,7 +27,7 @@
 class RimSummaryPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for new summary curve.
 //==================================================================================================
 class RicNewSummaryCurveFeature : public caf::CmdFeature
 {
@@ -33,10 +35,14 @@ class RicNewSummaryCurveFeature : public caf::CmdFeature
 
 public:
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The selected summary plot.
     RimSummaryPlot* selectedSummaryPlot() const;
 };

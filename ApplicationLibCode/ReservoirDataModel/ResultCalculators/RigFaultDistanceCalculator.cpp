@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of fault distance.
 
 #include "RigFaultDistanceCalculator.h"
 
@@ -52,7 +54,7 @@ using FaceCenterKdTree = nanoflann::KDTreeSingleIndexAdaptor<nanoflann::L2_Simpl
 } // namespace
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes fault distances.
 //--------------------------------------------------------------------------------------------------
 void RigFaultDistanceCalculator::computeFaultDistances( const RigMainGrid*                  mainGrid,
                                                         const RigActiveCellInfo*            activeCellInfo,

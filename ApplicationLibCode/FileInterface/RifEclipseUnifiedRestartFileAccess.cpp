@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements indexed, report-step-aware access to unified restart files.
 //
 //  Copyright (C) 2011-     Statoil ASA
 //  Copyright (C) 2013-     Ceetron Solutions AS
@@ -68,7 +71,9 @@ bool RifEclipseUnifiedRestartFileAccess::open()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Uses a newer index sidecar only when enabled. A stale or unusable index falls
+/// back to normal ERT opening; a new sidecar is written opportunistically when the
+/// containing folder is writable.
 //--------------------------------------------------------------------------------------------------
 bool RifEclipseUnifiedRestartFileAccess::openFile()
 {
@@ -141,7 +146,8 @@ bool RifEclipseUnifiedRestartFileAccess::useResultIndexFile() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Extracts report numbers inside push/pop blocks so temporary ERT sub-selection
+/// cannot leak into subsequent keyword queries.
 //--------------------------------------------------------------------------------------------------
 void RifEclipseUnifiedRestartFileAccess::extractTimestepsFromEclipse()
 {
@@ -227,7 +233,8 @@ std::vector<RifEclipseKeywordValueCount> RifEclipseUnifiedRestartFileAccess::key
 }
 
 //--------------------------------------------------------------------------------------------------
-/// Get result values for given time step
+/// Selects the INTEHEAD block for each grid in the report step. Empty header-only
+/// blocks are included in the block stride but skipped when collecting payloads.
 //--------------------------------------------------------------------------------------------------
 bool RifEclipseUnifiedRestartFileAccess::results( const QString& resultName, size_t timeStep, size_t gridCount, std::vector<double>* values )
 {
@@ -331,7 +338,8 @@ std::set<RiaDefines::PhaseType> RifEclipseUnifiedRestartFileAccess::availablePha
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Records simulator-specific header-only grid blocks once the real grid count is
+/// known, allowing later report-step block indices to remain aligned.
 //--------------------------------------------------------------------------------------------------
 void RifEclipseUnifiedRestartFileAccess::updateFromGridCount( size_t gridCount )
 {

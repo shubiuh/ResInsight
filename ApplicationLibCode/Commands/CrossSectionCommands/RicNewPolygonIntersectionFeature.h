@@ -15,22 +15,27 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new polygon intersection command support.
 
 #pragma once
 
 #include "PolygonCommands/RicBasicPolygonFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for new polygon intersection.
 //==================================================================================================
 class RicNewPolygonIntersectionFeature : public RicBasicPolygonFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicNewPolygonIntersectionFeature();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

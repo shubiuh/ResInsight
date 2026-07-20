@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create reach circle annotation command support.
 
 #include "RicCreateReachCircleAnnotationFeature.h"
 

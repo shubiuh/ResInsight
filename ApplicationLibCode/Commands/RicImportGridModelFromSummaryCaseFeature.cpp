@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import grid model from summary case command support.
 
 #include "RicImportGridModelFromSummaryCaseFeature.h"
 

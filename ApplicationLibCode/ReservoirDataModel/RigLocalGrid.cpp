@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements local grid reservoir-data functionality.
 
 #include "RigLocalGrid.h"
 
@@ -31,7 +33,7 @@ RigLocalGrid::~RigLocalGrid()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the parent grid.
 //--------------------------------------------------------------------------------------------------
 RigGridBase* RigLocalGrid::parentGrid() const
 {
@@ -39,7 +41,7 @@ RigGridBase* RigLocalGrid::parentGrid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets parent grid.
 //--------------------------------------------------------------------------------------------------
 void RigLocalGrid::setParentGrid( RigGridBase* parentGrid )
 {
@@ -47,7 +49,7 @@ void RigLocalGrid::setParentGrid( RigGridBase* parentGrid )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets as temp grid.
 //--------------------------------------------------------------------------------------------------
 void RigLocalGrid::setAsTempGrid( bool isTemp )
 {
@@ -55,7 +57,7 @@ void RigLocalGrid::setAsTempGrid( bool isTemp )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether temp grid.
 //--------------------------------------------------------------------------------------------------
 bool RigLocalGrid::isTempGrid() const
 {
@@ -63,7 +65,7 @@ bool RigLocalGrid::isTempGrid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets associated well path name.
 //--------------------------------------------------------------------------------------------------
 void RigLocalGrid::setAssociatedWellPathName( const std::string& wellPathName )
 {
@@ -71,7 +73,7 @@ void RigLocalGrid::setAssociatedWellPathName( const std::string& wellPathName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the associated well path name.
 //--------------------------------------------------------------------------------------------------
 const std::string& RigLocalGrid::associatedWellPathName() const
 {

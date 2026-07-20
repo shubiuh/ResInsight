@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create text annotation command support.
 
 #include "RicCreateTextAnnotationFeature.h"
 

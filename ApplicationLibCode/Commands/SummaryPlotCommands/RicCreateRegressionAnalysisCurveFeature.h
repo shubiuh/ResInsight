@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create regression analysis curve command support.
 
 #pragma once
 
@@ -27,17 +29,22 @@ class RimSummaryCurve;
 class RimEnsembleCurveSet;
 
 //==================================================================================================
-///
+/// @brief Command feature for create regression analysis curve.
 //==================================================================================================
 class RicCreateRegressionAnalysisCurveFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Creates regression analysis curve and add to plot.
     static RimSummaryRegressionAnalysisCurve* createRegressionAnalysisCurveAndAddToPlot( RimSummaryCurve* sourceCurve );
+    /// Creates regression analysis curve and add to plot.
     static RimSummaryRegressionAnalysisCurve* createRegressionAnalysisCurveAndAddToPlot( RimEnsembleCurveSet* sourceCurveSet );
 };

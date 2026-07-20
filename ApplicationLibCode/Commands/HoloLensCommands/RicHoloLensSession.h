@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares holo lens session command support.
 
 #pragma once
 
@@ -36,32 +38,46 @@ class RimGridView;
 //
 //
 //==================================================================================================
+/// @brief Supports holo lens session command workflows.
 class RicHoloLensSession : public QObject, private RicHoloLensRestResponseHandler
 {
 public:
+    /// Destroys the command object.
     ~RicHoloLensSession() override;
 
+    /// Creates session.
     static RicHoloLensSession* createSession( const QString&              serverUrl,
                                               const QString&              sessionName,
                                               const QByteArray&           sessionPinCode,
                                               RicHoloLensSessionObserver* sessionObserver );
+    /// Creates dummy file backed session.
     static RicHoloLensSession* createDummyFileBackedSession();
+    /// Performs the destroy session command operation.
     void                       destroySession();
 
+    /// @return Whether session valid.
     bool isSessionValid() const;
 
+    /// Updates session data from view.
     void updateSessionDataFromView( const RimGridView& activeView );
 
 private:
+    /// Constructs the command object.
     RicHoloLensSession();
 
+    /// Handles successful create session.
     void handleSuccessfulCreateSession() override;
+    /// Handles failed create session.
     void handleFailedCreateSession() override;
+    /// Handles successful send meta data.
     void handleSuccessfulSendMetaData( int metaDataSequenceNumber, const QByteArray& jsonServerResponseString ) override;
+    /// Handles error.
     void handleError( const QString& errMsg, const QString& url, const QString& serverData ) override;
 
+    /// @return The parse JSON integer array.
     static bool parseJsonIntegerArray( const QByteArray& jsonString, std::vector<int>* integerArr );
 
+    /// Performs the notify observer command operation.
     void notifyObserver( RicHoloLensSessionObserver::Notification notification );
 
 private:

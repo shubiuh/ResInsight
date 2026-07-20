@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path export MSW geometry path command support.
 
 #include "RicWellPathExportMswGeometryPath.h"
 

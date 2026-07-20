@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of well disk data.
 
 #pragma once
 
@@ -22,6 +24,7 @@
 ///
 ///
 //==================================================================================================
+/// @brief Stores well disk data.
 class RigWellDiskData
 {
 public:

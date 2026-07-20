@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares show grid calculator command support.
 
 #pragma once
 
@@ -24,19 +26,24 @@ class RicGridCalculatorDialog;
 class RimEclipseResultAddress;
 
 //==================================================================================================
-///
+/// @brief Command feature for show grid calculator.
 //==================================================================================================
 class RicShowGridCalculatorFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Adds calculation and show.
     static void addCalculationAndShowDialog( const RimEclipseResultAddress& address );
 
 private:
+    /// @return The grid calculator.
     static RicGridCalculatorDialog* gridCalculatorDialog( bool createIfNotPresent );
+    /// Performs the hide grid calculator command operation.
     static void                     hideGridCalculatorDialog();
 
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

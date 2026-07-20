@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new custom VFP plot command support.
 
 #include "RicNewCustomVfpPlotFeature.h"
 

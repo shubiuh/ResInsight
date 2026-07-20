@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fracture transmissibility equations reservoir-data functionality.
 
 #include "RigFractureTransmissibilityEquations.h"
 
@@ -26,7 +28,7 @@
 const double RigFractureTransmissibilityEquations::EPSILON = 1.0e-9;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the center to center fracture cell trans.
 //--------------------------------------------------------------------------------------------------
 double RigFractureTransmissibilityEquations::centerToCenterFractureCellTrans( double conductivityCell1,
                                                                               double sideLengthParallellTransCell1,
@@ -47,7 +49,7 @@ double RigFractureTransmissibilityEquations::centerToCenterFractureCellTrans( do
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fracture cell to well radial trans.
 //--------------------------------------------------------------------------------------------------
 double RigFractureTransmissibilityEquations::fractureCellToWellRadialTrans( double fractureCellConductivity,
                                                                             double fractureCellSizeX,
@@ -70,7 +72,7 @@ double RigFractureTransmissibilityEquations::fractureCellToWellRadialTrans( doub
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fracture cell to well linear trans.
 //--------------------------------------------------------------------------------------------------
 double RigFractureTransmissibilityEquations::fractureCellToWellLinearTrans( double fractureConductivity,
                                                                             double fractureCellSizeX,
@@ -122,7 +124,7 @@ double RigFractureTransmissibilityEquations::fractureCellToWellLinearTrans( doub
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the matrix to fracture trans.
 //--------------------------------------------------------------------------------------------------
 double RigFractureTransmissibilityEquations::matrixToFractureTrans( double perm,
                                                                     double NTG,
@@ -145,7 +147,7 @@ double RigFractureTransmissibilityEquations::matrixToFractureTrans( double perm,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the effective internal fracture to well trans pddhc.
 //--------------------------------------------------------------------------------------------------
 double RigFractureTransmissibilityEquations::effectiveInternalFractureToWellTransPDDHC( double sumScaledMatrixToFractureTrans,
                                                                                         double scaledMatrixToWellTrans )
@@ -159,7 +161,7 @@ double RigFractureTransmissibilityEquations::effectiveInternalFractureToWellTran
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the effective matrix to well trans pddhc.
 //--------------------------------------------------------------------------------------------------
 double RigFractureTransmissibilityEquations::effectiveMatrixToWellTransPDDHC( double sumOriginalMatrixToFractureTrans,
                                                                               double effectiveInternalFractureToWellTrans )
@@ -173,7 +175,7 @@ double RigFractureTransmissibilityEquations::effectiveMatrixToWellTransPDDHC( do
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the matrix permeability.
 //--------------------------------------------------------------------------------------------------
 double RigFractureTransmissibilityEquations::matrixPermeability( double permx, double permy, double NTG )
 {
@@ -183,7 +185,7 @@ double RigFractureTransmissibilityEquations::matrixPermeability( double permx, d
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the center to edge fracture cell trans.
 //--------------------------------------------------------------------------------------------------
 double RigFractureTransmissibilityEquations::centerToEdgeFractureCellTrans( double conductivity,
                                                                             double sideLengthParallellTrans,

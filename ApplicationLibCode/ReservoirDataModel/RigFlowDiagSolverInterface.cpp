@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements flow diag solver interface reservoir-data functionality.
 
 #include "RigFlowDiagSolverInterface.h"
 
@@ -46,9 +48,11 @@
 
 #include "cvfTrace.h"
 
+/// Supports opm flow diag static data reservoir-data processing.
 class RigOpmFlowDiagStaticData
 {
 public:
+    /// Returns or processes opm flow diag static data.
     RigOpmFlowDiagStaticData( const ecl_grid_type* mainGrid, const std::wstring& initFilename, RiaDefines::EclipseUnitSystem caseUnitSystem )
         : m_initData( initFilename )
     {
@@ -102,20 +106,29 @@ public:
     }
 
 public:
+    /// Stores init data.
     Opm::ECLInitFileData                           m_initData;
+    /// Stores ecl graph.
     std::unique_ptr<Opm::ECLGraph>                 m_eclGraph;
+    /// Stores pore volume.
     std::vector<double>                            m_poreVolume;
+    /// Stores fld toolbox.
     std::unique_ptr<Opm::FlowDiagnostics::Toolbox> m_fldToolbox;
+    /// Stores has unified restart file.
     bool                                           m_hasUnifiedRestartFile;
+    /// Stores single restart data time steps.
     std::vector<Opm::ECLRestartData>               m_singleRestartDataTimeSteps;
+    /// Stores unified restart data.
     std::unique_ptr<Opm::ECLRestartData>           m_unifiedRestartData;
 
+    /// Stores ecl saturation func.
     std::unique_ptr<Opm::ECLSaturationFunc>             m_eclSaturationFunc;
+    /// Stores ecl pvt curve collection.
     std::unique_ptr<Opm::ECLPVT::ECLPvtCurveCollection> m_eclPvtCurveCollection;
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFlowDiagSolverInterface instance.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagSolverInterface::RigFlowDiagSolverInterface( RimEclipseResultCase* eclipseCase )
     : m_eclipseCase( eclipseCase )
@@ -125,12 +138,12 @@ RigFlowDiagSolverInterface::RigFlowDiagSolverInterface( RimEclipseResultCase* ec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigFlowDiagSolverInterface instance.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagSolverInterface::~RigFlowDiagSolverInterface() = default;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removes cross flow ending.
 //--------------------------------------------------------------------------------------------------
 std::string removeCrossFlowEnding( std::string tracerName )
 {
@@ -138,7 +151,7 @@ std::string removeCrossFlowEnding( std::string tracerName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether cross flow ending is available.
 //--------------------------------------------------------------------------------------------------
 bool hasCrossFlowEnding( std::string tracerName )
 {
@@ -146,7 +159,7 @@ bool hasCrossFlowEnding( std::string tracerName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds cross flow ending.
 //--------------------------------------------------------------------------------------------------
 std::string addCrossFlowEnding( std::string tracerName )
 {
@@ -154,7 +167,7 @@ std::string addCrossFlowEnding( std::string tracerName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagTimeStepResult RigFlowDiagSolverInterface::calculate( size_t                                   timeStepIndex,
                                                                  RigFlowDiagResultAddress::PhaseSelection phaseSelection,
@@ -433,7 +446,7 @@ RigFlowDiagTimeStepResult RigFlowDiagSolverInterface::calculate( size_t         
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ensure static data object instance created.
 //--------------------------------------------------------------------------------------------------
 bool RigFlowDiagSolverInterface::ensureStaticDataObjectInstanceCreated()
 {
@@ -472,7 +485,7 @@ bool RigFlowDiagSolverInterface::ensureStaticDataObjectInstanceCreated()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the assign phase correced porv.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagSolverInterface::assignPhaseCorrecedPORV( RigFlowDiagResultAddress::PhaseSelection phaseSelection, size_t timeStepIdx )
 {
@@ -523,7 +536,7 @@ void RigFlowDiagSolverInterface::assignPhaseCorrecedPORV( RigFlowDiagResultAddre
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the report rel perm curve error.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagSolverInterface::reportRelPermCurveError( const QString& message )
 {
@@ -535,7 +548,7 @@ void RigFlowDiagSolverInterface::reportRelPermCurveError( const QString& message
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the report pvt curve error.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagSolverInterface::reportPvtCurveError( const QString& message )
 {
@@ -547,7 +560,7 @@ void RigFlowDiagSolverInterface::reportPvtCurveError( const QString& message )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates flow characteristics.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagDefines::FlowCharacteristicsResultFrame
     RigFlowDiagSolverInterface::calculateFlowCharacteristics( const std::vector<double>* injector_tof,
@@ -591,7 +604,7 @@ RigFlowDiagDefines::FlowCharacteristicsResultFrame
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates rel perm curves.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigFlowDiagDefines::RelPermCurve> RigFlowDiagSolverInterface::calculateRelPermCurves( const std::string& gridName,
                                                                                                   size_t gridLocalActiveCellIndex )
@@ -744,7 +757,7 @@ std::vector<RigFlowDiagDefines::RelPermCurve> RigFlowDiagSolverInterface::calcul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates pvt curves.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigFlowDiagDefines::PvtCurve> RigFlowDiagSolverInterface::calculatePvtCurves( RigFlowDiagDefines::PvtCurveType pvtCurveType,
                                                                                           int                              pvtNum )
@@ -851,7 +864,7 @@ std::vector<RigFlowDiagDefines::PvtCurve> RigFlowDiagSolverInterface::calculateP
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates pvt dynamic properties fvf.
 //--------------------------------------------------------------------------------------------------
 bool RigFlowDiagSolverInterface::calculatePvtDynamicPropertiesFvf( int pvtNum, double pressure, double rs, double rv, double* bo, double* bg )
 {
@@ -913,7 +926,7 @@ bool RigFlowDiagSolverInterface::calculatePvtDynamicPropertiesFvf( int pvtNum, d
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates pvt dynamic properties viscosity.
 //--------------------------------------------------------------------------------------------------
 bool RigFlowDiagSolverInterface::calculatePvtDynamicPropertiesViscosity( int pvtNum, double pressure, double rs, double rv, double* mu_o, double* mu_g )
 {
@@ -975,7 +988,7 @@ bool RigFlowDiagSolverInterface::calculatePvtDynamicPropertiesViscosity( int pvt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns init file name.
 //--------------------------------------------------------------------------------------------------
 std::wstring RigFlowDiagSolverInterface::getInitFileName() const
 {

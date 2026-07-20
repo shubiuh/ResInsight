@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares close observed data command support.
 
 #pragma once
 
@@ -26,18 +28,23 @@ class RimObservedFmuRftData;
 class RimObservedSummaryData;
 
 //==================================================================================================
-///
+/// @brief Command feature for close observed data.
 //==================================================================================================
 class RicCloseObservedDataFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Removes or clears observed summary data.
     static void deleteObservedSummaryData( const std::vector<RimObservedSummaryData*>& data );
+    /// Removes or clears observed rmu RFT data.
     static void deleteObservedRmuRftData( const std::vector<RimObservedFmuRftData*>& data );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

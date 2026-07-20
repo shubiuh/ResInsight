@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path stimplan intersector reservoir-data functionality.
 
 #pragma once
 
@@ -30,9 +32,11 @@ class RigWellPathStimplanIntersectorTester;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models well path stimplan intersector for reservoir-data processing.
 class RigWellPathStimplanIntersector
 {
 public:
+    /// @brief Models well cell intersection for reservoir-data processing.
     struct WellCellIntersection
     {
         WellCellIntersection()
@@ -41,10 +45,14 @@ public:
             , endpointCount( 0 )
         {
         }
+        /// Stores hlength.
         double hlength;
+        /// Stores vlength.
         double vlength;
+        /// Stores endpoint count.
         int    endpointCount;
 
+        /// Computes length.
         double computeLength() const { return cvf::Math::sqrt( hlength * hlength + vlength * vlength ); }
     };
 
@@ -67,9 +75,11 @@ private:
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models well path stimplan intersector tester for reservoir-data processing.
 class RigWellPathStimplanIntersectorTester
 {
 public:
+    /// Returns or processes test calculate.
     static void testCalculate( const cvf::Mat4d&                           fractureXf,
                                const std::vector<cvf::Vec3d>&              wellPathPoints,
                                double                                      wellRadius,

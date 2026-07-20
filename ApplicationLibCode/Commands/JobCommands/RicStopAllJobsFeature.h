@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares stop all jobs command support.
 
 #pragma once
 
@@ -23,16 +25,19 @@
 class RimJobCollection;
 
 //==================================================================================================
-///
+/// @brief Command feature for stop all jobs.
 //==================================================================================================
 class RicStopAllJobsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Performs the stop all jobs command operation.
     static void stopAllJobs( RimJobCollection* jobCollection );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create summary ensemble command support.
 
 #include "RicCreateSummaryEnsembleFeature.h"
 

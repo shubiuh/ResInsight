@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import ensemble well logs command support.
 
 #pragma once
 
@@ -27,24 +29,30 @@
 class RimEnsembleWellLogs;
 
 //==================================================================================================
-///
+/// @brief Command feature for import ensemble well logs.
 //==================================================================================================
 class RicImportEnsembleWellLogsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// Constructs the command object.
     RicImportEnsembleWellLogsFeature();
 
+    /// Creates ensemble well logs from files.
     static std::vector<RimEnsembleWellLogs*> createEnsembleWellLogsFromFiles( const QStringList&               fileNames,
                                                                               RiaDefines::EnsembleGroupingMode groupingMode );
 
 private:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The run recursive file search.
     std::pair<QStringList, RiaDefines::EnsembleGroupingMode> runRecursiveFileSearchDialog( const QString& dialogTitle,
                                                                                            const QString& pathCacheName );
 
+    /// Creates single ensemble well logs from files.
     static RimEnsembleWellLogs* createSingleEnsembleWellLogsFromFiles( const QStringList&               fileNames,
                                                                        RiaDefines::EnsembleGroupingMode groupingMode );
 

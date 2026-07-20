@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements cut references to clipboard command support.
 
 #include "RicCutReferencesToClipboardFeature.h"
 

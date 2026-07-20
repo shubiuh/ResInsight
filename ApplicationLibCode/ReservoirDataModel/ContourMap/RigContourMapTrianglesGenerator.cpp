@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements generation of contour map triangles generator.
 
 #include "RigContourMapTrianglesGenerator.h"
 
@@ -28,7 +30,7 @@
 #include "cvfGeometryUtils.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates triangles with vertex values.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec4d>
     RigContourMapTrianglesGenerator::generateTrianglesWithVertexValues( const RigContourMapGrid&            contourMapGrid,
@@ -255,7 +257,7 @@ std::vector<cvf::Vec4d>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates contour polygons.
 //--------------------------------------------------------------------------------------------------
 std::pair<std::vector<RigContourMapTrianglesGenerator::ContourPolygons>, std::vector<double>>
     RigContourMapTrianglesGenerator::generateContourPolygons( const RigContourMapGrid&       contourMapGrid,

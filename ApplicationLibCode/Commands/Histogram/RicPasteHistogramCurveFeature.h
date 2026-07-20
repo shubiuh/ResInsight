@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares paste histogram curve command support.
 
 #pragma once
 
@@ -26,19 +28,24 @@
 class RimHistogramCurve;
 
 //==================================================================================================
-///
+/// @brief Command feature for paste histogram curve.
 //==================================================================================================
 class RicPasteHistogramCurveFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Copies curve and add to plot.
     static RimHistogramCurve* copyCurveAndAddToPlot( RimHistogramCurve* sourceCurve );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The histogram curves on clipboard.
     static std::vector<caf::PdmPointer<RimHistogramCurve>> histogramCurvesOnClipboard();
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements duplicate job command support.
 
 #include "RicDuplicateJobFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show fault react model command support.
 
 #include "RicShowFaultReactModelFeature.h"
 

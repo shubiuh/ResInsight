@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export Eclipse sector model command support.
 
 #pragma once
 
@@ -39,7 +41,7 @@ class RigSimWellData;
 class RimEclipseView;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring export Eclipse sector model.
 //==================================================================================================
 class RicExportEclipseSectorModelUi : public caf::PdmObject
 {
@@ -58,26 +60,41 @@ class RicExportEclipseSectorModelUi : public caf::PdmObject
     using BoundaryConditionEnum = caf::AppEnum<RiaModelExportDefines::BoundaryCondition>;
 
 public:
+    /// Constructs the command object.
     RicExportEclipseSectorModelUi();
+    /// Destroys the command object.
     ~RicExportEclipseSectorModelUi() override;
+    /// @return The tab names.
     const QStringList& tabNames() const;
 
+    /// Sets case data.
     void setCaseData( RigEclipseCaseData* caseData    = nullptr,
                       RimEclipseView*     eclipseView = nullptr,
                       const caf::VecIjk0& visibleMin  = caf::VecIjk0::ZERO,
                       const caf::VecIjk0& visibleMax  = caf::VecIjk0::ZERO );
 
+    /// @return The min.
     caf::VecIjk0 min() const;
+    /// @return The max.
     caf::VecIjk0 max() const;
+    /// Sets min.
     void         setMin( const caf::VecIjk0& min );
+    /// Sets max.
     void         setMax( const caf::VecIjk0& max );
+    /// Applies boundary defaults.
     void         applyBoundaryDefaults();
+    /// Removes or clears invalid keywords.
     void         removeInvalidKeywords();
+    /// @return The refinement.
     cvf::Vec3st  refinement() const;
 
+    /// Exports faults filename.
     QString exportFaultsFilename() const;
+    /// Exports grid filename.
     QString exportGridFilename() const;
+    /// Exports parameters filename.
     QString exportParametersFilename() const;
+    /// Writes echo keywords.
     bool    writeEchoKeywords() const;
 
     caf::PdmField<bool> exportGrid;
@@ -106,15 +123,24 @@ protected:
     caf::PdmField<int> minK;
     caf::PdmField<int> maxK;
 
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
+    /// @return The main keywords.
     static std::set<QString> mainKeywords();
+    /// @return The default folder.
     QString                  defaultFolder() const;
+    /// @return The default grid file name.
     QString                  defaultGridFileName() const;
+    /// @return The default results file name.
     QString                  defaultResultsFileName() const;
+    /// @return The default faults file name.
     QString                  defaultFaultsFileName() const;
 
 private:

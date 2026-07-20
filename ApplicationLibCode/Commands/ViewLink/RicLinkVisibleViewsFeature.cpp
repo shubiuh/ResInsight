@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements link visible views command support.
 
 #include "RicLinkVisibleViewsFeature.h"
 

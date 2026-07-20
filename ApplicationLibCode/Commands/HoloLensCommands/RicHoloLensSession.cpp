@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens session command support.
 
 #include "RicHoloLensSession.h"
 #include "RicHoloLensSessionObserver.h"

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares paste command support.
 
 #pragma once
 
@@ -28,6 +30,7 @@ class RimEclipseCase;
 class RimGeoMechCase;
 class RimIdenticalGridCaseGroup;
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmObjectGroup;
@@ -35,22 +38,30 @@ class PdmObjectHandle;
 } // namespace caf
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for paste commands.
 //==================================================================================================
 class RicPasteFeatureImpl
 {
 public:
+    /// Finds objects from clipboard refs.
     static void findObjectsFromClipboardRefs( caf::PdmObjectGroup* objectGroup );
 
+    /// @return The matching grid case group.
     static RimIdenticalGridCaseGroup* findGridCaseGroup( caf::PdmObjectHandle* objectHandle );
+    /// @return The matching Eclipse case.
     static RimEclipseCase*            findEclipseCase( caf::PdmObjectHandle* objectHandle );
+    /// @return The matching geo mech case.
     static RimGeoMechCase*            findGeoMechCase( caf::PdmObjectHandle* objectHandle );
 
+    /// Sets icon and shortcuts.
     static void setIconAndShortcuts( QAction* action );
 
+    /// Removes or clears clipboard.
     static void clearClipboard();
 
 private:
+    /// Performs the populate object group from references command operation.
     static void populateObjectGroupFromReferences( const std::vector<QString>& referenceList, caf::PdmObjectGroup* objectGroup );
+    /// Performs the references from clipboard command operation.
     static void referencesFromClipboard( std::vector<QString>& referenceList );
 };

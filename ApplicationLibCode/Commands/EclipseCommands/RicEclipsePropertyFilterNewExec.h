@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares Eclipse property filter new exec command support.
 
 #pragma once
 
@@ -25,16 +27,21 @@
 class RimEclipsePropertyFilterCollection;
 
 //==================================================================================================
-///
+/// @brief Supports Eclipse property filter new exec command workflows.
 //==================================================================================================
 class RicEclipsePropertyFilterNewExec : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     explicit RicEclipsePropertyFilterNewExec( RimEclipsePropertyFilterCollection* propertyFilterCollection );
+    /// Destroys the command object.
     ~RicEclipsePropertyFilterNewExec() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:

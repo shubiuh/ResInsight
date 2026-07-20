@@ -15,20 +15,24 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares snapshot all views to file command support.
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for snapshot all views to file.
 //==================================================================================================
 class RicSnapshotAllViewsToFileFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Saves all views.
     static void saveAllViews();
 
+    /// Exports snapshot of views into folder.
     static void exportSnapshotOfViewsIntoFolder( const QString& snapshotFolderName,
                                                  int            width  = -1,
                                                  int            height = -1,
@@ -37,6 +41,8 @@ public:
                                                  int            viewId = -1 );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

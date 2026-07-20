@@ -1,3 +1,5 @@
+/// @file
+/// @brief Implements new valve command support.
 #include "RicNewValveFeature.h"
 #include "Riu3DMainWindowTools.h"
 

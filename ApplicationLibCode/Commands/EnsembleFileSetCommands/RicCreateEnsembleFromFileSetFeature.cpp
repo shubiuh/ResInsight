@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create ensemble from file set command support.
 
 #include "RicCreateEnsembleFromFileSetFeature.h"
 

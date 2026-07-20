@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well paths import OSDU command support.
 
 #include "RicWellPathsImportOsduFeature.h"
 

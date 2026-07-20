@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path export completions file command support.
 
 #pragma once
 
@@ -25,16 +27,21 @@
 
 class RimWellPath;
 
+/// @brief Utility functions for well path export completions file.
 class RicWellPathExportCompletionsFileTools
 {
 public:
+    /// @return The matching well path from export name.
     static const RimWellPath* findWellPathFromExportName( const QString& wellNameForExport );
 
+    /// @return The open file for export.
     static std::shared_ptr<QFile>
         openFileForExport( const QString& folderName, const QString& fileName, const QString& suffix, bool writeInfoHeader );
 
 private:
+    /// @return The open file.
     static std::shared_ptr<QFile> openFile( const QString& folderName, const QString& fileName, const QString& suffix );
 
+    /// Creates project file header.
     static QString createProjectFileHeader();
 };

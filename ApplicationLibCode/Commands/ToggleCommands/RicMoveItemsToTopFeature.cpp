@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements move items to top command support.
 
 #include "RicMoveItemsToTopFeature.h"
 

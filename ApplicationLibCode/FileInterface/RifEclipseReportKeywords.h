@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Defines aggregated Eclipse keyword metadata for restart report steps.
 //
 //  Copyright (C) 2024 Equinor ASA
 //
@@ -23,9 +26,11 @@
 #include <map>
 #include <string>
 
+/// Describes one result keyword, its accumulated value count, and storage type.
 class RifEclipseKeywordValueCount
 {
 public:
+    /// Primitive data types supported by Eclipse result keywords.
     enum class KeywordDataType
     {
         UNKNOWN,
@@ -48,12 +53,13 @@ public:
     {
     }
 
-    void addValueCount( size_t valueCount ) { m_valueCount += valueCount; }
+    void addValueCount( size_t valueCount ) { m_valueCount += valueCount; } ///< Adds another occurrence's item count.
 
-    std::string     keyword() const { return m_keyword; }
-    size_t          valueCount() const { return m_valueCount; }
-    KeywordDataType dataType() const { return m_dataType; }
+    std::string     keyword() const { return m_keyword; }       ///< @return Eclipse keyword name.
+    size_t          valueCount() const { return m_valueCount; } ///< @return Accumulated number of values.
+    KeywordDataType dataType() const { return m_dataType; }     ///< @return On-file primitive type.
 
+    /// Converts file keyword storage type to the application result-data type.
     static RiaDefines::ResultDataType mapType( RifEclipseKeywordValueCount::KeywordDataType dataType )
     {
         switch ( dataType )
@@ -72,22 +78,26 @@ public:
     }
 
 private:
-    std::string     m_keyword;
-    size_t          m_valueCount;
-    KeywordDataType m_dataType;
+    std::string     m_keyword;    ///< Keyword name.
+    size_t          m_valueCount; ///< Count accumulated across occurrences/report steps.
+    KeywordDataType m_dataType;   ///< Storage type reported by ERT.
 };
 
 //==================================================================================================
 //
 //==================================================================================================
+/// Aggregates keyword metadata by name across files or report-step views.
 class RifEclipseReportKeywords
 {
 public:
+    /// Merges all counts from @p other into this collection.
     void appendKeywordCount( const RifEclipseReportKeywords& other );
+    /// Adds an occurrence, creating the keyword entry when necessary.
     void appendKeywordCount( const std::string& keyword, size_t valueCount, RifEclipseKeywordValueCount::KeywordDataType dataType );
 
+    /// @return Keyword metadata in deterministic keyword-name order.
     std::vector<RifEclipseKeywordValueCount> keywordValueCounts() const;
 
 private:
-    std::map<std::string, RifEclipseKeywordValueCount> m_keywordValueCounts;
+    std::map<std::string, RifEclipseKeywordValueCount> m_keywordValueCounts; ///< Aggregates keyed by keyword name.
 };

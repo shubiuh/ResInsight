@@ -15,19 +15,23 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares delete sub plot ctx command support.
 
 #pragma once
 
 #include "WellLogCommands/RicDeleteSubPlotFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for delete sub plot ctx.
 //==================================================================================================
 class RicDeleteSubPlotCtxFeature : public RicDeleteSubPlotFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path reservoir-data functionality.
 
 #include "RigWellPath.h"
 
@@ -25,7 +27,7 @@
 #include <algorithm>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellPath instance.
 //--------------------------------------------------------------------------------------------------
 RigWellPath::RigWellPath()
     : cvf::Object()
@@ -38,7 +40,7 @@ RigWellPath::RigWellPath()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellPath instance.
 //--------------------------------------------------------------------------------------------------
 RigWellPath::RigWellPath( const RigWellPath& rhs )
     : cvf::Object()
@@ -54,7 +56,7 @@ RigWellPath::RigWellPath( const RigWellPath& rhs )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellPath instance.
 //--------------------------------------------------------------------------------------------------
 RigWellPath::RigWellPath( const std::vector<cvf::Vec3d>& wellPathPoints, const std::vector<double>& measuredDepths )
     : cvf::Object()
@@ -70,7 +72,7 @@ RigWellPath::RigWellPath( const std::vector<cvf::Vec3d>& wellPathPoints, const s
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator= operation.
 //--------------------------------------------------------------------------------------------------
 RigWellPath& RigWellPath::operator=( const RigWellPath& rhs )
 {
@@ -85,7 +87,7 @@ RigWellPath& RigWellPath::operator=( const RigWellPath& rhs )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigWellPath instance.
 //--------------------------------------------------------------------------------------------------
 RigWellPath::~RigWellPath()
 {
@@ -93,7 +95,7 @@ RigWellPath::~RigWellPath()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well path points.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d>& RigWellPath::wellPathPoints() const
 {
@@ -101,7 +103,7 @@ const std::vector<cvf::Vec3d>& RigWellPath::wellPathPoints() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the measured depths.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigWellPath::measuredDepths() const
 {
@@ -109,7 +111,7 @@ const std::vector<double>& RigWellPath::measuredDepths() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the true vertical depths.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellPath::trueVerticalDepths() const
 {
@@ -122,7 +124,7 @@ std::vector<double> RigWellPath::trueVerticalDepths() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets well path points.
 //--------------------------------------------------------------------------------------------------
 void RigWellPath::setWellPathPoints( const std::vector<cvf::Vec3d>& wellPathPoints, const std::vector<double>& measuredDepths )
 {
@@ -132,7 +134,7 @@ void RigWellPath::setWellPathPoints( const std::vector<cvf::Vec3d>& wellPathPoin
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds well path point.
 //--------------------------------------------------------------------------------------------------
 void RigWellPath::addWellPathPoint( const cvf::Vec3d& wellPathPoint, double measuredDepth )
 {
@@ -141,7 +143,7 @@ void RigWellPath::addWellPathPoint( const cvf::Vec3d& wellPathPoint, double meas
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets datum elevation.
 //--------------------------------------------------------------------------------------------------
 void RigWellPath::setDatumElevation( double value )
 {
@@ -150,7 +152,7 @@ void RigWellPath::setDatumElevation( double value )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether datum elevation is available.
 //--------------------------------------------------------------------------------------------------
 bool RigWellPath::hasDatumElevation() const
 {
@@ -158,7 +160,7 @@ bool RigWellPath::hasDatumElevation() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the datum elevation.
 //--------------------------------------------------------------------------------------------------
 double RigWellPath::datumElevation() const
 {
@@ -166,7 +168,7 @@ double RigWellPath::datumElevation() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the rkb diff.
 //--------------------------------------------------------------------------------------------------
 double RigWellPath::rkbDiff() const
 {
@@ -196,7 +198,7 @@ double RigWellPath::rkbDiff() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the interpolated vector values along well path.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigWellPath::interpolatedVectorValuesAlongWellPath( const std::vector<cvf::Vec3d>& vectorValuesAlongWellPath,
                                                                double                         measuredDepth,
@@ -252,7 +254,7 @@ cvf::Vec3d RigWellPath::interpolatedVectorValuesAlongWellPath( const std::vector
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the interpolated point along well path.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigWellPath::interpolatedPointAlongWellPath( double  measuredDepth,
                                                         double* horizontalLengthAlongWellToStartClipPoint /*= nullptr*/ ) const
@@ -261,7 +263,7 @@ cvf::Vec3d RigWellPath::interpolatedPointAlongWellPath( double  measuredDepth,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tangent along well path.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigWellPath::tangentAlongWellPath( double measuredDepth ) const
 {
@@ -296,7 +298,7 @@ cvf::Vec3d RigWellPath::tangentAlongWellPath( double measuredDepth ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well path azimuth angle.
 //--------------------------------------------------------------------------------------------------
 double RigWellPath::wellPathAzimuthAngle( const cvf::Vec3d& position ) const
 {
@@ -323,7 +325,7 @@ double RigWellPath::wellPathAzimuthAngle( const cvf::Vec3d& position ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the two closest points.
 //--------------------------------------------------------------------------------------------------
 void RigWellPath::twoClosestPoints( const cvf::Vec3d& position, cvf::Vec3d* p1, cvf::Vec3d* p2 ) const
 {
@@ -338,7 +340,7 @@ void RigWellPath::twoClosestPoints( const cvf::Vec3d& position, cvf::Vec3d* p1, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the identical tube length.
 //--------------------------------------------------------------------------------------------------
 double RigWellPath::identicalTubeLength( const RigWellPath& other ) const
 {
@@ -366,7 +368,7 @@ double RigWellPath::identicalTubeLength( const RigWellPath& other ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the closest measured depth.
 //--------------------------------------------------------------------------------------------------
 double RigWellPath::closestMeasuredDepth( const cvf::Vec3d& position ) const
 {
@@ -392,7 +394,7 @@ double RigWellPath::closestMeasuredDepth( const cvf::Vec3d& position ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the common geometry.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RigWellPath> RigWellPath::commonGeometry( const std::vector<const RigWellPath*>& allGeometries )
 {
@@ -436,7 +438,7 @@ cvf::ref<RigWellPath> RigWellPath::commonGeometry( const std::vector<const RigWe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets unique start and end index.
 //--------------------------------------------------------------------------------------------------
 void RigWellPath::setUniqueStartAndEndIndex( size_t uniqueStartIndex, size_t uniqueEndIndex )
 {
@@ -447,7 +449,7 @@ void RigWellPath::setUniqueStartAndEndIndex( size_t uniqueStartIndex, size_t uni
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique start index.
 //--------------------------------------------------------------------------------------------------
 size_t RigWellPath::uniqueStartIndex() const
 {
@@ -455,7 +457,7 @@ size_t RigWellPath::uniqueStartIndex() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique end index.
 //--------------------------------------------------------------------------------------------------
 size_t RigWellPath::uniqueEndIndex() const
 {
@@ -465,7 +467,7 @@ size_t RigWellPath::uniqueEndIndex() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique well path points.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigWellPath::uniqueWellPathPoints() const
 {
@@ -475,7 +477,7 @@ std::vector<cvf::Vec3d> RigWellPath::uniqueWellPathPoints() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique measured depths.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellPath::uniqueMeasuredDepths() const
 {
@@ -485,7 +487,7 @@ std::vector<double> RigWellPath::uniqueMeasuredDepths() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the clipped point subset.
 //--------------------------------------------------------------------------------------------------
 std::pair<std::vector<cvf::Vec3d>, std::vector<double>>
     RigWellPath::clippedPointSubset( double startMD, double endMD, double* horizontalLengthAlongWellToStartClipPoint ) const
@@ -514,7 +516,7 @@ std::pair<std::vector<cvf::Vec3d>, std::vector<double>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well path points including interpolated intersection point.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigWellPath::wellPathPointsIncludingInterpolatedIntersectionPoint( double intersectionMeasuredDepth ) const
 {
@@ -555,7 +557,7 @@ std::vector<cvf::Vec3d> RigWellPath::wellPathPointsIncludingInterpolatedIntersec
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether any point inside bounding box.
 //--------------------------------------------------------------------------------------------------
 bool RigWellPath::isAnyPointInsideBoundingBox( const std::vector<cvf::Vec3d>& points, const cvf::BoundingBox& boundingBox )
 {
@@ -568,7 +570,7 @@ bool RigWellPath::isAnyPointInsideBoundingBox( const std::vector<cvf::Vec3d>& po
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the clip polyline start above z.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigWellPath::clipPolylineStartAboveZ( const std::vector<cvf::Vec3d>& polyLine,
                                                               const double                   maxZ,

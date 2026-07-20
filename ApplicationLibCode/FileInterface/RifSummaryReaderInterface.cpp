@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements lazy summary-address discovery and reader-instance identity.
 //
 //  Copyright (C) 2017- Statoil ASA
 //
@@ -59,7 +62,8 @@ void RifSummaryReaderInterface::createAndSetAddresses()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Delays potentially expensive format-specific address enumeration until a client
+/// actually needs the canonical address set.
 //--------------------------------------------------------------------------------------------------
 void RifSummaryReaderInterface::createAddressesIfRequired()
 {
@@ -89,7 +93,8 @@ size_t RifSummaryReaderInterface::dataObjectCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Serial assignment is protected because readers can be created concurrently
+/// while ensembles are imported in parallel.
 //--------------------------------------------------------------------------------------------------
 void RifSummaryReaderInterface::increaseSerialNumber()
 {
@@ -106,7 +111,9 @@ RifSummaryReaderInterface::RifSummaryReaderInterface()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Prefers the discovered address set for constant-time lookup. The value-query
+/// fallback preserves compatibility with readers that have not built addresses yet,
+/// but is intentionally unsuitable for performance-critical loops.
 //--------------------------------------------------------------------------------------------------
 bool RifSummaryReaderInterface::hasAddress( const RifEclipseSummaryAddress& resultAddress ) const
 {

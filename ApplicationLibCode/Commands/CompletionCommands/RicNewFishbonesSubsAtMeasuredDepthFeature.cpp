@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new fishbones subs at measured depth command support.
 
 #include "RicNewFishbonesSubsAtMeasuredDepthFeature.h"
 

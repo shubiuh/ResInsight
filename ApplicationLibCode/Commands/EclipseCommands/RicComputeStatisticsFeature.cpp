@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements compute statistics command support.
 
 #include "RicComputeStatisticsFeature.h"
 

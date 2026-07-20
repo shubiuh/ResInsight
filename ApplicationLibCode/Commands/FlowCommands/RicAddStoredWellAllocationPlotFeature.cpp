@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add stored well allocation plot command support.
 
 #include "RicAddStoredWellAllocationPlotFeature.h"
 

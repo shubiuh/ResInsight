@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import grid and summary ensemble command support.
 
 #pragma once
 
@@ -35,6 +37,7 @@ class QLineEdit;
 class QPushButton;
 class QTreeView;
 
+/// @brief Data used to configure or execute import grid and summary ensemble dialog result command workflows.
 struct RicImportGridAndSummaryEnsembleDialogResult
 {
     bool                             ok;
@@ -49,7 +52,7 @@ struct RicImportGridAndSummaryEnsembleDialogResult
 };
 
 //==================================================================================================
-///
+/// @brief Dialog for configuring import grid and summary ensemble.
 //==================================================================================================
 class RicImportGridAndSummaryEnsembleDialog : public QDialog
 {
@@ -60,34 +63,55 @@ public:
         runDialog( QWidget* parent, bool defaultGridChecked, bool defaultSummaryChecked, const QString& initialDir = {} );
 
 private:
+    /// Constructs the command object.
     explicit RicImportGridAndSummaryEnsembleDialog( QWidget* parent );
 
+    /// @return The clean path filter.
     QString cleanPathFilter() const;
+    /// @return The root dir with separator.
     QString rootDirWithSeparator() const;
+    /// @return The path filter without root.
     QString pathFilterWithoutRoot() const;
+    /// @return The file pattern.
     QString filePattern() const;
+    /// Updates effective filter.
     void    updateEffectiveFilter();
+    /// Sets ok button enabled.
     void    setOkButtonEnabled( bool enabled );
 
+    /// @return The matching matching files.
     QStringList findMatchingFiles( const QStringList& extensions );
 
+    /// Updates file list widget.
     void        updateFileListWidget();
+    /// Removes or clears file list.
     void        clearFileList();
+    /// @return The check for multiple filenames and uncheck outliers.
     QStringList checkForMultipleFilenamesAndUncheckOutliers();
 
+    /// @return The ensemble grouping mode.
     RiaDefines::EnsembleGroupingMode ensembleGroupingMode() const;
 
 private slots:
+    /// Performs the slot path filter changed command operation.
     void slotPathFilterChanged( const QString& text );
+    /// Performs the slot browse clicked command operation.
     void slotBrowseClicked();
+    /// Performs the slot use realization star clicked command operation.
     void slotUseRealizationStarClicked();
+    /// Performs the slot search clicked command operation.
     void slotSearchClicked();
+    /// Performs the slot filter tree view clicked command operation.
     void slotFilterTreeViewClicked();
+    /// Performs the slot ok clicked command operation.
     void slotOkClicked();
+    /// Performs the slot cancel clicked command operation.
     void slotCancelClicked();
+    /// Shows event.
     void showEvent( QShowEvent* event ) override;
 
 private:
+    /// @brief Data used to configure or execute realization files command workflows.
     struct RealizationFiles
     {
         QString gridFile;

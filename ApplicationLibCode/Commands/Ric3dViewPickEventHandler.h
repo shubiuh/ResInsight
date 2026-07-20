@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares 3D view command support.
 #pragma once
 
 #include "RicPickEventHandler.h"
@@ -30,7 +32,10 @@ class Ric3dViewPickEventHandler : public caf::PickEventHandler
 public:
     // Override from caf
     void         registerAsPickEventHandler() override;
+    /// Unregisters as.
     void         unregisterAsPickEventHandler() override;
+    /// @return Whether the pick event was handled.
     bool         handlePickEvent( const caf::PickEvent& eventObject ) override;
+    /// @return Whether the 3D pick event was handled.
     virtual bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) = 0;
 };

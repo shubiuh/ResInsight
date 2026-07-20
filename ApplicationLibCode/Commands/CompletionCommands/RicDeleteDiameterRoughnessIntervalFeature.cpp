@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete diameter roughness interval command support.
 #include "RicDeleteDiameterRoughnessIntervalFeature.h"
 
 #include "RimDiameterRoughnessInterval.h"

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares Eclipse property filter insert exec command support.
 
 #pragma once
 
@@ -25,16 +27,21 @@
 class RimEclipsePropertyFilter;
 
 //==================================================================================================
-///
+/// @brief Supports Eclipse property filter insert exec command workflows.
 //==================================================================================================
 class RicEclipsePropertyFilterInsertExec : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     explicit RicEclipsePropertyFilterInsertExec( RimEclipsePropertyFilter* propertyFilter );
+    /// Destroys the command object.
     ~RicEclipsePropertyFilterInsertExec() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:

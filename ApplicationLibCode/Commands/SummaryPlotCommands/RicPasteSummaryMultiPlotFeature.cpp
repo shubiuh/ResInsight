@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste summary multi plot command support.
 
 #include "RicPasteSummaryMultiPlotFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares tracer reservoir-data functionality.
 
 #pragma once
 
@@ -31,6 +33,7 @@ class RigTracerPoint;
 /// Class representing one streamline tracer line, with position and direction given for each
 ///  time increment.
 //==================================================================================================
+/// @brief Models tracer for reservoir-data processing.
 class RigTracer : public cvf::Object
 {
 public:

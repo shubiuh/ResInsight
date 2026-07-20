@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements 3D view command support.
 #include "Ric3dViewPickEventHandler.h"
 #include "RiuViewerCommands.h"
 

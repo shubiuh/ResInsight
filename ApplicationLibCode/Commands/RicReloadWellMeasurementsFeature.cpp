@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reload well measurements command support.
 
 #include "RicReloadWellMeasurementsFeature.h"
 

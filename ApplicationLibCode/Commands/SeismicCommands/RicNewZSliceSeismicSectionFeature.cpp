@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new Z slice seismic section command support.
 
 #include "RicNewZSliceSeismicSectionFeature.h"
 

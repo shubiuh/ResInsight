@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fault reactivation model reservoir-data functionality.
 
 #include "RigFaultReactivationModel.h"
 
@@ -28,7 +30,7 @@
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFaultReactivationModel instance.
 //--------------------------------------------------------------------------------------------------
 RigFaultReactivationModel::RigFaultReactivationModel()
     : m_isValid( false )
@@ -55,7 +57,7 @@ RigFaultReactivationModel::RigFaultReactivationModel()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigFaultReactivationModel instance.
 //--------------------------------------------------------------------------------------------------
 RigFaultReactivationModel::~RigFaultReactivationModel()
 {
@@ -67,7 +69,7 @@ RigFaultReactivationModel::~RigFaultReactivationModel()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all grid parts.
 //--------------------------------------------------------------------------------------------------
 std::vector<RimFaultReactivation::GridPart> RigFaultReactivationModel::allGridParts() const
 {
@@ -75,7 +77,7 @@ std::vector<RimFaultReactivation::GridPart> RigFaultReactivationModel::allGridPa
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Resets .
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModel::reset()
 {
@@ -94,7 +96,7 @@ void RigFaultReactivationModel::reset()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigFaultReactivationModel::isValid() const
 {
@@ -102,7 +104,7 @@ bool RigFaultReactivationModel::isValid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets part colors.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModel::setPartColors( cvf::Color3f part1Color, cvf::Color3f part2Color )
 {
@@ -120,7 +122,7 @@ void RigFaultReactivationModel::setPartColors( cvf::Color3f part1Color, cvf::Col
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets generator.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModel::setGenerator( std::shared_ptr<RigFaultReactivationModelGenerator> generator )
 {
@@ -128,7 +130,7 @@ void RigFaultReactivationModel::setGenerator( std::shared_ptr<RigFaultReactivati
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the model local normals xy.
 //--------------------------------------------------------------------------------------------------
 std::pair<cvf::Vec3d, cvf::Vec3d> RigFaultReactivationModel::modelLocalNormalsXY() const
 {
@@ -140,7 +142,7 @@ std::pair<cvf::Vec3d, cvf::Vec3d> RigFaultReactivationModel::modelLocalNormalsXY
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the transform point if needed.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigFaultReactivationModel::transformPointIfNeeded( const cvf::Vec3d point ) const
 {
@@ -149,7 +151,7 @@ cvf::Vec3d RigFaultReactivationModel::transformPointIfNeeded( const cvf::Vec3d p
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates geometry.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModel::updateGeometry( size_t startCell, cvf::StructGridInterface::FaceType startFace )
 {
@@ -192,7 +194,7 @@ void RigFaultReactivationModel::updateGeometry( size_t startCell, cvf::StructGri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the rect.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigFaultReactivationModel::rect( int part ) const
 {
@@ -200,7 +202,7 @@ std::vector<cvf::Vec3d> RigFaultReactivationModel::rect( int part ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the texture.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<cvf::TextureImage> RigFaultReactivationModel::texture( int part ) const
 {
@@ -208,7 +210,7 @@ cvf::ref<cvf::TextureImage> RigFaultReactivationModel::texture( int part ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mesh lines.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<cvf::Vec3d>>& RigFaultReactivationModel::meshLines( RimFaultReactivation::GridPart part ) const
 {
@@ -216,7 +218,7 @@ const std::vector<std::vector<cvf::Vec3d>>& RigFaultReactivationModel::meshLines
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid.
 //--------------------------------------------------------------------------------------------------
 const RigGriddedPart3d* RigFaultReactivationModel::grid( RimFaultReactivation::GridPart part ) const
 {
@@ -224,7 +226,7 @@ const RigGriddedPart3d* RigFaultReactivationModel::grid( RimFaultReactivation::G
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the model normal.
 //--------------------------------------------------------------------------------------------------
 const cvf::Vec3d RigFaultReactivationModel::modelNormal() const
 {
@@ -233,7 +235,7 @@ const cvf::Vec3d RigFaultReactivationModel::modelNormal() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fault top bottom.
 //--------------------------------------------------------------------------------------------------
 const std::pair<cvf::Vec3d, cvf::Vec3d> RigFaultReactivationModel::faultTopBottom() const
 {
@@ -242,7 +244,7 @@ const std::pair<cvf::Vec3d, cvf::Vec3d> RigFaultReactivationModel::faultTopBotto
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth top bottom.
 //--------------------------------------------------------------------------------------------------
 std::pair<double, double> RigFaultReactivationModel::depthTopBottom() const
 {
@@ -252,7 +254,7 @@ std::pair<double, double> RigFaultReactivationModel::depthTopBottom() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the normal points at.
 //--------------------------------------------------------------------------------------------------
 RimFaultReactivation::GridPart RigFaultReactivationModel::normalPointsAt() const
 {
@@ -260,7 +262,7 @@ RimFaultReactivation::GridPart RigFaultReactivationModel::normalPointsAt() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the post process element sets.
 //--------------------------------------------------------------------------------------------------
 void RigFaultReactivationModel::postProcessElementSets( const RimEclipseCase* eCase )
 {

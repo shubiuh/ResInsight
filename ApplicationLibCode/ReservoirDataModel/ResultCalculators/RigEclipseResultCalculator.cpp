@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of eclipse results.
 
 #include "RigEclipseResultCalculator.h"
 
 //==================================================================================================
-///
+/// Creates a RigEclipseResultCalculator instance.
 //==================================================================================================
 RigEclipseResultCalculator::RigEclipseResultCalculator( RigCaseCellResultsData& resultsData )
     : m_resultsData( &resultsData )
@@ -27,14 +29,14 @@ RigEclipseResultCalculator::RigEclipseResultCalculator( RigCaseCellResultsData& 
 }
 
 //==================================================================================================
-///
+/// Destroys the RigEclipseResultCalculator instance.
 //==================================================================================================
 RigEclipseResultCalculator::~RigEclipseResultCalculator()
 {
 }
 
 //==================================================================================================
-///
+/// Returns the check and create placeholder entry.
 //==================================================================================================
 void RigEclipseResultCalculator::checkAndCreatePlaceholderEntry( const RigEclipseResultAddress& resVarAddr )
 {

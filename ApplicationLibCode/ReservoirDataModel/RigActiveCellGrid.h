@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares active cell grid reservoir-data functionality.
 
 #pragma once
 
@@ -22,6 +24,7 @@
 
 #include <vector>
 
+/// @brief Represents active cell grid.
 class RigActiveCellGrid : public RigMainGrid
 {
 public:

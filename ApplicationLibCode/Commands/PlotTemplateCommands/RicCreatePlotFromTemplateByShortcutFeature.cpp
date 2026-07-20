@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create plot from template by shortcut command support.
 
 #include "RicCreatePlotFromTemplateByShortcutFeature.h"
 

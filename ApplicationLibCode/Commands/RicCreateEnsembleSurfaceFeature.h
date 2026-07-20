@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create ensemble surface command support.
 
 #pragma once
 
@@ -25,17 +27,21 @@
 class RicCreateEnsembleSurfaceUi;
 
 //==================================================================================================
-///
+/// @brief Command feature for create ensemble surface.
 //==================================================================================================
 class RicCreateEnsembleSurfaceFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Performs the open dialog and execute command command operation.
     static void openDialogAndExecuteCommand();
+    /// Executes command.
     static void executeCommand( const RicCreateEnsembleSurfaceUi& ui, const std::vector<QString>& fileNames );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

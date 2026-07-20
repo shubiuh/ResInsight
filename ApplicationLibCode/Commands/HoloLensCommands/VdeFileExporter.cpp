@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements vde file command support.
 
 #include "VdeFileExporter.h"
 #include "VdeArrayDataPacket.h"

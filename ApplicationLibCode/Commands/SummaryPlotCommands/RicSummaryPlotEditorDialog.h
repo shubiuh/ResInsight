@@ -15,11 +15,14 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares summary plot editor command support.
 
 #pragma once
 
 #include <QDialog>
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmObject;
@@ -31,21 +34,26 @@ class RimSummaryMultiPlot;
 class RimSummaryCase;
 
 //==================================================================================================
-///
-///
+/// @brief Dialog for configuring summary plot editor.
 //==================================================================================================
 class RicSummaryPlotEditorDialog : public QDialog
 {
     Q_OBJECT
 public:
+    /// Constructs the command object.
     RicSummaryPlotEditorDialog( QWidget* parent );
+    /// Destroys the command object.
     ~RicSummaryPlotEditorDialog() override;
 
+    /// Updates from summary plot.
     void updateFromSummaryPlot( RimSummaryPlot* summaryPlot );
+    /// Updates from summary multi plot.
     void updateFromSummaryMultiPlot( RimSummaryMultiPlot* summaryPlot );
+    /// Updates from default cases.
     void updateFromDefaultCases( const std::vector<caf::PdmObject*> defaultSources );
 
 private slots:
+    /// Performs the slot dialog finished command operation.
     void slotDialogFinished();
 
 private:

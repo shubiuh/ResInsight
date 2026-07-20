@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares delete item exec data command support.
 
 #pragma once
 
@@ -23,7 +25,7 @@
 #include "cafPdmObject.h"
 
 //==================================================================================================
-///
+/// @brief Supports delete item exec data command workflows.
 //==================================================================================================
 class RicDeleteItemExecData : public caf::PdmObject
 {

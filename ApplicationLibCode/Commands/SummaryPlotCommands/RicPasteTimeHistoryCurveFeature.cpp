@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste time history curve command support.
 
 #include "RicPasteTimeHistoryCurveFeature.h"
 

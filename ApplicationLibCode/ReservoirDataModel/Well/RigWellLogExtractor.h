@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares extraction of well log extractor.
 
 #pragma once
 
@@ -33,19 +35,30 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models well path cell intersection info for reservoir-data processing.
 struct WellPathCellIntersectionInfo
 {
+    /// Stores glob cell index.
     size_t     globCellIndex;
+    /// Stores start point.
     cvf::Vec3d startPoint;
+    /// Stores end point.
     cvf::Vec3d endPoint;
+    /// Stores start md.
     double     startMD;
+    /// Stores end md.
     double     endMD;
+    /// Stores intersection lengths in cell cs.
     cvf::Vec3d intersectionLengthsInCellCS;
 
+    /// Stores intersected cell face in.
     cvf::StructGridInterface::FaceType intersectedCellFaceIn;
+    /// Stores intersected cell face out.
     cvf::StructGridInterface::FaceType intersectedCellFaceOut;
 
+    /// Returns or processes start tvd.
     double startTVD() const { return -startPoint.z(); }
+    /// Returns or processes end tvd.
     double endTVD() const { return -endPoint.z(); }
 };
 
@@ -54,6 +67,7 @@ class RigWellPath;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Extracts well log extractor.
 class RigWellLogExtractor : public cvf::Object
 {
 public:
@@ -86,10 +100,13 @@ protected:
     void populateReturnArrays( std::map<RigMDCellIdxEnterLeaveKey, HexIntersectionInfo>& uniqueIntersections );
     void appendIntersectionToArrays( double measuredDepth, const HexIntersectionInfo& intersection, QStringList* errorMessages );
 
+    /// Calculates length in cell.
     virtual cvf::Vec3d calculateLengthInCell( size_t cellIndex, const cvf::Vec3d& startPoint, const cvf::Vec3d& endPoint ) const = 0;
 
 protected:
+    /// Stores well path geometry.
     cvf::cref<RigWellPath> m_wellPathGeometry;
+    /// Stores well case error msg name.
     std::string            m_wellCaseErrorMsgName;
 
 private:

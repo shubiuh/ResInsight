@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares append intersection command support.
 
 #pragma once
 
@@ -26,16 +28,21 @@
 class RimIntersectionCollection;
 
 //==================================================================================================
-///
+/// @brief Supports append intersection feature cmd command workflows.
 //==================================================================================================
 class RicAppendIntersectionFeatureCmd : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     explicit RicAppendIntersectionFeatureCmd( RimIntersectionCollection* intersectionCollection );
+    /// Destroys the command object.
     ~RicAppendIntersectionFeatureCmd() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:
@@ -43,13 +50,15 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for append intersection.
 //==================================================================================================
 class RicAppendIntersectionFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new custom objective function command support.
 
 #include "RicNewCustomObjectiveFunctionFeature.h"
 

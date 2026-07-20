@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares uniform refinement reservoir-data functionality.
 
 #pragma once
 
@@ -28,6 +30,7 @@
 // O(1) for all operations, no per-cell storage.
 //
 //==================================================================================================
+/// @brief Models uniform refinement for reservoir-data processing.
 class RigUniformRefinement : public RigRefinement
 {
 public:

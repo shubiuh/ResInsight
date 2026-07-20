@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete script path command support.
 
 #include "RicDeleteScriptPathFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new streamline command support.
 
 #include "RicNewStreamlineFeature.h"
 

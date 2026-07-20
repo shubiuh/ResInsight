@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares msw data formatter reservoir-data functionality.
 #pragma once
 
 class RifTextDataTableFormatter;

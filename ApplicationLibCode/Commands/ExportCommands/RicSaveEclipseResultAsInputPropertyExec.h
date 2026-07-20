@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares save Eclipse result as input property exec command support.
 
 #pragma once
 
@@ -25,16 +27,21 @@
 class RimEclipseCellColors;
 
 //==================================================================================================
-///
+/// @brief Supports save Eclipse result as input property exec command workflows.
 //==================================================================================================
 class RicSaveEclipseResultAsInputPropertyExec : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     explicit RicSaveEclipseResultAsInputPropertyExec( RimEclipseCellColors* cellColors );
+    /// Destroys the command object.
     ~RicSaveEclipseResultAsInputPropertyExec() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:

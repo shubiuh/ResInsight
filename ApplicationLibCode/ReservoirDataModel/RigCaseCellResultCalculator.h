@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of case cell results.
 
 #pragma once
 
@@ -27,6 +29,7 @@ class RigMainGrid;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates case cell results.
 class RigCaseCellResultCalculator
 {
 public:

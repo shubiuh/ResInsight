@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens create dummy file backed session command support.
 
 #include "RicHoloLensCreateDummyFileBackedSessionFeature.h"
 

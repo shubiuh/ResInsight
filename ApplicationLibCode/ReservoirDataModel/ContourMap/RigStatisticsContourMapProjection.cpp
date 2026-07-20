@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements statistics contour map projection reservoir-data functionality.
 
 #include "RigStatisticsContourMapProjection.h"
 
@@ -27,7 +29,7 @@
 #include <utility>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigStatisticsContourMapProjection instance.
 //--------------------------------------------------------------------------------------------------
 RigStatisticsContourMapProjection::RigStatisticsContourMapProjection( const RigContourMapGrid* contourMapGrid )
     : RigContourMapProjection( contourMapGrid )
@@ -35,7 +37,7 @@ RigStatisticsContourMapProjection::RigStatisticsContourMapProjection( const RigC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigStatisticsContourMapProjection instance.
 //--------------------------------------------------------------------------------------------------
 RigStatisticsContourMapProjection::~RigStatisticsContourMapProjection()
 {
@@ -53,7 +55,7 @@ std::vector<std::vector<std::pair<size_t, double>>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates and save results.
 //--------------------------------------------------------------------------------------------------
 void RigStatisticsContourMapProjection::generateAndSaveResults( const std::vector<double>& result )
 {
@@ -61,7 +63,7 @@ void RigStatisticsContourMapProjection::generateAndSaveResults( const std::vecto
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds intersecting cells.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigStatisticsContourMapProjection::findIntersectingCells( const cvf::BoundingBox& bbox ) const
 {
@@ -70,7 +72,7 @@ std::vector<size_t> RigStatisticsContourMapProjection::findIntersectingCells( co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k layer.
 //--------------------------------------------------------------------------------------------------
 size_t RigStatisticsContourMapProjection::kLayer( size_t globalCellIdx ) const
 {
@@ -79,7 +81,7 @@ size_t RigStatisticsContourMapProjection::kLayer( size_t globalCellIdx ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k layers.
 //--------------------------------------------------------------------------------------------------
 size_t RigStatisticsContourMapProjection::kLayers() const
 {
@@ -88,7 +90,7 @@ size_t RigStatisticsContourMapProjection::kLayers() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates overlap volume.
 //--------------------------------------------------------------------------------------------------
 double RigStatisticsContourMapProjection::calculateOverlapVolume( size_t globalCellIdx, const cvf::BoundingBox& bbox ) const
 {
@@ -97,7 +99,7 @@ double RigStatisticsContourMapProjection::calculateOverlapVolume( size_t globalC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates ray length in cell.
 //--------------------------------------------------------------------------------------------------
 double RigStatisticsContourMapProjection::calculateRayLengthInCell( size_t            globalCellIdx,
                                                                     const cvf::Vec3d& highestPoint,
@@ -108,7 +110,7 @@ double RigStatisticsContourMapProjection::calculateRayLengthInCell( size_t      
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns parameter weight for cell.
 //--------------------------------------------------------------------------------------------------
 double RigStatisticsContourMapProjection::getParameterWeightForCell( size_t cellResultIdx, const std::vector<double>& cellWeights ) const
 {
@@ -116,7 +118,7 @@ double RigStatisticsContourMapProjection::getParameterWeightForCell( size_t cell
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns map cell visibility.
 //--------------------------------------------------------------------------------------------------
 std::vector<bool> RigStatisticsContourMapProjection::getMapCellVisibility( int viewStepIndex,
                                                                            RigContourMapCalculator::ResultAggregationType resultAggregation )
@@ -126,7 +128,7 @@ std::vector<bool> RigStatisticsContourMapProjection::getMapCellVisibility( int v
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cells at ij.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<size_t, double>> RigStatisticsContourMapProjection::cellsAtIJ( unsigned int i, unsigned int j ) const
 {
@@ -141,7 +143,7 @@ std::vector<std::pair<size_t, double>> RigStatisticsContourMapProjection::cellsA
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether cell active.
 //--------------------------------------------------------------------------------------------------
 bool RigStatisticsContourMapProjection::isCellActive( size_t globalCellIdx ) const
 {

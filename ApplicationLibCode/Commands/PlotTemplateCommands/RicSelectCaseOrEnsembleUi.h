@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares select case or ensemble command support.
 
 #pragma once
 
@@ -29,23 +31,29 @@ class RimSummaryCase;
 class RimSummaryEnsemble;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring select case or ensemble.
 //==================================================================================================
 class RicSelectCaseOrEnsembleUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSelectCaseOrEnsembleUi();
 
+    /// Sets ensemble selection mode.
     void setEnsembleSelectionMode( bool selectEnsemble );
 
+    /// @return The selected summary case.
     RimSummaryCase*     selectedSummaryCase() const;
+    /// @return The selected ensemble.
     RimSummaryEnsemble* selectedEnsemble() const;
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 private:

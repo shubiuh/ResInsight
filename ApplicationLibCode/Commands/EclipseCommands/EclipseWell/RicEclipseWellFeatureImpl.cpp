@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse well command support.
 
 #include "RicEclipseWellFeatureImpl.h"
 

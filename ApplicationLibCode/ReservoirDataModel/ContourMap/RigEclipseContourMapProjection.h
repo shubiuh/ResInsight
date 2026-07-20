@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares eclipse contour map projection reservoir-data functionality.
 
 #pragma once
 
@@ -40,6 +42,7 @@ class RigCaseCellResultsData;
 ///
 ///
 //==================================================================================================
+/// @brief Models eclipse contour map projection for reservoir-data processing.
 class RigEclipseContourMapProjection : public RigContourMapProjection
 {
 public:
@@ -77,6 +80,7 @@ public:
     bool              isCellActive( size_t globalCellIdx ) const override;
 
 protected:
+    /// Type alias used for cell index and result.
     using CellIndexAndResult = RigContourMapProjection::CellIndexAndResult;
 
     std::vector<size_t> findIntersectingCells( const cvf::BoundingBox& bbox ) const override;
@@ -96,10 +100,16 @@ protected:
                                                             RigFloodingSettings&                           floodingSettings );
 
 protected:
+    /// Stores eclipse case data.
     RigEclipseCaseData*     m_eclipseCaseData;
+    /// Stores result data.
     RigCaseCellResultsData* m_resultData;
+    /// Stores main grid.
     RigMainGrid*            m_mainGrid;
+    /// Stores active cell info.
     RigActiveCellInfo*      m_activeCellInfo;
+    /// Stores k layers.
     size_t                  m_kLayers;
+    /// Stores use active cell info.
     bool                    m_useActiveCellInfo;
 };

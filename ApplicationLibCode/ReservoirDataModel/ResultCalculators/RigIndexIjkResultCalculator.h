@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of index ijk results.
 
 #pragma once
 
@@ -28,6 +30,7 @@ class RigEclipseResultAddress;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates index ijk results.
 class RigIndexIjkResultCalculator : public RigEclipseResultCalculator
 {
 public:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares bounding box ijk reservoir-data functionality.
 
 #pragma once
 
@@ -30,29 +32,38 @@
 ///
 //==================================================================================================
 template <typename T>
+/// @brief Models bounding box ijk for reservoir-data processing.
 class RigBoundingBoxIjk
 {
 public:
     RigBoundingBoxIjk();
+    /// Returns or processes bounding box ijk.
     RigBoundingBoxIjk( const T& min, const T& max );
 
+    /// Returns or processes min.
     const T& min() const { return m_min; }
+    /// Returns or processes max.
     const T& max() const { return m_max; }
 
+    /// Returns whether valid.
     bool isValid() const;
 
     // Check if a point is inside this bounding box (inclusive)
+    /// Returns or processes contains.
     bool contains( const T& point ) const;
 
     // Check if this box overlaps with another box
+    /// Returns or processes overlaps.
     bool overlaps( const RigBoundingBoxIjk& other ) const;
 
     // Compute intersection of this box with another box
     // Returns std::nullopt if boxes don't overlap
+    /// Returns or processes intersection.
     std::optional<RigBoundingBoxIjk> intersection( const RigBoundingBoxIjk& other ) const;
 
     // Clamp this box to be within another box
     // Returns std::nullopt if boxes don't overlap
+    /// Returns or processes clamp.
     std::optional<RigBoundingBoxIjk> clamp( const RigBoundingBoxIjk& bounds ) const;
 
 private:

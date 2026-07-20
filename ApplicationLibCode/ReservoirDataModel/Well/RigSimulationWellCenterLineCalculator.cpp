@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of simulation well center line.
 
 #include "RigSimulationWellCenterLineCalculator.h"
 
@@ -41,7 +43,7 @@
 #include <list>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates well pipe static centerline.
 //--------------------------------------------------------------------------------------------------
 std::vector<SimulationWellCellBranch> RigSimulationWellCenterLineCalculator::calculateWellPipeStaticCenterline( const RimSimWellInView* rimWell )
 {
@@ -63,7 +65,7 @@ std::vector<SimulationWellCellBranch> RigSimulationWellCenterLineCalculator::cal
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates well pipe centerline for time step.
 //--------------------------------------------------------------------------------------------------
 std::vector<SimulationWellCellBranch>
     RigSimulationWellCenterLineCalculator::calculateWellPipeCenterlineForTimeStep( const RigEclipseCaseData* eclipseCaseData,
@@ -96,7 +98,7 @@ std::vector<SimulationWellCellBranch>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the extract branch data.
 //--------------------------------------------------------------------------------------------------
 std::pair<std::vector<std::vector<cvf::Vec3d>>, std::vector<std::vector<RigWellResultPoint>>>
     RigSimulationWellCenterLineCalculator::extractBranchData( const std::vector<SimulationWellCellBranch>& simulationBranch )
@@ -523,7 +525,7 @@ void RigSimulationWellCenterLineCalculator::calculateWellPipeCenterlineForTimeSt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds cell center points.
 //--------------------------------------------------------------------------------------------------
 void RigSimulationWellCenterLineCalculator::addCellCenterPoints( const RigEclipseCaseData*                     eclipseCaseData,
                                                                  std::vector<std::vector<cvf::Vec3d>>&         pipeBranchesCLCoords,
@@ -559,7 +561,7 @@ void RigSimulationWellCenterLineCalculator::addCellCenterPoints( const RigEclips
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether any valid data cells is available.
 //--------------------------------------------------------------------------------------------------
 bool RigSimulationWellCenterLineCalculator::hasAnyValidDataCells( const RigWellResultBranch& branch )
 {

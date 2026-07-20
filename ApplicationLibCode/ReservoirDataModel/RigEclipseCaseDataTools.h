@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for eclipse case data.
 
 #pragma once
 
@@ -33,6 +35,7 @@ class RigSimWellData;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Provides utilities for eclipse case data.
 class RigEclipseCaseDataTools
 {
 public:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well paths unit system settings command support.
 
 #pragma once
 
@@ -23,11 +25,11 @@
 class RimWellPath;
 
 //==================================================================================================
-///
-///
+/// @brief Supports well paths unit system settings command workflows.
 //==================================================================================================
 class RicWellPathsUnitSystemSettingsImpl
 {
 public:
+    /// @return The ensure has unit system.
     static bool ensureHasUnitSystem( RimWellPath* wellPath );
 };

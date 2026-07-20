@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show grid calculator command support.
 
 #include "RicShowGridCalculatorFeature.h"
 

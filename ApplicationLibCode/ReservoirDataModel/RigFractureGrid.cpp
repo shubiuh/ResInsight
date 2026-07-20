@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fracture grid reservoir-data functionality.
 
 #include "RigFractureGrid.h"
 
@@ -26,7 +28,7 @@
 #include <QString>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFractureGrid instance.
 //--------------------------------------------------------------------------------------------------
 RigFractureGrid::RigFractureGrid()
     : m_iCellCount( 0 )
@@ -35,7 +37,7 @@ RigFractureGrid::RigFractureGrid()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets fracture cells.
 //--------------------------------------------------------------------------------------------------
 void RigFractureGrid::setFractureCells( std::vector<RigFractureCell> fractureCells )
 {
@@ -43,7 +45,7 @@ void RigFractureGrid::setFractureCells( std::vector<RigFractureCell> fractureCel
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets well center fracture cell ij.
 //--------------------------------------------------------------------------------------------------
 void RigFractureGrid::setWellCenterFractureCellIJ( std::pair<size_t, size_t> wellCenterFractureCellIJ )
 {
@@ -51,7 +53,7 @@ void RigFractureGrid::setWellCenterFractureCellIJ( std::pair<size_t, size_t> wel
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets i cell count.
 //--------------------------------------------------------------------------------------------------
 void RigFractureGrid::setICellCount( size_t iCellCount )
 {
@@ -59,7 +61,7 @@ void RigFractureGrid::setICellCount( size_t iCellCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets j cell count.
 //--------------------------------------------------------------------------------------------------
 void RigFractureGrid::setJCellCount( size_t jCellCount )
 {
@@ -67,7 +69,7 @@ void RigFractureGrid::setJCellCount( size_t jCellCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fracture cells.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RigFractureCell>& RigFractureGrid::fractureCells() const
 {
@@ -75,7 +77,7 @@ const std::vector<RigFractureCell>& RigFractureGrid::fractureCells() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns global index from ij.
 //--------------------------------------------------------------------------------------------------
 size_t RigFractureGrid::getGlobalIndexFromIJ( size_t i, size_t j ) const
 {
@@ -83,7 +85,7 @@ size_t RigFractureGrid::getGlobalIndexFromIJ( size_t i, size_t j ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell from index.
 //--------------------------------------------------------------------------------------------------
 const RigFractureCell& RigFractureGrid::cellFromIndex( size_t index ) const
 {
@@ -103,7 +105,7 @@ const RigFractureCell& RigFractureGrid::cellFromIndex( size_t index ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the j cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigFractureGrid::jCellCount() const
 {
@@ -111,7 +113,7 @@ size_t RigFractureGrid::jCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the i cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigFractureGrid::iCellCount() const
 {
@@ -119,7 +121,7 @@ size_t RigFractureGrid::iCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fracture cell at well center.
 //--------------------------------------------------------------------------------------------------
 std::pair<size_t, size_t> RigFractureGrid::fractureCellAtWellCenter() const
 {
@@ -127,7 +129,7 @@ std::pair<size_t, size_t> RigFractureGrid::fractureCellAtWellCenter() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ensure cell search tree is built.
 //--------------------------------------------------------------------------------------------------
 void RigFractureGrid::ensureCellSearchTreeIsBuilt()
 {
@@ -155,7 +157,7 @@ void RigFractureGrid::ensureCellSearchTreeIsBuilt()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns cell from position.
 //--------------------------------------------------------------------------------------------------
 const RigFractureCell* RigFractureGrid::getCellFromPosition( const cvf::Vec3d& position ) const
 {

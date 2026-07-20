@@ -15,20 +15,22 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements virtual perforation transmissibilities reservoir-data functionality.
 
 #include "RigVirtualPerforationTransmissibilities.h"
 
 #include "RigStatisticsMath.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a CompletionDataFrame instance.
 //--------------------------------------------------------------------------------------------------
 CompletionDataFrame::CompletionDataFrame()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets completion data.
 //--------------------------------------------------------------------------------------------------
 void CompletionDataFrame::setCompletionData( const std::vector<RigCompletionData>& completions )
 {
@@ -49,7 +51,7 @@ void CompletionDataFrame::setCompletionData( const std::vector<RigCompletionData
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the multiple completions per eclipse cell.
 //--------------------------------------------------------------------------------------------------
 const std::map<size_t, std::vector<RigCompletionData>>& CompletionDataFrame::multipleCompletionsPerEclipseCell() const
 {
@@ -57,21 +59,21 @@ const std::map<size_t, std::vector<RigCompletionData>>& CompletionDataFrame::mul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigVirtualPerforationTransmissibilities instance.
 //--------------------------------------------------------------------------------------------------
 RigVirtualPerforationTransmissibilities::RigVirtualPerforationTransmissibilities()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigVirtualPerforationTransmissibilities instance.
 //--------------------------------------------------------------------------------------------------
 RigVirtualPerforationTransmissibilities::~RigVirtualPerforationTransmissibilities()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets completion data for well path.
 //--------------------------------------------------------------------------------------------------
 void RigVirtualPerforationTransmissibilities::setCompletionDataForWellPath( const RimWellPath* wellPath,
                                                                             const std::vector<std::vector<RigCompletionData>>& completionsPerTimeStep )
@@ -95,7 +97,7 @@ void RigVirtualPerforationTransmissibilities::setCompletionDataForWellPath( cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the multiple completions per eclipse cell.
 //--------------------------------------------------------------------------------------------------
 const std::map<size_t, std::vector<RigCompletionData>>&
     RigVirtualPerforationTransmissibilities::multipleCompletionsPerEclipseCell( const RimWellPath* wellPath, size_t timeStepIndex ) const
@@ -122,7 +124,7 @@ const std::map<size_t, std::vector<RigCompletionData>>&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets completion data for sim well.
 //--------------------------------------------------------------------------------------------------
 void RigVirtualPerforationTransmissibilities::setCompletionDataForSimWell( const RigSimWellData* simWellData,
                                                                            const std::vector<std::vector<RigCompletionData>>& completionsPerTimeStep )
@@ -131,7 +133,7 @@ void RigVirtualPerforationTransmissibilities::setCompletionDataForSimWell( const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the completions for sim well.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RigCompletionData>& RigVirtualPerforationTransmissibilities::completionsForSimWell( const RigSimWellData* simWellData,
                                                                                                       size_t timeStepIndex ) const
@@ -148,7 +150,7 @@ const std::vector<RigCompletionData>& RigVirtualPerforationTransmissibilities::c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes min max.
 //--------------------------------------------------------------------------------------------------
 void RigVirtualPerforationTransmissibilities::computeMinMax( double* minValue,
                                                              double* maxValue,

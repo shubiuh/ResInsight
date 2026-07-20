@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create regression analysis curve command support.
 
 #include "RicCreateRegressionAnalysisCurveFeature.h"
 

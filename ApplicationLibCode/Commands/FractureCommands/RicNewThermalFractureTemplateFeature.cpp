@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new thermal fracture template command support.
 
 #include "RicNewThermalFractureTemplateFeature.h"
 

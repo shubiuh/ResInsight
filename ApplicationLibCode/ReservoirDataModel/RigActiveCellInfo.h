@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares active cell info reservoir-data functionality.
 
 #pragma once
 
@@ -29,6 +31,7 @@
 
 #include <vector>
 
+/// @brief Models active cell info for reservoir-data processing.
 class RigActiveCellInfo : public cvf::Object
 {
 public:
@@ -59,6 +62,7 @@ public:
     void addLgr( size_t cellCount );
 
 private:
+    /// @brief Models grid active cell counts for reservoir-data processing.
     class GridActiveCellCounts
     {
     public:

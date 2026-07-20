@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well allocation over time reservoir-data functionality.
 
 #include "RigWellAllocationOverTime.h"
 
@@ -27,7 +29,7 @@
 #include <set>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellAllocationOverTime instance.
 //--------------------------------------------------------------------------------------------------
 RigWellAllocationOverTime::RigWellAllocationOverTime( const std::vector<QDateTime>&                        timeStepDates,
                                                       const std::map<QDateTime, RigAccWellFlowCalculator>& timeStepAndCalculatorPairs )
@@ -82,7 +84,7 @@ RigWellAllocationOverTime::RigWellAllocationOverTime( const std::vector<QDateTim
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill with flow rate fraction values.
 //--------------------------------------------------------------------------------------------------
 void RigWellAllocationOverTime::fillWithFlowRateFractionValues()
 {
@@ -98,7 +100,7 @@ void RigWellAllocationOverTime::fillWithFlowRateFractionValues()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill with flow rate percentage values.
 //--------------------------------------------------------------------------------------------------
 void RigWellAllocationOverTime::fillWithFlowRatePercentageValues()
 {
@@ -115,7 +117,7 @@ void RigWellAllocationOverTime::fillWithFlowRatePercentageValues()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill with flow rate values.
 //--------------------------------------------------------------------------------------------------
 void RigWellAllocationOverTime::fillWithFlowRateValues()
 {
@@ -134,7 +136,7 @@ void RigWellAllocationOverTime::fillWithFlowRateValues()
 
 //--------------------------------------------------------------------------------------------------
 /// Fill with flow volume at time step.
-///
+/// Returns the fill with flow volume values.
 /// Create volume by multiplying with number of days since last time step.
 //--------------------------------------------------------------------------------------------------
 void RigWellAllocationOverTime::fillWithFlowVolumeValues()
@@ -162,7 +164,7 @@ void RigWellAllocationOverTime::fillWithFlowVolumeValues()
 //--------------------------------------------------------------------------------------------------
 /// Fill with accumulated flow volume over a range of time steps. Create volume by multiplying with
 /// number of days since last time step.
-///
+/// Returns the fill with accumulated flow volume values.
 /// Group small contributors in "Others" if accumulated volume value at last time step is below
 /// threshold value.
 //--------------------------------------------------------------------------------------------------
@@ -197,7 +199,7 @@ void RigWellAllocationOverTime::fillWithAccumulatedFlowVolumeValues( double smal
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill with accumulated flow volume fraction values.
 //--------------------------------------------------------------------------------------------------
 void RigWellAllocationOverTime::fillWithAccumulatedFlowVolumeFractionValues( double smallContributionsThreshold )
 {
@@ -205,7 +207,7 @@ void RigWellAllocationOverTime::fillWithAccumulatedFlowVolumeFractionValues( dou
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill with accumulated flow volume percentage values.
 //--------------------------------------------------------------------------------------------------
 void RigWellAllocationOverTime::fillWithAccumulatedFlowVolumePercentageValues( double smallContributionsThreshold )
 {
@@ -215,8 +217,8 @@ void RigWellAllocationOverTime::fillWithAccumulatedFlowVolumePercentageValues( d
 //--------------------------------------------------------------------------------------------------
 /// Fill with accumulated well flow volumes in fraction/percent of total accumulated flow volume
 /// at each time step.
-///
-///
+/// Returns the fill with accumulated flow volume fraction or percentage values.
+/// Returns the fill with accumulated flow volume fraction or percentage values.
 /// Group small contributors in "Others" if volume value for well is below threshold at every
 /// time step.
 //--------------------------------------------------------------------------------------------------

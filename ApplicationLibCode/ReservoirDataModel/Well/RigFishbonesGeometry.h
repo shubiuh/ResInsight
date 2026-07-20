@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fishbones geometry reservoir-data functionality.
 
 #pragma once
 
@@ -31,6 +33,7 @@ class RimFishbones;
 ///
 ///
 //==================================================================================================
+/// @brief Models fisbones geometry for reservoir-data processing.
 class RigFisbonesGeometry
 {
 public:

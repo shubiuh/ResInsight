@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export selected well paths command support.
 
 #pragma once
 
@@ -31,31 +33,38 @@ class RicExportWellPathsUi;
 class QTextStream;
 
 //==================================================================================================
-///
+/// @brief Shared file and text-stream handles used while exporting selected well paths.
 //==================================================================================================
 using QFilePtr       = std::shared_ptr<QFile>;
 using QTextStreamPtr = std::shared_ptr<QTextStream>;
 
 //==================================================================================================
-///
+/// @brief Command feature for export selected well paths.
 //==================================================================================================
 class RicExportSelectedWellPathsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// Exports well paths to file.
     static void exportWellPathsToFile( const std::vector<RimWellPath*>& wellPaths );
+    /// Exports well path.
     static void exportWellPath( const RimWellPath* wellPath, double mdStepSize, const QString& folder, bool writeProjectInfo = true );
 
+    /// @return The open.
     static RicExportWellPathsUi* openDialog();
+    /// @return The open file for export.
     static QFilePtr              openFileForExport( const QString& folderName, const QString& fileName );
+    /// Creates output file stream.
     static QTextStreamPtr        createOutputFileStream( QFile& file );
 
+    /// Writes well path geometry to stream.
     static void writeWellPathGeometryToStream( QTextStream&       stream,
                                                const RimWellPath* wellPath,
                                                const QString&     exportName,
                                                double             mdStepSize,
                                                bool               writeProjectInfo = true );
 
+    /// Writes well path geometry to stream.
     static void writeWellPathGeometryToStream( QTextStream&       stream,
                                                const RigWellPath& wellPath,
                                                const QString&     exportName,
@@ -65,6 +74,7 @@ class RicExportSelectedWellPathsFeature : public caf::CmdFeature
                                                bool               writeProjectInfo );
 
 private:
+    /// Writes well path geometry to stream.
     static void writeWellPathGeometryToStream( QTextStream&               stream,
                                                const QString&             exportName,
                                                const std::vector<double>& xValues,
@@ -74,7 +84,10 @@ private:
                                                bool                       showTextMdRkb,
                                                bool                       writeProjectInfo );
 
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

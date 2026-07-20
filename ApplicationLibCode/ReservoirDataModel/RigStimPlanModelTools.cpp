@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for stim plan model.
 
 #include "RigStimPlanModelTools.h"
 
@@ -39,7 +41,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates tst direction.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigStimPlanModelTools::calculateTSTDirection( RigEclipseCaseData* eclipseCaseData,
                                                          const cvf::Vec3d&   anchorPosition,
@@ -94,7 +96,7 @@ cvf::Vec3d RigStimPlanModelTools::calculateTSTDirection( RigEclipseCaseData* ecl
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates angle from vertical.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanModelTools::calculateAngleFromVertical( const cvf::Vec3d& direction )
 {
@@ -103,7 +105,7 @@ double RigStimPlanModelTools::calculateAngleFromVertical( const cvf::Vec3d& dire
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates formation dip from horizontal.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanModelTools::calculateFormationDipFromHorizontal( const cvf::Vec3d& direction )
 {
@@ -113,7 +115,7 @@ double RigStimPlanModelTools::calculateFormationDipFromHorizontal( const cvf::Ve
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates formation dip aligned to azimuth.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanModelTools::calculateFormationDipAlignedToAzimuth( const cvf::Vec3d& formationDirection, double azimuthDegrees )
 {
@@ -132,7 +134,7 @@ double RigStimPlanModelTools::calculateFormationDipAlignedToAzimuth( const cvf::
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds closest fault barrier.
 //--------------------------------------------------------------------------------------------------
 std::tuple<const RigFault*, double, cvf::Vec3d, double> RigStimPlanModelTools::findClosestFaultBarrier( RigEclipseCaseData* eclipseCaseData,
                                                                                                         const cvf::Vec3d&   position,
@@ -170,7 +172,7 @@ std::tuple<const RigFault*, double, cvf::Vec3d, double> RigStimPlanModelTools::f
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates barrier intersections.
 //--------------------------------------------------------------------------------------------------
 std::vector<WellPathCellIntersectionInfo> RigStimPlanModelTools::generateBarrierIntersections( RigEclipseCaseData* eclipseCaseData,
                                                                                                const cvf::Vec3d&   position,
@@ -190,7 +192,7 @@ std::vector<WellPathCellIntersectionInfo> RigStimPlanModelTools::generateBarrier
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates barrier intersections between points.
 //--------------------------------------------------------------------------------------------------
 std::vector<WellPathCellIntersectionInfo> RigStimPlanModelTools::generateBarrierIntersectionsBetweenPoints( RigEclipseCaseData* eclipseCaseData,
                                                                                                             const cvf::Vec3d& startPosition,
@@ -210,7 +212,7 @@ std::vector<WellPathCellIntersectionInfo> RigStimPlanModelTools::generateBarrier
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds thickness target points.
 //--------------------------------------------------------------------------------------------------
 bool RigStimPlanModelTools::findThicknessTargetPoints( RigEclipseCaseData* eclipseCaseData,
                                                        const cvf::Vec3d&   position,
@@ -282,7 +284,7 @@ bool RigStimPlanModelTools::findThicknessTargetPoints( RigEclipseCaseData* eclip
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the vec to string.
 //--------------------------------------------------------------------------------------------------
 QString RigStimPlanModelTools::vecToString( const cvf::Vec3d& vec )
 {
@@ -290,7 +292,7 @@ QString RigStimPlanModelTools::vecToString( const cvf::Vec3d& vec )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates perforation length.
 //--------------------------------------------------------------------------------------------------
 double RigStimPlanModelTools::calculatePerforationLength( const cvf::Vec3d& direction, double perforationLength )
 {

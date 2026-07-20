@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show summary curve calculator command support.
 
 #include "RicShowSummaryCurveCalculatorFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create contour map polygon advanced command support.
 
 #include "RicCreateContourMapPolygonAdvancedFeature.h"
 

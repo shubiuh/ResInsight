@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements append intersection box command support.
 
 #include "RicAppendIntersectionBoxFeature.h"
 

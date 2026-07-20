@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fracture grid reservoir-data functionality.
 
 #pragma once
 
@@ -35,6 +37,7 @@ class RigFractureCell;
 ///
 ///
 //==================================================================================================
+/// @brief Represents fracture grid.
 class RigFractureGrid : public cvf::Object
 {
 public:

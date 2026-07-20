@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new summary ensemble curve set command support.
 
 #pragma once
 
@@ -28,22 +30,29 @@ class RimSummaryEnsemble;
 class RifEclipseSummaryAddress;
 
 //==================================================================================================
-///
+/// @brief Command feature for new summary ensemble curve set.
 //==================================================================================================
 class RicNewSummaryEnsembleCurveSetFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Creates plot for curve sets and update.
     static RimSummaryPlot*                   createPlotForCurveSetsAndUpdate( std::vector<RimSummaryEnsemble*> ensembles );
+    /// Adds default curve sets.
     static std::vector<RimEnsembleCurveSet*> addDefaultCurveSets( RimSummaryPlot* plot, RimSummaryEnsemble* ensemble );
+    /// Adds curve set.
     static RimEnsembleCurveSet* addCurveSet( RimSummaryPlot* plot, RimSummaryEnsemble* ensemble, const RifEclipseSummaryAddress& address );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The selected summary plot.
     RimSummaryPlot* selectedSummaryPlot() const;
 };

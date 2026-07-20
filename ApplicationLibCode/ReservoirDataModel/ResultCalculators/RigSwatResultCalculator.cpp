@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of swat results.
 
 #include "RigSwatResultCalculator.h"
 #include "RigActiveCellInfo.h"
@@ -26,7 +28,7 @@
 #include "RiaResultNames.h"
 
 //==================================================================================================
-///
+/// Creates a RigSwatResultCalculator instance.
 //==================================================================================================
 RigSwatResultCalculator::RigSwatResultCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -34,14 +36,14 @@ RigSwatResultCalculator::RigSwatResultCalculator( RigCaseCellResultsData& result
 }
 
 //==================================================================================================
-///
+/// Destroys the RigSwatResultCalculator instance.
 //==================================================================================================
 RigSwatResultCalculator::~RigSwatResultCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the check and create placeholder entry.
 //--------------------------------------------------------------------------------------------------
 void RigSwatResultCalculator::checkAndCreatePlaceholderEntry( const RigEclipseResultAddress& resVarAddr )
 {
@@ -62,7 +64,7 @@ void RigSwatResultCalculator::checkAndCreatePlaceholderEntry( const RigEclipseRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigSwatResultCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -70,7 +72,7 @@ bool RigSwatResultCalculator::isMatching( const RigEclipseResultAddress& resVarA
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigSwatResultCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -105,7 +107,7 @@ void RigSwatResultCalculator::calculate( const RigEclipseResultAddress& resVarAd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether only water phase is available.
 //--------------------------------------------------------------------------------------------------
 bool RigSwatResultCalculator::hasOnlyWaterPhase() const
 {

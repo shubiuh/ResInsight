@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements eclipse native stat calc reservoir-data functionality.
 
 #include "RigEclipseNativeStatCalc.h"
 
@@ -28,7 +30,7 @@
 #include <cmath> // Needed for HUGE_VAL on Linux
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseNativeStatCalc instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseNativeStatCalc::RigEclipseNativeStatCalc( RigCaseCellResultsData* cellResultsData, const RigEclipseResultAddress& eclipseResultAddress )
     : m_resultsData( cellResultsData )
@@ -37,7 +39,7 @@ RigEclipseNativeStatCalc::RigEclipseNativeStatCalc( RigCaseCellResultsData* cell
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeStatCalc::minMaxCellScalarValues( size_t timeStepIndex, double& min, double& max )
 {
@@ -55,7 +57,7 @@ void RigEclipseNativeStatCalc::minMaxCellScalarValues( size_t timeStepIndex, dou
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether precise p10p90 is available.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseNativeStatCalc::hasPreciseP10p90() const
 {
@@ -63,7 +65,7 @@ bool RigEclipseNativeStatCalc::hasPreciseP10p90() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the p10p90 cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeStatCalc::p10p90CellScalarValues( double& p10, double& p90 )
 {
@@ -84,7 +86,7 @@ void RigEclipseNativeStatCalc::p10p90CellScalarValues( double& p10, double& p90 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the p10p90 cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeStatCalc::p10p90CellScalarValues( size_t timeStepIndex, double& p10, double& p90 )
 {
@@ -102,7 +104,7 @@ void RigEclipseNativeStatCalc::p10p90CellScalarValues( size_t timeStepIndex, dou
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeStatCalc::posNegClosestToZero( size_t timeStepIndex, double& pos, double& neg )
 {
@@ -121,7 +123,7 @@ void RigEclipseNativeStatCalc::posNegClosestToZero( size_t timeStepIndex, double
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds data to histogram calculator.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeStatCalc::addDataToHistogramCalculator( size_t timeStepIndex, RigHistogramCalculator& histogramCalculator )
 {
@@ -129,7 +131,7 @@ void RigEclipseNativeStatCalc::addDataToHistogramCalculator( size_t timeStepInde
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique values.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeStatCalc::uniqueValues( size_t timeStepIndex, std::set<int>& values )
 {
@@ -139,7 +141,7 @@ void RigEclipseNativeStatCalc::uniqueValues( size_t timeStepIndex, std::set<int>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value sum and sample count.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeStatCalc::valueSumAndSampleCount( size_t timeStepIndex, double& valueSum, size_t& sampleCount )
 {
@@ -150,7 +152,7 @@ void RigEclipseNativeStatCalc::valueSumAndSampleCount( size_t timeStepIndex, dou
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step count.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseNativeStatCalc::timeStepCount()
 {
@@ -158,7 +160,7 @@ size_t RigEclipseNativeStatCalc::timeStepCount()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseNativeStatCalc::mobileVolumeWeightedMean( size_t timeStepIndex, double& mean )
 {

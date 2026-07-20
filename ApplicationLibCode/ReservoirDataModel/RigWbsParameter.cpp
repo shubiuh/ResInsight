@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements wbs parameter reservoir-data functionality.
 #include "RigWbsParameter.h"
 
 #include "RiaResultNames.h"
@@ -41,7 +43,7 @@ void RigWbsParameter::SourceEnum::setUp()
 } // End namespace caf
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWbsParameter instance.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter::RigWbsParameter( const QString& name, bool normalizeByHydroStaticPP, const SourceVector& sources, bool exclusiveOption )
     : m_name( name )
@@ -52,7 +54,7 @@ RigWbsParameter::RigWbsParameter( const QString& name, bool normalizeByHydroStat
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWbsParameter instance.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter::RigWbsParameter( const RigWbsParameter& rhs )
     : m_name( rhs.m_name )
@@ -63,7 +65,7 @@ RigWbsParameter::RigWbsParameter( const RigWbsParameter& rhs )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator= operation.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter& RigWbsParameter::operator=( const RigWbsParameter& rhs )
 {
@@ -75,7 +77,7 @@ RigWbsParameter& RigWbsParameter::operator=( const RigWbsParameter& rhs )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the name.
 //--------------------------------------------------------------------------------------------------
 const QString& RigWbsParameter::name() const
 {
@@ -83,7 +85,7 @@ const QString& RigWbsParameter::name() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sources.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigWbsParameter::Source> RigWbsParameter::sources() const
 {
@@ -96,7 +98,7 @@ std::vector<RigWbsParameter::Source> RigWbsParameter::sources() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether external source is available.
 //--------------------------------------------------------------------------------------------------
 bool RigWbsParameter::hasExternalSource() const
 {
@@ -108,7 +110,7 @@ bool RigWbsParameter::hasExternalSource() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds address string.
 //--------------------------------------------------------------------------------------------------
 QString RigWbsParameter::addressString( Source source ) const
 {
@@ -121,7 +123,7 @@ QString RigWbsParameter::addressString( Source source ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the units.
 //--------------------------------------------------------------------------------------------------
 QString RigWbsParameter::units( Source source ) const
 {
@@ -139,7 +141,7 @@ QString RigWbsParameter::units( Source source ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fem address.
 //--------------------------------------------------------------------------------------------------
 RigFemResultAddress RigWbsParameter::femAddress( Source source ) const
 {
@@ -158,7 +160,7 @@ RigFemResultAddress RigWbsParameter::femAddress( Source source ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the normalize by hydrostatic pp.
 //--------------------------------------------------------------------------------------------------
 bool RigWbsParameter::normalizeByHydrostaticPP() const
 {
@@ -166,7 +168,7 @@ bool RigWbsParameter::normalizeByHydrostaticPP() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the exclusive options.
 //--------------------------------------------------------------------------------------------------
 bool RigWbsParameter::exclusiveOptions() const
 {
@@ -182,7 +184,7 @@ void RigWbsParameter::setOptionsExclusive( bool exclusive )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all source ui labels.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigWbsParameter::allSourceUiLabels( const QString& delimiter /*= " "*/,
                                                          double         userDefinedValue /*= std::numeric_limits<double>::infinity() */ )
@@ -196,7 +198,7 @@ std::vector<QString> RigWbsParameter::allSourceUiLabels( const QString& delimite
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the source ui label.
 //--------------------------------------------------------------------------------------------------
 QString RigWbsParameter::sourceUiLabel( Source         currentSource,
                                         const QString& delimiter,
@@ -216,7 +218,7 @@ QString RigWbsParameter::sourceUiLabel( Source         currentSource,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator== operation.
 //--------------------------------------------------------------------------------------------------
 bool RigWbsParameter::operator==( const RigWbsParameter& rhs ) const
 {
@@ -224,7 +226,7 @@ bool RigWbsParameter::operator==( const RigWbsParameter& rhs ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator< operation.
 //--------------------------------------------------------------------------------------------------
 bool RigWbsParameter::operator<( const RigWbsParameter& rhs ) const
 {
@@ -232,7 +234,7 @@ bool RigWbsParameter::operator<( const RigWbsParameter& rhs ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pp reservoir.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::PP_Reservoir()
 {
@@ -247,7 +249,7 @@ RigWbsParameter RigWbsParameter::PP_Reservoir()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pp non reservoir.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::PP_NonReservoir()
 {
@@ -261,7 +263,7 @@ RigWbsParameter RigWbsParameter::PP_NonReservoir()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pp min.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::PP_Min()
 {
@@ -271,7 +273,7 @@ RigWbsParameter RigWbsParameter::PP_Min()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pp max.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::PP_Max()
 {
@@ -281,7 +283,7 @@ RigWbsParameter RigWbsParameter::PP_Max()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pp exp.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::PP_Exp()
 {
@@ -291,7 +293,7 @@ RigWbsParameter RigWbsParameter::PP_Exp()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pp initial.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::PP_Initial()
 {
@@ -302,7 +304,7 @@ RigWbsParameter RigWbsParameter::PP_Initial()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the poisson ratio.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::poissonRatio()
 {
@@ -314,7 +316,7 @@ RigWbsParameter RigWbsParameter::poissonRatio()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ucs.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::UCS()
 {
@@ -326,7 +328,7 @@ RigWbsParameter RigWbsParameter::UCS()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the obg.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::OBG()
 {
@@ -337,7 +339,7 @@ RigWbsParameter RigWbsParameter::OBG()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the obg0.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::OBG0()
 {
@@ -348,7 +350,7 @@ RigWbsParameter RigWbsParameter::OBG0()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sh.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::SH()
 {
@@ -358,7 +360,7 @@ RigWbsParameter RigWbsParameter::SH()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the df.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::DF()
 {
@@ -370,7 +372,7 @@ RigWbsParameter RigWbsParameter::DF()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k0 fg.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::K0_FG()
 {
@@ -382,7 +384,7 @@ RigWbsParameter RigWbsParameter::K0_FG()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k0 sh.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::K0_SH()
 {
@@ -394,7 +396,7 @@ RigWbsParameter RigWbsParameter::K0_SH()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fg shale.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::FG_Shale()
 {
@@ -408,7 +410,7 @@ RigWbsParameter RigWbsParameter::FG_Shale()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fg mk min.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::FG_MkMin()
 {
@@ -418,7 +420,7 @@ RigWbsParameter RigWbsParameter::FG_MkMin()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fg mk exp.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::FG_MkExp()
 {
@@ -428,7 +430,7 @@ RigWbsParameter RigWbsParameter::FG_MkExp()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the water density.
 //--------------------------------------------------------------------------------------------------
 RigWbsParameter RigWbsParameter::waterDensity()
 {
@@ -440,7 +442,7 @@ RigWbsParameter RigWbsParameter::waterDensity()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all parameters.
 //--------------------------------------------------------------------------------------------------
 std::set<RigWbsParameter> RigWbsParameter::allParameters()
 {
@@ -465,7 +467,7 @@ std::set<RigWbsParameter> RigWbsParameter::allParameters()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds parameter.
 //--------------------------------------------------------------------------------------------------
 bool RigWbsParameter::findParameter( QString parameterName, RigWbsParameter* foundParam /* = nullptr*/ )
 {
@@ -480,7 +482,7 @@ bool RigWbsParameter::findParameter( QString parameterName, RigWbsParameter* fou
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds address.
 //--------------------------------------------------------------------------------------------------
 bool RigWbsParameter::address( Source source, RigWbsParameter::SourceAddress* sourceAddress ) const
 {

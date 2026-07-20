@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares result modifier factory reservoir-data functionality.
 
 #pragma once
 
@@ -27,6 +29,7 @@ class RigEclipseCaseData;
 class RigResultModifier;
 class RigEclipseResultAddress;
 
+/// @brief Models result modifier factory for reservoir-data processing.
 class RigResultModifierFactory
 {
 public:

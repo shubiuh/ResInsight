@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete valve template command support.
 #include "RicDeleteValveTemplateFeature.h"
 
 #include "RimProject.h"

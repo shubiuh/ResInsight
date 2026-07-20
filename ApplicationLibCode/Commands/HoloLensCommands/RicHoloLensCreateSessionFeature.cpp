@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens create session command support.
 
 #include "RicHoloLensCreateSessionFeature.h"
 

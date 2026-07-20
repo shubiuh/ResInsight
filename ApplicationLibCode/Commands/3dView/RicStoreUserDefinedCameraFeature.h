@@ -15,32 +15,43 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares store user defined camera command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
+/// @brief Utilities for cvf command workflows.
 namespace cvf
 {
 class Camera;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for store user defined camera.
 //==================================================================================================
 class RicStoreUserDefinedCameraFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// @return The group name.
     static QString      groupName();
+    /// @return The eye name.
     static QString      eyeName();
+    /// @return The view reference point name.
     static QString      viewReferencePointName();
+    /// @return The up name.
     static QString      upName();
+    /// @return The active camera.
     static cvf::Camera* activeCamera();
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

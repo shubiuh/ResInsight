@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create text annotation in3d view command support.
 
 #include "RicCreateTextAnnotationIn3dViewFeature.h"
 

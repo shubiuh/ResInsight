@@ -15,27 +15,36 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares measurement command support.
 
 #pragma once
 
 #include "Ric3dViewPickEventHandler.h"
 
 //==================================================================================================
-///
+/// @brief Handles measurement events.
 //==================================================================================================
 class RicMeasurementPickEventHandler : public Ric3dViewPickEventHandler
 {
 public:
+    /// @return The instance.
     static RicMeasurementPickEventHandler* instance();
 
+    /// Registers as.
     void registerAsPickEventHandler() override;
+    /// Unregisters as.
     void unregisterAsPickEventHandler() override;
 
+    /// Performs the enable poly line mode command operation.
     void enablePolyLineMode( bool polyLineModeEnabled );
 
 protected:
+    /// Constructs the command object.
     RicMeasurementPickEventHandler();
+    /// @return Whether the 3D pick event was handled.
     bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) override;
+    /// Performs the notify unregistered command operation.
     void notifyUnregistered() override;
 
 private:

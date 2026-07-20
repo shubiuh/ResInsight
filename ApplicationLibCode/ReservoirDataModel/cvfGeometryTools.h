@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for cvf geometry.
 
 #pragma once
 
@@ -35,30 +37,35 @@ class EdgeSplitStorage;
 template <typename IndexType>
 class EdgeIntersectStorage;
 
+/// @brief Provides utilities for geometry.
 class GeometryTools
 {
 public:
     static cvf::Vec3d computeFaceCenter( const cvf::Vec3d& v0, const cvf::Vec3d& v1, const cvf::Vec3d& v2, const cvf::Vec3d& v3 );
     static cvf::Vec3d computeTriangleCenter( const cvf::Vec3d& v0, const cvf::Vec3d& v1, const cvf::Vec3d& v2 );
     template <typename Vec3Type>
+    /// Computes polygon center.
     static Vec3Type   computePolygonCenter( const std::vector<Vec3Type>& polygon );
     static cvf::Mat3f computePlaneHorizontalRotationMx( const cvf::Vec3f& inPlaneVec0, const cvf::Vec3f& inPlaneVec1 );
 
     static cvf::Vec3d
         projectPointOnLine( const cvf::Vec3d& p1, const cvf::Vec3d& p2, const cvf::Vec3d& p3, double* normalizedIntersection = nullptr );
 
-    static double     linePointSquareDist( const cvf::Vec3d& p1, const cvf::Vec3d& p2, const cvf::Vec3d& p3 );
-    static int        intersectLineSegmentTriangle( const cvf::Vec3d& p0,
-                                                    const cvf::Vec3d& p1,
-                                                    const cvf::Vec3d& t0,
-                                                    const cvf::Vec3d& t1,
-                                                    const cvf::Vec3d& t2,
-                                                    cvf::Vec3d*       intersectionPoint,
-                                                    bool*             isLineDirDotNormalNegative );
+    static double linePointSquareDist( const cvf::Vec3d& p1, const cvf::Vec3d& p2, const cvf::Vec3d& p3 );
+    /// Returns or processes intersect line segment triangle.
+    static int intersectLineSegmentTriangle( const cvf::Vec3d& p0,
+                                             const cvf::Vec3d& p1,
+                                             const cvf::Vec3d& t0,
+                                             const cvf::Vec3d& t1,
+                                             const cvf::Vec3d& t2,
+                                             cvf::Vec3d*       intersectionPoint,
+                                             bool*             isLineDirDotNormalNegative );
+    /// Returns or processes barycentric coords.
     static cvf::Vec3d barycentricCoords( const cvf::Vec3d& t0, const cvf::Vec3d& t1, const cvf::Vec3d& t2, const cvf::Vec3d& p );
     static cvf::Vec4d
         barycentricCoords( const cvf::Vec3d& v0, const cvf::Vec3d& v1, const cvf::Vec3d& v2, const cvf::Vec3d& v3, const cvf::Vec3d& p );
     template <typename DataType>
+    /// Returns or processes interpolate quad.
     static DataType interpolateQuad( const cvf::Vec3d& v1,
                                      DataType          s1,
                                      const cvf::Vec3d& v2,
@@ -69,7 +76,8 @@ public:
                                      DataType          s4,
                                      const cvf::Vec3d& point );
 
-    static int    findClosestAxis( const cvf::Vec3d& vec );
+    static int findClosestAxis( const cvf::Vec3d& vec );
+    /// Returns or processes get angle.
     static double getAngle( const cvf::Vec3d& positiveNormalAxis, const cvf::Vec3d& v1, const cvf::Vec3d& v2 );
     static double getAngle( const cvf::Vec3d& v1, const cvf::Vec3d& v2 );
 
@@ -81,6 +89,7 @@ public:
     static float  polygonArea( const std::vector<cvf::Vec3f>& polygon );
     static double polygonArea( const std::vector<cvf::Vec3d>& polygon );
 
+    /// Enumerates the supported intersection status values.
     enum IntersectionStatus
     {
         NO_INTERSECTION,
@@ -112,6 +121,7 @@ public:
                                                       double            tolerance = 1e-6 );
 
     template <typename VerticeArrayType, typename PolygonArrayType, typename IndexType>
+    /// Returns whether point touching indexed polygon.
     static bool isPointTouchingIndexedPolygon( const cvf::Vec3d&                               polygonNormal,
                                                ArrayWrapperConst<VerticeArrayType, cvf::Vec3d> vertices,
                                                ArrayWrapperConst<PolygonArrayType, IndexType>  indices,
@@ -129,6 +139,7 @@ public:
                                                    double                                          tolerance );
 
     template <typename VerticeArrayType, typename PolygonArrayType, typename IndexType>
+    /// Calculates partially free cube face polygon.
     static void calculatePartiallyFreeCubeFacePolygon( ArrayWrapperConst<VerticeArrayType, cvf::Vec3d> nodeCoords,
                                                        ArrayWrapperConst<PolygonArrayType, IndexType>  completeFacePolygon,
                                                        const cvf::Vec3d&                               faceNormal,
@@ -141,10 +152,13 @@ public:
 };
 
 template <typename IndexType>
+/// @brief Models edge intersect storage for reservoir-data processing.
 class EdgeIntersectStorage
 {
 public:
+    /// Sets vertex count.
     void setVertexCount( size_t size );
+    /// Returns or processes find intersection.
     bool findIntersection( IndexType                          e1P1,
                            IndexType                          e1P2,
                            IndexType                          e2P1,
@@ -153,6 +167,7 @@ public:
                            GeometryTools::IntersectionStatus* intersectionStatus,
                            double&                            fractionAlongEdge1,
                            double&                            fractionAlongEdge2 );
+    /// Adds intersection.
     void addIntersection( IndexType                         e1P1,
                           IndexType                         e1P2,
                           IndexType                         e2P1,
@@ -163,6 +178,7 @@ public:
                           double                            fractionAlongEdge2 );
 
 private:
+    /// @brief Stores intersect data.
     struct IntersectData
     {
         IndexType                         intersectionPointIndex;
@@ -181,6 +197,7 @@ private:
     std::vector<std::map<IndexType, std::map<IndexType, std::map<IndexType, IntersectData>>>> m_edgeIntsectMap;
 };
 
+/// @brief Models edge split storage for reservoir-data processing.
 class EdgeSplitStorage
 {
 public:
@@ -195,6 +212,7 @@ private:
     std::vector<std::map<size_t, size_t>> m_edgeSplitMap;
 };
 
+/// @brief Models ear clip tesselator for reservoir-data processing.
 class EarClipTesselator
 {
 public:
@@ -209,6 +227,7 @@ public:
     virtual bool calculateTriangles( std::vector<size_t>* triangles );
 
 protected:
+    /// Enumerates the supported triangle status values.
     enum TriangleStatus
     {
         INVALID_TRIANGLE,
@@ -223,13 +242,19 @@ protected:
     double calculateProjectedPolygonArea() const;
 
 protected:
-    std::list<size_t>      m_polygonIndices;
+    /// Stores polygon indices.
+    std::list<size_t> m_polygonIndices;
+    /// Stores node coords.
     const cvf::Vec3dArray* m_nodeCoords;
-    int                    m_X, m_Y; // Index shift in vector to do simple 2D projection
-    cvf::Vec3d             m_polygonNormal;
-    double                 m_areaTolerance;
+    int                    m_X; ///< First index shift used for the 2D projection.
+    int                    m_Y; ///< Second index shift used for the 2D projection.
+    /// Stores polygon normal.
+    cvf::Vec3d m_polygonNormal;
+    /// Stores area tolerance.
+    double m_areaTolerance;
 };
 
+/// @brief Models fan ear clip tesselator for reservoir-data processing.
 class FanEarClipTesselator : public EarClipTesselator
 {
 public:

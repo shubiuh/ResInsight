@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements seismic section from intersection command support.
 
 #include "RicSeismicSectionFromIntersectionFeature.h"
 

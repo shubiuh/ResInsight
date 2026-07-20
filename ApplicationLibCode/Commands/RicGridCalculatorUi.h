@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares grid calculator command support.
 
 #pragma once
 
@@ -23,21 +25,28 @@
 class RimUserDefinedCalculationCollection;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring grid calculator.
 //==================================================================================================
 class RicGridCalculatorUi : public RicUserDefinedCalculatorUi
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicGridCalculatorUi();
 
+    /// @return The calculations group name.
     QString                              calculationsGroupName() const override;
+    /// @return The calulation group name.
     QString                              calulationGroupName() const override;
+    /// @return The calculation collection.
     RimUserDefinedCalculationCollection* calculationCollection() const override;
+    /// Performs the notify calculated name changed command operation.
     void                                 notifyCalculatedNameChanged( int id, const QString& newName ) const override;
 
 protected:
+    /// Exports calculations.
     void exportCalculations() override;
+    /// Imports calculations.
     void importCalculations() override;
 };

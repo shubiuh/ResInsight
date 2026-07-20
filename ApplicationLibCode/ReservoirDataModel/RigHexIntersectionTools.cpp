@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for hex intersection.
 #include "RigHexIntersectionTools.h"
 
 #include "RigCellGeometryTools.h"
@@ -26,7 +28,7 @@
 #include "cafHexGridIntersectionTools/cafHexGridIntersectionTools.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the line hex cell intersection.
 //--------------------------------------------------------------------------------------------------
 int RigHexIntersectionTools::lineHexCellIntersection( const cvf::Vec3d&                 p1,
                                                       const cvf::Vec3d&                 p2,
@@ -80,7 +82,7 @@ int RigHexIntersectionTools::lineHexCellIntersection( const cvf::Vec3d&         
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the line intersects hex cell.
 //--------------------------------------------------------------------------------------------------
 bool RigHexIntersectionTools::lineIntersectsHexCell( const cvf::Vec3d& p1, const cvf::Vec3d& p2, const std::array<cvf::Vec3d, 8>& hexCorners )
 {
@@ -117,7 +119,7 @@ bool RigHexIntersectionTools::lineIntersectsHexCell( const cvf::Vec3d& p1, const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether point in cell.
 //--------------------------------------------------------------------------------------------------
 bool RigHexIntersectionTools::isPointInCell( const cvf::Vec3d& point, const std::array<cvf::Vec3d, 8>& hexCorners )
 {
@@ -147,7 +149,7 @@ bool RigHexIntersectionTools::isPointInCell( const cvf::Vec3d& point, const std:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the plane hex cell intersection.
 //--------------------------------------------------------------------------------------------------
 bool RigHexIntersectionTools::planeHexCellIntersection( const std::array<cvf::Vec3d, 8>&              hexCorners,
                                                         const cvf::Plane&                             fracturePlane,
@@ -194,7 +196,7 @@ bool RigHexIntersectionTools::planeHexCellIntersection( const std::array<cvf::Ve
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the plane hex intersection polygons.
 //--------------------------------------------------------------------------------------------------
 bool RigHexIntersectionTools::planeHexIntersectionPolygons( const std::array<cvf::Vec3d, 8>&      hexCorners,
                                                             cvf::Mat4d                            transformMatrixForPlane,
@@ -216,7 +218,7 @@ bool RigHexIntersectionTools::planeHexIntersectionPolygons( const std::array<cvf
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator< operation.
 //--------------------------------------------------------------------------------------------------
 bool operator<( const HexIntersectionInfo& hi1, const HexIntersectionInfo& hi2 )
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements intersection box Y slice command support.
 
 #include "RicIntersectionBoxYSliceFeature.h"
 

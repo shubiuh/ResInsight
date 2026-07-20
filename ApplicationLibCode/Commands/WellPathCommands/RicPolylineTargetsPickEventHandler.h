@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares polyline targets command support.
 
 #pragma once
 
@@ -22,18 +24,23 @@
 #include "RimPolylinePickerInterface.h"
 
 //==================================================================================================
-///
+/// @brief Handles polyline targets events.
 //==================================================================================================
 class RicPolylineTargetsPickEventHandler : public Ric3dViewPickEventHandler
 {
 public:
+    /// Constructs the command object.
     RicPolylineTargetsPickEventHandler( RimPolylinePickerInterface* picker );
+    /// Destroys the command object.
     ~RicPolylineTargetsPickEventHandler();
 
+    /// Registers as.
     void registerAsPickEventHandler() override;
 
 protected:
+    /// @return Whether the 3D pick event was handled.
     bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) override;
+    /// Performs the notify unregistered command operation.
     void notifyUnregistered() override;
 
 private:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of mobile pore volume results.
 
 #include "RigMobilePoreVolumeResultCalculator.h"
 #include "RiaDefines.h"
@@ -28,7 +30,7 @@
 #include "RiaLogging.h"
 
 //==================================================================================================
-///
+/// Creates a RigMobilePoreVolumeResultCalculator instance.
 //==================================================================================================
 RigMobilePoreVolumeResultCalculator::RigMobilePoreVolumeResultCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -36,14 +38,14 @@ RigMobilePoreVolumeResultCalculator::RigMobilePoreVolumeResultCalculator( RigCas
 }
 
 //==================================================================================================
-///
+/// Destroys the RigMobilePoreVolumeResultCalculator instance.
 //==================================================================================================
 RigMobilePoreVolumeResultCalculator::~RigMobilePoreVolumeResultCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigMobilePoreVolumeResultCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -52,7 +54,7 @@ bool RigMobilePoreVolumeResultCalculator::isMatching( const RigEclipseResultAddr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigMobilePoreVolumeResultCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {

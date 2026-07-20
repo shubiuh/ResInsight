@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements eclipse result info reservoir-data functionality.
 
 #include "RigEclipseResultInfo.h"
 
 #include "cvfAssert.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseTimeStepInfo instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseTimeStepInfo::RigEclipseTimeStepInfo( const QDateTime& date, int reportNumber, double daysSinceSimulationStart )
     : m_date( date )
@@ -31,7 +33,7 @@ RigEclipseTimeStepInfo::RigEclipseTimeStepInfo( const QDateTime& date, int repor
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates time step infos.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigEclipseTimeStepInfo> RigEclipseTimeStepInfo::createTimeStepInfos( std::vector<QDateTime> dates,
                                                                                  std::vector<int>       reportNumbers,
@@ -51,7 +53,7 @@ std::vector<RigEclipseTimeStepInfo> RigEclipseTimeStepInfo::createTimeStepInfos(
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseResultInfo instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseResultInfo::RigEclipseResultInfo( const RigEclipseResultAddress& resultAddress,
                                             bool                           needsToBeStored,
@@ -65,7 +67,7 @@ RigEclipseResultInfo::RigEclipseResultInfo( const RigEclipseResultAddress& resul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result type.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::ResultCatType RigEclipseResultInfo::resultType() const
 {
@@ -73,7 +75,7 @@ RiaDefines::ResultCatType RigEclipseResultInfo::resultType() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets result type.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultInfo::setResultType( RiaDefines::ResultCatType newType )
 {
@@ -81,7 +83,7 @@ void RigEclipseResultInfo::setResultType( RiaDefines::ResultCatType newType )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result name.
 //--------------------------------------------------------------------------------------------------
 const QString& RigEclipseResultInfo::resultName() const
 {
@@ -89,7 +91,7 @@ const QString& RigEclipseResultInfo::resultName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets result name.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultInfo::setResultName( const QString& name )
 {
@@ -97,7 +99,7 @@ void RigEclipseResultInfo::setResultName( const QString& name )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the needs to be stored.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultInfo::needsToBeStored() const
 {
@@ -105,7 +107,7 @@ bool RigEclipseResultInfo::needsToBeStored() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the must be calculated.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseResultInfo::mustBeCalculated() const
 {
@@ -113,7 +115,7 @@ bool RigEclipseResultInfo::mustBeCalculated() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets must be calculated.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultInfo::setMustBeCalculated( bool mustCalculate )
 {
@@ -121,7 +123,7 @@ void RigEclipseResultInfo::setMustBeCalculated( bool mustCalculate )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid scalar result index.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseResultInfo::gridScalarResultIndex() const
 {
@@ -129,7 +131,7 @@ size_t RigEclipseResultInfo::gridScalarResultIndex() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the eclipse result address.
 //--------------------------------------------------------------------------------------------------
 const RigEclipseResultAddress& RigEclipseResultInfo::eclipseResultAddress() const
 {
@@ -137,7 +139,7 @@ const RigEclipseResultAddress& RigEclipseResultInfo::eclipseResultAddress() cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step infos.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RigEclipseTimeStepInfo>& RigEclipseResultInfo::timeStepInfos() const
 {
@@ -145,7 +147,7 @@ const std::vector<RigEclipseTimeStepInfo>& RigEclipseResultInfo::timeStepInfos()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets time step infos.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseResultInfo::setTimeStepInfos( const std::vector<RigEclipseTimeStepInfo>& timeSteps )
 {
@@ -153,7 +155,7 @@ void RigEclipseResultInfo::setTimeStepInfos( const std::vector<RigEclipseTimeSte
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the dates.
 //--------------------------------------------------------------------------------------------------
 std::vector<QDateTime> RigEclipseResultInfo::dates() const
 {
@@ -168,7 +170,7 @@ std::vector<QDateTime> RigEclipseResultInfo::dates() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the days since simulation starts.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigEclipseResultInfo::daysSinceSimulationStarts() const
 {
@@ -183,7 +185,7 @@ std::vector<double> RigEclipseResultInfo::daysSinceSimulationStarts() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the report numbers.
 //--------------------------------------------------------------------------------------------------
 std::vector<int> RigEclipseResultInfo::reportNumbers() const
 {

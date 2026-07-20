@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import Eclipse case command support.
 
 #pragma once
 
@@ -25,18 +27,23 @@ class RimEclipseView;
 class RimProject;
 
 //==================================================================================================
-///
+/// @brief Command feature for import Eclipse case.
 //==================================================================================================
 class RicImportEclipseCaseFeature : public RicImportGeneralDataFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Imports PVD surfaces for grid files.
     static void importPvdSurfacesForGridFiles( const QStringList& gridFileNames, const std::vector<RimEclipseView*>& viewsBeforeImport );
+    /// @return All Eclipse views.
     static std::vector<RimEclipseView*> allEclipseViews( RimProject* project );
+    /// @return The matching PVD files to import.
     static QStringList                  findPvdFilesToImport( const QStringList& fileNames );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

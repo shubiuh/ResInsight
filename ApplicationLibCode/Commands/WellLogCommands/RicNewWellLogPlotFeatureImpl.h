@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new well log plot command support.
 
 #pragma once
 
@@ -29,26 +31,33 @@ class RimWellLogTrack;
 class RimDepthTrackPlot;
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for new well log plot commands.
 //==================================================================================================
 class RicNewWellLogPlotFeatureImpl
 {
 public:
+    /// Creates well bore stability plot.
     static RimWellBoreStabilityPlot* createWellBoreStabilityPlot( bool                    showAfterCreation = true,
                                                                   const QString&          plotDescription   = QString( "" ),
                                                                   const RimWbsParameters* params            = nullptr );
 
+    /// Creates RFT segment plot.
     static RimWellLogPlot*  createRftSegmentPlot();
+    /// Creates well log track with auto update.
     static RimWellLogTrack* createWellLogTrackWithAutoUpdate();
 
+    /// Creates well log plot.
     static RimWellLogPlot* createWellLogPlot( bool showAfterCreation = true, const QString& plotDescription = QString( "" ) );
 
+    /// Creates well log plot track.
     static RimWellLogTrack* createWellLogPlotTrack( bool               updateAfterCreation = true,
                                                     const QString&     trackDescription    = QString( "" ),
                                                     RimDepthTrackPlot* existingPlot        = nullptr );
 
+    /// Updates after creation.
     static void updateAfterCreation( RimDepthTrackPlot* plot );
 
 private:
+    /// @return The well log plot collection.
     static RimWellLogPlotCollection* wellLogPlotCollection();
 };

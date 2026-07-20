@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares flow diag solver interface reservoir-data functionality.
 #pragma once
 
 #include "RigFlowDiagDefines.h"
@@ -33,6 +35,7 @@ class RimFlowDiagSolution;
 class RigEclipseCaseData;
 class RigOpmFlowDiagStaticData;
 
+/// @brief Defines the solver interface for flow diag solver interface.
 class RigFlowDiagSolverInterface
 {
 public:

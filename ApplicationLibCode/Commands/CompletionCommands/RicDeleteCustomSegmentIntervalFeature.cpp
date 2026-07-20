@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete custom segment interval command support.
 #include "RicDeleteCustomSegmentIntervalFeature.h"
 
 #include "RimCustomSegmentInterval.h"

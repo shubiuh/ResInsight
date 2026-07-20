@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares save Eclipse input visible cells command support.
 
 #pragma once
 
@@ -24,37 +26,47 @@ class RimEclipseView;
 class RicSaveEclipseInputVisibleCellsUi;
 
 //==================================================================================================
-///
+/// @brief Command feature for save Eclipse input visible cells.
 //==================================================================================================
 class RicSaveEclipseInputVisibleCellsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Performs the open dialog and execute command command operation.
     static void openDialogAndExecuteCommand( RimEclipseView* view );
+    /// Executes command.
     static void executeCommand( RimEclipseView* view, const RicSaveEclipseInputVisibleCellsUi& exportSettings, const QString& logPrefix );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The selected view.
     RimEclipseView* selectedView() const;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for save Eclipse input active visible cells.
 //==================================================================================================
 class RicSaveEclipseInputActiveVisibleCellsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The selected view.
     static RimEclipseView* selectedView();
 };

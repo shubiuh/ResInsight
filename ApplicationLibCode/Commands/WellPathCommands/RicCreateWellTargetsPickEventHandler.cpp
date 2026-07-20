@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create well targets command support.
 
 #include "RicCreateWellTargetsPickEventHandler.h"
 

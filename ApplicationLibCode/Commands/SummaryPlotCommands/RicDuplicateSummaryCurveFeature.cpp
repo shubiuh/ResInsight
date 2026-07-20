@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements duplicate summary curve command support.
 
 #include "RicDuplicateSummaryCurveFeature.h"
 

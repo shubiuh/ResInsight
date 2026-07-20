@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import Eclipse case time step filter command support.
 
 #include "RicImportEclipseCaseTimeStepFilterFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export polygon pol command support.
 
 #include "RicExportPolygonPolFeature.h"
 

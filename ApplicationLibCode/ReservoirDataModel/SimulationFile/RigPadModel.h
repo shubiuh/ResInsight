@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares pad model reservoir-data functionality.
 
 #pragma once
 
@@ -42,6 +44,7 @@ class RigModelPaddingSettings;
 /// padding layers above and/or below the existing grid. This is useful for sector models
 /// that need additional layers for geomechanical simulations.
 //==================================================================================================
+/// @brief Models pad model for reservoir-data processing.
 class RigPadModel
 {
 public:

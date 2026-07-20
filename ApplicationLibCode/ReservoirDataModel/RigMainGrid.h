@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares main grid reservoir-data functionality.
 
 #pragma once
 
@@ -40,6 +42,7 @@ namespace cvf
 class BoundingBoxTree;
 }
 
+/// @brief Represents main grid.
 class RigMainGrid : public RigGridBase
 {
 public:
@@ -117,6 +120,7 @@ public:
     void setDualPorosity( bool enable );
 
     // invalidate all cells with I > iLimit (0 based index)
+    /// Returns or processes invalidate cells above i.
     void invalidateCellsAboveI( size_t iLimit );
 
     // Allocate cells with default values in the internal reservoir cell storage.

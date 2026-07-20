@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares vde file command support.
 
 #pragma once
 
@@ -32,16 +34,22 @@ class RimGridView;
 //
 //
 //==================================================================================================
+/// @brief Exports vde file data.
 class VdeFileExporter
 {
 public:
+    /// Constructs the command object.
     VdeFileExporter( QString absOutputFolder );
 
+    /// Exports to file.
     bool exportToFile( const QString& modelMetaJsonStr, const VdePacketDirectory& packetDirectory, const std::vector<int>& packetIdsToExport );
+    /// Exports view contents.
     bool exportViewContents( const RimGridView& view );
 
 private:
+    /// Writes model meta JSON file.
     static bool writeModelMetaJsonFile( const QString& modelMetaJsonStr, QString fileName );
+    /// Writes data packet to file.
     bool        writeDataPacketToFile( int arrayId, const VdeArrayDataPacket& packet ) const;
 
 private:

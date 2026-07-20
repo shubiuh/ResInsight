@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reload plot templates command support.
 
 #include "RicReloadPlotTemplatesFeature.h"
 

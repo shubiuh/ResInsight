@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares contour map grid reservoir-data functionality.
 
 #pragma once
 
@@ -27,6 +29,7 @@ using namespace cvf;
 ///
 ///
 //==================================================================================================
+/// @brief Represents contour map grid.
 class RigContourMapGrid
 {
 public:
@@ -34,6 +37,7 @@ public:
     RigContourMapGrid( const cvf::BoundingBox& originalBoundingBox, const cvf::BoundingBox& expandedBoundingBox, double sampleSpacing );
 
     // Copy constructor
+    /// Returns or processes contour map grid.
     RigContourMapGrid( const RigContourMapGrid& other )
         : m_sampleSpacing( other.m_sampleSpacing )
         , m_mapSize( other.m_mapSize )

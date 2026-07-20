@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements theme color editor command support.
 
 #include "RicThemeColorEditorFeature.h"
 

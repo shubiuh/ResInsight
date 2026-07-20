@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of sim well data.
 
 #include "RigSimWellData.h"
 #include "RigWellResultFrame.h"
@@ -25,7 +27,7 @@
 #include <QDebug>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigSimWellData instance.
 //--------------------------------------------------------------------------------------------------
 RigSimWellData::RigSimWellData()
     : m_isMultiSegmentWell( false )
@@ -34,7 +36,7 @@ RigSimWellData::RigSimWellData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well result frame.
 //--------------------------------------------------------------------------------------------------
 const RigWellResultFrame* RigSimWellData::wellResultFrame( size_t resultTimeStepIndex ) const
 {
@@ -47,7 +49,7 @@ const RigWellResultFrame* RigSimWellData::wellResultFrame( size_t resultTimeStep
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes mapping from result time indices to well time indices.
 //--------------------------------------------------------------------------------------------------
 void RigSimWellData::computeMappingFromResultTimeIndicesToWellTimeIndices( const std::vector<QDateTime>& simulationTimeSteps )
 {
@@ -78,7 +80,7 @@ void RigSimWellData::computeMappingFromResultTimeIndicesToWellTimeIndices( const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether well result is available.
 //--------------------------------------------------------------------------------------------------
 bool RigSimWellData::hasWellResult( size_t resultTimeStepIndex ) const
 {
@@ -93,7 +95,7 @@ bool RigSimWellData::hasWellResult( size_t resultTimeStepIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether any valid cells is available.
 //--------------------------------------------------------------------------------------------------
 bool RigSimWellData::hasAnyValidCells( size_t resultTimeStepIndex ) const
 {
@@ -121,7 +123,7 @@ bool RigSimWellData::hasAnyValidCells( size_t resultTimeStepIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator== operation.
 //--------------------------------------------------------------------------------------------------
 bool operator==( const RigWellResultPoint& p1, const RigWellResultPoint& p2 )
 {
@@ -131,7 +133,7 @@ bool operator==( const RigWellResultPoint& p1, const RigWellResultPoint& p2 )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes static well cell path.
 //--------------------------------------------------------------------------------------------------
 void RigSimWellData::computeStaticWellCellPath() const
 {
@@ -277,7 +279,7 @@ void RigSimWellData::computeStaticWellCellPath() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets multi segment well.
 //--------------------------------------------------------------------------------------------------
 void RigSimWellData::setMultiSegmentWell( bool isMultiSegmentWell )
 {
@@ -285,7 +287,7 @@ void RigSimWellData::setMultiSegmentWell( bool isMultiSegmentWell )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether multi segment well.
 //--------------------------------------------------------------------------------------------------
 bool RigSimWellData::isMultiSegmentWell() const
 {
@@ -293,7 +295,7 @@ bool RigSimWellData::isMultiSegmentWell() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets well name.
 //--------------------------------------------------------------------------------------------------
 void RigSimWellData::setWellName( const QString& wellName )
 {
@@ -301,7 +303,7 @@ void RigSimWellData::setWellName( const QString& wellName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well production type.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::WellProductionType RigSimWellData::wellProductionType( size_t resultTimeStepIndex ) const
 {
@@ -317,7 +319,7 @@ RiaDefines::WellProductionType RigSimWellData::wellProductionType( size_t result
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the static well result frame.
 //--------------------------------------------------------------------------------------------------
 const RigWellResultFrame* RigSimWellData::staticWellResultFrame() const
 {
@@ -331,7 +333,7 @@ const RigWellResultFrame* RigSimWellData::staticWellResultFrame() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether open.
 //--------------------------------------------------------------------------------------------------
 bool RigSimWellData::isOpen( size_t resultTimeStepIndex ) const
 {

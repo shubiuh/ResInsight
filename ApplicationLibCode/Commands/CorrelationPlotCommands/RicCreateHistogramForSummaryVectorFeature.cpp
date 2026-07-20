@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create histogram for summary vector command support.
 
 #include "RicCreateHistogramForSummaryVectorFeature.h"
 

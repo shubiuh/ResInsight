@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse cell result to file command support.
 
 #include "RicEclipseCellResultToFileImpl.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show data sources for realization command support.
 
 #include "RicShowDataSourcesForRealization.h"
 

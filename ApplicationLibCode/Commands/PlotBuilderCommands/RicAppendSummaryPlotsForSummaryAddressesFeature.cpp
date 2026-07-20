@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements append summary plots for summary addresses command support.
 
 #include "RicAppendSummaryPlotsForSummaryAddressesFeature.h"
 

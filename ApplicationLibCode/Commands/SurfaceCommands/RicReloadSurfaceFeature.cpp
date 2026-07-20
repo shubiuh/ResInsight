@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reload surface command support.
 
 #include "RicReloadSurfaceFeature.h"
 

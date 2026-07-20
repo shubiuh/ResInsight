@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well log file curve command support.
 
 #include "RicNewWellLogFileCurveFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculator widget creator command support.
 
 #pragma once
 
@@ -31,6 +33,7 @@ class QVBoxLayout;
 class QHBoxLayout;
 class QPushButton;
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmUiItem;
@@ -38,28 +41,35 @@ class PdmUiTableView;
 } // namespace caf
 
 //==================================================================================================
-///
-///
+/// @brief Supports calculator widget creator command workflows.
 //==================================================================================================
 class RicCalculatorWidgetCreator : public caf::PdmUiFormLayoutObjectEditor
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     RicCalculatorWidgetCreator( std::unique_ptr<RicUserDefinedCalculatorUi> calculator );
+    /// Destroys the command object.
     ~RicCalculatorWidgetCreator() override;
 
+    /// @return The command support.
     RicUserDefinedCalculatorUi* calculator() const;
 
 private:
+    /// Performs the recursively configure and update top level UI ordering command operation.
     void recursivelyConfigureAndUpdateTopLevelUiOrdering( const caf::PdmUiOrdering& topLevelUiItems, const QString& uiConfigName ) override;
 
+    /// Creates widget.
     QWidget* createWidget( QWidget* parent ) override;
 
+    /// Updates group box with content.
     QMinimizePanel* updateGroupBoxWithContent( caf::PdmUiGroup* group, const QString& uiConfigName );
 
 private slots:
+    /// Performs the slot calculate command operation.
     void slotCalculate();
+    /// Performs the slot parse expression command operation.
     void slotParseExpression();
 
 private:

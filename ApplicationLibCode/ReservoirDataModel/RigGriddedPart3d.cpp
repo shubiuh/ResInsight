@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements gridded part3d reservoir-data functionality.
 
 #include "RigGriddedPart3d.h"
 
@@ -34,7 +36,7 @@
 #include <map>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigGriddedPart3d instance.
 //--------------------------------------------------------------------------------------------------
 RigGriddedPart3d::RigGriddedPart3d()
     : m_useLocalCoordinates( false )
@@ -46,14 +48,14 @@ RigGriddedPart3d::RigGriddedPart3d()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigGriddedPart3d instance.
 //--------------------------------------------------------------------------------------------------
 RigGriddedPart3d::~RigGriddedPart3d()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Resets .
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::reset()
 {
@@ -72,7 +74,7 @@ void RigGriddedPart3d::reset()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the all regions.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigGriddedPart3d::Regions> RigGriddedPart3d::allRegions()
 {
@@ -80,7 +82,7 @@ std::vector<RigGriddedPart3d::Regions> RigGriddedPart3d::allRegions()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the step vector.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigGriddedPart3d::stepVector( cvf::Vec3d start, cvf::Vec3d stop, int nSteps )
 {
@@ -89,7 +91,7 @@ cvf::Vec3d RigGriddedPart3d::stepVector( cvf::Vec3d start, cvf::Vec3d stop, int 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates constant layers.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigGriddedPart3d::generateConstantLayers( double zFrom, double zTo, double maxSize )
 {
@@ -122,7 +124,7 @@ std::vector<double> RigGriddedPart3d::generateConstantLayers( double zFrom, doub
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates growing layers.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigGriddedPart3d::generateGrowingLayers( double zFrom, double zTo, double maxSize, double growfactor )
 {
@@ -167,8 +169,8 @@ std::vector<double> RigGriddedPart3d::generateGrowingLayers( double zFrom, doubl
 
 //--------------------------------------------------------------------------------------------------
 ///  Point index in input
-///
-///
+/// Generates geometry.
+/// Generates geometry.
 ///      5 ------| 11                          *
 ///        |  OU |           Overburden Upper  *
 ///      4 |------\10                          *
@@ -183,9 +185,9 @@ std::vector<double> RigGriddedPart3d::generateGrowingLayers( double zFrom, doubl
 ///        |    UL       |   Underburden Lower *
 ///        |             |                     *
 ///      0 -------------- 6                    *
-///
+/// Generates geometry.
 /// Assumes horizontal lines are parallel
-///
+/// Generates geometry.
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::generateGeometry( const std::array<cvf::Vec3d, 12>&    inputPoints,
                                          const std::vector<double>&           reservoirZ,
@@ -453,7 +455,7 @@ void RigGriddedPart3d::generateGeometry( const std::array<cvf::Vec3d, 12>&    in
 
 //--------------------------------------------------------------------------------------------------
 ///  Point index in input
-///
+/// Generates vertical meshlines.
 ///     1 ____________ 2
 ///      |           /
 ///      |          /
@@ -461,7 +463,7 @@ void RigGriddedPart3d::generateGeometry( const std::array<cvf::Vec3d, 12>&    in
 ///      |        /
 ///      |_______/
 ///      0         3
-///
+/// Generates vertical meshlines.
 /// Assumes 0->3 and 1->2 is parallel
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::generateVerticalMeshlines( const std::vector<cvf::Vec3d>& cornerPoints, const std::vector<double>& horzPartition )
@@ -507,7 +509,7 @@ const std::vector<cvf::Vec3d>& RigGriddedPart3d::dataNodes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets use local coordinates.
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::setUseLocalCoordinates( bool useLocalCoordinates )
 {
@@ -515,7 +517,7 @@ void RigGriddedPart3d::setUseLocalCoordinates( bool useLocalCoordinates )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the use local coordinates.
 //--------------------------------------------------------------------------------------------------
 bool RigGriddedPart3d::useLocalCoordinates() const
 {
@@ -523,7 +525,7 @@ bool RigGriddedPart3d::useLocalCoordinates() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the top height.
 //--------------------------------------------------------------------------------------------------
 double RigGriddedPart3d::topHeight() const
 {
@@ -531,7 +533,7 @@ double RigGriddedPart3d::topHeight() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets fault safety distance.
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::setFaultSafetyDistance( double distance )
 {
@@ -539,7 +541,7 @@ void RigGriddedPart3d::setFaultSafetyDistance( double distance )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fault safety distance.
 //--------------------------------------------------------------------------------------------------
 double RigGriddedPart3d::faultSafetyDistance() const
 {
@@ -548,7 +550,7 @@ double RigGriddedPart3d::faultSafetyDistance() const
 
 //--------------------------------------------------------------------------------------------------
 /// Output elements will be of type HEX8
-///
+/// Returns the element indices.
 ///     7---------6
 ///    /|        /|
 ///   / |       / |
@@ -557,7 +559,7 @@ double RigGriddedPart3d::faultSafetyDistance() const
 ///  | /       | /        | /
 ///  |/        |/         |/
 ///  0---------1           ----- x
-///
+/// Returns the element indices.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<unsigned int>>& RigGriddedPart3d::elementIndices() const
 {
@@ -565,7 +567,7 @@ const std::vector<std::vector<unsigned int>>& RigGriddedPart3d::elementIndices()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the element corners.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d> RigGriddedPart3d::elementCorners( size_t elementIndex ) const
 {
@@ -573,7 +575,7 @@ const std::vector<cvf::Vec3d> RigGriddedPart3d::elementCorners( size_t elementIn
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the element data corners.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d> RigGriddedPart3d::elementDataCorners( size_t elementIndex ) const
 {
@@ -581,7 +583,7 @@ const std::vector<cvf::Vec3d> RigGriddedPart3d::elementDataCorners( size_t eleme
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the element count horz vert.
 //--------------------------------------------------------------------------------------------------
 const std::pair<int, int> RigGriddedPart3d::elementCountHorzVert() const
 {
@@ -589,7 +591,7 @@ const std::pair<int, int> RigGriddedPart3d::elementCountHorzVert() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the extract corners for element.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigGriddedPart3d::extractCornersForElement( const std::vector<std::vector<unsigned int>>& elementIndices,
                                                                     const std::vector<cvf::Vec3d>&                nodes,
@@ -609,7 +611,7 @@ std::vector<cvf::Vec3d> RigGriddedPart3d::extractCornersForElement( const std::v
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the border surface elements.
 //--------------------------------------------------------------------------------------------------
 const std::map<RimFaultReactivation::BorderSurface, std::vector<unsigned int>>& RigGriddedPart3d::borderSurfaceElements() const
 {
@@ -617,7 +619,7 @@ const std::map<RimFaultReactivation::BorderSurface, std::vector<unsigned int>>& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mesh lines.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<cvf::Vec3d>>& RigGriddedPart3d::meshLines() const
 {
@@ -625,7 +627,7 @@ const std::vector<std::vector<cvf::Vec3d>>& RigGriddedPart3d::meshLines() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the boundary elements.
 //--------------------------------------------------------------------------------------------------
 const std::map<RimFaultReactivation::Boundary, std::vector<unsigned int>>& RigGriddedPart3d::boundaryElements() const
 {
@@ -633,7 +635,7 @@ const std::map<RimFaultReactivation::Boundary, std::vector<unsigned int>>& RigGr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the boundary nodes.
 //--------------------------------------------------------------------------------------------------
 const std::map<RimFaultReactivation::Boundary, std::vector<unsigned int>>& RigGriddedPart3d::boundaryNodes() const
 {
@@ -641,7 +643,7 @@ const std::map<RimFaultReactivation::Boundary, std::vector<unsigned int>>& RigGr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the element sets.
 //--------------------------------------------------------------------------------------------------
 const std::map<RimFaultReactivation::ElementSets, std::vector<unsigned int>>& RigGriddedPart3d::elementSets() const
 {
@@ -649,7 +651,7 @@ const std::map<RimFaultReactivation::ElementSets, std::vector<unsigned int>>& Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates local nodes.
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::generateLocalNodes( const cvf::Mat4d transform )
 {
@@ -669,7 +671,7 @@ void RigGriddedPart3d::generateLocalNodes( const cvf::Mat4d transform )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the shift nodes.
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::shiftNodes( const cvf::Vec3d offset )
 {
@@ -689,7 +691,7 @@ void RigGriddedPart3d::shiftNodes( const cvf::Vec3d offset )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the post process element sets.
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::postProcessElementSets( const RigMainGrid* mainGrid, const RigActiveCellInfo* cellInfo )
 {
@@ -739,7 +741,7 @@ void RigGriddedPart3d::postProcessElementSets( const RigMainGrid* mainGrid, cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates element set.
 //--------------------------------------------------------------------------------------------------
 void RigGriddedPart3d::updateElementSet( ElementSets              elSet,
                                          std::set<unsigned int>&  usedElements,

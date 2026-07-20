@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of oil volume results.
 
 #include "RigOilVolumeResultCalculator.h"
 #include "RiaDefines.h"
@@ -26,7 +28,7 @@
 #include "RigMainGrid.h"
 
 //==================================================================================================
-///
+/// Creates a RigOilVolumeResultCalculator instance.
 //==================================================================================================
 RigOilVolumeResultCalculator::RigOilVolumeResultCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -34,14 +36,14 @@ RigOilVolumeResultCalculator::RigOilVolumeResultCalculator( RigCaseCellResultsDa
 }
 
 //==================================================================================================
-///
+/// Destroys the RigOilVolumeResultCalculator instance.
 //==================================================================================================
 RigOilVolumeResultCalculator::~RigOilVolumeResultCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigOilVolumeResultCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -50,7 +52,7 @@ bool RigOilVolumeResultCalculator::isMatching( const RigEclipseResultAddress& re
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigOilVolumeResultCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {

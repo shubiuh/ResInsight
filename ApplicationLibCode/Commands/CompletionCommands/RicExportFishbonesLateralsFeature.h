@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export fishbones laterals command support.
 
 #pragma once
 
@@ -29,14 +31,14 @@ class RimWellPath;
 class QTextStream;
 
 //==================================================================================================
-///
+/// @brief Positive-infinity sentinel used for unbounded numeric command settings.
 //==================================================================================================
 #ifndef DOUBLE_INF
 #define DOUBLE_INF std::numeric_limits<double>::infinity()
 #endif
 
 //==================================================================================================
-///
+/// @brief Command feature for export fishbones laterals.
 //==================================================================================================
 class RicExportFishbonesLateralsFeature : public caf::CmdFeature
 {
@@ -45,10 +47,14 @@ class RicExportFishbonesLateralsFeature : public caf::CmdFeature
     // static void exportFishboneLaterals(const RimWellPath* wellPath, QTextStream& stream, double mdStepSize);
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
 
 private:
+    /// @return The selected fishbones collection.
     static RimFishbonesCollection* selectedFishbonesCollection();
 };

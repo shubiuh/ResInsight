@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements completion data grid cell reservoir-data functionality.
 
 #include "RigCompletionDataGridCell.h"
 
 #include "RigMainGrid.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCompletionDataGridCell instance.
 //--------------------------------------------------------------------------------------------------
 RigCompletionDataGridCell::RigCompletionDataGridCell()
     : m_globalCellIndex( 0 )
@@ -34,7 +36,7 @@ RigCompletionDataGridCell::RigCompletionDataGridCell()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigCompletionDataGridCell instance.
 //--------------------------------------------------------------------------------------------------
 RigCompletionDataGridCell::RigCompletionDataGridCell( size_t globalCellIndex, const RigMainGrid* mainGrid )
     : m_globalCellIndex( globalCellIndex )
@@ -73,7 +75,7 @@ RigCompletionDataGridCell::RigCompletionDataGridCell( size_t globalCellIndex, co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator== operation.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionDataGridCell::operator==( const RigCompletionDataGridCell& other ) const
 {
@@ -81,7 +83,7 @@ bool RigCompletionDataGridCell::operator==( const RigCompletionDataGridCell& oth
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator< operation.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionDataGridCell::operator<( const RigCompletionDataGridCell& other ) const
 {
@@ -95,7 +97,7 @@ bool RigCompletionDataGridCell::operator<( const RigCompletionDataGridCell& othe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the global cell index.
 //--------------------------------------------------------------------------------------------------
 size_t RigCompletionDataGridCell::globalCellIndex() const
 {
@@ -103,7 +105,7 @@ size_t RigCompletionDataGridCell::globalCellIndex() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the local cell index i.
 //--------------------------------------------------------------------------------------------------
 size_t RigCompletionDataGridCell::localCellIndexI() const
 {
@@ -111,7 +113,7 @@ size_t RigCompletionDataGridCell::localCellIndexI() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the local cell index j.
 //--------------------------------------------------------------------------------------------------
 size_t RigCompletionDataGridCell::localCellIndexJ() const
 {
@@ -119,7 +121,7 @@ size_t RigCompletionDataGridCell::localCellIndexJ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the local cell index k.
 //--------------------------------------------------------------------------------------------------
 size_t RigCompletionDataGridCell::localCellIndexK() const
 {
@@ -127,7 +129,7 @@ size_t RigCompletionDataGridCell::localCellIndexK() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the one based local cell index string.
 //--------------------------------------------------------------------------------------------------
 QString RigCompletionDataGridCell::oneBasedLocalCellIndexString() const
 {
@@ -137,7 +139,7 @@ QString RigCompletionDataGridCell::oneBasedLocalCellIndexString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the lgr name.
 //--------------------------------------------------------------------------------------------------
 QString RigCompletionDataGridCell::lgrName() const
 {
@@ -145,7 +147,7 @@ QString RigCompletionDataGridCell::lgrName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether main grid cell.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionDataGridCell::isMainGridCell() const
 {

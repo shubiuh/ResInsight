@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares grid statistics command support.
 
 #pragma once
 
@@ -34,35 +36,49 @@ class RimGridView;
 class RigHistogramData;
 
 //==================================================================================================
-///
-///
+/// @brief Dialog for configuring grid statistics.
 //==================================================================================================
 class RicGridStatisticsDialog : public QDialog
 {
     Q_OBJECT
 
 public:
+    /// Constructs the command object.
     explicit RicGridStatisticsDialog( QWidget* parent );
+    /// Destroys the command object.
     ~RicGridStatisticsDialog() override;
 
+    /// Sets label.
     void   setLabel( const QString& labelText );
+    /// Updates from rim view.
     void   updateFromRimView( RimGridView* rimView );
+    /// @return The screen shot image.
     QImage screenShotImage();
 
 private:
+    /// Sets info text.
     void setInfoText( RimGridView* eclipseView );
+    /// Sets histogram data.
     void setHistogramData( RimGridView* eclipseView );
 
 private:
+    /// Creates and connect toolbar actions.
     void                  createAndConnectToolbarActions();
+    /// Removes or clears plot items.
     void                  deletePlotItems( QwtPlot* plot );
+    /// Sets markers.
     static void           setMarkers( const RigHistogramData& histData, QwtPlot* plot );
+    /// Creates vertical plot marker.
     static QwtPlotMarker* createVerticalPlotMarker( const QColor& color, double xValue );
+    /// Performs the adjust text edit height to content command operation.
     void                  adjustTextEditHeightToContent();
 
 private slots:
+    /// Performs the slot dialog finished command operation.
     void slotDialogFinished();
+    /// Performs the slot screen shot to clipboard command operation.
     void slotScreenShotToClipboard();
+    /// Performs the slot screen shot to file command operation.
     void slotScreenShotToFile();
 
 private:

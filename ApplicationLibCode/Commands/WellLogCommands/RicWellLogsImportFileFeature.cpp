@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well logs import file command support.
 
 #include "RicWellLogsImportFileFeature.h"
 

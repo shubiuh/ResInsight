@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements polyline target3d command support.
 
 #include "RicPolylineTarget3dEditor.h"
 

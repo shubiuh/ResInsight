@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements msw data formatter reservoir-data functionality.
 
 #include "RigMswDataFormatter.h"
 
@@ -301,7 +303,7 @@ void RigMswDataFormatter::formatWelsegsTable( RifTextDataTableFormatter& formatt
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds wsegaicd header.
 //--------------------------------------------------------------------------------------------------
 void RigMswDataFormatter::addWsegaicdHeader( RifTextDataTableFormatter& formatter )
 {
@@ -347,7 +349,7 @@ void RigMswDataFormatter::addWsegaicdHeader( RifTextDataTableFormatter& formatte
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds wsegsicd header.
 //--------------------------------------------------------------------------------------------------
 void RigMswDataFormatter::addWsegsicdHeader( RifTextDataTableFormatter& formatter )
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for eclipse result.
 
 #include "RigEclipseResultTools.h"
 
@@ -85,7 +87,7 @@ namespace
 } // namespace
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates result vector.
 //--------------------------------------------------------------------------------------------------
 void createResultVector( RimEclipseCase& eclipseCase, const QString& resultName, const std::vector<int>& intValues )
 {
@@ -168,7 +170,7 @@ std::vector<int> generateBorderResult( const RigGridExportAdapter& gridAdapter, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates oper num result.
 //--------------------------------------------------------------------------------------------------
 /// Generate OPERNUM result for grid (supports refinement)
 /// Returns a pair: first is a vector sized for the grid with OPERNUM values, second is the new opernumRegion value
@@ -297,7 +299,7 @@ std::pair<std::vector<int>, int> generateOperNumResult( RimEclipseCase*         
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds max oper num value.
 //--------------------------------------------------------------------------------------------------
 int findMaxOperNumValue( RimEclipseCase* eclipseCase )
 {
@@ -308,7 +310,7 @@ int findMaxOperNumValue( RimEclipseCase* eclipseCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds max bccon value.
 //--------------------------------------------------------------------------------------------------
 int findMaxBcconValue( RimEclipseCase* eclipseCase )
 {
@@ -317,7 +319,7 @@ int findMaxBcconValue( RimEclipseCase* eclipseCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates bccon result.
 //--------------------------------------------------------------------------------------------------
 std::vector<int>
     generateBcconResult( RimEclipseCase* eclipseCase, const std::vector<int>& borderResult, const caf::VecIjk0& min, const caf::VecIjk0& max )
@@ -387,7 +389,7 @@ std::vector<int>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates border cell faces.
 //--------------------------------------------------------------------------------------------------
 std::vector<BorderCellFace>
     generateBorderCellFaces( RimEclipseCase* eclipseCase, const std::vector<int>& borderResult, const std::vector<int>& bcconResult )

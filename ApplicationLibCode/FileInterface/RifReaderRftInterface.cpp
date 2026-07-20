@@ -1,4 +1,7 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements shared filtering and measured-depth reconstruction for RFT readers.
 //
 //  Copyright (C) 2019- Equinor ASA
 //
@@ -49,8 +52,11 @@ std::set<RifEclipseRftAddress> RifReaderRftInterface::eclipseRftAddresses( const
 }
 
 //--------------------------------------------------------------------------------------------------
-// Compute average measured depth for cell based on grid intersections for cells. If the well path geometry do not contain measured depth
-// for a grid cell, the measured depth is estimated based on existing geometry for the well path.
+/// Computes average measured depth for each RFT cell from well-path intersections.
+///
+/// Cells not intersected by the supplied well path use their center TVD to
+/// interpolate an MD. Estimated values are made monotonically increasing so the
+/// resulting curve remains usable as a well-log depth axis.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>
     RifReaderRftInterface::computeMeasuredDepth( const QString& wellName, const QDateTime& timeStep, RigEclipseWellLogExtractor* eclExtractor )

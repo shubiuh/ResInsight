@@ -15,13 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of msw unified data.
 
 #include "RigMswUnifiedData.h"
 
 #include <algorithm>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds well data.
 //--------------------------------------------------------------------------------------------------
 void RigMswUnifiedData::addWellData( RigMswTableData wellData )
 {
@@ -44,7 +46,7 @@ void RigMswUnifiedData::addWellData( RigMswTableData wellData )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears the stored data.
 //--------------------------------------------------------------------------------------------------
 void RigMswUnifiedData::clear()
 {
@@ -52,7 +54,7 @@ void RigMswUnifiedData::clear()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns all compsegs rows.
 //--------------------------------------------------------------------------------------------------
 std::vector<CompsegsRow> RigMswUnifiedData::getAllCompsegsRows( bool lgrOnly ) const
 {
@@ -78,7 +80,7 @@ std::vector<CompsegsRow> RigMswUnifiedData::getAllCompsegsRows( bool lgrOnly ) c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns all wsegvalv rows.
 //--------------------------------------------------------------------------------------------------
 std::vector<WsegvalvRow> RigMswUnifiedData::getAllWsegvalvRows() const
 {
@@ -94,7 +96,7 @@ std::vector<WsegvalvRow> RigMswUnifiedData::getAllWsegvalvRows() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns all wsegaicd rows.
 //--------------------------------------------------------------------------------------------------
 std::vector<WsegaicdRow> RigMswUnifiedData::getAllWsegaicdRows() const
 {
@@ -110,7 +112,7 @@ std::vector<WsegaicdRow> RigMswUnifiedData::getAllWsegaicdRows() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns all wsegsicd rows.
 //--------------------------------------------------------------------------------------------------
 std::vector<WsegsicdRow> RigMswUnifiedData::getAllWsegsicdRows() const
 {
@@ -126,7 +128,7 @@ std::vector<WsegsicdRow> RigMswUnifiedData::getAllWsegsicdRows() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether any lgr data is available.
 //--------------------------------------------------------------------------------------------------
 bool RigMswUnifiedData::hasAnyLgrData() const
 {
@@ -134,7 +136,7 @@ bool RigMswUnifiedData::hasAnyLgrData() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well names.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::string> RigMswUnifiedData::wellNames() const
 {
@@ -150,7 +152,7 @@ std::vector<std::string> RigMswUnifiedData::wellNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valid.
 //--------------------------------------------------------------------------------------------------
 bool RigMswUnifiedData::isValid() const
 {
@@ -158,7 +160,7 @@ bool RigMswUnifiedData::isValid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the validation errors.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigMswUnifiedData::validationErrors() const
 {

@@ -16,21 +16,28 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares Eclipse case new group exec command support.
 
 #pragma once
 
 #include "cafCmdExecuteCommand.h"
 
 //==================================================================================================
-///
+/// @brief Supports Eclipse case new group exec command workflows.
 //==================================================================================================
 class RicEclipseCaseNewGroupExec : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     RicEclipseCaseNewGroupExec();
+    /// Destroys the command object.
     ~RicEclipseCaseNewGroupExec() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of osdu well log data.
 
 #pragma once
 
@@ -32,6 +34,7 @@ class RimWellLogCurve;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Stores osdu well log data.
 class RigOsduWellLogData : public RigWellLogData
 {
 public:

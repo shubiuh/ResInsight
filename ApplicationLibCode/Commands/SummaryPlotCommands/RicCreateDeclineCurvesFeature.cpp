@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create decline curves command support.
 
 #include "RicCreateDeclineCurvesFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements geo mech property filter new in view command support.
 
 #include "RicGeoMechPropertyFilterNewInViewFeature.h"
 

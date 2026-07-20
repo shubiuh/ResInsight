@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new stim plan fracture template command support.
 
 #include "RicNewStimPlanFractureTemplateFeature.h"
 

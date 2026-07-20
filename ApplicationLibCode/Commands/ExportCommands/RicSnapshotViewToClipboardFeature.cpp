@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements snapshot view to clipboard command support.
 
 #include "RicSnapshotViewToClipboardFeature.h"
 #include "RicGridStatisticsDialog.h"

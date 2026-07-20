@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fishbones transmissibility calculation command support.
 
 #include "RicFishbonesTransmissibilityCalculationFeatureImp.h"
 

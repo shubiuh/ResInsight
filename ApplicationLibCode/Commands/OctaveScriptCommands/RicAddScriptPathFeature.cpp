@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add script path command support.
 
 #include "RicAddScriptPathFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well target3d command support.
 
 #include "RicWellTarget3dEditor.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares seismic section command support.
 
 #pragma once
 
@@ -22,8 +24,10 @@
 
 class QString;
 
+/// @brief Shared implementation helpers for seismic section commands.
 class RicSeismicSectionFeatureImpl
 {
 public:
+    /// Creates seismic section.
     static void createSeismicSection( RiaDefines::SeismicSectionType sectionType );
 };

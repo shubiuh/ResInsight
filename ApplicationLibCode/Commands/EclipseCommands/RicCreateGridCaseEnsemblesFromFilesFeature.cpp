@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create grid case ensembles from files command support.
 
 #include "RicCreateGridCaseEnsemblesFromFilesFeature.h"
 

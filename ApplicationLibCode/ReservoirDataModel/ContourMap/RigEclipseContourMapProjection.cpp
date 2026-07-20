@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements eclipse contour map projection reservoir-data functionality.
 
 #include "RigEclipseContourMapProjection.h"
 
@@ -36,7 +38,7 @@
 #include <array>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseContourMapProjection instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseContourMapProjection::RigEclipseContourMapProjection( const RigContourMapGrid* contourMapGrid,
                                                                 RigEclipseCaseData*      eclipseCaseData,
@@ -53,14 +55,14 @@ RigEclipseContourMapProjection::RigEclipseContourMapProjection( const RigContour
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigEclipseContourMapProjection instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseContourMapProjection::~RigEclipseContourMapProjection()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Updates realization data.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseContourMapProjection::updateRealizationData( RigActiveCellInfo* activeCellInfo, RigCaseCellResultsData* resultData )
 {
@@ -69,7 +71,7 @@ void RigEclipseContourMapProjection::updateRealizationData( RigActiveCellInfo* a
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the eclipse case data.
 //--------------------------------------------------------------------------------------------------
 const RigEclipseCaseData* RigEclipseContourMapProjection::eclipseCaseData() const
 {
@@ -77,7 +79,7 @@ const RigEclipseCaseData* RigEclipseContourMapProjection::eclipseCaseData() cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates and save results.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseContourMapProjection::generateAndSaveResults( const RigEclipseResultAddress&                 resultAddress,
                                                              RigContourMapCalculator::ResultAggregationType resultAggregation,
@@ -89,7 +91,7 @@ void RigEclipseContourMapProjection::generateAndSaveResults( const RigEclipseRes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates results.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigEclipseContourMapProjection::generateResults( const RigEclipseResultAddress&                 resultAddress,
                                                                      RigContourMapCalculator::ResultAggregationType resultAggregation,
@@ -102,7 +104,7 @@ std::vector<double> RigEclipseContourMapProjection::generateResults( const RigEc
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates results.
 //--------------------------------------------------------------------------------------------------
 std::pair<bool, std::vector<double>>
     RigEclipseContourMapProjection::generateResults( const RigEclipseContourMapProjection&          contourMapProjection,
@@ -175,7 +177,7 @@ std::pair<bool, std::vector<double>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates column result.
 //--------------------------------------------------------------------------------------------------
 std::expected<std::vector<double>, std::string>
     RigEclipseContourMapProjection::calculateColumnResult( RigCaseCellResultsData&                        resultData,
@@ -252,7 +254,7 @@ std::expected<std::vector<double>, std::string>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds intersecting cells.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigEclipseContourMapProjection::findIntersectingCells( const cvf::BoundingBox& bbox ) const
 {
@@ -260,7 +262,7 @@ std::vector<size_t> RigEclipseContourMapProjection::findIntersectingCells( const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k layer.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseContourMapProjection::kLayer( size_t globalCellIdx ) const
 {
@@ -272,7 +274,7 @@ size_t RigEclipseContourMapProjection::kLayer( size_t globalCellIdx ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k layers.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseContourMapProjection::kLayers() const
 {
@@ -280,7 +282,7 @@ size_t RigEclipseContourMapProjection::kLayers() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates overlap volume.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseContourMapProjection::calculateOverlapVolume( size_t globalCellIdx, const cvf::BoundingBox& bbox ) const
 {
@@ -302,7 +304,7 @@ double RigEclipseContourMapProjection::calculateOverlapVolume( size_t globalCell
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates ray length in cell.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseContourMapProjection::calculateRayLengthInCell( size_t            globalCellIdx,
                                                                  const cvf::Vec3d& highestPoint,
@@ -325,7 +327,7 @@ double RigEclipseContourMapProjection::calculateRayLengthInCell( size_t         
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns parameter weight for cell.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseContourMapProjection::getParameterWeightForCell( size_t cellResultIdx, const std::vector<double>& cellWeights ) const
 {
@@ -340,7 +342,7 @@ double RigEclipseContourMapProjection::getParameterWeightForCell( size_t cellRes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid result index.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclipseContourMapProjection::gridResultIndex( size_t globalCellIdx ) const
 {
@@ -350,7 +352,7 @@ size_t RigEclipseContourMapProjection::gridResultIndex( size_t globalCellIdx ) c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether cell active.
 //--------------------------------------------------------------------------------------------------
 bool RigEclipseContourMapProjection::isCellActive( size_t globalCellIdx ) const
 {
@@ -363,7 +365,7 @@ bool RigEclipseContourMapProjection::isCellActive( size_t globalCellIdx ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns map cell visibility.
 //--------------------------------------------------------------------------------------------------
 std::vector<bool> RigEclipseContourMapProjection::getMapCellVisibility( int                                            viewStepIndex,
                                                                         RigContourMapCalculator::ResultAggregationType resultAggregation )
@@ -373,7 +375,7 @@ std::vector<bool> RigEclipseContourMapProjection::getMapCellVisibility( int     
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the needed results.
 //--------------------------------------------------------------------------------------------------
 std::set<RigEclipseResultAddress> RigEclipseContourMapProjection::neededResults( RigContourMapCalculator::ResultAggregationType resultAggregation,
                                                                                  RigFloodingSettings& floodingSettings )

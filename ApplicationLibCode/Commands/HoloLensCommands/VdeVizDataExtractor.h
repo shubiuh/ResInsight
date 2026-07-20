@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares vde viz data extractor command support.
 
 #pragma once
 
@@ -40,6 +42,7 @@ class RimGridView;
 //
 //
 //==================================================================================================
+/// @brief Data used to configure or execute vde mesh command workflows.
 struct VdeMesh
 {
     QString meshSourceObjTypeStr;
@@ -47,6 +50,7 @@ struct VdeMesh
 
     cvf::Color3f color;
     float        opacity;
+    /// @return The none.
     QString      cullFaceModeStr; // front, back or none (or empty)
 
     int                          verticesPerPrimitive;
@@ -68,6 +72,7 @@ struct VdeMesh
 // The set of array IDs that are needed for a mesh
 //
 //==================================================================================================
+/// @brief Data used to configure or execute vde mesh array ids command workflows.
 struct VdeMeshArrayIds
 {
     int vertexArrId;
@@ -89,19 +94,26 @@ struct VdeMeshArrayIds
 //
 //
 //==================================================================================================
+/// @brief Supports vde viz data extractor command workflows.
 class VdeVizDataExtractor
 {
 public:
+    /// Constructs the command object.
     VdeVizDataExtractor( const RimGridView& view, VdeCachingHashedIdFactory* cachingIdFactory );
 
+    /// Performs the extract view contents command operation.
     void extractViewContents( QString* modelMetaJsonStr, std::vector<int>* allReferencedArrayIds, VdePacketDirectory* packetDirectory );
 
 private:
+    /// Builds mesh array.
     static std::vector<std::unique_ptr<VdeMesh>> buildMeshArray( const std::vector<VdeExportPart>& exportPartsArr );
+    /// Creates mesh from export part.
     static std::unique_ptr<VdeMesh>              createMeshFromExportPart( const VdeExportPart& exportPart );
+    /// Creates model meta JSON string.
     static QString                               createModelMetaJsonString( const std::vector<std::unique_ptr<VdeMesh>>&           meshArr,
                                                                             const std::vector<VdeMeshArrayIds>&                    meshContentIdsArr,
                                                                             const std::vector<std::pair<cvf::Vec3f, cvf::String>>& labelAndPositionsArr );
+    /// Performs the debug compare packets command operation.
     static void debugComparePackets( const VdeArrayDataPacket& packetA, const VdeArrayDataPacket& packetB );
 
 private:

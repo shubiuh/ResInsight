@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path fracture report item command support.
 
 #pragma once
 
@@ -24,18 +26,25 @@
 #include <QString>
 
 //==================================================================================================
-///
+/// @brief Supports well path fracture report item command workflows.
 //==================================================================================================
 class RicWellPathFractureReportItem
 {
 public:
+    /// Constructs the command object.
     RicWellPathFractureReportItem( const QString& wellPathNameForExport, const QString& fractureName, const QString& fractureTemplateName );
 
+    /// Sets data.
     void setData( double trans, size_t connCount, double area );
+    /// Sets width and conductivity.
     void setWidthAndConductivity( double width, double conductivity );
+    /// Sets height and half length.
     void setHeightAndHalfLength( double height, double halfLength );
+    /// Sets area weighted permeability.
     void setAreaWeightedPermeability( double permeability );
+    /// Sets unit system.
     void setUnitSystem( RiaDefines::EclipseUnitSystem unitSystem );
+    /// Sets pressure depletion parameters.
     void setPressureDepletionParameters( bool           performPressureDepletionScaling,
                                          const QString& timeStepString,
                                          const QString& wbhpString,
@@ -44,34 +53,57 @@ public:
                                          double         minPressureDrop,
                                          double         maxPressureDrop );
 
+    /// @return The well path name for export.
     QString wellPathNameForExport() const;
+    /// @return The fracture name.
     QString fractureName() const;
+    /// @return The fracture template name.
     QString fractureTemplateName() const;
 
+    /// @return The unit system.
     RiaDefines::EclipseUnitSystem unitSystem() const;
 
+    /// @return The transmissibility.
     double transmissibility() const;
+    /// @return The connection count.
     size_t connectionCount() const;
+    /// @return The fcd.
     double fcd() const;
+    /// @return The area.
     double area() const;
 
+    /// @return The kfwf.
     double kfwf() const;
+    /// @return The kf.
     double kf() const;
+    /// @return The wf.
     double wf() const;
 
+    /// @return The xf.
     double xf() const;
+    /// @return The h.
     double h() const;
+    /// @return The km.
     double km() const;
+    /// @return The kmxf.
     double kmxf() const;
 
+    /// @return The perform pressure depletion scaling.
     bool    performPressureDepletionScaling() const;
+    /// @return The pressure depletion time step string.
     QString pressureDepletionTimeStepString() const;
+    /// @return The pressure depletion WBHP string.
     QString pressureDepletionWBHPString() const;
+    /// @return The pressure depletion user WBHP.
     double  pressureDepletionUserWBHP() const;
+    /// @return The pressure depletion actual WBHP.
     double  pressureDepletionActualWBHP() const;
+    /// @return The pressure depletion min pressure drop.
     double  pressureDepletionMinPressureDrop() const;
+    /// @return The pressure depletion max pressure drop.
     double  pressureDepletionMaxPressureDrop() const;
 
+    /// Provides the corresponding operator for command data.
     auto operator<=>( const RicWellPathFractureReportItem& rhs ) const = default;
 
 private:

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares toggle items command support.
 
 #pragma once
 
@@ -23,6 +25,7 @@
 
 #include <vector>
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmUiItem;
@@ -32,7 +35,7 @@ class PdmChildArrayFieldHandle;
 }; // namespace caf
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for toggle items commands.
 //==================================================================================================
 class RicToggleItemsFeatureImpl
 {
@@ -46,16 +49,24 @@ public:
         TOGGLE_UNDEFINED
     };
 
+    /// @return Whether toggle commands available.
     static bool isToggleCommandsAvailable();
+    /// @return Whether toggle commands for sub items.
     static bool isToggleCommandsForSubItems();
+    /// Sets object toggle state for selection.
     static void setObjectToggleStateForSelection( SelectionToggleType state );
 
+    /// @return The matching collection name.
     static QString findCollectionName( SelectionToggleType state );
 
+    /// @return The matching owner and child array field.
     static std::pair<caf::PdmObjectHandle*, caf::PdmChildArrayFieldHandle*> findOwnerAndChildArrayField( caf::PdmFieldHandle* fieldHandle );
 
 private:
+    /// @return The matching tree view.
     static caf::PdmUiTreeView*               findTreeView( const caf::PdmUiItem* uiItem );
+    /// @return The matching tree item from selected UI item.
     static caf::PdmUiTreeOrdering*           findTreeItemFromSelectedUiItem( const caf::PdmUiItem* uiItem );
+    /// @return The matching toggle fields from selection.
     static std::vector<caf::PdmField<bool>*> findToggleFieldsFromSelection( SelectionToggleType state );
 };

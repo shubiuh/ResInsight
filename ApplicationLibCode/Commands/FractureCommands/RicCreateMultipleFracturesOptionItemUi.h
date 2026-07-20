@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create multiple fractures option item command support.
 
 #pragma once
 
@@ -25,27 +27,36 @@
 class RimFractureTemplate;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring create multiple fractures option item.
 //==================================================================================================
 class RicCreateMultipleFracturesOptionItemUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicCreateMultipleFracturesOptionItemUi();
 
+    /// Sets values.
     void setValues( int topKOneBased, int baseKOneBased, RimFractureTemplate* fractureTemplate, double minimumSpacing );
 
+    /// @return The top K layer.
     int                  topKLayer() const;
+    /// @return The base K layer.
     int                  baseKLayer() const;
+    /// @return The fracture template.
     RimFractureTemplate* fractureTemplate() const;
+    /// @return The minimum spacing.
     double               minimumSpacing() const;
 
+    /// @return Whether K layer contained.
     bool isKLayerContained( int oneBasedK ) const;
 
 private:
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
 
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 private:

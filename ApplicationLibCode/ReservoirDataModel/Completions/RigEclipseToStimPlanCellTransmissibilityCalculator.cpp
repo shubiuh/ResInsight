@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of eclipse to stim plan cell transmissibility.
 
 #include "RigEclipseToStimPlanCellTransmissibilityCalculator.h"
 
@@ -39,7 +41,7 @@
 #include <array>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigEclipseToStimPlanCellTransmissibilityCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigEclipseToStimPlanCellTransmissibilityCalculator::RigEclipseToStimPlanCellTransmissibilityCalculator( const RimEclipseCase* caseToApply,
                                                                                                         cvf::Mat4d fractureTransform,
@@ -62,7 +64,7 @@ void RigEclipseToStimPlanCellTransmissibilityCalculator::computeValues( const st
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the global indicies to contributing eclipse cells.
 //--------------------------------------------------------------------------------------------------
 const std::vector<size_t>& RigEclipseToStimPlanCellTransmissibilityCalculator::globalIndiciesToContributingEclipseCells() const
 {
@@ -70,7 +72,7 @@ const std::vector<size_t>& RigEclipseToStimPlanCellTransmissibilityCalculator::g
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the contributing eclipse cell transmissibilities.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigEclipseToStimPlanCellTransmissibilityCalculator::contributingEclipseCellTransmissibilities() const
 {
@@ -78,7 +80,7 @@ const std::vector<double>& RigEclipseToStimPlanCellTransmissibilityCalculator::c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the contributing eclipse cell intersection areas.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigEclipseToStimPlanCellTransmissibilityCalculator::contributingEclipseCellIntersectionAreas() const
 {
@@ -86,7 +88,7 @@ const std::vector<double>& RigEclipseToStimPlanCellTransmissibilityCalculator::c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the contributing eclipse cell permeabilities.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigEclipseToStimPlanCellTransmissibilityCalculator::contributingEclipseCellPermeabilities() const
 {
@@ -94,7 +96,7 @@ const std::vector<double>& RigEclipseToStimPlanCellTransmissibilityCalculator::c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the area open for flow.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseToStimPlanCellTransmissibilityCalculator::areaOpenForFlow() const
 {
@@ -109,7 +111,7 @@ double RigEclipseToStimPlanCellTransmissibilityCalculator::areaOpenForFlow() con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fracture cell.
 //--------------------------------------------------------------------------------------------------
 const RigFractureCell& RigEclipseToStimPlanCellTransmissibilityCalculator::fractureCell() const
 {
@@ -117,7 +119,7 @@ const RigFractureCell& RigEclipseToStimPlanCellTransmissibilityCalculator::fract
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the required result names.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigEclipseToStimPlanCellTransmissibilityCalculator::requiredResultNames()
 {
@@ -134,7 +136,7 @@ std::vector<QString> RigEclipseToStimPlanCellTransmissibilityCalculator::require
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the optional result names.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigEclipseToStimPlanCellTransmissibilityCalculator::optionalResultNames()
 {
@@ -145,7 +147,7 @@ std::vector<QString> RigEclipseToStimPlanCellTransmissibilityCalculator::optiona
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates stim plan cells matrix transmissibility.
 //--------------------------------------------------------------------------------------------------
 void RigEclipseToStimPlanCellTransmissibilityCalculator::calculateStimPlanCellsMatrixTransmissibility(
     const std::set<size_t>& reservoirCellIndicesOpenForFlow )
@@ -340,7 +342,7 @@ void RigEclipseToStimPlanCellTransmissibilityCalculator::calculateStimPlanCellsM
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns potentially fractured cells for polygon.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t>
     RigEclipseToStimPlanCellTransmissibilityCalculator::getPotentiallyFracturedCellsForPolygon( const std::vector<cvf::Vec3d>& polygon ) const
@@ -371,7 +373,7 @@ std::vector<size_t>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates result accessor.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<RigResultAccessor> RigEclipseToStimPlanCellTransmissibilityCalculator::createResultAccessor( const RimEclipseCase* eclipseCase,
                                                                                                       const QString&        uiResultName )
@@ -384,7 +386,7 @@ cvf::ref<RigResultAccessor> RigEclipseToStimPlanCellTransmissibilityCalculator::
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates transmissibility.
 //--------------------------------------------------------------------------------------------------
 double RigEclipseToStimPlanCellTransmissibilityCalculator::calculateTransmissibility( const cvf::Vec3d& transmissibilityVector,
                                                                                       double            fractureArea )

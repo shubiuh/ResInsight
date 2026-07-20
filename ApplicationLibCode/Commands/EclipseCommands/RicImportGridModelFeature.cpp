@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import grid model command support.
 
 #include "RicImportGridModelFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import general data command support.
 #include "RicImportGeneralDataFeature.h"
 
 #include "RiaApplication.h"

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares close summary case command support.
 
 #pragma once
 
@@ -26,17 +28,21 @@ class RimSummaryCase;
 class RimSummaryPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for close summary case.
 //==================================================================================================
 class RicCloseSummaryCaseFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Removes or clears summary cases.
     static void deleteSummaryCases( std::vector<RimSummaryCase*> cases );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

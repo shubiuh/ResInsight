@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements grid scalar data access reservoir-data functionality.
 
 #include "RigResultAccessObjectFactory.h"
 
@@ -31,7 +33,7 @@
 #include <math.h>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Provides scalar access using indices for all cells in a grid.
 //--------------------------------------------------------------------------------------------------
 class RigGridAllCellsScalarDataAccess : public cvf::StructGridScalarDataAccess
 {
@@ -47,7 +49,7 @@ private:
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigGridAllCellsScalarDataAccess instance.
 //--------------------------------------------------------------------------------------------------
 RigGridAllCellsScalarDataAccess::RigGridAllCellsScalarDataAccess( const RigGridBase* grid, std::vector<double>* reservoirResultValues )
     : m_grid( grid )
@@ -58,7 +60,7 @@ RigGridAllCellsScalarDataAccess::RigGridAllCellsScalarDataAccess( const RigGridB
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar.
 //--------------------------------------------------------------------------------------------------
 double RigGridAllCellsScalarDataAccess::cellScalar( size_t gridLocalCellIndex ) const
 {
@@ -71,7 +73,7 @@ double RigGridAllCellsScalarDataAccess::cellScalar( size_t gridLocalCellIndex ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets cell scalar.
 //--------------------------------------------------------------------------------------------------
 void RigGridAllCellsScalarDataAccess::setCellScalar( size_t gridLocalCellIndex, double scalarValue )
 {
@@ -82,11 +84,12 @@ void RigGridAllCellsScalarDataAccess::setCellScalar( size_t gridLocalCellIndex, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Provides scalar access using the active-cell result mapping.
 //--------------------------------------------------------------------------------------------------
 class RigGridActiveCellsScalarDataAccess : public cvf::StructGridScalarDataAccess
 {
 public:
+    /// Returns or processes grid active cells scalar data access.
     RigGridActiveCellsScalarDataAccess( const RigGridBase* grid, std::vector<double>* reservoirResultValues, const RigActiveCellInfo* activeCellInfo )
         : m_grid( grid )
         , m_reservoirResultValues( reservoirResultValues )
@@ -95,6 +98,7 @@ public:
         CVF_ASSERT( grid != NULL );
     }
 
+    /// Returns or processes cell scalar.
     virtual double cellScalar( size_t gridLocalCellIndex ) const
     {
         if ( m_reservoirResultValues == NULL || m_reservoirResultValues->size() == 0 ) return HUGE_VAL;
@@ -109,7 +113,7 @@ public:
     }
 
     //--------------------------------------------------------------------------------------------------
-    ///
+    /// Sets cell scalar.
     //--------------------------------------------------------------------------------------------------
     virtual void setCellScalar( size_t gridLocalCellIndex, double scalarValue )
     {
@@ -127,15 +131,18 @@ private:
     std::vector<double>*     m_reservoirResultValues;
 };
 
+/// Supports struct grid scalar data access huge val reservoir-data processing.
 class StructGridScalarDataAccessHugeVal : public cvf::StructGridScalarDataAccess
 {
 public:
+    /// Returns or processes cell scalar.
     virtual double cellScalar( size_t cellIndex ) const { return HUGE_VAL; }
+    /// Sets cell scalar.
     virtual void   setCellScalar( size_t cellIndex, double value ) {}
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates native data access object.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<cvf::StructGridScalarDataAccess>
     RigResultAccessObjectFactory::createNativeDataAccessObject( RigCaseData*                                eclipseCase,

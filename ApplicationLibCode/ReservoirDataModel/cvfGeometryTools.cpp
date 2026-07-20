@@ -16,13 +16,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for cvf geometry.
 
 #include "cvfGeometryTools.h"
 
 namespace cvf
 {
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes face center.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d GeometryTools::computeFaceCenter( const cvf::Vec3d& v0, const cvf::Vec3d& v1, const cvf::Vec3d& v2, const cvf::Vec3d& v3 )
 {
@@ -36,7 +38,7 @@ cvf::Vec3d GeometryTools::computeFaceCenter( const cvf::Vec3d& v0, const cvf::Ve
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes triangle center.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d GeometryTools::computeTriangleCenter( const cvf::Vec3d& v0, const cvf::Vec3d& v1, const cvf::Vec3d& v2 )
 {
@@ -74,7 +76,7 @@ cvf::Mat3f GeometryTools::computePlaneHorizontalRotationMx( const cvf::Vec3f& in
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds closest axis.
 //--------------------------------------------------------------------------------------------------
 
 int GeometryTools::findClosestAxis( const cvf::Vec3d& vec )
@@ -165,7 +167,7 @@ double GeometryTools::getAngle( const cvf::Vec3d& v1, const cvf::Vec3d& v2 )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the rotation matrix between vectors.
 //--------------------------------------------------------------------------------------------------
 cvf::Mat4d GeometryTools::rotationMatrixBetweenVectors( const cvf::Vec3d& v1, const cvf::Vec3d& v2 )
 {
@@ -180,7 +182,7 @@ cvf::Mat4d GeometryTools::rotationMatrixBetweenVectors( const cvf::Vec3d& v1, co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the signed area planar polygon.
 //--------------------------------------------------------------------------------------------------
 double GeometryTools::signedAreaPlanarPolygon( const cvf::Vec3d& planeNormal, const std::vector<cvf::Vec3d>& polygon )
 {
@@ -495,6 +497,7 @@ double GeometryTools::linePointSquareDist( const cvf::Vec3d& p1, const cvf::Vec3
 
 #define SMALL_NUM 0.00000001 // anything that avoids division overflow
 // dot product (3D) which allows vector operations in arguments
+/// Defines dot(u, v).
 #define dot( u, v ) ( ( u ).x() * ( v ).x() + ( u ).y() * ( v ).y() + ( u ).z() * ( v ).z() )
 
 int GeometryTools::intersectLineSegmentTriangle( const cvf::Vec3d& p0,
@@ -586,6 +589,7 @@ cvf::Vec3d& p)
 
 */
 
+/// Returns or processes tri area2 d.
 inline double TriArea2D( double x1, double y1, double x2, double y2, double x3, double y3 )
 {
     return ( x1 - x2 ) * ( y2 - y3 ) - ( x2 - x3 ) * ( y1 - y2 );
@@ -639,6 +643,7 @@ cvf::Vec3d GeometryTools::barycentricCoords( const cvf::Vec3d& t0, const cvf::Ve
     return m;
 }
 
+/// Returns or processes tri area3 d.
 inline double triArea3D( const cvf::Vec3d& v0, const cvf::Vec3d& v1, const cvf::Vec3d& v2 )
 {
     return 0.5 * ( ( v1 - v0 ) ^ ( v2 - v0 ) ).length();
@@ -673,7 +678,7 @@ cvf::Vec4d
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds mid edge nodes.
 //--------------------------------------------------------------------------------------------------
 void GeometryTools::addMidEdgeNodes( std::list<std::pair<cvf::uint, bool>>* polygon,
                                      const cvf::Vec3dArray&                 nodes,
@@ -776,7 +781,7 @@ cvf::Vec3d GeometryTools::polygonAreaNormal3D( const std::vector<cvf::Vec3d>& po
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the polygon area normal3 d.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3f GeometryTools::polygonAreaNormal3D( const std::vector<cvf::Vec3f>& polygon )
 {
@@ -829,7 +834,7 @@ cvf::Vec3f GeometryTools::polygonAreaNormal3D( const std::vector<cvf::Vec3f>& po
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the polygon area.
 //--------------------------------------------------------------------------------------------------
 float GeometryTools::polygonArea( const std::vector<cvf::Vec3f>& polygon )
 {
@@ -839,7 +844,7 @@ float GeometryTools::polygonArea( const std::vector<cvf::Vec3f>& polygon )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the polygon area.
 //--------------------------------------------------------------------------------------------------
 double GeometryTools::polygonArea( const std::vector<cvf::Vec3d>& polygon )
 {
@@ -849,7 +854,7 @@ double GeometryTools::polygonArea( const std::vector<cvf::Vec3d>& polygon )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets vertex count.
 //--------------------------------------------------------------------------------------------------
 void EdgeSplitStorage::setVertexCount( size_t size )
 {
@@ -857,7 +862,7 @@ void EdgeSplitStorage::setVertexCount( size_t size )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds split point.
 //--------------------------------------------------------------------------------------------------
 bool EdgeSplitStorage::findSplitPoint( size_t edgeP1Index, size_t edgeP2Index, size_t* splitPointIndex )
 {
@@ -874,7 +879,7 @@ bool EdgeSplitStorage::findSplitPoint( size_t edgeP1Index, size_t edgeP2Index, s
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds split point.
 //--------------------------------------------------------------------------------------------------
 void EdgeSplitStorage::addSplitPoint( size_t edgeP1Index, size_t edgeP2Index, size_t splitPointIndex )
 {
@@ -884,7 +889,7 @@ void EdgeSplitStorage::addSplitPoint( size_t edgeP1Index, size_t edgeP2Index, si
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether the object can canonize address.
 //--------------------------------------------------------------------------------------------------
 void EdgeSplitStorage::canonizeAddress( size_t& edgeP1Index, size_t& edgeP2Index )
 {
@@ -898,7 +903,7 @@ void EdgeSplitStorage::canonizeAddress( size_t& edgeP1Index, size_t& edgeP2Index
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a EarClipTesselator instance.
 //--------------------------------------------------------------------------------------------------
 EarClipTesselator::EarClipTesselator()
     : m_X( -1 )
@@ -1107,7 +1112,7 @@ double EarClipTesselator::calculateProjectedPolygonArea() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets normal.
 //--------------------------------------------------------------------------------------------------
 void EarClipTesselator::setNormal( const cvf::Vec3d& polygonNormal )
 {
@@ -1118,7 +1123,7 @@ void EarClipTesselator::setNormal( const cvf::Vec3d& polygonNormal )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets polygon indices.
 //--------------------------------------------------------------------------------------------------
 void EarClipTesselator::setPolygonIndices( const std::list<size_t>& polygon )
 {
@@ -1126,7 +1131,7 @@ void EarClipTesselator::setPolygonIndices( const std::list<size_t>& polygon )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets polygon indices.
 //--------------------------------------------------------------------------------------------------
 void EarClipTesselator::setPolygonIndices( const std::vector<size_t>& polygon )
 {
@@ -1138,7 +1143,7 @@ void EarClipTesselator::setPolygonIndices( const std::vector<size_t>& polygon )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets min triangle area.
 //--------------------------------------------------------------------------------------------------
 void EarClipTesselator::setMinTriangleArea( double areaTolerance )
 {
@@ -1146,7 +1151,7 @@ void EarClipTesselator::setMinTriangleArea( double areaTolerance )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets global node array.
 //--------------------------------------------------------------------------------------------------
 void EarClipTesselator::setGlobalNodeArray( const cvf::Vec3dArray& nodeCoords )
 {
@@ -1154,7 +1159,7 @@ void EarClipTesselator::setGlobalNodeArray( const cvf::Vec3dArray& nodeCoords )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a FanEarClipTesselator instance.
 //--------------------------------------------------------------------------------------------------
 FanEarClipTesselator::FanEarClipTesselator()
     : m_centerNodeIndex( std::numeric_limits<size_t>::max() )
@@ -1162,7 +1167,7 @@ FanEarClipTesselator::FanEarClipTesselator()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates triangles.
 //--------------------------------------------------------------------------------------------------
 bool FanEarClipTesselator::calculateTriangles( std::vector<size_t>* triangles )
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import summary group command support.
 
 #include "RicImportSummaryGroupFeature.h"
 

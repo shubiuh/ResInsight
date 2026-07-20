@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for well path intersection.
 
 #pragma once
 
@@ -39,6 +41,7 @@ class StructGridInterface;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Provides utilities for well path intersection.
 class RigWellPathIntersectionTools
 {
 public:

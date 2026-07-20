@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements execute script command support.
 
 #include "RicExecuteScriptFeature.h"
 

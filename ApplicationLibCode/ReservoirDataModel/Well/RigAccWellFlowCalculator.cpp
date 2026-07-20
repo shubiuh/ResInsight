@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of acc well flow.
 
 #include "RigAccWellFlowCalculator.h"
 
@@ -30,12 +32,12 @@
 #include <cmath>
 
 //==================================================================================================
-///
-///
+/// Returns the result cell index.
+/// Returns the result cell index.
 //==================================================================================================
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result cell index.
 //--------------------------------------------------------------------------------------------------
 size_t RigEclCellIndexCalculator::resultCellIndex( size_t gridIndex, size_t gridCellIndex ) const
 {
@@ -45,7 +47,7 @@ size_t RigEclCellIndexCalculator::resultCellIndex( size_t gridIndex, size_t grid
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether cell visible.
 //--------------------------------------------------------------------------------------------------
 bool RigEclCellIndexCalculator::isCellVisible( size_t gridIndex, size_t gridCellIndex ) const
 {
@@ -57,12 +59,12 @@ bool RigEclCellIndexCalculator::isCellVisible( size_t gridIndex, size_t gridCell
 }
 
 //==================================================================================================
-///
-///
+/// Creates a RigAccWellFlowCalculator instance.
+/// Creates a RigAccWellFlowCalculator instance.
 //==================================================================================================
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigAccWellFlowCalculator instance.
 /// The pipeBranchesWellResultPoints are describing the lines between the points, starting with the first line
 //  and is thus expected to be one less than the number of centerline points
 //--------------------------------------------------------------------------------------------------
@@ -97,7 +99,7 @@ RigAccWellFlowCalculator::RigAccWellFlowCalculator( const std::vector<std::vecto
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigAccWellFlowCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigAccWellFlowCalculator::RigAccWellFlowCalculator( const std::vector<std::vector<cvf::Vec3d>>&         pipeBranchesCLCoords,
                                                     const std::vector<std::vector<RigWellResultPoint>>& pipeBranchesWellResultPoints,
@@ -133,7 +135,7 @@ RigAccWellFlowCalculator::RigAccWellFlowCalculator( const std::vector<std::vecto
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigAccWellFlowCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigAccWellFlowCalculator::RigAccWellFlowCalculator( const std::vector<cvf::Vec3d>&         pipeBranchCLCoords,
                                                     const std::vector<RigWellResultPoint>& pipeBranchesWellResultPoints,
@@ -172,7 +174,7 @@ RigAccWellFlowCalculator::RigAccWellFlowCalculator( const std::vector<cvf::Vec3d
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the initialize pipe branches measured depths.
 //--------------------------------------------------------------------------------------------------
 void RigAccWellFlowCalculator::initializePipeBranchesMeasuredDepths()
 {
@@ -184,7 +186,7 @@ void RigAccWellFlowCalculator::initializePipeBranchesMeasuredDepths()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the connection numbers from top.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigAccWellFlowCalculator::connectionNumbersFromTop( size_t branchIdx ) const
 {
@@ -195,7 +197,7 @@ std::vector<double> RigAccWellFlowCalculator::connectionNumbersFromTop( size_t b
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the accumulated tracer flow pr connection.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigAccWellFlowCalculator::accumulatedTracerFlowPrConnection( const QString& tracerName, size_t branchIdx ) const
 {
@@ -213,7 +215,7 @@ const std::vector<double>& RigAccWellFlowCalculator::accumulatedTracerFlowPrConn
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tracer flow pr connection.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigAccWellFlowCalculator::tracerFlowPrConnection( const QString& tracerName, size_t branchIdx ) const
 {
@@ -231,7 +233,7 @@ const std::vector<double>& RigAccWellFlowCalculator::tracerFlowPrConnection( con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pseudo length from top.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigAccWellFlowCalculator::pseudoLengthFromTop( size_t branchIdx ) const
 {
@@ -239,7 +241,7 @@ const std::vector<double>& RigAccWellFlowCalculator::pseudoLengthFromTop( size_t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the true vertical depth.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigAccWellFlowCalculator::trueVerticalDepth( size_t branchIdx ) const
 {
@@ -247,7 +249,7 @@ const std::vector<double>& RigAccWellFlowCalculator::trueVerticalDepth( size_t b
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the accumulated tracer flow pr pseudo length.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigAccWellFlowCalculator::accumulatedTracerFlowPrPseudoLength( const QString& tracerName, size_t branchIdx ) const
 {
@@ -265,7 +267,7 @@ const std::vector<double>& RigAccWellFlowCalculator::accumulatedTracerFlowPrPseu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tracer flow pr pseudo length.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigAccWellFlowCalculator::tracerFlowPrPseudoLength( const QString& tracerName, size_t branchIdx ) const
 {
@@ -283,7 +285,7 @@ const std::vector<double>& RigAccWellFlowCalculator::tracerFlowPrPseudoLength( c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total well flow pr tracer.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<QString, double>> RigAccWellFlowCalculator::totalWellFlowPrTracer() const
 {
@@ -300,7 +302,7 @@ std::vector<std::pair<QString, double>> RigAccWellFlowCalculator::totalWellFlowP
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total tracer fractions.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<QString, double>> RigAccWellFlowCalculator::totalTracerFractions() const
 {
@@ -323,7 +325,7 @@ std::vector<std::pair<QString, double>> RigAccWellFlowCalculator::totalTracerFra
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether well flow consistent.
 //--------------------------------------------------------------------------------------------------
 bool RigAccWellFlowCalculator::isWellFlowConsistent() const
 {
@@ -341,7 +343,7 @@ bool RigAccWellFlowCalculator::isWellFlowConsistent() const
     return isConsistent;
 }
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates accumulated fractions.
 //--------------------------------------------------------------------------------------------------
 
 std::vector<double> RigAccWellFlowCalculator::calculateAccumulatedFractions( const std::vector<double>& accumulatedFlowPrTracer ) const
@@ -371,7 +373,7 @@ std::vector<double> RigAccWellFlowCalculator::calculateAccumulatedFractions( con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether connection flow consistent.
 //--------------------------------------------------------------------------------------------------
 bool RigAccWellFlowCalculator::isConnectionFlowConsistent( const RigWellResultPoint& wellCell ) const
 {
@@ -381,7 +383,7 @@ bool RigAccWellFlowCalculator::isConnectionFlowConsistent( const RigWellResultPo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether flow rate consistent.
 //--------------------------------------------------------------------------------------------------
 bool RigAccWellFlowCalculator::isFlowRateConsistent( double flowRate ) const
 {
@@ -391,7 +393,7 @@ bool RigAccWellFlowCalculator::isFlowRateConsistent( double flowRate ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates flow data.
 //--------------------------------------------------------------------------------------------------
 void RigAccWellFlowCalculator::calculateFlowData()
 {
@@ -415,7 +417,7 @@ void RigAccWellFlowCalculator::calculateFlowData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates accumulated flow pr connection.
 //--------------------------------------------------------------------------------------------------
 void RigAccWellFlowCalculator::calculateAccumulatedFlowPrConnection( size_t branchIdx, size_t startConnectionNumberFromTop )
 {
@@ -489,7 +491,7 @@ void RigAccWellFlowCalculator::calculateAccumulatedFlowPrConnection( size_t bran
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates flow pr pseudo length.
 //--------------------------------------------------------------------------------------------------
 void RigAccWellFlowCalculator::calculateFlowPrPseudoLength( size_t branchIdx, double startPseudoLengthFromTop )
 {
@@ -586,7 +588,7 @@ void RigAccWellFlowCalculator::calculateFlowPrPseudoLength( size_t branchIdx, do
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds down stream branch flow.
 //--------------------------------------------------------------------------------------------------
 void RigAccWellFlowCalculator::addDownStreamBranchFlow( std::vector<double>*       accFlowPrTracer,
                                                         const std::vector<double>& accBranchFlowPrTracer ) const
@@ -654,7 +656,7 @@ void RigAccWellFlowCalculator::addDownStreamBranchFlow( std::vector<double>*    
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the store flow on depth.
 //--------------------------------------------------------------------------------------------------
 void RigAccWellFlowCalculator::storeFlowOnDepth( BranchFlow*                branchFlow,
                                                  double                     depthValue,
@@ -673,7 +675,7 @@ void RigAccWellFlowCalculator::storeFlowOnDepth( BranchFlow*                bran
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the store flow on depth w tvd.
 //--------------------------------------------------------------------------------------------------
 void RigAccWellFlowCalculator::storeFlowOnDepthWTvd( BranchFlow*                branchFlow,
                                                      double                     depthValue,
@@ -780,7 +782,7 @@ std::vector<double> RigAccWellFlowCalculator::calculateWellCellFlowPrTracer( con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the wrp to unique wrp index from bottom.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigAccWellFlowCalculator::wrpToUniqueWrpIndexFromBottom( const std::vector<RigWellResultPoint>& branchCells ) const
 {
@@ -820,7 +822,7 @@ std::vector<size_t> RigAccWellFlowCalculator::wrpToUniqueWrpIndexFromBottom( con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the connection index from top.
 //--------------------------------------------------------------------------------------------------
 size_t RigAccWellFlowCalculator::connectionIndexFromTop( const std::vector<size_t>& resPointToConnectionIndexFromBottom, size_t clSegIdx )
 {
@@ -828,7 +830,7 @@ size_t RigAccWellFlowCalculator::connectionIndexFromTop( const std::vector<size_
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds down stream branch idxs.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigAccWellFlowCalculator::findDownStreamBranchIdxs( const RigWellResultPoint& connectionPoint ) const
 {
@@ -848,7 +850,7 @@ std::vector<size_t> RigAccWellFlowCalculator::findDownStreamBranchIdxs( const Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sort tracers.
 //--------------------------------------------------------------------------------------------------
 
 void RigAccWellFlowCalculator::sortTracers()
@@ -946,7 +948,7 @@ void RigAccWellFlowCalculator::groupSmallContributions()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the group small tracers.
 //--------------------------------------------------------------------------------------------------
 void RigAccWellFlowCalculator::groupSmallTracers( std::map<QString, std::vector<double>>* branchFlowSet,
                                                   const std::vector<QString>&             tracersToGroup )

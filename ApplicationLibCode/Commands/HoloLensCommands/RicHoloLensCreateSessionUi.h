@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares holo lens create session command support.
 
 #pragma once
 
@@ -26,21 +28,27 @@
 class RicHoloLensServerSettings;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring holo lens create session.
 //==================================================================================================
 class RicHoloLensCreateSessionUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicHoloLensCreateSessionUi();
+    /// Destroys the command object.
     ~RicHoloLensCreateSessionUi() override;
 
+    /// @return The server url.
     QString serverUrl() const;
+    /// @return The session name.
     QString sessionName() const;
+    /// @return The session pin code.
     QString sessionPinCode() const;
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
 private:

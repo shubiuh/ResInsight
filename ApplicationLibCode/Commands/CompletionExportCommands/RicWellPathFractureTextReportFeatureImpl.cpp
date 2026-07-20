@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path fracture text report command support.
 
 #include "RicWellPathFractureTextReportFeatureImpl.h"
 

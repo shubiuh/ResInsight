@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements duplicate summary table command support.
 
 #include "RicDuplicateSummaryTableFeature.h"
 

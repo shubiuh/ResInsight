@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of geo mech bore hole stress.
 
 #pragma once
 
@@ -24,6 +26,7 @@
 
 #include <vector>
 
+/// @brief Calculates geo mech bore hole stress.
 class RigGeoMechBoreHoleStressCalculator
 {
 public:

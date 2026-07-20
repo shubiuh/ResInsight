@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well integrity analysis command support.
 
 #include "RicNewWellIntegrityAnalysisFeature.h"
 

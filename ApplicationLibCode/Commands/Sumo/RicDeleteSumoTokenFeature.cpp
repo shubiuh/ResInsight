@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete sumo token command support.
 
 #include "RicDeleteSumoTokenFeature.h"
 

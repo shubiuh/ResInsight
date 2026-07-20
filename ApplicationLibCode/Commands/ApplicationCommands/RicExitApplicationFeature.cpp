@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements exit application command support.
 
 #include "RicExitApplicationFeature.h"
 

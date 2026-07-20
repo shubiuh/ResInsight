@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for well path geometry.
 
 #pragma once
 
@@ -31,6 +33,7 @@ class RigWellPath;
 //==================================================================================================
 namespace RigWellPathGeometryTools
 {
+/// Enumerates the supported vertex organization values.
 enum VertexOrganization
 {
     LINE_SEGMENTS,

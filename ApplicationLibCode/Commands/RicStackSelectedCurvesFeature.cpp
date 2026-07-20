@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements stack selected curves command support.
 
 #include "RicStackSelectedCurvesFeature.h"
 

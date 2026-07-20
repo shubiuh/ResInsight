@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements save multi plot template feature settings command support.
 #include "RicSaveMultiPlotTemplateFeatureSettings.h"
 #include "cafPdmUiFilePathEditor.h"
 

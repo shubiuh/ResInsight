@@ -1,4 +1,8 @@
 /////////////////////////////////////////////////////////////////////////////////
+
+/// @file
+/// Implements parsing, compact storage, validation, and display formatting of
+/// canonical Eclipse summary addresses.
 //
 //  Copyright (C) Statoil ASA
 //
@@ -31,7 +35,9 @@
 #include "cvfAssert.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Maps category-specific identifiers into the compact generic name and number
+/// slots. Keeping this mapping centralized is essential because the same slots
+/// participate in default comparison and serialization.
 //--------------------------------------------------------------------------------------------------
 RifEclipseSummaryAddress::RifEclipseSummaryAddress( SummaryCategory category, std::map<SummaryIdentifierType, std::string>& identifiers )
     : m_category( category )
@@ -211,7 +217,11 @@ RifEclipseSummaryAddress::RifEclipseSummaryAddress()
 }
 
 //--------------------------------------------------------------------------------------------------
-/// Column header text format:   [<ER|ERR|ERROR>:]<VECTOR>:<CATEGORY_PARAM_NAME1>[:<CATEGORY_PARAM_NAME2>][....]
+/// Parses column-header syntax
+/// `[ER|ERR|ERROR:]VECTOR:CATEGORY_PARAMETER[:CATEGORY_PARAMETER...]`.
+///
+/// Unrecognized input is preserved as an imported vector name rather than rejected;
+/// this keeps user-provided columns addressable while still retaining error prefixes.
 //--------------------------------------------------------------------------------------------------
 RifEclipseSummaryAddress RifEclipseSummaryAddress::fromEclipseTextAddressParseErrorTokens( const std::string& textAddress )
 {
@@ -1127,7 +1137,9 @@ bool RifEclipseSummaryAddress::hasAccumulatedData() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Infers the category from the vector keyword, then interprets the remaining
+/// tokens according to that category. Well and network names receive special
+/// handling because valid identifiers may themselves contain colons.
 //--------------------------------------------------------------------------------------------------
 RifEclipseSummaryAddress RifEclipseSummaryAddress::fromTokens( const std::vector<std::string>& tokens )
 {

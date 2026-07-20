@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import ensemble surface command support.
 
 #pragma once
 
@@ -25,24 +27,30 @@
 #include <QString>
 
 //==================================================================================================
-///
+/// @brief Command feature for import ensemble surface.
 //==================================================================================================
 class RicImportEnsembleSurfaceFeature : public caf::CmdFeature
 {
 public:
     CAF_CMD_HEADER_INIT;
 
+    /// Constructs the command object.
     RicImportEnsembleSurfaceFeature();
 
+    /// Imports ensemble surface from files.
     static void importEnsembleSurfaceFromFiles( const QStringList& fileNames, RiaDefines::EnsembleGroupingMode groupingMode );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The run recursive file search.
     std::pair<QStringList, RiaDefines::EnsembleGroupingMode> runRecursiveFileSearchDialog( const QString& dialogTitle,
                                                                                            const QString& pathCacheName );
 
+    /// Imports single ensemble surface from files.
     static void importSingleEnsembleSurfaceFromFiles( const QStringList& fileNames, RiaDefines::EnsembleGroupingMode groupingMode );
 
 private:

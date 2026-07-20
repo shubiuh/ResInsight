@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of porv soil sgas results.
 
 #pragma once
 
@@ -29,6 +31,7 @@ class RigEclipseResultAddress;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Calculates porv soil sgas results.
 class RigPorvSoilSgasResultCalculator : public RigEclipseResultCalculator
 {
 public:

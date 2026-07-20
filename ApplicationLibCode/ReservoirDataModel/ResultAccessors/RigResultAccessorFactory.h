@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares result accessor factory reservoir-data functionality.
 
 #pragma once
 
@@ -31,6 +33,7 @@ class RigEclipseCaseData;
 class RimEclipseResultDefinition;
 class RigEclipseResultAddress;
 
+/// @brief Models result accessor factory for reservoir-data processing.
 class RigResultAccessorFactory
 {
 public:

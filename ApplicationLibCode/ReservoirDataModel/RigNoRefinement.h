@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares no refinement reservoir-data functionality.
 
 #pragma once
 
@@ -28,6 +30,7 @@
 // Lightweight — no offset tables, no fraction vectors.
 //
 //==================================================================================================
+/// @brief Models no refinement for reservoir-data processing.
 class RigNoRefinement : public RigRefinement
 {
 public:

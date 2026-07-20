@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements replace summary case command support.
 
 #include "RicReplaceSummaryCaseFeature.h"
 

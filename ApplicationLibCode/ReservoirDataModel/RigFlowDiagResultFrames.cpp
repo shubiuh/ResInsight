@@ -16,13 +16,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements flow diag result frames reservoir-data functionality.
 
 #include <cstdlib>
 
 #include "RigFlowDiagResultFrames.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFlowDiagResultFrames instance.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagResultFrames::RigFlowDiagResultFrames( size_t frameCount )
 {
@@ -30,7 +32,7 @@ RigFlowDiagResultFrames::RigFlowDiagResultFrames( size_t frameCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the frame count.
 //--------------------------------------------------------------------------------------------------
 size_t RigFlowDiagResultFrames::frameCount() const
 {
@@ -38,7 +40,7 @@ size_t RigFlowDiagResultFrames::frameCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the frame data.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>& RigFlowDiagResultFrames::frameData( size_t frameIndex )
 {
@@ -46,7 +48,7 @@ std::vector<double>& RigFlowDiagResultFrames::frameData( size_t frameIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the frame data.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigFlowDiagResultFrames::frameData( size_t frameIndex ) const
 {

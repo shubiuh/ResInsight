@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well log plot command support.
 
 #include "RicNewWellLogPlotFeatureImpl.h"
 

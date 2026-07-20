@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of triangle mesh data.
 
 #pragma once
 
@@ -23,6 +25,7 @@
 
 #include "cvfVector3.h"
 
+/// @brief Stores triangle mesh data.
 class RigTriangleMeshData
 {
 public:

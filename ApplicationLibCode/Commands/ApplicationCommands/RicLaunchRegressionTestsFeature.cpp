@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements launch regression tests command support.
 
 #include "RicLaunchRegressionTestsFeature.h"
 

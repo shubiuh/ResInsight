@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares transmissibility command support.
 
 #pragma once
 
@@ -27,7 +29,7 @@ class RimNonDarcyPerforationParameters;
 class RimWellPath;
 
 //==================================================================================================
-///
+/// @brief Supports transmissibility data command workflows.
 //==================================================================================================
 class TransmissibilityData
 {
@@ -68,14 +70,16 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Calculates transmissibility data for command workflows.
 //==================================================================================================
 class RicTransmissibilityCalculator
 {
 public:
+    /// Calculates cell main direction.
     static RigCompletionData::CellDirection
         calculateCellMainDirection( RimEclipseCase* eclipseCase, size_t globalCellIndex, const cvf::Vec3d& lengthsInCell );
 
+    /// Calculates transmissibility data.
     static TransmissibilityData
         calculateTransmissibilityData( RimEclipseCase*    eclipseCase,
                                        const RimWellPath* wellPath,
@@ -87,12 +91,14 @@ public:
                                        size_t             volumeScaleConstant = 1,
                                        RigCompletionData::CellDirection directionForVolumeScaling = RigCompletionData::CellDirection::DIR_I );
 
+    /// Calculates D factor.
     static double calculateDFactor( RimEclipseCase*                         eclipseCase,
                                     double                                  effectiveH,
                                     size_t                                  globalCellIndex,
                                     const RimNonDarcyPerforationParameters* nonDarcyParameters,
                                     const double                            effectivePermeability );
 
+    /// Calculates transmissibility as Eclipse does.
     static double calculateTransmissibilityAsEclipseDoes( RimEclipseCase*                  eclipseCase,
                                                           double                           skinFactor,
                                                           double                           wellRadius,

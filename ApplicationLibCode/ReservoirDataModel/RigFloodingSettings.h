@@ -15,11 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares configuration for flooding.
 #pragma once
 
+/// @brief Stores configuration for flooding.
 class RigFloodingSettings
 {
 public:
+    /// Enumerates the supported flooding type values.
     enum class FloodingType
     {
         WATER_FLOODING,
@@ -37,9 +41,13 @@ public:
     double       gasUserDefFlooding() const;
 
 protected:
+    /// Stores oil flooding type.
     FloodingType m_oilFloodingType;
+    /// Stores user def flooding oil.
     double       m_userDefFloodingOil;
 
+    /// Stores gas flooding type.
     FloodingType m_gasFloodingType;
+    /// Stores user def flooding gas.
     double       m_userDefFloodingGas;
 };

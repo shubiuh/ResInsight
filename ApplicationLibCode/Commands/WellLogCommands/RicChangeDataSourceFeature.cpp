@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements change data source command support.
 
 #include "RicChangeDataSourceFeature.h"
 

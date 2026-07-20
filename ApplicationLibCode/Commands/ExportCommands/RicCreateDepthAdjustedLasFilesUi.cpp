@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create depth adjusted LAS files command support.
 
 #include "RicCreateDepthAdjustedLasFilesUi.h"
 

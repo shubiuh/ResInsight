@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new inline seismic section command support.
 
 #include "RicNewInlineSeismicSectionFeature.h"
 

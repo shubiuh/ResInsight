@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well bore stability plot command support.
 
 #include "RicNewWellBoreStabilityPlotFeature.h"
 

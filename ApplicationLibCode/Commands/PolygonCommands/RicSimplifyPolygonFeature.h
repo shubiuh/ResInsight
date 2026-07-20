@@ -15,22 +15,27 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares simplify polygon command support.
 
 #pragma once
 
 #include "RicBasicPolygonFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for simplify polygon.
 //==================================================================================================
 class RicSimplifyPolygonFeature : public RicBasicPolygonFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSimplifyPolygonFeature();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

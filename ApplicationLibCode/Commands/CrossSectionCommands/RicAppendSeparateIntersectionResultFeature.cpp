@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements append separate intersection result command support.
 
 #include "RicAppendSeparateIntersectionResultFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new custom objective function weight command support.
 
 #include "RicNewCustomObjectiveFunctionWeightFeature.h"
 

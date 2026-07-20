@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export carfin command support.
 
 #include "RicExportCarfinUi.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse property filter new in view command support.
 
 #include "RicEclipsePropertyFilterNewInViewFeature.h"
 

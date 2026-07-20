@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import ensemble file set command support.
 
 #include "RicImportEnsembleFileSetFeature.h"
 

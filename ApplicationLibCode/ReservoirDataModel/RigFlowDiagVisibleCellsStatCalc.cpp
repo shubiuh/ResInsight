@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements flow diag visible cells stat calc reservoir-data functionality.
 
 #include "RigFlowDiagVisibleCellsStatCalc.h"
 
@@ -32,7 +34,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFlowDiagVisibleCellsStatCalc instance.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagVisibleCellsStatCalc::RigFlowDiagVisibleCellsStatCalc( RigFlowDiagResults*             resultsData,
                                                                   const RigFlowDiagResultAddress& resVarAddr,
@@ -44,7 +46,7 @@ RigFlowDiagVisibleCellsStatCalc::RigFlowDiagVisibleCellsStatCalc( RigFlowDiagRes
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max cell scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagVisibleCellsStatCalc::minMaxCellScalarValues( size_t timeStepIndex, double& min, double& max )
 {
@@ -55,7 +57,7 @@ void RigFlowDiagVisibleCellsStatCalc::minMaxCellScalarValues( size_t timeStepInd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagVisibleCellsStatCalc::posNegClosestToZero( size_t timeStepIndex, double& pos, double& neg )
 {
@@ -66,7 +68,7 @@ void RigFlowDiagVisibleCellsStatCalc::posNegClosestToZero( size_t timeStepIndex,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value sum and sample count.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagVisibleCellsStatCalc::valueSumAndSampleCount( size_t timeStepIndex, double& valueSum, size_t& sampleCount )
 {
@@ -77,7 +79,7 @@ void RigFlowDiagVisibleCellsStatCalc::valueSumAndSampleCount( size_t timeStepInd
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds data to histogram calculator.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagVisibleCellsStatCalc::addDataToHistogramCalculator( size_t timeStepIndex, RigHistogramCalculator& histogramCalculator )
 {
@@ -85,7 +87,7 @@ void RigFlowDiagVisibleCellsStatCalc::addDataToHistogramCalculator( size_t timeS
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique values.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagVisibleCellsStatCalc::uniqueValues( size_t timeStepIndex, std::set<int>& values )
 {
@@ -95,7 +97,7 @@ void RigFlowDiagVisibleCellsStatCalc::uniqueValues( size_t timeStepIndex, std::s
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time step count.
 //--------------------------------------------------------------------------------------------------
 size_t RigFlowDiagVisibleCellsStatCalc::timeStepCount()
 {
@@ -103,7 +105,7 @@ size_t RigFlowDiagVisibleCellsStatCalc::timeStepCount()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagVisibleCellsStatCalc::mobileVolumeWeightedMean( size_t timeStepIndex, double& result )
 {

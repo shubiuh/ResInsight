@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well path fracture command support.
 
 #include "RicNewWellPathFractureFeature.h"
 

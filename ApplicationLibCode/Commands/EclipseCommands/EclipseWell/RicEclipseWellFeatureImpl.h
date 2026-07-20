@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares Eclipse well command support.
 
 #pragma once
 
@@ -24,11 +26,13 @@ class RimSimWellInViewCollection;
 class RimSimWellInView;
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for Eclipse well commands.
 //==================================================================================================
 class RicEclipseWellFeatureImpl
 {
 public:
+    /// @return Whether any well selected.
     static bool                           isAnyWellSelected();
+    /// @return The selected wells.
     static std::vector<RimSimWellInView*> selectedWells();
 };

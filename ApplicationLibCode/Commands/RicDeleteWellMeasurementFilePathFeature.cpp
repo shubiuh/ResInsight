@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete well measurement file path command support.
 
 #include "RicDeleteWellMeasurementFilePathFeature.h"
 

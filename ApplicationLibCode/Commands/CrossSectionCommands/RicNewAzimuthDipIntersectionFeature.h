@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new azimuth dip intersection command support.
 
 #pragma once
 
@@ -25,16 +27,21 @@
 class RimIntersectionCollection;
 
 //==================================================================================================
-///
+/// @brief Supports new azimuth dip intersection feature cmd command workflows.
 //==================================================================================================
 class RicNewAzimuthDipIntersectionFeatureCmd : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     explicit RicNewAzimuthDipIntersectionFeatureCmd( RimIntersectionCollection* intersectionCollection );
+    /// Destroys the command object.
     ~RicNewAzimuthDipIntersectionFeatureCmd() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:
@@ -42,16 +49,19 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for new azimuth dip intersection.
 //==================================================================================================
 class RicNewAzimuthDipIntersectionFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicNewAzimuthDipIntersectionFeature();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

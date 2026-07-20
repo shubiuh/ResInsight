@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements toggle X axis linking command support.
 
 #include "RicToggleXAxisLinkingFeature.h"
 

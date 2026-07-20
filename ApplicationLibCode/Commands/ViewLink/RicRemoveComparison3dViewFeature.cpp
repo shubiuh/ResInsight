@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements remove comparison3d view command support.
 #include "RicRemoveComparison3dViewFeature.h"
 
 #include "RiaApplication.h"

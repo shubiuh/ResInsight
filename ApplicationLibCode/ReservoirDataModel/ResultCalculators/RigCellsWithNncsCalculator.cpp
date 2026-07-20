@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of cells with nncs.
 
 #include "RigCellsWithNncsCalculator.h"
 
@@ -27,7 +29,7 @@
 #include "RigNNCData.h"
 
 //==================================================================================================
-///
+/// Creates a RigCellsWithNncsCalculator instance.
 //==================================================================================================
 RigCellsWithNncsCalculator::RigCellsWithNncsCalculator( RigCaseCellResultsData& resultsData )
     : RigEclipseResultCalculator( resultsData )
@@ -35,14 +37,14 @@ RigCellsWithNncsCalculator::RigCellsWithNncsCalculator( RigCaseCellResultsData& 
 }
 
 //==================================================================================================
-///
+/// Destroys the RigCellsWithNncsCalculator instance.
 //==================================================================================================
 RigCellsWithNncsCalculator::~RigCellsWithNncsCalculator()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether matching.
 //--------------------------------------------------------------------------------------------------
 bool RigCellsWithNncsCalculator::isMatching( const RigEclipseResultAddress& resVarAddr ) const
 {
@@ -50,7 +52,7 @@ bool RigCellsWithNncsCalculator::isMatching( const RigEclipseResultAddress& resV
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the calculate.
 //--------------------------------------------------------------------------------------------------
 void RigCellsWithNncsCalculator::calculate( const RigEclipseResultAddress& resVarAddr, size_t timeStepIndex )
 {

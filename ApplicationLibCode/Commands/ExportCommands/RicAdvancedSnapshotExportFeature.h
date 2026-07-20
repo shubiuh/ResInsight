@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares advanced snapshot export command support.
 
 #pragma once
 
@@ -27,24 +29,32 @@ class RimGridView;
 class RimEclipseView;
 
 //==================================================================================================
-///
+/// @brief Command feature for advanced snapshot export.
 //==================================================================================================
 class RicAdvancedSnapshotExportFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 public:
+    /// Exports multiple snapshots.
     static void exportMultipleSnapshots( const QString& folder, RimProject* project );
 
+    /// Exports view variations.
     static void exportViewVariations( Rim3dView* rimView, RimAdvancedSnapshotExportDefinition* msd, const QString& folder );
 
 private:
+    /// Exports view variations to folder.
     static void    exportViewVariationsToFolder( RimGridView* rimView, RimAdvancedSnapshotExportDefinition* msd, const QString& folder );
+    /// @return The result name.
     static QString resultName( Rim3dView* rimView );
+    /// Removes or clears view from view collection.
     static void    removeViewFromViewCollection( RimEclipseView* view );
 };

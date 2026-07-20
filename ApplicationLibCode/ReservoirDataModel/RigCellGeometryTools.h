@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for cell geometry.
 
 #pragma once
 
@@ -29,6 +31,7 @@
 
 class RigCell;
 
+/// @brief Provides utilities for cell geometry.
 class RigCellGeometryTools
 {
 public:
@@ -57,9 +60,11 @@ public:
 
     static std::vector<std::vector<cvf::Vec3d>> subtractPolygons( const std::vector<cvf::Vec3d>&              sourcePolygon,
                                                                   const std::vector<std::vector<cvf::Vec3d>>& polygonsToSubtract );
+    /// Returns or processes subtract polygon.
     static std::vector<std::vector<cvf::Vec3d>> subtractPolygon( const std::vector<cvf::Vec3d>& sourcePolygon,
                                                                  const std::vector<cvf::Vec3d>& polygonToSubtract );
 
+    /// Enumerates the supported z interpolation type values.
     enum ZInterpolationType
     {
         INTERPOLATE_LINE_Z,

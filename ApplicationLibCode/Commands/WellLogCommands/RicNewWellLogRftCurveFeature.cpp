@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well log RFT curve command support.
 
 #include "RicNewWellLogRftCurveFeature.h"
 

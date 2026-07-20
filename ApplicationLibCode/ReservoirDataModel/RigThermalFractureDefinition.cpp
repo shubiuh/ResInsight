@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements thermal fracture definition reservoir-data functionality.
 
 #include "RigThermalFractureDefinition.h"
 
@@ -26,7 +28,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigThermalFractureDefinition instance.
 //--------------------------------------------------------------------------------------------------
 RigThermalFractureDefinition::RigThermalFractureDefinition()
     : m_unitSystem( RiaDefines::EclipseUnitSystem::UNITS_UNKNOWN )
@@ -34,14 +36,14 @@ RigThermalFractureDefinition::RigThermalFractureDefinition()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigThermalFractureDefinition instance.
 //--------------------------------------------------------------------------------------------------
 RigThermalFractureDefinition::~RigThermalFractureDefinition()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets name.
 //--------------------------------------------------------------------------------------------------
 void RigThermalFractureDefinition::setName( const QString& name )
 {
@@ -49,7 +51,7 @@ void RigThermalFractureDefinition::setName( const QString& name )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the name.
 //--------------------------------------------------------------------------------------------------
 QString RigThermalFractureDefinition::name() const
 {
@@ -57,7 +59,7 @@ QString RigThermalFractureDefinition::name() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets unit system.
 //--------------------------------------------------------------------------------------------------
 void RigThermalFractureDefinition::setUnitSystem( RiaDefines::EclipseUnitSystem unitSystem )
 {
@@ -65,7 +67,7 @@ void RigThermalFractureDefinition::setUnitSystem( RiaDefines::EclipseUnitSystem 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unit system.
 //--------------------------------------------------------------------------------------------------
 RiaDefines::EclipseUnitSystem RigThermalFractureDefinition::unitSystem() const
 {
@@ -73,7 +75,7 @@ RiaDefines::EclipseUnitSystem RigThermalFractureDefinition::unitSystem() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the num nodes.
 //--------------------------------------------------------------------------------------------------
 size_t RigThermalFractureDefinition::numNodes() const
 {
@@ -83,7 +85,7 @@ size_t RigThermalFractureDefinition::numNodes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the time steps.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigThermalFractureDefinition::timeSteps() const
 {
@@ -91,7 +93,7 @@ const std::vector<double>& RigThermalFractureDefinition::timeSteps() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds time step.
 //--------------------------------------------------------------------------------------------------
 void RigThermalFractureDefinition::addTimeStep( double timeStep )
 {
@@ -99,7 +101,7 @@ void RigThermalFractureDefinition::addTimeStep( double timeStep )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the num time steps.
 //--------------------------------------------------------------------------------------------------
 size_t RigThermalFractureDefinition::numTimeSteps() const
 {
@@ -107,7 +109,7 @@ size_t RigThermalFractureDefinition::numTimeSteps() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds property.
 //--------------------------------------------------------------------------------------------------
 void RigThermalFractureDefinition::addProperty( const QString& name, const QString& unit )
 {
@@ -115,7 +117,7 @@ void RigThermalFractureDefinition::addProperty( const QString& name, const QStri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns property names units.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<QString, QString>> RigThermalFractureDefinition::getPropertyNamesUnits() const
 {
@@ -127,7 +129,7 @@ std::vector<std::pair<QString, QString>> RigThermalFractureDefinition::getProper
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends property value.
 //--------------------------------------------------------------------------------------------------
 void RigThermalFractureDefinition::appendPropertyValue( int propertyIndex, int nodeIndex, double value )
 {
@@ -138,7 +140,7 @@ void RigThermalFractureDefinition::appendPropertyValue( int propertyIndex, int n
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns property value.
 //--------------------------------------------------------------------------------------------------
 double RigThermalFractureDefinition::getPropertyValue( int propertyIndex, int nodeIndex, int timeStepIndex ) const
 {
@@ -146,7 +148,7 @@ double RigThermalFractureDefinition::getPropertyValue( int propertyIndex, int no
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns property index.
 //--------------------------------------------------------------------------------------------------
 int RigThermalFractureDefinition::getPropertyIndex( const QString& name ) const
 {
@@ -157,7 +159,7 @@ int RigThermalFractureDefinition::getPropertyIndex( const QString& name ) const
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the relative coordinates.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigThermalFractureDefinition::relativeCoordinates( int timeStepIndex ) const
 {
@@ -189,7 +191,7 @@ std::vector<cvf::Vec3d> RigThermalFractureDefinition::relativeCoordinates( int t
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the center position.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigThermalFractureDefinition::centerPosition() const
 {
@@ -211,7 +213,7 @@ cvf::Vec3d RigThermalFractureDefinition::centerPosition() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns bounding box.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox RigThermalFractureDefinition::getBoundingBox( int timeStepIndex ) const
 {
@@ -239,7 +241,7 @@ cvf::BoundingBox RigThermalFractureDefinition::getBoundingBox( int timeStepIndex
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min depth.
 //--------------------------------------------------------------------------------------------------
 double RigThermalFractureDefinition::minDepth( int timeStepIndex ) const
 {
@@ -247,7 +249,7 @@ double RigThermalFractureDefinition::minDepth( int timeStepIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max depth.
 //--------------------------------------------------------------------------------------------------
 double RigThermalFractureDefinition::maxDepth( int timeStepIndex ) const
 {

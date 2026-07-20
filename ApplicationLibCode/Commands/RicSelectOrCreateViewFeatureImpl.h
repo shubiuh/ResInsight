@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares select or create view command support.
 
 #pragma once
 
@@ -24,17 +26,20 @@ class RimEclipseView;
 class RimEclipseResultCase;
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for select or create view commands.
 //==================================================================================================
 class RicSelectOrCreateViewFeatureImpl
 {
 public:
+    /// Shows view selection.
     static RimEclipseView* showViewSelection( RimEclipseResultCase* resultCase,
                                               const QString&        lastUsedViewKey,
                                               const QString&        newViewName,
                                               const QString&        dialogTitle );
+    /// Performs the focus view command operation.
     static void            focusView( RimEclipseView* view );
 
 private:
+    /// @return The default selected view.
     static RimEclipseView* getDefaultSelectedView( RimEclipseResultCase* resultCase, const QString& lastUsedViewKey );
 };

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements active cell grid reservoir-data functionality.
 
 #include "RigActiveCellGrid.h"
 
@@ -22,7 +24,7 @@
 #include "RigEclipseCaseData.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigActiveCellGrid instance.
 //--------------------------------------------------------------------------------------------------
 RigActiveCellGrid::RigActiveCellGrid()
     : m_totalCellCount( 0 )
@@ -39,14 +41,14 @@ RigActiveCellGrid::RigActiveCellGrid()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigActiveCellGrid instance.
 //--------------------------------------------------------------------------------------------------
 RigActiveCellGrid::~RigActiveCellGrid()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell.
 //--------------------------------------------------------------------------------------------------
 RigCell& RigActiveCellGrid::cell( size_t gridLocalCellIndex )
 {
@@ -58,7 +60,7 @@ RigCell& RigActiveCellGrid::cell( size_t gridLocalCellIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell.
 //--------------------------------------------------------------------------------------------------
 const RigCell& RigActiveCellGrid::cell( size_t gridLocalCellIndex ) const
 {
@@ -70,7 +72,7 @@ const RigCell& RigActiveCellGrid::cell( size_t gridLocalCellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the native cells.
 //--------------------------------------------------------------------------------------------------
 std::map<size_t, RigCell>& RigActiveCellGrid::nativeCells()
 {
@@ -78,7 +80,7 @@ std::map<size_t, RigCell>& RigActiveCellGrid::nativeCells()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the native cells.
 //--------------------------------------------------------------------------------------------------
 const std::map<size_t, RigCell>& RigActiveCellGrid::nativeCells() const
 {
@@ -86,7 +88,7 @@ const std::map<size_t, RigCell>& RigActiveCellGrid::nativeCells() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigActiveCellGrid::totalCellCount() const
 {
@@ -94,7 +96,7 @@ size_t RigActiveCellGrid::totalCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets total cell count.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellGrid::setTotalCellCount( size_t totalCellCount )
 {
@@ -102,7 +104,7 @@ void RigActiveCellGrid::setTotalCellCount( size_t totalCellCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total active cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigActiveCellGrid::totalActiveCellCount() const
 {
@@ -110,7 +112,7 @@ size_t RigActiveCellGrid::totalActiveCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active local cell indices.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigActiveCellGrid::activeLocalCellIndices( bool skipInvalidCells ) const
 {
@@ -131,7 +133,7 @@ std::vector<size_t> RigActiveCellGrid::activeLocalCellIndices( bool skipInvalidC
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets total active cell count.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellGrid::setTotalActiveCellCount( size_t totalActiveCellCount )
 {

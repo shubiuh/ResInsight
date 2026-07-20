@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export surface to gri command support.
 
 #include "RicExportSurfaceToGriUi.h"
 

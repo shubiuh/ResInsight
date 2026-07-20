@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares completion data grid cell reservoir-data functionality.
 
 #pragma once
 
@@ -25,6 +27,7 @@ class RigMainGrid;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models completion data grid cell for reservoir-data processing.
 class RigCompletionDataGridCell
 {
 public:

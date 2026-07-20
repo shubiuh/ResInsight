@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create RFT plots feature command support.
 
 #pragma once
 
@@ -27,19 +29,23 @@
 #include <vector>
 
 //==================================================================================================
-///
+/// @brief UI model for configuring create RFT plots feature.
 //==================================================================================================
 class RicCreateRftPlotsFeatureUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicCreateRftPlotsFeatureUi();
 
+    /// Sets all well names.
     void                 setAllWellNames( const std::vector<QString>& wellNames );
+    /// @return The selected well names.
     std::vector<QString> selectedWellNames() const;
 
 protected:
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 private:

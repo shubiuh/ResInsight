@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well log las file reservoir-data functionality.
 
 #include "RigWellLogLasFile.h"
 
@@ -35,7 +37,7 @@
 #include <exception>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigWellLogLasFile instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogLasFile::RigWellLogLasFile()
     : RigWellLogData()
@@ -44,7 +46,7 @@ RigWellLogLasFile::RigWellLogLasFile()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigWellLogLasFile instance.
 //--------------------------------------------------------------------------------------------------
 RigWellLogLasFile::~RigWellLogLasFile()
 {
@@ -52,7 +54,7 @@ RigWellLogLasFile::~RigWellLogLasFile()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the open.
 //--------------------------------------------------------------------------------------------------
 bool RigWellLogLasFile::open( const QString& fileName, QString* errorMessage )
 {
@@ -126,7 +128,7 @@ bool RigWellLogLasFile::open( const QString& fileName, QString* errorMessage )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the close.
 //--------------------------------------------------------------------------------------------------
 void RigWellLogLasFile::close()
 {
@@ -141,7 +143,7 @@ void RigWellLogLasFile::close()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well name.
 //--------------------------------------------------------------------------------------------------
 QString RigWellLogLasFile::wellName() const
 {
@@ -150,7 +152,7 @@ QString RigWellLogLasFile::wellName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the date.
 //--------------------------------------------------------------------------------------------------
 QString RigWellLogLasFile::date() const
 {
@@ -159,7 +161,7 @@ QString RigWellLogLasFile::date() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well log channel names.
 //--------------------------------------------------------------------------------------------------
 QStringList RigWellLogLasFile::wellLogChannelNames() const
 {
@@ -167,7 +169,7 @@ QStringList RigWellLogLasFile::wellLogChannelNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogLasFile::depthValues() const
 {
@@ -175,7 +177,7 @@ std::vector<double> RigWellLogLasFile::depthValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvd msl values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogLasFile::tvdMslValues() const
 {
@@ -183,7 +185,7 @@ std::vector<double> RigWellLogLasFile::tvdMslValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the tvd rkb values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogLasFile::tvdRkbValues() const
 {
@@ -191,7 +193,7 @@ std::vector<double> RigWellLogLasFile::tvdRkbValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellLogLasFile::values( const QString& name ) const
 {
@@ -217,7 +219,7 @@ std::vector<double> RigWellLogLasFile::values( const QString& name ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigWellLogLasFile::depthUnitString() const
 {
@@ -233,7 +235,7 @@ QString RigWellLogLasFile::depthUnitString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well log channel unit string.
 //--------------------------------------------------------------------------------------------------
 QString RigWellLogLasFile::wellLogChannelUnitString( const QString& wellLogChannelName ) const
 {
@@ -248,7 +250,7 @@ QString RigWellLogLasFile::wellLogChannelUnitString( const QString& wellLogChann
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether tvd msl channel is available.
 //--------------------------------------------------------------------------------------------------
 bool RigWellLogLasFile::hasTvdMslChannel() const
 {
@@ -256,7 +258,7 @@ bool RigWellLogLasFile::hasTvdMslChannel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether tvd rkb channel is available.
 //--------------------------------------------------------------------------------------------------
 bool RigWellLogLasFile::hasTvdRkbChannel() const
 {
@@ -264,7 +266,7 @@ bool RigWellLogLasFile::hasTvdRkbChannel() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns missing value.
 //--------------------------------------------------------------------------------------------------
 double RigWellLogLasFile::getMissingValue() const
 {

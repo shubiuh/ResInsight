@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well bore part for trans calc command support.
 
 #pragma once
 
@@ -24,13 +26,14 @@
 
 #include <QString>
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmObject;
 }
 
 //==================================================================================================
-///
+/// @brief Data used to configure or execute well bore part for trans calc command workflows.
 //==================================================================================================
 struct WellBorePartForTransCalc
 {

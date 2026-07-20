@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create cross plot command support.
 
 #include "RicCreateCrossPlotFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well target mapping reservoir-data functionality.
 
 #include "RigWellTargetMapping.h"
 
@@ -57,7 +59,7 @@
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates candidates.
 //--------------------------------------------------------------------------------------------------
 void RigWellTargetMapping::generateCandidates( RimEclipseCase*            eclipseCase,
                                                size_t                     timeStepIdx,
@@ -316,7 +318,7 @@ void RigWellTargetMapping::generateCandidates( RimEclipseCase*            eclips
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns volume vector.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigWellTargetMapping::getVolumeVector( RigCaseCellResultsData&       resultsData,
                                                            RiaDefines::EclipseUnitSystem unitsType,
@@ -356,7 +358,7 @@ std::vector<double> RigWellTargetMapping::getVolumeVector( RigCaseCellResultsDat
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates ensemble candidates.
 //--------------------------------------------------------------------------------------------------
 RimRegularGridCase* RigWellTargetMapping::generateEnsembleCandidates( const std::vector<RimEclipseCase*>& cases,
                                                                       size_t                              timeStepIdx,
@@ -446,7 +448,7 @@ RimRegularGridCase* RigWellTargetMapping::generateEnsembleCandidates( const std:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well target result name.
 //--------------------------------------------------------------------------------------------------
 QString RigWellTargetMapping::wellTargetResultName()
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import element property command support.
 
 #include "RicImportElementPropertyFeature.h"
 

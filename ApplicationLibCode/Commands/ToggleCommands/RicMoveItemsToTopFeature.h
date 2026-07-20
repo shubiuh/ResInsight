@@ -15,11 +15,14 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares move items to top command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmObjectHandle;
@@ -27,17 +30,21 @@ class PdmUiItem;
 } // namespace caf
 
 //==================================================================================================
-///
+/// @brief Command feature for move items to top.
 //==================================================================================================
 class RicMoveItemsToTopFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The object handle from UI item.
     static caf::PdmObjectHandle* objectHandleFromUiItem( caf::PdmUiItem* uiItem );
 };

@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well log plot track command support.
 
 #pragma once
 
@@ -26,11 +28,13 @@ class RimWellLogTrack;
 class RimWellLogCurve;
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for well log plot track commands.
 //==================================================================================================
 class RicWellLogPlotTrackFeatureImpl
 {
 public:
+    /// Moves curves to well log plot track.
     static void moveCurvesToWellLogPlotTrack( RimWellLogTrack* dstTrack, const std::vector<RimWellLogCurve*>& curves, int insertAtPosition );
+    /// Moves tracks to well log plot.
     static void moveTracksToWellLogPlot( RimWellLogPlot* wellLogPlot, const std::vector<RimWellLogTrack*>& tracks, int insertAtPosition );
 };

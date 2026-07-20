@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens export to folder command support.
 
 #include "RicHoloLensExportToFolderFeature.h"
 #include "RicHoloLensExportImpl.h"

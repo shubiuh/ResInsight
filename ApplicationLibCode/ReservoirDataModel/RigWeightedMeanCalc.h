@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares weighted mean calc reservoir-data functionality.
 
 #pragma once
 
@@ -24,6 +26,7 @@
 
 class RigActiveCellInfo;
 
+/// @brief Models weighted mean calc for reservoir-data processing.
 class RigWeightedMeanCalc
 {
 public:

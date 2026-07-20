@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares slice2 d reservoir-data functionality.
 
 #pragma once
 
@@ -25,6 +27,7 @@
 ///
 ///
 //==================================================================================================
+/// @brief Models slice2 d for reservoir-data processing.
 class RigSlice2D
 {
 public:

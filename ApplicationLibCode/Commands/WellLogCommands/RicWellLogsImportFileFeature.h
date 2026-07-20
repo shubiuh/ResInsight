@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well logs import file command support.
 
 #pragma once
 
@@ -26,15 +28,19 @@
 class RimWellLogLasFile;
 
 //==================================================================================================
-///
+/// @brief Command feature for well logs import file.
 //==================================================================================================
 class RicWellLogsImportFileFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
+    /// Imports well log files.
     static std::vector<RimWellLogLasFile*> importWellLogFiles( const QStringList& wellLogFilePaths, QStringList* errorMessages );
+    /// @return The well log file name filters.
     static QStringList                     wellLogFileNameFilters();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

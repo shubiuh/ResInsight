@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares Eclipse property filter command support.
 
 #pragma once
 
@@ -26,18 +28,21 @@ class RimCombinedFilter;
 class RimEclipsePropertyFilter;
 class RimEclipsePropertyFilterCollection;
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmObjectHandle;
 }
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for Eclipse property filter commands.
 //==================================================================================================
 class RicEclipsePropertyFilterFeatureImpl
 {
 public:
+    /// @return The selected property filters.
     static std::vector<RimEclipsePropertyFilter*>           selectedPropertyFilters();
+    /// @return The selected property filter collections.
     static std::vector<RimEclipsePropertyFilterCollection*> selectedPropertyFilterCollections();
 
     // Looks at the strict selection first, then at any selected RimFilterInViewCollection facade. Returns
@@ -45,12 +50,17 @@ public:
     // when invoked from the unified facade tree node.
     static RimEclipsePropertyFilterCollection* resolveTargetPropertyFilterCollection();
 
+    /// Adds property filter.
     static void                      addPropertyFilter( RimEclipsePropertyFilterCollection* propertyFilterCollection );
+    /// Adds property filter to combined filter.
     static RimEclipsePropertyFilter* addPropertyFilterToCombinedFilter( RimCombinedFilter* combined );
+    /// Inserts property filter.
     static void                      insertPropertyFilter( RimEclipsePropertyFilterCollection* propertyFilterCollection, size_t index );
 
+    /// @return Whether property filter command available.
     static bool isPropertyFilterCommandAvailable( caf::PdmObjectHandle* object );
 
 private:
+    /// Sets defaults.
     static void setDefaults( RimEclipsePropertyFilter* propertyFilter );
 };

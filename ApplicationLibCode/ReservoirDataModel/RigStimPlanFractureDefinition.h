@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares stim plan fracture definition reservoir-data functionality.
 
 #pragma once
 
@@ -34,21 +36,26 @@ class PosNegAccumulator;
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models stim plan result frames for reservoir-data processing.
 class RigStimPlanResultFrames
 {
 public:
     RigStimPlanResultFrames() {}
 
+    /// Stores result name.
     QString resultName;
+    /// Stores unit.
     QString unit;
 
     // Vector for each time step, for each y and for each x-value
+    /// Stores parameter values.
     std::vector<std::vector<std::vector<double>>> parameterValues;
 };
 
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models stim plan fracture definition for reservoir-data processing.
 class RigStimPlanFractureDefinition : public cvf::Object
 {
     friend class RifStimPlanXmlReader;
@@ -56,6 +63,7 @@ class RigStimPlanFractureDefinition : public cvf::Object
 public:
     static const double THRESHOLD_VALUE;
 
+    /// Enumerates the supported orientation values.
     enum class Orientation
     {
         UNDEFINED,

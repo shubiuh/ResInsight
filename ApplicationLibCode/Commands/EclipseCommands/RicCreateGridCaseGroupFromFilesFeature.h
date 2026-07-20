@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create grid case group from files command support.
 
 #pragma once
 
@@ -24,7 +26,7 @@
 #include <vector>
 
 //==================================================================================================
-///
+/// @brief Command feature for create grid case group from files.
 //==================================================================================================
 class RicCreateGridCaseGroupFromFilesFeature : public caf::CmdFeature
 {
@@ -37,7 +39,9 @@ class RicCreateGridCaseGroupFromFilesFeature : public caf::CmdFeature
     }
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show plot data command support.
 
 #include "RicShowPlotDataFeature.h"
 

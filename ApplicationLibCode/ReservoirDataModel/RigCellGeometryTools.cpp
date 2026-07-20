@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for cell geometry.
 
 #include "RigCellGeometryTools.h"
 #include "RigCell.h"
@@ -37,7 +39,7 @@
 /// Efficient Computation of Volume of Hexahedral Cells
 /// Jeffrey Grandy, Lawrence Livermore National Laboratory
 /// https://www.osti.gov/servlets/purl/632793/
-///
+/// Calculates cell volume.
 /// Note that in the paper the following vertex numbering is used
 ///     6---------7
 ///    /|        /|     |k
@@ -47,7 +49,7 @@
 ///  | /       | /
 ///  |/        |/
 ///  0---------1
-///
+/// Calculates cell volume.
 /// While in ResInsight, this is the numbering. Thus we need to swap 2<->3, 6<->7 in the equations.
 /// Note the negative k! This causes an additional set of 0<->4, 1<->5, etc. index swaps.
 ///     7---------6
@@ -161,7 +163,7 @@ bool RigCellGeometryTools::estimateHexOverlapWithBoundingBox( const std::array<c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates polygon from line segments.
 //--------------------------------------------------------------------------------------------------
 void RigCellGeometryTools::createPolygonFromLineSegments( std::list<std::pair<cvf::Vec3d, cvf::Vec3d>>& intersectionLineSegments,
                                                           std::vector<std::vector<cvf::Vec3d>>&         polygons,
@@ -235,7 +237,7 @@ void RigCellGeometryTools::createPolygonFromLineSegments( std::list<std::pair<cv
 }
 
 //==================================================================================================
-///
+/// Finds cell local xyz.
 //==================================================================================================
 void RigCellGeometryTools::findCellLocalXYZ( const std::array<cvf::Vec3d, 8>& hexCorners,
                                              cvf::Vec3d&                      localXdirection,
@@ -294,7 +296,7 @@ void RigCellGeometryTools::findCellLocalXYZ( const std::array<cvf::Vec3d, 8>& he
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the polygon length in local xdir weighted by area.
 //--------------------------------------------------------------------------------------------------
 double RigCellGeometryTools::polygonLengthInLocalXdirWeightedByArea( const std::vector<cvf::Vec3d>& polygonToCalcLengthOf )
 {
@@ -360,8 +362,10 @@ double RigCellGeometryTools::polygonLengthInLocalXdirWeightedByArea( const std::
     return areaWeightedLength;
 }
 
+/// Stores clipper conversion factor.
 double clipperConversionFactor = 10000; // For transform to clipper int
 
+/// Returns or processes to clipper point.
 Clipper2Lib::Point64 toClipperPoint( const cvf::Vec3d& cvfPoint )
 {
     int64_t xInt = cvfPoint.x() * clipperConversionFactor;
@@ -371,6 +375,7 @@ Clipper2Lib::Point64 toClipperPoint( const cvf::Vec3d& cvfPoint )
     return Clipper2Lib::Point64( xInt, yInt, zInt );
 }
 
+/// Returns or processes from clipper point.
 cvf::Vec3d fromClipperPoint( const Clipper2Lib::Point64& clipPoint )
 {
     double zDValue;
@@ -388,7 +393,7 @@ cvf::Vec3d fromClipperPoint( const Clipper2Lib::Point64& clipPoint )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the intersection with polygons.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<cvf::Vec3d>>
     RigCellGeometryTools::intersectionWithPolygons( const std::vector<cvf::Vec3d>&              polygon1,
@@ -435,7 +440,7 @@ std::vector<std::vector<cvf::Vec3d>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the intersection with polygon.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<cvf::Vec3d>> RigCellGeometryTools::intersectionWithPolygon( const std::vector<cvf::Vec3d>& polygon1,
                                                                                     const std::vector<cvf::Vec3d>& polygon2 )
@@ -444,7 +449,7 @@ std::vector<std::vector<cvf::Vec3d>> RigCellGeometryTools::intersectionWithPolyg
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the subtract polygons.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<cvf::Vec3d>> RigCellGeometryTools::subtractPolygons( const std::vector<cvf::Vec3d>& sourcePolygon,
                                                                              const std::vector<std::vector<cvf::Vec3d>>& polygonsToSubtract )
@@ -497,7 +502,7 @@ std::vector<std::vector<cvf::Vec3d>> RigCellGeometryTools::subtractPolygon( cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill interpolated subject z.
 //--------------------------------------------------------------------------------------------------
 void fillInterpolatedSubjectZ( const Clipper2Lib::Point64& e1bot,
                                const Clipper2Lib::Point64& e1top,
@@ -541,7 +546,7 @@ void fillInterpolatedSubjectZ( const Clipper2Lib::Point64& e1bot,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill undefined z.
 //--------------------------------------------------------------------------------------------------
 void fillUndefinedZ( const Clipper2Lib::Point64& e1bot,
                      const Clipper2Lib::Point64& e1top,
@@ -617,7 +622,7 @@ std::vector<std::vector<cvf::Vec3d>> RigCellGeometryTools::clipPolylineByPolygon
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns line through bounding box.
 //--------------------------------------------------------------------------------------------------
 std::pair<cvf::Vec3d, cvf::Vec3d> RigCellGeometryTools::getLineThroughBoundingBox( const cvf::Vec3d&       lineDirection,
                                                                                    const cvf::BoundingBox& polygonBBox,
@@ -651,7 +656,7 @@ std::pair<cvf::Vec3d, cvf::Vec3d> RigCellGeometryTools::getLineThroughBoundingBo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns length of polygon along line.
 //--------------------------------------------------------------------------------------------------
 double RigCellGeometryTools::getLengthOfPolygonAlongLine( const std::pair<cvf::Vec3d, cvf::Vec3d>& line, const std::vector<cvf::Vec3d>& polygon )
 {
@@ -669,7 +674,7 @@ double RigCellGeometryTools::getLengthOfPolygonAlongLine( const std::pair<cvf::V
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the union of polygons.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigCellGeometryTools::unionOfPolygons( const std::vector<std::vector<cvf::Vec3d>>& polygons )
 {
@@ -701,7 +706,7 @@ std::vector<cvf::Vec3d> RigCellGeometryTools::unionOfPolygons( const std::vector
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ajust polygon to avoid intersections at vertex.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d> RigCellGeometryTools::ajustPolygonToAvoidIntersectionsAtVertex( const std::vector<cvf::Vec3d>& polyLine,
                                                                                         const std::vector<cvf::Vec3d>& polygon )
@@ -752,7 +757,7 @@ inline double RigCellGeometryTools::isLeftOfLine2D( const cvf::Vec3d& point1, co
 /// Operates only in the XY plane
 ///      Input:   point = the point to test,
 ///               polygon[] = vertex points of a closed polygon of size n, where polygon[n-1]=polygon[0]
-///
+/// Returns the point inside polygon2 d.
 ///      Return:  true if inside, false if outside)
 /// ref. http://geomalgorithms.com/a03-_inclusion.html
 //--------------------------------------------------------------------------------------------------
@@ -834,10 +839,10 @@ std::pair<bool, cvf::Vec2d>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the line intersects line2 d.
 /// Returns true if the line from a1 to b1 intersects the line from a2 to b2
 /// Operates only in the XY plane
-///
+/// Returns the line intersects line2 d.
 //--------------------------------------------------------------------------------------------------
 bool RigCellGeometryTools::lineIntersectsLine2D( const cvf::Vec3d a1, const cvf::Vec3d b1, const cvf::Vec3d a2, const cvf::Vec3d b2 )
 {
@@ -845,11 +850,11 @@ bool RigCellGeometryTools::lineIntersectsLine2D( const cvf::Vec3d a1, const cvf:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the line intersects polygon2 d.
 /// Returns true if the line from a to b intersects the closed, simple polygon defined by the corner
 /// points in the input polygon vector, otherwise false
 /// Operates only in the XY plane
-///
+/// Returns the line intersects polygon2 d.
 //--------------------------------------------------------------------------------------------------
 bool RigCellGeometryTools::lineIntersectsPolygon2D( const cvf::Vec3d a, const cvf::Vec3d b, const std::vector<cvf::Vec3d>& polygon )
 {
@@ -864,10 +869,10 @@ bool RigCellGeometryTools::lineIntersectsPolygon2D( const cvf::Vec3d a, const cv
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the polyline intersects cell neg k2 d.
 /// Returns true if the polyline intersects the simple polygon defined by the NEGK face corners of the input cell
 /// Operates only in the XY plane
-///
+/// Returns the polyline intersects cell neg k2 d.
 //--------------------------------------------------------------------------------------------------
 bool RigCellGeometryTools::polylineIntersectsCellNegK2D( const std::vector<cvf::Vec3d>& polyline, const std::array<cvf::Vec3d, 8>& cellCorners )
 {

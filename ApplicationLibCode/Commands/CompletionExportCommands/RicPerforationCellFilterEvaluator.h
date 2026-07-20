@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares perforation cell filter evaluator command support.
 
 #pragma once
 
@@ -28,21 +30,21 @@ class RimCellFilter;
 class RimEclipseCase;
 
 //==================================================================================================
-///
 /// Adapter that evaluates a single RimCellFilter against global Eclipse cell indices on behalf of
 /// the COMPDAT and MSW perforation exporters. Per-grid visibility masks are built lazily and
 /// cached, so repeated lookups inside a per-cell loop are a single byte test.
-///
 //==================================================================================================
 class RicPerforationCellFilterEvaluator
 {
 public:
+    /// Constructs the command object.
     RicPerforationCellFilterEvaluator( RimCellFilter* filter, const RimEclipseCase* eclipseCase );
 
     // True if a non-null, active and enabled filter is attached. When false, includesGlobalCell()
     // always returns true and callers can skip the per-cell test entirely.
     bool isEnabled() const;
 
+    /// @return The includes global cell.
     bool includesGlobalCell( size_t globalCellIndex ) const;
 
     // Number of cells rejected by includesGlobalCell() since construction. Used by callers to
@@ -50,6 +52,7 @@ public:
     size_t rejectedCellCount() const;
 
 private:
+    /// @return The mask for grid.
     const cvf::UByteArray* maskForGrid( int gridIndex ) const;
 
     RimCellFilter*        m_filter;

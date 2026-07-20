@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create ensemble surface command support.
 
 #pragma once
 
@@ -27,27 +29,36 @@
 class RigEclipseCaseData;
 
 //==================================================================================================
-///
+/// @brief UI model for configuring create ensemble surface.
 //==================================================================================================
 class RicCreateEnsembleSurfaceUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicCreateEnsembleSurfaceUi();
+    /// Destroys the command object.
     ~RicCreateEnsembleSurfaceUi() override;
+    /// @return The tab names.
     const QStringList& tabNames() const;
 
+    /// Sets layers min max.
     void setLayersMinMax( int minLayer, int maxLayer );
 
+    /// @return The layers.
     std::vector<int> layers() const;
 
+    /// @return The auto create ensemble surfaces.
     bool autoCreateEnsembleSurfaces() const;
 
 protected:
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
     caf::PdmField<std::vector<int>> m_layers;

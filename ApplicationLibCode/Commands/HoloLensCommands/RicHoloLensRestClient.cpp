@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements holo lens rest client command support.
 
 #include "RicHoloLensRestClient.h"
 

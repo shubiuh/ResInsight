@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares eclipse native stat calc reservoir-data functionality.
 
 #pragma once
 
@@ -32,6 +34,7 @@ class RigHistogramCalculator;
 ///
 //==================================================================================================
 
+/// @brief Models eclipse native stat calc for reservoir-data processing.
 class RigEclipseNativeStatCalc : public RigStatisticsCalculator
 {
 public:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares storage and handling of msw table data.
 
 #pragma once
 
@@ -27,17 +29,24 @@
 //==================================================================================================
 /// Container class for MSW table data for a single well
 //==================================================================================================
+/// @brief Stores msw table data.
 class RigMswTableData
 {
 public:
     RigMswTableData( const std::string& wellName, RiaDefines::EclipseUnitSystem unitSystem );
 
     // Data access
+    /// Returns or processes welsegs header.
     const WelsegsHeader&            welsegsHeader() const { return m_welsegsHeader; }
+    /// Returns or processes welsegs data.
     const std::vector<WelsegsRow>&  welsegsData() const { return m_welsegsData; }
+    /// Returns or processes compsegs data.
     const std::vector<CompsegsRow>& compsegsData() const { return m_compsegsData; }
+    /// Returns or processes wsegvalv data.
     const std::vector<WsegvalvRow>& wsegvalvData() const { return m_wsegvalvData; }
+    /// Returns or processes wsegaicd data.
     const std::vector<WsegaicdRow>& wsegaicdData() const { return m_wsegaicdData; }
+    /// Returns or processes wsegsicd data.
     const std::vector<WsegsicdRow>& wsegsicdData() const { return m_wsegsicdData; }
 
     // Data modification
@@ -53,16 +62,23 @@ public:
     const std::vector<RigMswBranch>& mswBranches() const;
 
     // Metadata
+    /// Returns or processes well name.
     std::string                   wellName() const { return m_wellName; }
+    /// Returns or processes unit system.
     RiaDefines::EclipseUnitSystem unitSystem() const { return m_unitSystem; }
 
     // Data analysis
     bool hasLgrData() const;
     bool isEmpty() const;
+    /// Returns whether welsegs data is available.
     bool hasWelsegsData() const { return !m_welsegsData.empty(); }
+    /// Returns whether compsegs data is available.
     bool hasCompsegsData() const { return !m_compsegsData.empty(); }
+    /// Returns whether wsegvalv data is available.
     bool hasWsegvalvData() const { return !m_wsegvalvData.empty(); }
+    /// Returns whether wsegaicd data is available.
     bool hasWsegaicdData() const { return !m_wsegaicdData.empty(); }
+    /// Returns whether wsegsicd data is available.
     bool hasWsegsicdData() const { return !m_wsegsicdData.empty(); }
 
     // Filtering for LGR data

@@ -15,11 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements no refinement reservoir-data functionality.
 
 #include "RigNoRefinement.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigNoRefinement instance.
 //--------------------------------------------------------------------------------------------------
 RigNoRefinement::RigNoRefinement( const cvf::Vec3st& sectorSize )
     : m_sectorSize( sectorSize )
@@ -27,7 +29,7 @@ RigNoRefinement::RigNoRefinement( const cvf::Vec3st& sectorSize )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the clone.
 //--------------------------------------------------------------------------------------------------
 std::unique_ptr<RigRefinement> RigNoRefinement::clone() const
 {
@@ -35,7 +37,7 @@ std::unique_ptr<RigRefinement> RigNoRefinement::clone() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the subcell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigNoRefinement::subcellCount( Dimension /*dim*/, size_t /*origIndex*/ ) const
 {
@@ -43,7 +45,7 @@ size_t RigNoRefinement::subcellCount( Dimension /*dim*/, size_t /*origIndex*/ ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cumulative offset.
 //--------------------------------------------------------------------------------------------------
 size_t RigNoRefinement::cumulativeOffset( Dimension dim, size_t origIndex ) const
 {
@@ -52,7 +54,7 @@ size_t RigNoRefinement::cumulativeOffset( Dimension dim, size_t origIndex ) cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total refined count.
 //--------------------------------------------------------------------------------------------------
 size_t RigNoRefinement::totalRefinedCount( Dimension dim ) const
 {
@@ -60,7 +62,7 @@ size_t RigNoRefinement::totalRefinedCount( Dimension dim ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map refined to original.
 //--------------------------------------------------------------------------------------------------
 std::pair<size_t, size_t> RigNoRefinement::mapRefinedToOriginal( Dimension dim, size_t refinedIndex ) const
 {
@@ -69,7 +71,7 @@ std::pair<size_t, size_t> RigNoRefinement::mapRefinedToOriginal( Dimension dim, 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cumulative fractions.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigNoRefinement::cumulativeFractions( Dimension /*dim*/, size_t /*origIndex*/ ) const
 {
@@ -78,7 +80,7 @@ const std::vector<double>& RigNoRefinement::cumulativeFractions( Dimension /*dim
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sector size.
 //--------------------------------------------------------------------------------------------------
 size_t RigNoRefinement::sectorSize( Dimension dim ) const
 {
@@ -86,7 +88,7 @@ size_t RigNoRefinement::sectorSize( Dimension dim ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether refinement is available.
 //--------------------------------------------------------------------------------------------------
 bool RigNoRefinement::hasRefinement() const
 {

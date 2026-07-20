@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements summary case restart command support.
 
 #include "RicSummaryCaseRestartDialog.h"
 #include "ExportCommands/RicSnapshotFilenameGenerator.h"

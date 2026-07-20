@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares paste ensemble curve set command support.
 
 #pragma once
 
@@ -27,18 +29,23 @@ class RimEnsembleCurveSet;
 class RimEnsembleCurveSetCollection;
 
 //==================================================================================================
-///
+/// @brief Command feature for paste ensemble curve set.
 //==================================================================================================
 class RicPasteEnsembleCurveSetFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 private:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Copies curve set and add to collection.
     static RimEnsembleCurveSet* copyCurveSetAndAddToCollection( RimEnsembleCurveSetCollection* coll, const RimEnsembleCurveSet* sourceCurveSet );
 
+    /// @return The ensemble curve sets on clipboard.
     static std::vector<caf::PdmPointer<RimEnsembleCurveSet>> ensembleCurveSetsOnClipboard();
 };

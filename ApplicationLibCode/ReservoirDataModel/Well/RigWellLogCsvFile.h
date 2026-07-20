@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well log csv file reservoir-data functionality.
 
 #pragma once
 
@@ -32,6 +34,7 @@ class RigWellPath;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models well log csv file for reservoir-data processing.
 class RigWellLogCsvFile : public RigWellLogData
 {
 public:
@@ -49,6 +52,7 @@ public:
     std::vector<double> values( const QString& name ) const override;
 
     QString                   wellLogChannelUnitString( const QString& wellLogChannelName ) const override;
+    /// Returns or processes depth unit.
     RiaDefines::DepthUnitType depthUnit() const;
 
     bool hasTvdMslChannel() const override;

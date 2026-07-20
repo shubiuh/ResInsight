@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares save Eclipse input visible cells command support.
 
 #pragma once
 
@@ -24,7 +26,7 @@
 #include "cafPdmObject.h"
 
 //==================================================================================================
-///
+/// @brief UI model for configuring save Eclipse input visible cells.
 //==================================================================================================
 class RicSaveEclipseInputVisibleCellsUi : public caf::PdmObject
 {
@@ -42,7 +44,9 @@ public:
     using ExportKeywordEnum = caf::AppEnum<ExportKeyword>;
 
 public:
+    /// Constructs the command object.
     RicSaveEclipseInputVisibleCellsUi();
+    /// Destroys the command object.
     ~RicSaveEclipseInputVisibleCellsUi() override;
 
     caf::PdmField<QString>           exportFilename;
@@ -53,11 +57,15 @@ public:
     caf::PdmField<bool>              writeEchoInGrdeclFiles;
 
 protected:
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
 
 private:
+    /// @return The default export path.
     QString getDefaultExportPath() const;
 
 private:

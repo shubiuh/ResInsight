@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements copy intersections to all views in case command support.
 
 #include "RicCopyIntersectionsToAllViewsInCaseFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares surface reservoir-data functionality.
 #pragma once
 
 #include "cvfObject.h"
@@ -31,6 +33,7 @@ class BoundingBox;
 class BoundingBoxTree;
 } // namespace cvf
 
+/// @brief Models surface for reservoir-data processing.
 class RigSurface : public cvf::Object
 {
 public:

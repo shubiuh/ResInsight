@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares basic polygon command support.
 
 #pragma once
 
@@ -25,15 +27,18 @@
 class RimPolygon;
 
 //==================================================================================================
-///
+/// @brief Command feature for basic polygon.
 //==================================================================================================
 class RicBasicPolygonFeature : public caf::CmdFeature
 {
 public:
+    /// Constructs the command object.
     RicBasicPolygonFeature( bool multiSelectSupported );
 
 protected:
+    /// @return The selected polygons.
     std::vector<RimPolygon*> selectedPolygons() const;
+    /// @return Whether the command is available for the current selection.
     bool                     isCommandEnabled() const override;
 
 private:

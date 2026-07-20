@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares basic plane reservoir-data functionality.
 
 #pragma once
 
@@ -36,6 +38,7 @@ class TextureImage;
 ///
 ///
 //==================================================================================================
+/// @brief Models basic plane for reservoir-data processing.
 class RigBasicPlane : public cvf::Object
 {
 public:

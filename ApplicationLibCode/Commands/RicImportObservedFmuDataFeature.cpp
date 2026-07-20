@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import observed fmu data command support.
 
 #include "RicImportObservedFmuDataFeature.h"
 

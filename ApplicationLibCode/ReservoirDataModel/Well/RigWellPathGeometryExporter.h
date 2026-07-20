@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export of well path geometry exporter.
 
 #pragma once
 
@@ -26,6 +28,7 @@ class RigWellPath;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Exports well path geometry exporter.
 class RigWellPathGeometryExporter
 {
 public:

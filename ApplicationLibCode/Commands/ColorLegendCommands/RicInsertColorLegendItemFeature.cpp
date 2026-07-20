@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements insert color legend item command support.
 
 #include "RicInsertColorLegendItemFeature.h"
 

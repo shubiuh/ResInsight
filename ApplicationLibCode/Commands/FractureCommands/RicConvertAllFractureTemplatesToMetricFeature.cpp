@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements convert all fracture templates to metric command support.
 
 #include "RicConvertAllFractureTemplatesToMetricFeature.h"
 

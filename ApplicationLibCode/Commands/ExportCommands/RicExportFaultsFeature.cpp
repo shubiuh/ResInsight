@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export faults command support.
 
 #include "RicExportFaultsFeature.h"
 

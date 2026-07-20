@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements recursive file search command support.
 
 #include "RicRecursiveFileSearchDialog.h"
 

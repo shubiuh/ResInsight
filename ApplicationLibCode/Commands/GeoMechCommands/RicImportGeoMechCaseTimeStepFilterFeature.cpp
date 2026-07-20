@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import geo mech case time step filter command support.
 
 #include "RicImportGeoMechCaseTimeStepFilterFeature.h"
 

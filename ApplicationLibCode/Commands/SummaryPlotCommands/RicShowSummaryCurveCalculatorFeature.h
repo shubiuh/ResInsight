@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares show summary curve calculator command support.
 
 #pragma once
 
@@ -23,17 +25,21 @@
 class RicSummaryCurveCalculatorDialog;
 
 //==================================================================================================
-///
+/// @brief Command feature for show summary curve calculator.
 //==================================================================================================
 class RicShowSummaryCurveCalculatorFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// @return The curve calculator.
     static RicSummaryCurveCalculatorDialog* curveCalculatorDialog( bool createIfNotPresent );
+    /// Performs the hide curve calculator command operation.
     static void                             hideCurveCalculatorDialog();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

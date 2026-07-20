@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements link well path command support.
 
 #include "RicLinkWellPathFeature.h"
 

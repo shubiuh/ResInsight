@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements export LGR command support.
 
 #include "RicExportLgrFeature.h"
 

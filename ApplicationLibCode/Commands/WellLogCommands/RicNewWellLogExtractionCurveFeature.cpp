@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well log extraction curve command support.
 
 #include "RicNewWellLogExtractionCurveFeature.h"
 

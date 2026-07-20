@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares simulation input tool reservoir-data functionality.
 
 #pragma once
 
@@ -55,24 +57,33 @@ class DeckKeyword;
 /// Tool for exporting simulation input files (sector models)
 ///
 //==================================================================================================
+/// @brief Models simulation input tool for reservoir-data processing.
 class RigSimulationInputTool
 {
 public:
     // Data structures for NNC export
 
     /// Raw NNC connection with global cell indices
+    /// @brief Models nnc connection for reservoir-data processing.
     struct NNCConnection
     {
+        /// Stores c1 glob idx.
         size_t c1GlobIdx; // Global cell index for cell 1
+        /// Stores c2 glob idx.
         size_t c2GlobIdx; // Global cell index for cell 2
+        /// Stores transmissibility.
         double transmissibility; // Transmissibility value
     };
 
     /// Transformed NNC connection with sector-relative 0-based IJK coordinates
+    /// @brief Models transformed nnc connection for reservoir-data processing.
     struct TransformedNNCConnection
     {
+        /// Stores cell1.
         caf::VecIjk0 cell1            = caf::VecIjk0::ZERO; // 0-based sector IJK for cell 1
+        /// Stores cell2.
         caf::VecIjk0 cell2            = caf::VecIjk0::ZERO; // 0-based sector IJK for cell 2
+        /// Stores transmissibility.
         double       transmissibility = 0.0; // Transmissibility value
     };
 
@@ -124,6 +135,7 @@ public:
                                                                                      const RigRefinement& refinement );
 
     // Generic helper for processing keywords with box indices
+    /// Type alias used for record processor func.
     using RecordProcessorFunc =
         std::function<std::expected<Opm::DeckRecord, QString>( const Opm::DeckRecord&, const caf::VecIjk0&, const caf::VecIjk0&, const RigRefinement& )>;
 

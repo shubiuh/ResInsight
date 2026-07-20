@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements flow diag results reservoir-data functionality.
 
 #include "RigFlowDiagResults.h"
 
@@ -50,7 +52,7 @@ void RigFlowDiagResults::CellFilterEnum::setUp()
 } // namespace caf
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFlowDiagResults instance.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagResults::RigFlowDiagResults( RimFlowDiagSolution* flowSolution, size_t timeStepCount )
     : m_flowDiagSolution( flowSolution )
@@ -61,7 +63,7 @@ RigFlowDiagResults::RigFlowDiagResults( RimFlowDiagSolution* flowSolution, size_
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result values.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigFlowDiagResults::resultValues( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -71,7 +73,7 @@ const std::vector<double>* RigFlowDiagResults::resultValues( const RigFlowDiagRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active cell info.
 //--------------------------------------------------------------------------------------------------
 const RigActiveCellInfo* RigFlowDiagResults::activeCellInfo( const RigFlowDiagResultAddress& resVarAddr )
 {
@@ -82,7 +84,7 @@ const RigActiveCellInfo* RigFlowDiagResults::activeCellInfo( const RigFlowDiagRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds or calculate result.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>* RigFlowDiagResults::findOrCalculateResult( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -104,7 +106,7 @@ const std::vector<double>* RigFlowDiagResults::findOrCalculateResult( const RigF
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates native results if not previously attempted.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::calculateNativeResultsIfNotPreviouslyAttempted( size_t                                   timeStepIndex,
                                                                          RigFlowDiagResultAddress::PhaseSelection phaseSelection )
@@ -137,7 +139,7 @@ void RigFlowDiagResults::calculateNativeResultsIfNotPreviouslyAttempted( size_t 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds scalar result frame.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigFlowDiagResults::findScalarResultFrame( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -152,7 +154,7 @@ std::vector<double>* RigFlowDiagResults::findScalarResultFrame( const RigFlowDia
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the solver interface.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagSolverInterface* RigFlowDiagResults::solverInterface()
 {
@@ -162,7 +164,7 @@ RigFlowDiagSolverInterface* RigFlowDiagResults::solverInterface()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates scalar result.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagResultFrames* RigFlowDiagResults::createScalarResult( const RigFlowDiagResultAddress& resVarAddr )
 {
@@ -172,7 +174,7 @@ RigFlowDiagResultFrames* RigFlowDiagResults::createScalarResult( const RigFlowDi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds scalar result.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagResultFrames* RigFlowDiagResults::findScalarResult( const RigFlowDiagResultAddress& resVarAddr )
 {
@@ -184,7 +186,7 @@ RigFlowDiagResultFrames* RigFlowDiagResults::findScalarResult( const RigFlowDiag
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates derived result.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigFlowDiagResults::calculateDerivedResult( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -218,7 +220,7 @@ std::vector<double>* RigFlowDiagResults::calculateDerivedResult( const RigFlowDi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates average tof result.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigFlowDiagResults::calculateAverageTOFResult( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -277,7 +279,7 @@ std::vector<double>* RigFlowDiagResults::calculateAverageTOFResult( const RigFlo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates sum of fraction and fraction mult tof.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::calculateSumOfFractionAndFractionMultTOF( size_t                                         activeCellCount,
                                                                    const std::vector<const std::vector<double>*>& fractions,
@@ -306,7 +308,7 @@ void RigFlowDiagResults::calculateSumOfFractionAndFractionMultTOF( size_t       
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates sum of fractions result.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigFlowDiagResults::calculateSumOfFractionsResult( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -327,7 +329,7 @@ std::vector<double>* RigFlowDiagResults::calculateSumOfFractionsResult( const Ri
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates tracer with max fraction result.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigFlowDiagResults::calculateTracerWithMaxFractionResult( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -394,7 +396,7 @@ std::vector<double>* RigFlowDiagResults::calculateTracerWithMaxFractionResult( c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates communication result.
 //--------------------------------------------------------------------------------------------------
 std::vector<double>* RigFlowDiagResults::calculateCommunicationResult( const RigFlowDiagResultAddress& resVarAddr, size_t timeStepIndex )
 {
@@ -432,7 +434,7 @@ std::vector<double>* RigFlowDiagResults::calculateCommunicationResult( const Rig
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates num flooded pv.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::calculateNumFloodedPV( const RigFlowDiagResultAddress& resVarAddr )
 {
@@ -454,7 +456,7 @@ void RigFlowDiagResults::calculateNumFloodedPV( const RigFlowDiagResultAddress& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds results for selected tracers.
 //--------------------------------------------------------------------------------------------------
 std::vector<const std::vector<double>*> RigFlowDiagResults::findResultsForSelectedTracers( const RigFlowDiagResultAddress& resVarAddr,
                                                                                            size_t                          timeStepIndex,
@@ -480,7 +482,7 @@ std::vector<const std::vector<double>*> RigFlowDiagResults::findResultsForSelect
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds named results for selected tracers.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<std::string, const std::vector<double>*>>
     RigFlowDiagResults::findNamedResultsForSelectedTracers( const RigFlowDiagResultAddress&       resVarAddr,
@@ -509,7 +511,7 @@ std::vector<std::pair<std::string, const std::vector<double>*>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the statistics.
 //--------------------------------------------------------------------------------------------------
 RigStatisticsDataCache* RigFlowDiagResults::statistics( const RigFlowDiagResultAddress& resVarAddr )
 {
@@ -522,7 +524,7 @@ RigStatisticsDataCache* RigFlowDiagResults::statistics( const RigFlowDiagResultA
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates sum of fractions.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::calculateSumOfFractions( const std::vector<const std::vector<double>*>& fractions,
                                                   size_t                                         activeCellCount,
@@ -548,7 +550,7 @@ void RigFlowDiagResults::calculateSumOfFractions( const std::vector<const std::v
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::minMaxScalarValues( const RigFlowDiagResultAddress& resVarAddr, int timeStepIndex, double* localMin, double* localMax )
 {
@@ -556,7 +558,7 @@ void RigFlowDiagResults::minMaxScalarValues( const RigFlowDiagResultAddress& res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::minMaxScalarValues( const RigFlowDiagResultAddress& resVarAddr, double* globalMin, double* globalMax )
 {
@@ -564,7 +566,7 @@ void RigFlowDiagResults::minMaxScalarValues( const RigFlowDiagResultAddress& res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::posNegClosestToZero( const RigFlowDiagResultAddress& resVarAddr,
                                               int                             timeStepIndex,
@@ -575,7 +577,7 @@ void RigFlowDiagResults::posNegClosestToZero( const RigFlowDiagResultAddress& re
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the pos neg closest to zero.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::posNegClosestToZero( const RigFlowDiagResultAddress& resVarAddr,
                                               double*                         globalPosClosestToZero,
@@ -585,7 +587,7 @@ void RigFlowDiagResults::posNegClosestToZero( const RigFlowDiagResultAddress& re
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mean scalar value.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::meanScalarValue( const RigFlowDiagResultAddress& resVarAddr, double* meanValue )
 {
@@ -595,7 +597,7 @@ void RigFlowDiagResults::meanScalarValue( const RigFlowDiagResultAddress& resVar
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mean scalar value.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::meanScalarValue( const RigFlowDiagResultAddress& resVarAddr, int timeStepIndex, double* meanValue )
 {
@@ -603,7 +605,7 @@ void RigFlowDiagResults::meanScalarValue( const RigFlowDiagResultAddress& resVar
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the p10p90 scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::p10p90ScalarValues( const RigFlowDiagResultAddress& resVarAddr, double* p10, double* p90 )
 {
@@ -611,7 +613,7 @@ void RigFlowDiagResults::p10p90ScalarValues( const RigFlowDiagResultAddress& res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the p10p90 scalar values.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::p10p90ScalarValues( const RigFlowDiagResultAddress& resVarAddr, int timeStepIndex, double* p10, double* p90 )
 {
@@ -619,7 +621,7 @@ void RigFlowDiagResults::p10p90ScalarValues( const RigFlowDiagResultAddress& res
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sum scalar value.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::sumScalarValue( const RigFlowDiagResultAddress& resVarAddr, double* sum )
 {
@@ -629,7 +631,7 @@ void RigFlowDiagResults::sumScalarValue( const RigFlowDiagResultAddress& resVarA
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sum scalar value.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::sumScalarValue( const RigFlowDiagResultAddress& resVarAddr, int timeStepIndex, double* sum )
 {
@@ -639,7 +641,7 @@ void RigFlowDiagResults::sumScalarValue( const RigFlowDiagResultAddress& resVarA
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the scalar values histogram.
 //--------------------------------------------------------------------------------------------------
 const std::vector<size_t>& RigFlowDiagResults::scalarValuesHistogram( const RigFlowDiagResultAddress& resVarAddr )
 {
@@ -647,7 +649,7 @@ const std::vector<size_t>& RigFlowDiagResults::scalarValuesHistogram( const RigF
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the scalar values histogram.
 //--------------------------------------------------------------------------------------------------
 const std::vector<size_t>& RigFlowDiagResults::scalarValuesHistogram( const RigFlowDiagResultAddress& resVarAddr, int timeStepIndex )
 {
@@ -655,7 +657,7 @@ const std::vector<size_t>& RigFlowDiagResults::scalarValuesHistogram( const RigF
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique cell scalar values.
 //--------------------------------------------------------------------------------------------------
 const std::vector<int>& RigFlowDiagResults::uniqueCellScalarValues( const RigFlowDiagResultAddress& resVarAddr )
 {
@@ -663,7 +665,7 @@ const std::vector<int>& RigFlowDiagResults::uniqueCellScalarValues( const RigFlo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the unique cell scalar values.
 //--------------------------------------------------------------------------------------------------
 const std::vector<int>& RigFlowDiagResults::uniqueCellScalarValues( const RigFlowDiagResultAddress& resVarAddr, int timeStepIndex )
 {
@@ -671,7 +673,7 @@ const std::vector<int>& RigFlowDiagResults::uniqueCellScalarValues( const RigFlo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::mobileVolumeWeightedMean( const RigFlowDiagResultAddress& resVarAddr, int timeStepIndex, double* mean )
 {
@@ -679,7 +681,7 @@ void RigFlowDiagResults::mobileVolumeWeightedMean( const RigFlowDiagResultAddres
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mobile volume weighted mean.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::mobileVolumeWeightedMean( const RigFlowDiagResultAddress& resVarAddr, double* mean )
 {
@@ -687,7 +689,7 @@ void RigFlowDiagResults::mobileVolumeWeightedMean( const RigFlowDiagResultAddres
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the injector producer pair fluxes.
 //--------------------------------------------------------------------------------------------------
 std::pair<double, double>
     RigFlowDiagResults::injectorProducerPairFluxes( const std::string& injTracername, const std::string& prodTracerName, int timeStepIndex )
@@ -707,7 +709,7 @@ std::pair<double, double>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max abs pair flux.
 //--------------------------------------------------------------------------------------------------
 double RigFlowDiagResults::maxAbsPairFlux( int timeStepIndex )
 {
@@ -727,7 +729,7 @@ double RigFlowDiagResults::maxAbsPairFlux( int timeStepIndex )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates calculated time steps.
 //--------------------------------------------------------------------------------------------------
 std::vector<int> RigFlowDiagResults::calculatedTimeSteps( RigFlowDiagResultAddress::PhaseSelection phaseSelection )
 {
@@ -745,7 +747,7 @@ std::vector<int> RigFlowDiagResults::calculatedTimeSteps( RigFlowDiagResultAddre
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the flow characteristics results.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagDefines::FlowCharacteristicsResultFrame RigFlowDiagResults::flowCharacteristicsResults( int        timeStepIndex,
                                                                                                    CellFilter cellSelection,
@@ -864,7 +866,7 @@ RigFlowDiagDefines::FlowCharacteristicsResultFrame RigFlowDiagResults::flowChara
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the flow characteristics results.
 //--------------------------------------------------------------------------------------------------
 RigFlowDiagDefines::FlowCharacteristicsResultFrame
     RigFlowDiagResults::flowCharacteristicsResults( int timeStepIndex, const std::vector<char>& visibleActiveCells, double max_pv_fraction )
@@ -915,7 +917,7 @@ RigFlowDiagDefines::FlowCharacteristicsResultFrame
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the flow diag solution.
 //--------------------------------------------------------------------------------------------------
 RimFlowDiagSolution* RigFlowDiagResults::flowDiagSolution()
 {
@@ -925,7 +927,7 @@ RimFlowDiagSolution* RigFlowDiagResults::flowDiagSolution()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets statistics data cache num bins.
 //--------------------------------------------------------------------------------------------------
 void RigFlowDiagResults::setStatisticsDataCacheNumBins( const RigFlowDiagResultAddress& resVarAddr, size_t numBins )
 {

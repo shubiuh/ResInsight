@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements thermal fracture result util reservoir-data functionality.
 
 #include "RigThermalFractureResultUtil.h"
 
@@ -36,21 +38,21 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigThermalFractureResultUtil instance.
 //--------------------------------------------------------------------------------------------------
 RigThermalFractureResultUtil::RigThermalFractureResultUtil()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigThermalFractureResultUtil instance.
 //--------------------------------------------------------------------------------------------------
 RigThermalFractureResultUtil::~RigThermalFractureResultUtil()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns data at time index.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<double>>
     RigThermalFractureResultUtil::getDataAtTimeIndex( std::shared_ptr<const RigThermalFractureDefinition> fractureDefinition,
@@ -108,7 +110,7 @@ std::vector<std::vector<double>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates fracture triangle geometry.
 //--------------------------------------------------------------------------------------------------
 void RigThermalFractureResultUtil::createFractureTriangleGeometry( std::shared_ptr<const RigThermalFractureDefinition> fractureDefinition,
                                                                    int                                                 activeTimeStepIndex,
@@ -174,7 +176,7 @@ void RigThermalFractureResultUtil::createFractureTriangleGeometry( std::shared_p
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fracture grid results.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigThermalFractureResultUtil::fractureGridResults( std::shared_ptr<const RigThermalFractureDefinition> fractureDefinition,
                                                                        const QString& resultName,
@@ -204,7 +206,7 @@ std::vector<double> RigThermalFractureResultUtil::fractureGridResults( std::shar
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates fracture grid.
 //--------------------------------------------------------------------------------------------------
 cvf::cref<RigFractureGrid>
     RigThermalFractureResultUtil::createFractureGrid( std::shared_ptr<const RigThermalFractureDefinition> fractureDefinition,
@@ -386,7 +388,7 @@ double RigThermalFractureResultUtil::linearSampling( double minValue, double max
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the scale vector.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigThermalFractureResultUtil::scaleVector( const std::vector<double>& xs, double scaleFactor )
 {
@@ -403,7 +405,7 @@ std::vector<double> RigThermalFractureResultUtil::scaleVector( const std::vector
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the adjusted y coords around well path position.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigThermalFractureResultUtil::adjustedYCoordsAroundWellPathPosition( const std::vector<double>& ys, double offset )
 {
@@ -415,7 +417,7 @@ std::vector<double> RigThermalFractureResultUtil::adjustedYCoordsAroundWellPathP
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends data to result statistics.
 //--------------------------------------------------------------------------------------------------
 void RigThermalFractureResultUtil::appendDataToResultStatistics( std::shared_ptr<const RigThermalFractureDefinition> fractureDefinition,
                                                                  const QString&                                      resultName,
@@ -439,7 +441,7 @@ void RigThermalFractureResultUtil::appendDataToResultStatistics( std::shared_ptr
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns relative coordinates.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d>
     RigThermalFractureResultUtil::getRelativeCoordinates( std::shared_ptr<const RigThermalFractureDefinition> fractureDefinition,
@@ -519,7 +521,7 @@ std::vector<cvf::Vec3d>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes position and rotation.
 //--------------------------------------------------------------------------------------------------
 std::pair<cvf::Vec3d, cvf::Vec3d>
     RigThermalFractureResultUtil::computePositionAndRotation( std::shared_ptr<const RigThermalFractureDefinition> fractureDefinition,
@@ -559,7 +561,7 @@ std::pair<cvf::Vec3d, cvf::Vec3d>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the interpolate property.
 //--------------------------------------------------------------------------------------------------
 double RigThermalFractureResultUtil::interpolateProperty( const cvf::Vec3d&                                   position,
                                                           const std::vector<cvf::Vec3d>&                      points,
@@ -595,7 +597,7 @@ double RigThermalFractureResultUtil::interpolateProperty( const cvf::Vec3d&     
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min max depth.
 //--------------------------------------------------------------------------------------------------
 std::pair<double, double> RigThermalFractureResultUtil::minMaxDepth( std::shared_ptr<const RigThermalFractureDefinition> fractureDefinition,
                                                                      int activeTimeStepIndex )

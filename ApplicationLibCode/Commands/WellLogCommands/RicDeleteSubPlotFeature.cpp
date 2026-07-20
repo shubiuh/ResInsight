@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete sub plot command support.
 
 #include "RicDeleteSubPlotFeature.h"
 #include "RicWellLogPlotCurveFeatureImpl.h"

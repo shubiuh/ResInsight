@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements grid manager reservoir-data functionality.
 
 #include "RigGridManager.h"
 
@@ -22,7 +24,7 @@
 #include "RigMainGrid.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds case.
 //--------------------------------------------------------------------------------------------------
 void RigGridManager::addCase( RigEclipseCaseData* eclipseCase )
 {
@@ -31,7 +33,7 @@ void RigGridManager::addCase( RigEclipseCaseData* eclipseCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Removes case.
 //--------------------------------------------------------------------------------------------------
 void RigGridManager::removeCase( RigEclipseCaseData* eclipseCase )
 {
@@ -46,7 +48,7 @@ void RigGridManager::removeCase( RigEclipseCaseData* eclipseCase )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds equal grid.
 //--------------------------------------------------------------------------------------------------
 RigMainGrid* RigGridManager::findEqualGrid( RigMainGrid* candidateGrid )
 {
@@ -62,7 +64,7 @@ RigMainGrid* RigGridManager::findEqualGrid( RigMainGrid* candidateGrid )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether equal.
 //--------------------------------------------------------------------------------------------------
 bool RigGridManager::isEqual( RigMainGrid* gridA, RigMainGrid* gridB )
 {
@@ -86,7 +88,7 @@ bool RigGridManager::isEqual( RigMainGrid* gridA, RigMainGrid* gridB )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears the stored data.
 //--------------------------------------------------------------------------------------------------
 void RigGridManager::clear()
 {
@@ -94,7 +96,7 @@ void RigGridManager::clear()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether grid dimensions equal.
 //--------------------------------------------------------------------------------------------------
 bool RigGridManager::isGridDimensionsEqual( const std::vector<std::vector<int>>& mainCaseGridDimensions,
                                             const std::vector<std::vector<int>>& caseGridDimensions )
@@ -118,7 +120,7 @@ bool RigGridManager::isGridDimensionsEqual( const std::vector<std::vector<int>>&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether main grid dimensions equal.
 //--------------------------------------------------------------------------------------------------
 bool RigGridManager::isMainGridDimensionsEqual( const RigMainGrid* gridA, const RigMainGrid* gridB )
 {
@@ -134,7 +136,7 @@ bool RigGridManager::isMainGridDimensionsEqual( const RigMainGrid* gridA, const 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a CaseToGridMap instance.
 //--------------------------------------------------------------------------------------------------
 RigGridManager::CaseToGridMap::CaseToGridMap( RigEclipseCaseData* eclipseCase, RigMainGrid* mainGrid )
     : m_eclipseCase( eclipseCase )

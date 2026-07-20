@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new azimuth dip intersection command support.
 
 #include "RicNewAzimuthDipIntersectionFeature.h"
 

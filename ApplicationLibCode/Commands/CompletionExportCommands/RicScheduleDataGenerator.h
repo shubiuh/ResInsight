@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares schedule data generator command support.
 
 #pragma once
 
@@ -31,15 +33,14 @@ class RimWellPath;
 class RimWellEvent;
 class RimWellEventTimeline;
 
+/// @brief Utilities for OPM command workflows.
 namespace Opm
 {
 class DeckKeyword;
 } // namespace Opm
 
 //==================================================================================================
-///
 /// Generator for Eclipse schedule data based on well events
-///
 //==================================================================================================
 class RicScheduleDataGenerator
 {
@@ -75,6 +76,7 @@ private:
                                         bool                                dateAsComment = false,
                                         bool                                alignColumns  = false );
 
+    /// @return The generate welspecs for well.
     static std::optional<Opm::DeckKeyword>
         generateWelspecsForWell( const RimWellEventTimeline& timeline, RimEclipseCase& eclipseCase, RimWellPath& well, const QDateTime& date );
 

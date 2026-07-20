@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new polyline target command support.
 #include "RicNewPolylineTargetFeature.h"
 
 CAF_CMD_SOURCE_INIT( RicNewPolylineTargetFeature, "RicNewPolylineTargetFeature" );

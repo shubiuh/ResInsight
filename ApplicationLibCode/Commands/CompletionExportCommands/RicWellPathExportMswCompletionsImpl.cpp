@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements well path export MSW completions command support.
 
 #include "RicWellPathExportMswCompletionsImpl.h"
 

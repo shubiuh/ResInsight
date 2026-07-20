@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculator widget creator command support.
 
 #include "RicCalculatorWidgetCreator.h"
 

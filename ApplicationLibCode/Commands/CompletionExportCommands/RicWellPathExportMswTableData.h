@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well path export MSW table data command support.
 
 #pragma once
 
@@ -58,23 +60,29 @@ public:
                                                                                  CompletionType completionType = CompletionType::ALL,
                                                                                  const std::optional<QDateTime>& exportDate = std::nullopt );
 
+    /// @return The extract single well MSW.
     static std::expected<RigMswTableData, std::string> extractSingleWellMsw( RimEclipseCase* eclipseCase,
                                                                              RimWellPath*    wellPath,
                                                                              bool            exportCompletionsAfterMainBoreSegments = true,
                                                                              CompletionType  completionType = CompletionType::ALL,
                                                                              const std::optional<QDateTime>& exportDate = std::nullopt );
 
+    /// @return The convert from export settings.
     static CompletionType convertFromExportSettings( const class RicExportCompletionDataSettingsUi& settings );
 
+    /// @return The generate cell segments.
     static std::vector<WellPathCellIntersectionInfo> generateCellSegments( const RimEclipseCase* eclipseCase, const RimWellPath* wellPath );
 
+    /// @return The filter intersections.
     static std::vector<WellPathCellIntersectionInfo> filterIntersections( const std::vector<WellPathCellIntersectionInfo>& intersections,
                                                                           double                                           initialMD,
                                                                           const RigWellPath*                               wellPathGeometry,
                                                                           const RimEclipseCase*                            eclipseCase );
 
+    /// @return The well paths with tie in.
     static std::vector<RimWellPath*> wellPathsWithTieIn( const RimWellPath* wellPath );
 
+    /// Computes intitial measured depth.
     static double computeIntitialMeasuredDepth( const RimEclipseCase*                            eclipseCase,
                                                 const RimWellPath*                               wellPath,
                                                 const RimMswCompletionParameters*                mswParameters,

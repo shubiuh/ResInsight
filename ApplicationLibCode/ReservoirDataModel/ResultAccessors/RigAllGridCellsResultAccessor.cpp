@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to all grid cells result.
 
 #include "RigAllGridCellsResultAccessor.h"
 
@@ -24,7 +26,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigAllGridCellsResultAccessor instance.
 //--------------------------------------------------------------------------------------------------
 RigAllGridCellsResultAccessor::RigAllGridCellsResultAccessor( const RigGridBase* grid, const std::vector<double>* reservoirResultValues )
     : m_grid( grid )
@@ -33,7 +35,7 @@ RigAllGridCellsResultAccessor::RigAllGridCellsResultAccessor( const RigGridBase*
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar.
 //--------------------------------------------------------------------------------------------------
 double RigAllGridCellsResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 {
@@ -46,7 +48,7 @@ double RigAllGridCellsResultAccessor::cellScalar( size_t gridLocalCellIndex ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar.
 //--------------------------------------------------------------------------------------------------
 double RigAllGridCellsResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {
@@ -54,7 +56,7 @@ double RigAllGridCellsResultAccessor::cellFaceScalar( size_t gridLocalCellIndex,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigAllGridCellsResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) const
 {
@@ -66,7 +68,7 @@ double RigAllGridCellsResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigAllGridCellsResultAccessor::cellFaceScalarGlobIdx( size_t globCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {

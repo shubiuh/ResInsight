@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares vec3d command support.
 #pragma once
 
 #include "Ric3dViewPickEventHandler.h"
@@ -29,10 +31,14 @@ class Rim3dView;
 class RicVec3dPickEventHandler : public Ric3dViewPickEventHandler
 {
 public:
+    /// Constructs the command object.
     RicVec3dPickEventHandler( caf::PdmField<cvf::Vec3d>* vectorField, double zOffsetFactor = 0.0 );
+    /// @return Whether the 3D pick event was handled.
     bool handle3dPickEvent( const Ric3dPickEvent& eventObject ) override;
 
+    /// Registers as.
     void registerAsPickEventHandler() override;
+    /// Performs the notify unregistered command operation.
     void notifyUnregistered() override;
 
 private:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete well path command support.
 
 #include "RicDeleteWellPathFeature.h"
 

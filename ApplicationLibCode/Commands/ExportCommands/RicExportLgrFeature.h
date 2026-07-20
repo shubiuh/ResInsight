@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export LGR command support.
 
 #pragma once
 
@@ -44,7 +46,7 @@ class IjkBoundingBox;
 //==================================================================================================
 
 //==================================================================================================
-///
+/// @brief Supports LGR info command workflows.
 //==================================================================================================
 class LgrInfo
 {
@@ -94,7 +96,7 @@ public:
 };
 
 //==================================================================================================
-///
+/// @brief Supports completion info command workflows.
 //==================================================================================================
 class CompletionInfo
 {
@@ -151,7 +153,7 @@ public:
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for export LGR.
 //==================================================================================================
 class RicExportLgrFeature : public caf::CmdFeature
 {
@@ -160,11 +162,14 @@ class RicExportLgrFeature : public caf::CmdFeature
     using Range = std::pair<size_t, size_t>;
     static Range initRange() { return std::make_pair( std::numeric_limits<size_t>::max(), 0 ); }
 
+    /// @return The open.
     static RicExportLgrUi* openDialog( const QString&  dialogTitle,
                                        RimEclipseCase* defaultCase           = nullptr,
                                        int             defaultTimeStep       = 0,
                                        bool            hideExportFolderField = false );
+    /// @return The open file for export.
     static bool            openFileForExport( const QString& folderName, const QString& fileName, QFile* exportFile );
+    /// Exports lgrs for well paths.
     static void            exportLgrsForWellPaths( const QString&                                     exportFolder,
                                                    std::vector<RimWellPath*>                          wellPaths,
                                                    RimEclipseCase*                                    eclipseCase,
@@ -174,8 +179,10 @@ class RicExportLgrFeature : public caf::CmdFeature
                                                    const std::set<RigCompletionData::CompletionType>& completionTypes,
                                                    QStringList*                                       wellsIntersectingOtherLgrs );
 
+    /// Exports lgrs.
     static void exportLgrs( const QString& exportFolder, const QString& wellName, const std::vector<LgrInfo>& lgrInfos );
 
+    /// Builds lgrs for well paths.
     static std::vector<LgrInfo> buildLgrsForWellPaths( std::vector<RimWellPath*>                          wellPaths,
                                                        RimEclipseCase*                                    eclipseCase,
                                                        size_t                                             timeStep,
@@ -184,29 +191,38 @@ class RicExportLgrFeature : public caf::CmdFeature
                                                        const std::set<RigCompletionData::CompletionType>& completionTypes,
                                                        QStringList*                                       wellsIntersectingOtherLgrs );
 
+    /// @return The selected well paths.
     static std::vector<RimWellPath*> selectedWellPaths();
 
+    /// Creates LGR info list for temporary lgrs.
     static std::map<QString, std::vector<LgrInfo>> createLgrInfoListForTemporaryLgrs( const RigMainGrid* mainGrid );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Writes lgrs.
     static void writeLgrs( QTextStream& stream, const std::vector<LgrInfo>& lgrInfos );
 
+    /// Builds lgrs per main cell.
     static std::vector<LgrInfo> buildLgrsPerMainCell( int                                           firstLgrId,
                                                       RimEclipseCase*                               eclipseCase,
                                                       RimWellPath*                                  wellPath,
                                                       const std::vector<RigCompletionDataGridCell>& intersectingCells,
                                                       const cvf::Vec3st&                            refinement,
                                                       LgrNameFactory&                               lgrNameFactory );
+    /// Builds lgrs per completion.
     static std::vector<LgrInfo> buildLgrsPerCompletion( int             firstLgrId,
                                                         RimEclipseCase* eclipseCase,
                                                         const std::map<CompletionInfo, std::vector<RigCompletionDataGridCell>>& completionInfo,
                                                         const cvf::Vec3st& refinement,
                                                         LgrNameFactory&    lgrNameFactory );
+    /// Builds LGR.
     static LgrInfo              buildLgr( int                                           lgrId,
                                           const QString&                                lgrName,
                                           const QString&                                wellPathName,
@@ -214,18 +230,21 @@ private:
                                           const cvf::Vec3st&                            refinement,
                                           size_t                                        kLayerOffset = 0 );
 
+    /// Builds LGR.
     static LgrInfo buildLgr( int                   lgrId,
                              const QString&        lgrName,
                              const QString&        wellPathName,
                              const IjkBoundingBox& boundingBox,
                              const cvf::Vec3st&    refinement );
 
+    /// @return The cells intersecting completions.
     static std::vector<RigCompletionDataGridCell> cellsIntersectingCompletions( RimEclipseCase*    eclipseCase,
                                                                                 const RimWellPath* wellPath,
                                                                                 size_t             timeStep,
                                                                                 const std::set<RigCompletionData::CompletionType>& completionTypes,
                                                                                 bool* isIntersectingOtherLgrs );
 
+    /// @return The cells intersecting completions_per completion.
     static std::map<CompletionInfo, std::vector<RigCompletionDataGridCell>>
         cellsIntersectingCompletions_PerCompletion( RimEclipseCase*                                    eclipseCase,
                                                     const std::vector<RimWellPath*>&                   wellPaths,
@@ -233,8 +252,11 @@ private:
                                                     const std::set<RigCompletionData::CompletionType>& completionTypes,
                                                     QStringList*                                       wellsIntersectingOtherLgrs );
 
+    /// @return All intersected cells.
     static std::vector<RigCompletionDataGridCell> allIntersectedCells( RimEclipseCase* eclipseCase, const RimWellPath* wellPath );
 
+    /// @return The first available LGR ID.
     static int                firstAvailableLgrId( const RigMainGrid* mainGrid );
+    /// @return The host grid.
     static const RigGridBase* hostGrid( const RigMainGrid* mainGrid, size_t reservoirCellIndex );
 };

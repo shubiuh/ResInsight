@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import formation names command support.
 
 #pragma once
 
@@ -24,18 +26,22 @@ class RimFormationNames;
 class Rim3dView;
 
 //==================================================================================================
-///
+/// @brief Command feature for import formation names.
 //==================================================================================================
 class RicImportFormationNamesFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
+    /// Imports formation files.
     static RimFormationNames* importFormationFiles( const QStringList& fileNames );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Sets formation cell result and legend.
     void setFormationCellResultAndLegend( Rim3dView* activeView, QString& legendName );
 };

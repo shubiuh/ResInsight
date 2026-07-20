@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares extraction of eclipse well log extractor.
 
 #pragma once
 
@@ -33,12 +35,14 @@ class BoundingBox;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Extracts eclipse well log extractor.
 class RigEclipseWellLogExtractor : public RigWellLogExtractor
 {
 public:
     RigEclipseWellLogExtractor( const RigEclipseCaseData* aCase, const RigWellPath* wellpath, const std::string& wellCaseErrorMsgName );
 
     void                      curveData( const RigResultAccessor* resultAccessor, std::vector<double>* values );
+    /// Returns or processes case data.
     const RigEclipseCaseData* caseData() { return m_caseData.p(); }
 
 private:

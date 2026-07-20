@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements fly to object command support.
 
 #include "RicFlyToObjectFeature.h"
 

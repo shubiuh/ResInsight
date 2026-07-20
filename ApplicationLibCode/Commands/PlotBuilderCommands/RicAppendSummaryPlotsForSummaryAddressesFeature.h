@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares append summary plots for summary addresses command support.
 
 #pragma once
 
@@ -26,20 +28,25 @@ class RimSummaryAddress;
 class RimSummaryMultiPlot;
 
 //==================================================================================================
-///
+/// @brief Command feature for append summary plots for summary addresses.
 //==================================================================================================
 class RicAppendSummaryPlotsForSummaryAddressesFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Appends plots for addresses.
     static void appendPlotsForAddresses( RimSummaryMultiPlot* summaryMultiPlot, const std::vector<RimSummaryAddress*>& addresses );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// @return The selected addresses.
     static std::vector<RimSummaryAddress*> selectedAddresses();
 };

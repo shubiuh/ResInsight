@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new well path fracture command support.
 
 #pragma once
 
@@ -27,20 +29,25 @@ class RimWellPath;
 class RimWellPathFracture;
 
 //==================================================================================================
-///
+/// @brief Command feature for new well path fracture.
 //==================================================================================================
 class RicNewWellPathFractureFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Adds fracture.
     static RimWellPathFracture* addFracture( RimWellPath* wellPath, double measuredDepth );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
 
 private:
+    /// @return The selected well path fracture collection.
     static RimWellPathFractureCollection* selectedWellPathFractureCollection();
 };

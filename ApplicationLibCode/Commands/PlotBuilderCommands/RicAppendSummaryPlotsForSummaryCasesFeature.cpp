@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements append summary plots for summary cases command support.
 
 #include "RicAppendSummaryPlotsForSummaryCasesFeature.h"
 

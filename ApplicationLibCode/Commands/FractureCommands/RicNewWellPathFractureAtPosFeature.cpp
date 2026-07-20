@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new well path fracture at pos command support.
 
 #include "RicNewWellPathFractureAtPosFeature.h"
 

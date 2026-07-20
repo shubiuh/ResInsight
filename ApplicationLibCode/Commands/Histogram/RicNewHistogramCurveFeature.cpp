@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new histogram curve command support.
 
 #include "RicNewHistogramCurveFeature.h"
 

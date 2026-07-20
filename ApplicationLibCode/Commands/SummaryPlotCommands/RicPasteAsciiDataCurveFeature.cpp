@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste ASCII data curve command support.
 
 #include "RicPasteAsciiDataCurveFeature.h"
 

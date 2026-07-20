@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares cell reservoir-data functionality.
 
 #pragma once
 #include "RigLocalGrid.h"
@@ -30,36 +32,54 @@ namespace cvf
 class Ray;
 }
 
+/// @brief Models cell for reservoir-data processing.
 class RigCell
 {
 public:
     RigCell();
     ~RigCell(); // Not virtual, to save space. Do not inherit from this class
 
+    /// Returns or processes corner indices.
     std::array<size_t, 8>&       cornerIndices() { return m_cornerIndices; }
+    /// Returns or processes corner indices.
     const std::array<size_t, 8>& cornerIndices() const { return m_cornerIndices; }
 
     void faceIndices( cvf::StructGridInterface::FaceType face, std::array<size_t, 4>* faceIndices ) const;
 
+    /// Returns whether invalid.
     bool isInvalid() const { return m_isInvalid; }
+    /// Sets invalid.
     void setInvalid( bool val ) { m_isInvalid = val; }
 
+    /// Returns or processes grid local cell index.
     size_t gridLocalCellIndex() const { return m_gridLocalCellIndex; }
+    /// Sets grid local cell index.
     void   setGridLocalCellIndex( size_t val ) { m_gridLocalCellIndex = val; }
 
+    /// Returns or processes sub grid.
     RigLocalGrid* subGrid() const { return m_subGrid; }
+    /// Sets sub grid.
     void          setSubGrid( RigLocalGrid* subGrid ) { m_subGrid = subGrid; }
+    /// Removes sub grid.
     void          removeSubGrid( RigLocalGrid* subGrid ) { m_subGrid = nullptr; }
 
+    /// Returns or processes host grid.
     RigGridBase* hostGrid() const { return m_hostGrid; }
+    /// Sets host grid.
     void         setHostGrid( RigGridBase* hostGrid ) { m_hostGrid = hostGrid; }
 
+    /// Returns or processes parent cell index.
     size_t parentCellIndex() const { return m_parentCellIndex; }
+    /// Sets parent cell index.
     void   setParentCellIndex( size_t parentCellIndex ) { m_parentCellIndex = parentCellIndex; }
+    /// Returns or processes main grid cell index.
     size_t mainGridCellIndex() const { return m_mainGridCellIndex; }
+    /// Sets main grid cell index.
     void   setMainGridCellIndex( size_t mainGridCellContainingThisCell ) { m_mainGridCellIndex = mainGridCellContainingThisCell; }
 
+    /// Returns or processes coarsening box index.
     size_t coarseningBoxIndex() const { return m_coarseningBoxIndex; }
+    /// Sets coarsening box index.
     void   setCoarseningBoxIndex( size_t coarseningBoxIndex ) { m_coarseningBoxIndex = coarseningBoxIndex; }
 
     cvf::Vec3d                center() const;

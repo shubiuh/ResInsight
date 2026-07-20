@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements delete temporary lgrs command support.
 
 #include "RicDeleteTemporaryLgrsFeature.h"
 

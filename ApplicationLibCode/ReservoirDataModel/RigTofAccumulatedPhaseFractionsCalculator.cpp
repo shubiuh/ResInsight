@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of tof accumulated phase fractions.
 
 #include "RigTofAccumulatedPhaseFractionsCalculator.h"
 
@@ -36,7 +38,7 @@
 #include <map>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigTofAccumulatedPhaseFractionsCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigTofAccumulatedPhaseFractionsCalculator::RigTofAccumulatedPhaseFractionsCalculator( RimEclipseResultCase* caseToApply,
                                                                                       QString               wellname,
@@ -92,7 +94,7 @@ RigTofAccumulatedPhaseFractionsCalculator::RigTofAccumulatedPhaseFractionsCalcul
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sort tof and calculate acc phase fraction.
 //--------------------------------------------------------------------------------------------------
 void RigTofAccumulatedPhaseFractionsCalculator::sortTofAndCalculateAccPhaseFraction( const std::vector<double>* tofData,
                                                                                      const std::vector<double>* fractionData,

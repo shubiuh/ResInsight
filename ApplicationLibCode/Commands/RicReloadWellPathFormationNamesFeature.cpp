@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements reload well path formation names command support.
 
 #include "RicReloadWellPathFormationNamesFeature.h"
 

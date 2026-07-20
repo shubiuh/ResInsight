@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create RFT plots feature command support.
 
 #include "RicCreateRftPlotsFeatureUi.h"
 

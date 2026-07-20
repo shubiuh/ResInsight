@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements perforation cell filter evaluator command support.
 
 #include "RicPerforationCellFilterEvaluator.h"
 

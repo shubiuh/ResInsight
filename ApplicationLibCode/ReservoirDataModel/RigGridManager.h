@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares grid manager reservoir-data functionality.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 class RigMainGrid;
 class RigEclipseCaseData;
 
+/// @brief Models grid manager for reservoir-data processing.
 class RigGridManager : public cvf::Object
 {
 public:
@@ -43,6 +46,7 @@ public:
                                        const std::vector<std::vector<int>>& caseGridDimensions );
 
 private:
+    /// @brief Models case to grid map for reservoir-data processing.
     class CaseToGridMap : public cvf::Object
     {
     public:

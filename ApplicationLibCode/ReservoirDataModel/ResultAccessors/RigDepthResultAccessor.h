@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares access to depth result.
 
 #pragma once
 
@@ -24,6 +26,7 @@
 class RigEclipseCaseData;
 class RimEclipseResultDefinition;
 
+/// @brief Provides read access to depth result.
 class RigDepthResultAccessor
 {
 public:

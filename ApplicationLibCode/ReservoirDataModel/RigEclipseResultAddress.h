@@ -15,12 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares eclipse result address reservoir-data functionality.
 #pragma once
 
 #include "RiaDefines.h"
 
 #include <QString>
 
+/// @brief Models eclipse result address for reservoir-data processing.
 class RigEclipseResultAddress
 {
 public:
@@ -35,7 +38,9 @@ public:
 
     bool isValid() const;
 
+    /// Sets data type.
     void                       setDataType( RiaDefines::ResultDataType dataType ) { m_resultDataType = dataType; }
+    /// Returns or processes data type.
     RiaDefines::ResultDataType dataType() const { return m_resultDataType; }
 
     // Delta Time Step
@@ -43,12 +48,15 @@ public:
     void                 setDeltaTimeStepIndex( int timeStepIndex );
     int                  deltaTimeStepIndex() const;
     bool                 representsAllTimeLapses() const;
+    /// Returns or processes all time lapses value.
     static constexpr int allTimeLapsesValue() { return ALL_TIME_LAPSES; }
+    /// Returns or processes no time lapse value.
     static constexpr int noTimeLapseValue() { return NO_TIME_LAPSE; }
     // Delta Grid Case
     bool                 isDeltaCaseActive() const;
     void                 setDeltaCaseId( int caseId );
     int                  deltaCaseId() const;
+    /// Returns or processes no case diff value.
     static constexpr int noCaseDiffValue() { return NO_CASE_DIFF; }
 
     // Divide by Cell Face Area

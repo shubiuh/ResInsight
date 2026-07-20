@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well log plot curve command support.
 
 #pragma once
 
@@ -27,14 +29,19 @@ class RimWellAllocationPlot;
 class RimWellRftPlot;
 
 //==================================================================================================
-///
+/// @brief Shared implementation helpers for well log plot curve commands.
 //==================================================================================================
 class RicWellLogPlotCurveFeatureImpl
 {
 public:
+    /// @return The curve color from table.
     static cvf::Color3f                  curveColorFromTable( size_t index );
+    /// @return The selected well log curves.
     static std::vector<RimWellLogCurve*> selectedWellLogCurves();
+    /// @return The parent well allocation plot.
     static RimWellAllocationPlot*        parentWellAllocationPlot();
+    /// @return The parent well RFT plot.
     static RimWellRftPlot*               parentWellRftPlot();
+    /// @return The parent well bore stability plot.
     static RimWellBoreStabilityPlot*     parentWellBoreStabilityPlot();
 };

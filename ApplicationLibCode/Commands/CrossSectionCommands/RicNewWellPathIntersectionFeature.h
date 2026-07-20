@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new well path intersection command support.
 
 #pragma once
 
@@ -27,16 +29,21 @@ class RimIntersectionCollection;
 class RimWellPath;
 
 //==================================================================================================
-///
+/// @brief Supports new well path intersection feature cmd command workflows.
 //==================================================================================================
 class RicNewWellPathIntersectionFeatureCmd : public caf::CmdExecuteCommand
 {
 public:
+    /// Constructs the command object.
     RicNewWellPathIntersectionFeatureCmd( RimIntersectionCollection* intersectionCollection, RimWellPath* wellPath );
+    /// Destroys the command object.
     ~RicNewWellPathIntersectionFeatureCmd() override;
 
+    /// @return The name.
     QString name() override;
+    /// Performs the redo command operation.
     void    redo() override;
+    /// Performs the undo command operation.
     void    undo() override;
 
 private:
@@ -45,16 +52,19 @@ private:
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for new well path intersection.
 //==================================================================================================
 class RicNewWellPathIntersectionFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicNewWellPathIntersectionFeature();
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

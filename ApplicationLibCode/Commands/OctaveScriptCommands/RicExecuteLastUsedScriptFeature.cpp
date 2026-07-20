@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements execute last used script command support.
 
 #include "RicExecuteLastUsedScriptFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of completion data.
 
 #include "RigCompletionData.h"
 
@@ -28,7 +30,7 @@
 #include <limits>
 
 //==================================================================================================
-///
+/// Creates a RigCompletionData instance.
 //==================================================================================================
 RigCompletionData::RigCompletionData( const QString& wellName, const RigCompletionDataGridCell& cellIndex, double orderingValue )
     : m_wellName( wellName )
@@ -52,14 +54,14 @@ RigCompletionData::RigCompletionData( const QString& wellName, const RigCompleti
 }
 
 //==================================================================================================
-///
+/// Destroys the RigCompletionData instance.
 //==================================================================================================
 RigCompletionData::~RigCompletionData()
 {
 }
 
 //==================================================================================================
-///
+/// Creates a RigCompletionData instance.
 //==================================================================================================
 RigCompletionData::RigCompletionData( const RigCompletionData& other )
 {
@@ -67,7 +69,7 @@ RigCompletionData::RigCompletionData( const RigCompletionData& other )
 }
 
 //==================================================================================================
-///
+/// Implements the operator< operation.
 //==================================================================================================
 bool RigCompletionData::operator<( const RigCompletionData& other ) const
 {
@@ -95,7 +97,7 @@ bool RigCompletionData::operator<( const RigCompletionData& other ) const
 }
 
 //==================================================================================================
-///
+/// Implements the operator= operation.
 //==================================================================================================
 RigCompletionData& RigCompletionData::operator=( const RigCompletionData& other )
 {
@@ -107,7 +109,7 @@ RigCompletionData& RigCompletionData::operator=( const RigCompletionData& other 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether perforation valve.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionData::isPerforationValve( CompletionType type )
 {
@@ -116,7 +118,7 @@ bool RigCompletionData::isPerforationValve( CompletionType type )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether valve.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionData::isValve( CompletionType type )
 {
@@ -124,7 +126,7 @@ bool RigCompletionData::isValve( CompletionType type )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether wseg valve types.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionData::isWsegValveTypes( CompletionType type )
 {
@@ -132,7 +134,7 @@ bool RigCompletionData::isWsegValveTypes( CompletionType type )
 }
 
 //==================================================================================================
-///
+/// Sets from fracture.
 //==================================================================================================
 void RigCompletionData::setFromFracture( double transmissibility, double skinFactor, double diameter )
 {
@@ -143,7 +145,7 @@ void RigCompletionData::setFromFracture( double transmissibility, double skinFac
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets second ordering value.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setSecondOrderingValue( double orderingValue )
 {
@@ -151,7 +153,7 @@ void RigCompletionData::setSecondOrderingValue( double orderingValue )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets diameter.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setDiameter( double diameter )
 {
@@ -159,7 +161,7 @@ void RigCompletionData::setDiameter( double diameter )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets transmissibility.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setTransmissibility( double transmissibility )
 {
@@ -167,7 +169,7 @@ void RigCompletionData::setTransmissibility( double transmissibility )
 }
 
 //==================================================================================================
-///
+/// Sets trans and wp imult background data from fishbone.
 //==================================================================================================
 void RigCompletionData::setTransAndWPImultBackgroundDataFromFishbone( double        transmissibility,
                                                                       double        skinFactor,
@@ -186,7 +188,7 @@ void RigCompletionData::setTransAndWPImultBackgroundDataFromFishbone( double    
 }
 
 //==================================================================================================
-///
+/// Sets trans and wp imult background data from perforation.
 //==================================================================================================
 void RigCompletionData::setTransAndWPImultBackgroundDataFromPerforation( double        transmissibility,
                                                                          double        skinFactor,
@@ -206,7 +208,7 @@ void RigCompletionData::setTransAndWPImultBackgroundDataFromPerforation( double 
 }
 
 //==================================================================================================
-///
+/// Sets combined values explicit trans.
 //==================================================================================================
 void RigCompletionData::setCombinedValuesExplicitTrans( double         transmissibility,
                                                         double         kh,
@@ -226,7 +228,7 @@ void RigCompletionData::setCombinedValuesExplicitTrans( double         transmiss
 }
 
 //==================================================================================================
-///
+/// Sets combined values implicit trans wp imult.
 //==================================================================================================
 void RigCompletionData::setCombinedValuesImplicitTransWPImult( double         wpimult,
                                                                double         kh,
@@ -246,7 +248,7 @@ void RigCompletionData::setCombinedValuesImplicitTransWPImult( double         wp
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether non darcy flow.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionData::isNonDarcyFlow() const
 {
@@ -257,7 +259,7 @@ bool RigCompletionData::isNonDarcyFlow() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets d factor.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setDFactor( double dFactor )
 {
@@ -265,7 +267,7 @@ void RigCompletionData::setDFactor( double dFactor )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets per connection dfactor.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setPerConnectionDfactor()
 {
@@ -276,7 +278,7 @@ void RigCompletionData::setPerConnectionDfactor()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets kh.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setKh( double kh )
 {
@@ -284,7 +286,7 @@ void RigCompletionData::setKh( double kh )
 }
 
 //==================================================================================================
-///
+/// Adds metadata.
 //==================================================================================================
 void RigCompletionData::addMetadata( const QString& name, const QString& comment )
 {
@@ -292,7 +294,7 @@ void RigCompletionData::addMetadata( const QString& name, const QString& comment
 }
 
 //==================================================================================================
-///
+/// Returns the default value.
 //==================================================================================================
 double RigCompletionData::defaultValue()
 {
@@ -300,7 +302,7 @@ double RigCompletionData::defaultValue()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether default value.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionData::isDefaultValue( double num )
 {
@@ -308,7 +310,7 @@ bool RigCompletionData::isDefaultValue( double num )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the metadata.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RigCompletionMetaData>& RigCompletionData::metadata() const
 {
@@ -316,7 +318,7 @@ const std::vector<RigCompletionMetaData>& RigCompletionData::metadata() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the well name.
 //--------------------------------------------------------------------------------------------------
 const QString& RigCompletionData::wellName() const
 {
@@ -324,7 +326,7 @@ const QString& RigCompletionData::wellName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the completion data grid cell.
 //--------------------------------------------------------------------------------------------------
 const RigCompletionDataGridCell& RigCompletionData::completionDataGridCell() const
 {
@@ -332,7 +334,7 @@ const RigCompletionDataGridCell& RigCompletionData::completionDataGridCell() con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the saturation.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::saturation() const
 {
@@ -340,7 +342,7 @@ double RigCompletionData::saturation() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the transmissibility.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::transmissibility() const
 {
@@ -348,7 +350,7 @@ double RigCompletionData::transmissibility() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the diameter.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::diameter() const
 {
@@ -356,7 +358,7 @@ double RigCompletionData::diameter() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the kh.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::kh() const
 {
@@ -364,7 +366,7 @@ double RigCompletionData::kh() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the skin factor.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::skinFactor() const
 {
@@ -372,7 +374,7 @@ double RigCompletionData::skinFactor() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the d factor.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::dFactor() const
 {
@@ -380,7 +382,7 @@ double RigCompletionData::dFactor() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the start md.
 //--------------------------------------------------------------------------------------------------
 std::optional<double> RigCompletionData::startMD() const
 {
@@ -388,7 +390,7 @@ std::optional<double> RigCompletionData::startMD() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the end md.
 //--------------------------------------------------------------------------------------------------
 std::optional<double> RigCompletionData::endMD() const
 {
@@ -396,7 +398,7 @@ std::optional<double> RigCompletionData::endMD() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the completion number.
 //--------------------------------------------------------------------------------------------------
 std::optional<int> RigCompletionData::completionNumber() const
 {
@@ -404,7 +406,7 @@ std::optional<int> RigCompletionData::completionNumber() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the direction string ijk.
 //--------------------------------------------------------------------------------------------------
 QString RigCompletionData::directionStringIJK() const
 {
@@ -423,7 +425,7 @@ QString RigCompletionData::directionStringIJK() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the direction string xyz.
 //--------------------------------------------------------------------------------------------------
 QString RigCompletionData::directionStringXYZ() const
 {
@@ -440,7 +442,7 @@ QString RigCompletionData::directionStringXYZ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the meta data string.
 //--------------------------------------------------------------------------------------------------
 QString RigCompletionData::metaDataString() const
 {
@@ -453,7 +455,7 @@ QString RigCompletionData::metaDataString() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the direction.
 //--------------------------------------------------------------------------------------------------
 RigCompletionData::CellDirection RigCompletionData::direction() const
 {
@@ -461,7 +463,7 @@ RigCompletionData::CellDirection RigCompletionData::direction() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the wpimult.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::wpimult() const
 {
@@ -469,7 +471,7 @@ double RigCompletionData::wpimult() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the completion type.
 //--------------------------------------------------------------------------------------------------
 RigCompletionData::CompletionType RigCompletionData::completionType() const
 {
@@ -477,7 +479,7 @@ RigCompletionData::CompletionType RigCompletionData::completionType() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether main bore.
 //--------------------------------------------------------------------------------------------------
 bool RigCompletionData::isMainBore() const
 {
@@ -485,7 +487,7 @@ bool RigCompletionData::isMainBore() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the first ordering value.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::firstOrderingValue() const
 {
@@ -493,7 +495,7 @@ double RigCompletionData::firstOrderingValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the second ordering value.
 //--------------------------------------------------------------------------------------------------
 double RigCompletionData::secondOrderingValue() const
 {
@@ -501,7 +503,7 @@ double RigCompletionData::secondOrderingValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets source pdm object.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setSourcePdmObject( const caf::PdmObject* object )
 {
@@ -509,7 +511,7 @@ void RigCompletionData::setSourcePdmObject( const caf::PdmObject* object )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the source pdm object.
 //--------------------------------------------------------------------------------------------------
 const caf::PdmObject* RigCompletionData::sourcePdmObject() const
 {
@@ -517,7 +519,7 @@ const caf::PdmObject* RigCompletionData::sourcePdmObject() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the copy.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::copy( RigCompletionData& target, const RigCompletionData& from )
 {
@@ -543,7 +545,7 @@ void RigCompletionData::copy( RigCompletionData& target, const RigCompletionData
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets depth range.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setDepthRange( double startMD, double endMD )
 {
@@ -552,7 +554,7 @@ void RigCompletionData::setDepthRange( double startMD, double endMD )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets completion number.
 //--------------------------------------------------------------------------------------------------
 void RigCompletionData::setCompletionNumber( int completionNumber )
 {

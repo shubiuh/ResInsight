@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create grid case ensembles from files command support.
 
 #pragma once
 
@@ -29,7 +31,7 @@ class RimFormationNames;
 class RimEclipseCase;
 
 //==================================================================================================
-///
+/// @brief Command feature for create grid case ensembles from files.
 //==================================================================================================
 class RicCreateGridCaseEnsemblesFromFilesFeature : public caf::CmdFeature
 {
@@ -43,13 +45,18 @@ class RicCreateGridCaseEnsemblesFromFilesFeature : public caf::CmdFeature
     }
 
 public:
+    /// Imports single grid case ensemble.
     static RimEclipseCaseEnsemble* importSingleGridCaseEnsemble( const QStringList& fileNames );
+    /// Imports single grid case.
     static RimEclipseCase*         importSingleGridCase( const QString& filename );
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The run recursive file search.
     std::pair<QStringList, RiaDefines::EnsembleGroupingMode> runRecursiveFileSearchDialog( const QString& dialogTitle,
                                                                                            const QString& pathCacheName );
 

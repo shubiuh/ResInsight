@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares extraction of geo mech well log extractor.
 
 #pragma once
 
@@ -45,13 +47,18 @@ class BoundingBox;
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Extracts geo mech well log extractor.
 class RigGeoMechWellLogExtractor : public RigWellLogExtractor
 {
 public:
+    /// Stores pure water density gcm3.
     static const double PURE_WATER_DENSITY_GCM3;
+    /// Stores gravity accel.
     static const double GRAVITY_ACCEL;
 
+    /// Type alias used for wbs parameter source.
     using WbsParameterSource     = RigWbsParameter::Source;
+    /// Type alias used for wbs parameter source enum.
     using WbsParameterSourceEnum = RigWbsParameter::SourceEnum;
 
 public:

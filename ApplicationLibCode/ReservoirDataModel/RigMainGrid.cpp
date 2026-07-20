@@ -17,6 +17,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements main grid reservoir-data functionality.
 
 #include "RigMainGrid.h"
 
@@ -58,7 +60,7 @@ RigMainGrid::~RigMainGrid()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the nodes.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Vec3d>& RigMainGrid::nodes()
 {
@@ -66,7 +68,7 @@ std::vector<cvf::Vec3d>& RigMainGrid::nodes()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the nodes.
 //--------------------------------------------------------------------------------------------------
 const std::vector<cvf::Vec3d>& RigMainGrid::nodes() const
 {
@@ -74,7 +76,7 @@ const std::vector<cvf::Vec3d>& RigMainGrid::nodes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigMainGrid::totalCellCount() const
 {
@@ -82,7 +84,7 @@ size_t RigMainGrid::totalCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reservoir cells.
 //--------------------------------------------------------------------------------------------------
 std::vector<RigCell>& RigMainGrid::reservoirCells()
 {
@@ -90,7 +92,7 @@ std::vector<RigCell>& RigMainGrid::reservoirCells()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reservoir cells.
 //--------------------------------------------------------------------------------------------------
 const std::vector<RigCell>& RigMainGrid::reservoirCells() const
 {
@@ -98,7 +100,7 @@ const std::vector<RigCell>& RigMainGrid::reservoirCells() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the allocate cells.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::allocateCells( size_t cellCount )
 {
@@ -108,7 +110,7 @@ void RigMainGrid::allocateCells( size_t cellCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid and grid local idx from global cell idx.
 //--------------------------------------------------------------------------------------------------
 RigGridBase* RigMainGrid::gridAndGridLocalIdxFromGlobalCellIdx( size_t globalCellIdx, size_t* gridLocalCellIdx )
 {
@@ -127,7 +129,7 @@ RigGridBase* RigMainGrid::gridAndGridLocalIdxFromGlobalCellIdx( size_t globalCel
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid and grid local idx from global cell idx.
 //--------------------------------------------------------------------------------------------------
 const RigGridBase* RigMainGrid::gridAndGridLocalIdxFromGlobalCellIdx( size_t globalCellIdx, size_t* gridLocalCellIdx ) const
 {
@@ -146,7 +148,7 @@ const RigGridBase* RigMainGrid::gridAndGridLocalIdxFromGlobalCellIdx( size_t glo
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell by grid and grid local cell idx.
 //--------------------------------------------------------------------------------------------------
 const RigCell& RigMainGrid::cellByGridAndGridLocalCellIdx( size_t gridIdx, size_t gridLocalCellIdx ) const
 {
@@ -154,7 +156,7 @@ const RigCell& RigMainGrid::cellByGridAndGridLocalCellIdx( size_t gridIdx, size_
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reservoir cell index by grid and grid local cell index.
 //--------------------------------------------------------------------------------------------------
 size_t RigMainGrid::reservoirCellIndexByGridAndGridLocalCellIndex( size_t gridIdx, size_t gridLocalCellIdx ) const
 {
@@ -162,7 +164,7 @@ size_t RigMainGrid::reservoirCellIndexByGridAndGridLocalCellIndex( size_t gridId
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds reservoir cell index from point.
 //--------------------------------------------------------------------------------------------------
 size_t RigMainGrid::findReservoirCellIndexFromPoint( const cvf::Vec3d& point ) const
 {
@@ -184,7 +186,7 @@ size_t RigMainGrid::findReservoirCellIndexFromPoint( const cvf::Vec3d& point ) c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds local grid.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::addLocalGrid( RigLocalGrid* localGrid )
 {
@@ -203,7 +205,7 @@ void RigMainGrid::addLocalGrid( RigLocalGrid* localGrid )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid count on file.
 //--------------------------------------------------------------------------------------------------
 size_t RigMainGrid::gridCountOnFile() const
 {
@@ -221,7 +223,7 @@ size_t RigMainGrid::gridCountOnFile() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid count.
 //--------------------------------------------------------------------------------------------------
 size_t RigMainGrid::gridCount() const
 {
@@ -229,7 +231,7 @@ size_t RigMainGrid::gridCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the init all sub grids parent grid pointer.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::initAllSubGridsParentGridPointer()
 {
@@ -245,7 +247,7 @@ void RigMainGrid::initAllSubGridsParentGridPointer()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the init all sub cells main grid cell index.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::initAllSubCellsMainGridCellIndex()
 {
@@ -258,7 +260,7 @@ void RigMainGrid::initAllSubCellsMainGridCellIndex()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the display model offset.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigMainGrid::displayModelOffset() const
 {
@@ -266,7 +268,7 @@ cvf::Vec3d RigMainGrid::displayModelOffset() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets display model offset.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::setDisplayModelOffset( cvf::Vec3d offset )
 {
@@ -331,7 +333,7 @@ RigGridBase* RigMainGrid::gridByName( const std::string& name )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets flip axis.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::setFlipAxis( bool flipXAxis, bool flipYAxis )
 {
@@ -372,7 +374,7 @@ void RigMainGrid::setFlipAxis( bool flipXAxis, bool flipYAxis )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid by id.
 //--------------------------------------------------------------------------------------------------
 RigGridBase* RigMainGrid::gridById( int localGridId )
 {
@@ -381,7 +383,7 @@ RigGridBase* RigMainGrid::gridById( int localGridId )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the total temporary grid cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigMainGrid::totalTemporaryGridCellCount() const
 {
@@ -399,7 +401,7 @@ size_t RigMainGrid::totalTemporaryGridCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the nnc data.
 //--------------------------------------------------------------------------------------------------
 RigNNCData* RigMainGrid::nncData()
 {
@@ -412,7 +414,7 @@ RigNNCData* RigMainGrid::nncData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets faults.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::setFaults( const cvf::Collection<RigFault>& faults )
 {
@@ -426,7 +428,7 @@ void RigMainGrid::setFaults( const cvf::Collection<RigFault>& faults )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the faults.
 //--------------------------------------------------------------------------------------------------
 const cvf::Collection<RigFault>& RigMainGrid::faults() const
 {
@@ -434,7 +436,7 @@ const cvf::Collection<RigFault>& RigMainGrid::faults() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the faults.
 //--------------------------------------------------------------------------------------------------
 cvf::Collection<RigFault>& RigMainGrid::faults()
 {
@@ -442,7 +444,7 @@ cvf::Collection<RigFault>& RigMainGrid::faults()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether fault with name is available.
 //--------------------------------------------------------------------------------------------------
 bool RigMainGrid::hasFaultWithName( const QString& name ) const
 {
@@ -457,7 +459,7 @@ bool RigMainGrid::hasFaultWithName( const QString& name ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes bounding box.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::computeBoundingBox()
 {
@@ -486,7 +488,7 @@ void RigMainGrid::computeBoundingBox()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates faults.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::calculateFaults( const RigActiveCellInfo* activeCellInfo )
 {
@@ -537,7 +539,7 @@ void RigMainGrid::calculateFaults( const RigActiveCellInfo* activeCellInfo )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds un named fault faces.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::addUnNamedFaultFaces( int                               gcIdx,
                                         const RigActiveCellInfo*          activeCellInfo,
@@ -647,7 +649,7 @@ void RigMainGrid::addUnNamedFaultFaces( int                               gcIdx,
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the distribute nn cs to faults.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::distributeNNCsToFaults()
 {
@@ -714,7 +716,7 @@ bool RigMainGrid::isFaceNormalsOutwards() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes face normals direction.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::computeFaceNormalsDirection( const std::vector<size_t>& reservoirCellIndices ) const
 {
@@ -785,7 +787,7 @@ void RigMainGrid::computeFaceNormalsDirection( const std::vector<size_t>& reserv
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds fault from cell index and cell face.
 //--------------------------------------------------------------------------------------------------
 const RigFault* RigMainGrid::findFaultFromCellIndexAndCellFace( size_t reservoirCellIndex, cvf::StructGridInterface::FaceType face ) const
 {
@@ -851,7 +853,7 @@ std::tuple<QString, double, cvf::StructGridInterface::FaceType> RigMainGrid::min
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds intersecting cells.
 //--------------------------------------------------------------------------------------------------
 std::vector<size_t> RigMainGrid::findIntersectingCells( const cvf::BoundingBox& inputBB ) const
 {
@@ -879,7 +881,7 @@ std::vector<size_t> RigMainGrid::findIntersectingCells( const cvf::BoundingBox& 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the do build cell search tree.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::doBuildCellSearchTree( std::string* aabbTreeInfo ) const
 {
@@ -908,7 +910,7 @@ void RigMainGrid::doBuildCellSearchTree( std::string* aabbTreeInfo ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the build cell search tree.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::buildCellSearchTree() const
 {
@@ -971,7 +973,7 @@ void RigMainGrid::buildCellSearchTree() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the build cell search tree optimized.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::buildCellSearchTreeOptimized( size_t cellsPerBoundingBox ) const
 {
@@ -1073,7 +1075,7 @@ void RigMainGrid::buildCellSearchTreeOptimized( size_t cellsPerBoundingBox ) con
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the bounding box.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox RigMainGrid::boundingBox() const
 {
@@ -1081,7 +1083,7 @@ cvf::BoundingBox RigMainGrid::boundingBox() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether temp grid.
 //--------------------------------------------------------------------------------------------------
 bool RigMainGrid::isTempGrid() const
 {
@@ -1089,7 +1091,7 @@ bool RigMainGrid::isTempGrid() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the associated well path name.
 //--------------------------------------------------------------------------------------------------
 const std::string& RigMainGrid::associatedWellPathName() const
 {
@@ -1098,7 +1100,7 @@ const std::string& RigMainGrid::associatedWellPathName() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets use map axes.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::setUseMapAxes( bool useMapAxes )
 {
@@ -1106,7 +1108,7 @@ void RigMainGrid::setUseMapAxes( bool useMapAxes )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the use map axes.
 //--------------------------------------------------------------------------------------------------
 bool RigMainGrid::useMapAxes() const
 {
@@ -1114,7 +1116,7 @@ bool RigMainGrid::useMapAxes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets map axes.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::setMapAxes( const std::array<double, 6>& mapAxes )
 {
@@ -1122,7 +1124,7 @@ void RigMainGrid::setMapAxes( const std::array<double, 6>& mapAxes )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map axes.
 //--------------------------------------------------------------------------------------------------
 const std::array<double, 6>& RigMainGrid::mapAxes() const
 {
@@ -1130,7 +1132,7 @@ const std::array<double, 6>& RigMainGrid::mapAxes() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map axes f.
 //--------------------------------------------------------------------------------------------------
 std::array<float, 6> RigMainGrid::mapAxesF() const
 {
@@ -1143,7 +1145,7 @@ std::array<float, 6> RigMainGrid::mapAxesF() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the map axis transform.
 //--------------------------------------------------------------------------------------------------
 cvf::Mat4d RigMainGrid::mapAxisTransform() const
 {
@@ -1166,7 +1168,7 @@ cvf::Mat4d RigMainGrid::mapAxisTransform() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether dual porosity.
 //--------------------------------------------------------------------------------------------------
 bool RigMainGrid::isDualPorosity() const
 {
@@ -1174,7 +1176,7 @@ bool RigMainGrid::isDualPorosity() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets dual porosity.
 //--------------------------------------------------------------------------------------------------
 void RigMainGrid::setDualPorosity( bool enable )
 {
@@ -1182,7 +1184,7 @@ void RigMainGrid::setDualPorosity( bool enable )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the default map axes.
 //--------------------------------------------------------------------------------------------------
 std::array<double, 6> RigMainGrid::defaultMapAxes()
 {

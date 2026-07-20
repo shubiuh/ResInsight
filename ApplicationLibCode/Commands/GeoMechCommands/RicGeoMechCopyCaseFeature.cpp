@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements geo mech copy case command support.
 
 #include "RicGeoMechCopyCaseFeature.h"
 

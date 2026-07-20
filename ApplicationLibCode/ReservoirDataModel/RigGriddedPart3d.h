@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares gridded part3d reservoir-data functionality.
 
 #pragma once
 
@@ -38,6 +40,7 @@ class RigActiveCellInfo;
 ///
 ///
 //==================================================================================================
+/// @brief Models gridded part3d for reservoir-data processing.
 class RigGriddedPart3d : public cvf::Object
 {
     using ElementSets = RimFaultReactivation::ElementSets;

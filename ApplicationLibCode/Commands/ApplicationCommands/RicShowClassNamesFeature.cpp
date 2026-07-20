@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show class names command support.
 
 #include "RicShowClassNamesFeature.h"
 

@@ -15,20 +15,22 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements formation names reservoir-data functionality.
 
 #include "RigFormationNames.h"
 
 #include <algorithm>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigFormationNames instance.
 //--------------------------------------------------------------------------------------------------
 RigFormationNames::RigFormationNames()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation index from k layer idx.
 //--------------------------------------------------------------------------------------------------
 int RigFormationNames::formationIndexFromKLayerIdx( size_t Kidx ) const
 {
@@ -37,7 +39,7 @@ int RigFormationNames::formationIndexFromKLayerIdx( size_t Kidx ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation name from k layer idx.
 //--------------------------------------------------------------------------------------------------
 QString RigFormationNames::formationNameFromKLayerIdx( size_t Kidx ) const
 {
@@ -49,7 +51,7 @@ QString RigFormationNames::formationNameFromKLayerIdx( size_t Kidx ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation color from k layer idx.
 //--------------------------------------------------------------------------------------------------
 bool RigFormationNames::formationColorFromKLayerIdx( size_t Kidx, cvf::Color3f* formationColor ) const
 {
@@ -67,7 +69,7 @@ bool RigFormationNames::formationColorFromKLayerIdx( size_t Kidx, cvf::Color3f* 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation names.
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RigFormationNames::formationNames() const
 {
@@ -75,7 +77,7 @@ std::vector<QString> RigFormationNames::formationNames() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the formation colors.
 //--------------------------------------------------------------------------------------------------
 std::vector<cvf::Color3f> RigFormationNames::formationColors() const
 {
@@ -83,7 +85,7 @@ std::vector<cvf::Color3f> RigFormationNames::formationColors() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends formation range.
 //--------------------------------------------------------------------------------------------------
 void RigFormationNames::appendFormationRange( const QString& name, int kStartIdx, int kEndIdx )
 {
@@ -91,7 +93,7 @@ void RigFormationNames::appendFormationRange( const QString& name, int kStartIdx
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends formation range.
 //--------------------------------------------------------------------------------------------------
 void RigFormationNames::appendFormationRange( const QString& name, cvf::Color3f color, int kStartIdx, int kEndIdx )
 {
@@ -99,7 +101,7 @@ void RigFormationNames::appendFormationRange( const QString& name, cvf::Color3f 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends formation range height.
 //--------------------------------------------------------------------------------------------------
 void RigFormationNames::appendFormationRangeHeight( const QString& name, int kLayerCount )
 {
@@ -112,7 +114,7 @@ void RigFormationNames::appendFormationRangeHeight( const QString& name, int kLa
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends formation range height.
 //--------------------------------------------------------------------------------------------------
 void RigFormationNames::appendFormationRangeHeight( const QString& name, cvf::Color3f color, int kLayerCount )
 {
@@ -125,7 +127,7 @@ void RigFormationNames::appendFormationRangeHeight( const QString& name, cvf::Co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the undefined color.
 //--------------------------------------------------------------------------------------------------
 cvf::Color3f RigFormationNames::undefinedColor()
 {
@@ -135,7 +137,7 @@ cvf::Color3f RigFormationNames::undefinedColor()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Appends formation range with color.
 //--------------------------------------------------------------------------------------------------
 void RigFormationNames::appendFormationRangeWithColor( const QString& name, cvf::Color3f color, int kStartIdx, int kEndIdx )
 {
@@ -159,7 +161,7 @@ void RigFormationNames::appendFormationRangeWithColor( const QString& name, cvf:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds k layers.
 //--------------------------------------------------------------------------------------------------
 std::set<int> RigFormationNames::findKLayers( std::vector<QString> formationNames ) const
 {

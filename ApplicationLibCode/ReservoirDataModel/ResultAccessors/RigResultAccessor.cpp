@@ -16,13 +16,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to result.
 
 #include "RigResultAccessor.h"
 
 #include <cmath> // Needed for HUGE_VAL on Linux
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar.
 //--------------------------------------------------------------------------------------------------
 double RigHugeValResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 {
@@ -30,7 +32,7 @@ double RigHugeValResultAccessor::cellScalar( size_t gridLocalCellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar.
 //--------------------------------------------------------------------------------------------------
 double RigHugeValResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {
@@ -38,7 +40,7 @@ double RigHugeValResultAccessor::cellFaceScalar( size_t gridLocalCellIndex, cvf:
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigHugeValResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) const
 {
@@ -46,7 +48,7 @@ double RigHugeValResultAccessor::cellScalarGlobIdx( size_t globCellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell face scalar glob idx.
 //--------------------------------------------------------------------------------------------------
 double RigHugeValResultAccessor::cellFaceScalarGlobIdx( size_t globCellIndex, cvf::StructGridInterface::FaceType faceId ) const
 {

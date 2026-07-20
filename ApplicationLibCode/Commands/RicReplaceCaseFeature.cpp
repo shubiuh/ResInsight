@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements replace case command support.
 
 #include "RicReplaceCaseFeature.h"
 

@@ -15,10 +15,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares flow diag result frames reservoir-data functionality.
 #pragma once
 
 #include <vector>
 
+/// @brief Models flow diag result frames for reservoir-data processing.
 class RigFlowDiagResultFrames
 {
 public:

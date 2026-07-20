@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares vfp tables reservoir-data functionality.
 
 #pragma once
 
@@ -35,15 +37,21 @@ class UnitSystem;
 class RifVfpInjTable;
 class RifVfpProdTable;
 
+/// @brief Stores vfp plot data.
 class VfpPlotData
 {
 public:
+    /// Sets x axis title.
     void setXAxisTitle( const QString& xAxisTitle ) { m_xAxisTitle = xAxisTitle; }
+    /// Sets y axis title.
     void setYAxisTitle( const QString& yAxisTitle ) { m_yAxisTitle = yAxisTitle; }
 
+    /// Returns or processes x axis title.
     const QString& xAxisTitle() const { return m_xAxisTitle; }
+    /// Returns or processes y axis title.
     const QString& yAxisTitle() const { return m_yAxisTitle; }
 
+    /// Returns or processes append curve.
     void appendCurve( const QString& curveTitle, const std::vector<double>& xData, const std::vector<double>& yData )
     {
         m_curveTitles.push_back( curveTitle );
@@ -51,13 +59,18 @@ public:
         m_yData.push_back( yData );
     }
 
+    /// Returns or processes curve title.
     const QString& curveTitle( size_t idx ) const { return m_curveTitles[idx]; }
 
+    /// Returns or processes size.
     size_t size() const { return m_xData.size(); }
 
+    /// Returns or processes curve size.
     size_t curveSize( size_t idx ) const { return m_xData[idx].size(); }
 
+    /// Returns or processes x data.
     const std::vector<double>& xData( size_t idx ) const { return m_xData[idx]; }
+    /// Returns or processes y data.
     const std::vector<double>& yData( size_t idx ) const { return m_yData[idx]; }
 
 private:
@@ -68,39 +81,60 @@ private:
     std::vector<std::vector<double>> m_yData;
 };
 
+/// @brief Models vfp table selection for reservoir-data processing.
 struct VfpTableSelection
 {
+    /// Stores flow rate idx.
     int flowRateIdx;
+    /// Stores thp idx.
     int thpIdx;
+    /// Stores articifial lift quantity idx.
     int articifialLiftQuantityIdx;
+    /// Stores water cut idx.
     int waterCutIdx;
+    /// Stores gas liquid ratio idx.
     int gasLiquidRatioIdx;
 };
 
+/// @brief Models vfp value selection for reservoir-data processing.
 struct VfpValueSelection
 {
+    /// Stores flow rate value.
     double flowRateValue;
+    /// Stores thp value.
     double thpValue;
+    /// Stores artificial lift quantity value.
     double artificialLiftQuantityValue;
+    /// Stores water cut value.
     double waterCutValue;
+    /// Stores gas liquid ratio value.
     double gasLiquidRatioValue;
 
+    /// Stores family values.
     std::vector<double> familyValues;
 };
 
+/// @brief Stores vfp table initial data.
 struct VfpTableInitialData
 {
+    /// Stores is production table.
     bool                                    isProductionTable;
+    /// Stores table number.
     int                                     tableNumber;
+    /// Stores datum depth.
     double                                  datumDepth;
+    /// Stores flowing phase.
     RimVfpDefines::FlowingPhaseType         flowingPhase;
+    /// Stores water fraction.
     RimVfpDefines::FlowingWaterFractionType waterFraction;
+    /// Stores gas fraction.
     RimVfpDefines::FlowingGasFractionType   gasFraction;
 };
 
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models vfp tables for reservoir-data processing.
 class RigVfpTables
 {
 public:

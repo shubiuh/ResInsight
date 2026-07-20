@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import well log OSDU command support.
 
 #include "RicImportWellLogOsduFeature.h"
 

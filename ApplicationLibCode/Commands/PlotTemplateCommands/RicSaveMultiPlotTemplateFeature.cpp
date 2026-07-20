@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements save multi plot template command support.
 
 #include "RicSaveMultiPlotTemplateFeature.h"
 

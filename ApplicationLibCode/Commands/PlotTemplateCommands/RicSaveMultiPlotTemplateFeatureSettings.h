@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares save multi plot template feature settings command support.
 
 #pragma once
 
@@ -23,27 +25,37 @@
 #include "cafPdmObject.h"
 
 //==================================================================================================
-///
+/// @brief Supports save multi plot template feature settings command workflows.
 //==================================================================================================
 class RicSaveMultiPlotTemplateFeatureSettings : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicSaveMultiPlotTemplateFeatureSettings();
 
+    /// Sets file path.
     void    setFilePath( const QString& filePath );
+    /// @return The file path.
     QString filePath() const;
 
+    /// Sets name.
     void    setName( const QString& name );
+    /// @return The name.
     QString name() const;
 
+    /// @return The use placholder for wells.
     bool usePlacholderForWells() const;
+    /// @return The use placholder for groups.
     bool usePlacholderForGroups() const;
+    /// @return The use placholder for regions.
     bool usePlacholderForRegions() const;
 
 private:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 
 private:

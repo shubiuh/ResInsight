@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for polygon.
 
 #pragma once
 
@@ -27,7 +29,9 @@
 namespace RigPolygonTools
 {
 // Integer images are assumed to be 2D arrays of integers, where 0 is background and 1 is foreground.
+/// Type alias used for integer image.
 using IntegerImage = std::vector<std::vector<int>>;
+/// Type alias used for point.
 using Point        = std::pair<int, int>;
 
 IntegerImage erode( IntegerImage image, int kernelSize );

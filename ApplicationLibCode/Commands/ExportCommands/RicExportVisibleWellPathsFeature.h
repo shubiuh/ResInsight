@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export visible well paths command support.
 
 #pragma once
 
@@ -27,19 +29,22 @@
 class RimWellPath;
 
 //==================================================================================================
-///
+/// @brief Shared file handle used while exporting visible well paths.
 //==================================================================================================
 using QFilePtr = std::shared_ptr<QFile>;
 
 //==================================================================================================
-///
+/// @brief Command feature for export visible well paths.
 //==================================================================================================
 class RicExportVisibleWellPathsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 private:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 };

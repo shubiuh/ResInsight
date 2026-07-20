@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new multi phase RFT segment plot command support.
 
 #include "RicNewMultiPhaseRftSegmentPlotFeature.h"
 #include "RicNewRftSegmentWellLogPlotFeature.h"

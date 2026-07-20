@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements ensemble parameter reservoir-data functionality.
 
 #include "RigEnsembleParameter.h"
 
@@ -22,7 +24,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the std deviation.
 //--------------------------------------------------------------------------------------------------
 double RigEnsembleParameter::stdDeviation() const
 {
@@ -66,7 +68,7 @@ double RigEnsembleParameter::normalizedStdDeviation() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Implements the operator< operation.
 //--------------------------------------------------------------------------------------------------
 bool RigEnsembleParameter::operator<( const RigEnsembleParameter& other ) const
 {
@@ -79,7 +81,7 @@ bool RigEnsembleParameter::operator<( const RigEnsembleParameter& other ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ui name.
 //--------------------------------------------------------------------------------------------------
 QString RigEnsembleParameter::uiName() const
 {

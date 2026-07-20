@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new summary plot from data vector command support.
 
 #include "RicNewSummaryPlotFromDataVectorFeature.h"
 

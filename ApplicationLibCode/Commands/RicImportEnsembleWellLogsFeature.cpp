@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import ensemble well logs command support.
 
 #include "RicImportEnsembleWellLogsFeature.h"
 

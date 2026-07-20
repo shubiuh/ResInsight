@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new grid case surface command support.
 
 #include "RicNewGridCaseSurfaceFeature.h"
 

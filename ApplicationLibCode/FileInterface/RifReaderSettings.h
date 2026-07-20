@@ -17,25 +17,31 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
+/// @file
+/// Defines the common import policy passed to reservoir file readers.
+
 #pragma once
 
 #include <QString>
 
 //==================================================================================================
+/// Value object controlling optional and potentially expensive reader behavior.
 ///
-///
+/// The settings are deliberately independent of a concrete file format so the
+/// application can apply one import policy consistently to ECLIPSE, OPM, and
+/// other reservoir readers.
 //==================================================================================================
 struct RifReaderSettings
 {
-    bool    importFaults                        = false;
-    bool    importNNCs                          = false;
-    bool    includeInactiveCellsInFaultGeometry = false;
-    bool    importAdvancedMswData               = false;
-    bool    skipWellData                        = true;
-    bool    importSummaryData                   = false;
-    QString includeFileAbsolutePathPrefix       = "";
-    bool    onlyLoadActiveCells                 = false;
-    bool    invalidateLongThinCells             = true;
-    bool    useCylindricalCoordinates           = false;
-    int     minimumAngularCellCount             = 20;
+    bool importFaults = false; ///< Import FAULTS definitions referenced by the case deck.
+    bool importNNCs   = false; ///< Import non-neighbor connections and their transmissibilities.
+    bool includeInactiveCellsInFaultGeometry = false; ///< Include faces belonging only to inactive cells in fault geometry.
+    bool importAdvancedMswData = false; ///< Read complete multisegment-well topology instead of basic well data.
+    bool skipWellData          = true;  ///< Avoid loading simulation well data when it is not needed.
+    bool importSummaryData     = false; ///< Import summary data while opening formats that can provide it.
+    QString includeFileAbsolutePathPrefix = ""; ///< Prefix used to resolve absolute-looking deck INCLUDE paths on another machine.
+    bool onlyLoadActiveCells       = false; ///< Limit cell-property allocation and loading to active cells.
+    bool invalidateLongThinCells   = true;  ///< Mark numerically degenerate long, thin cells invalid during import.
+    bool useCylindricalCoordinates = false; ///< Interpret supported grids using cylindrical coordinates.
+    int minimumAngularCellCount    = 20;    ///< Minimum circumferential resolution used for cylindrical grids.
 };

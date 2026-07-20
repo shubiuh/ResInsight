@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements show plot window command support.
 
 #include "RicShowPlotWindowFeature.h"
 

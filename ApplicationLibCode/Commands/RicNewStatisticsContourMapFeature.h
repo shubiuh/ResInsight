@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares new statistics contour map command support.
 
 #pragma once
 
@@ -23,19 +25,24 @@
 class RimReservoirGridEnsembleBase;
 
 //==================================================================================================
-///
+/// @brief Command feature for new statistics contour map.
 //==================================================================================================
 class RicNewStatisticsContourMapFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Adds statistics contour map.
     static void addStatisticsContourMap( RimReservoirGridEnsembleBase* ensemble );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// @return The selected ensemble.
     static RimReservoirGridEnsembleBase* selectedEnsemble();
 };

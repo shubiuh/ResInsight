@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares holo lens server settings command support.
 
 #pragma once
 
@@ -24,15 +26,17 @@
 class RimGridView;
 
 //==================================================================================================
-///
+/// @brief Supports holo lens server settings command workflows.
 //==================================================================================================
 class RicHoloLensServerSettings : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicHoloLensServerSettings();
 
+    /// @return The server url.
     QString serverUrl() const;
 
 private:

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create polygon command support.
 
 #include "RicCreatePolygonFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements dock in3d view command support.
 
 #include "RicDockIn3dViewFeature.h"
 

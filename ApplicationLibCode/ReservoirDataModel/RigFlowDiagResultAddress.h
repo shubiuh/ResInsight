@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares flow diag result address reservoir-data functionality.
 #pragma once
 
 #include "RigFlowDiagDefines.h"
@@ -24,9 +26,11 @@
 #include <set>
 #include <string>
 
+/// @brief Models flow diag result address for reservoir-data processing.
 class RigFlowDiagResultAddress
 {
 public:
+    /// Enumerates the supported phase selection values.
     enum PhaseSelection
     {
         PHASE_ALL = 0b111,
@@ -35,8 +39,10 @@ public:
         PHASE_WAT = 0b100,
     };
 
+    /// Type alias used for phase selection enum.
     using PhaseSelectionEnum = caf::AppEnum<PhaseSelection>;
 
+    /// Returns or processes flow diag result address.
     RigFlowDiagResultAddress( const std::string& aVariableName, PhaseSelection phaseSelection, const std::set<std::string>& someSelectedTracerNames )
         : variableName( aVariableName )
         , selectedTracerNames( someSelectedTracerNames )
@@ -44,6 +50,7 @@ public:
     {
     }
 
+    /// Returns or processes flow diag result address.
     RigFlowDiagResultAddress( const std::string& aVariableName, PhaseSelection phaseSelection, const std::string& tracerName )
         : variableName( aVariableName )
         , phaseSelection( phaseSelection )
@@ -56,10 +63,14 @@ public:
     std::string uiText() const;
     std::string uiShortText() const;
 
+    /// Stores variable name.
     std::string           variableName;
+    /// Stores selected tracer names.
     std::set<std::string> selectedTracerNames;
+    /// Stores phase selection.
     PhaseSelection        phaseSelection;
 
+    /// Implements the operator< operation.
     bool operator<( const RigFlowDiagResultAddress& other ) const
     {
         if ( selectedTracerNames != other.selectedTracerNames )

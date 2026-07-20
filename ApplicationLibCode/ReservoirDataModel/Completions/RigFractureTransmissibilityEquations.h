@@ -15,12 +15,15 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fracture transmissibility equations reservoir-data functionality.
 
 #pragma once
 
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models fracture transmissibility equations for reservoir-data processing.
 class RigFractureTransmissibilityEquations
 {
 public:

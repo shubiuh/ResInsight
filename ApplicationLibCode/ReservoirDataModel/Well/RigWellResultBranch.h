@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares well result branch reservoir-data functionality.
 
 #pragma once
 
@@ -30,6 +32,7 @@
 /// This class contains the connection information from and including a split point to the end of
 /// that particular branch.
 //==================================================================================================
+/// @brief Models well result branch for reservoir-data processing.
 struct RigWellResultBranch
 {
     RigWellResultBranch();
@@ -46,4 +49,5 @@ private:
     std::vector<RigWellResultPoint> m_branchResultPoints;
 };
 
+/// Type alias used for simulation well cell branch.
 using SimulationWellCellBranch = std::pair<std::vector<cvf::Vec3d>, std::vector<RigWellResultPoint>>;

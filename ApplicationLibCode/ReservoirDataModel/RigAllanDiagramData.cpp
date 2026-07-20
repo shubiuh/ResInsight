@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements storage and handling of allan diagram data.
 
 #include "RigAllanDiagramData.h"
 
@@ -23,14 +25,14 @@
 #include "RigMainGrid.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigAllanDiagramData instance.
 //--------------------------------------------------------------------------------------------------
 RigAllanDiagramData::RigAllanDiagramData()
 {
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Destroys the RigAllanDiagramData instance.
 //--------------------------------------------------------------------------------------------------
 RigAllanDiagramData::~RigAllanDiagramData()
 {

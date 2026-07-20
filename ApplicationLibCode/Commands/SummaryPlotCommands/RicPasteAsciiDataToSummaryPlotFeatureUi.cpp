@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste ASCII data to summary plot feature command support.
 
 #include "RicPasteAsciiDataToSummaryPlotFeatureUi.h"
 

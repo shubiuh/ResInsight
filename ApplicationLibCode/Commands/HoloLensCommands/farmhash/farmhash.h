@@ -1,3 +1,5 @@
+/// @file
+/// @brief Declares farmhash command support.
 // Copyright (c) 2014 Google, Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,6 +55,7 @@
 #define NAMESPACE_FOR_HASH_FUNCTIONS util
 #endif
 
+/// @brief Utilities for namespace_for_hash_functions command workflows.
 namespace NAMESPACE_FOR_HASH_FUNCTIONS
 {
 #if defined( FARMHASH_UINT128_T_DEFINED )

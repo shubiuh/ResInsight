@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export to sharing server scheduler command support.
 
 #pragma once
 
@@ -23,17 +25,20 @@
 class QTimer;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @brief Supports export to sharing server scheduler command workflows.
 //--------------------------------------------------------------------------------------------------
 class RicExportToSharingServerScheduler : public QObject
 {
     Q_OBJECT;
 
 public:
+    /// @return The instance.
     static RicExportToSharingServerScheduler* instance();
+    /// Performs the schedule update session command operation.
     void                                      scheduleUpdateSession();
 
 private slots:
+    /// Performs the slot trigger update session when ready command operation.
     void slotTriggerUpdateSessionWhenReady();
 
 private:
@@ -42,12 +47,17 @@ private:
     {
     }
 
+    /// Destroys the command object.
     ~RicExportToSharingServerScheduler() override;
 
+    /// Constructs the command object.
     RicExportToSharingServerScheduler( const RicExportToSharingServerScheduler& o ) = delete;
+    /// Provides the corresponding operator for command data.
     void operator=( const RicExportToSharingServerScheduler& o )                    = delete;
 
+    /// Performs the start timer command operation.
     void startTimer( int msecs );
+    /// Performs the trigger update session command operation.
     void triggerUpdateSession();
 
 private:

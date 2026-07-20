@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create temporary LGR command support.
 
 #pragma once
 
@@ -36,13 +38,14 @@ class RigGridBase;
 class RigEclipseCaseData;
 
 //==================================================================================================
-///
+/// @brief Command feature for create temporary LGR.
 //==================================================================================================
 class RicCreateTemporaryLgrFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// Creates lgrs for well paths.
     void createLgrsForWellPaths( std::vector<RimWellPath*>                          wellPaths,
                                  RimEclipseCase*                                    eclipseCase,
                                  size_t                                             timeStep,
@@ -51,12 +54,17 @@ public:
                                  const std::set<RigCompletionData::CompletionType>& completionTypes,
                                  QStringList*                                       wellsIntersectingOtherLgrs );
 
+    /// Creates LGR.
     static RigGridBase* createLgr( const LgrInfo& lgrInfo, RigEclipseCaseData* caseData );
 
 private:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Creates LGR for grid.
     static RigGridBase* createLgrForGrid( const LgrInfo& lgrInfo, RigMainGrid* mainGrid );
 };

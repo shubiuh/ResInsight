@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create saturation pressure plots command support.
 
 #include "RicCreateSaturationPressurePlotsFeature.h"
 #include "RicSaturationPressureUi.h"

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fracture cell reservoir-data functionality.
 
 #pragma once
 
@@ -26,6 +28,7 @@
 ///
 ///
 //==================================================================================================
+/// @brief Models fracture cell for reservoir-data processing.
 class RigFractureCell
 {
 public:

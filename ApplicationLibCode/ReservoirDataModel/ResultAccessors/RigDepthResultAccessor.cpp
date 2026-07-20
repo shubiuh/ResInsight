@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements access to depth result.
 
 #include "RigDepthResultAccessor.h"
 
@@ -28,7 +30,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the result values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigDepthResultAccessor::resultValues( RigEclipseCaseData*         eclipseCaseData,
                                                           RimEclipseResultDefinition* resultDefinition,
@@ -86,7 +88,7 @@ std::vector<double> RigDepthResultAccessor::resultValues( RigEclipseCaseData*   
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the k values.
 //--------------------------------------------------------------------------------------------------
 std::vector<int> RigDepthResultAccessor::kValues( RigEclipseCaseData* eclipseCaseData, int gridIndex )
 {
@@ -102,7 +104,7 @@ std::vector<int> RigDepthResultAccessor::kValues( RigEclipseCaseData* eclipseCas
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the depth values.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigDepthResultAccessor::depthValues( RigEclipseCaseData* eclipseCaseData, int startCellIndex, int gridIndex )
 {
@@ -137,7 +139,7 @@ std::vector<double> RigDepthResultAccessor::depthValues( RigEclipseCaseData* ecl
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the geometry selection text.
 //--------------------------------------------------------------------------------------------------
 QString RigDepthResultAccessor::geometrySelectionText( RigEclipseCaseData* eclipseCaseData, size_t gridIndex, size_t cellIndex )
 {

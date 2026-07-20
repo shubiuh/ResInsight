@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares append summary plots for objects command support.
 
 #pragma once
 
@@ -33,33 +35,42 @@ class RimSummaryCase;
 class RimSummaryEnsemble;
 
 //==================================================================================================
-///
+/// @brief Command feature for append summary plots for objects.
 //==================================================================================================
 class RicAppendSummaryPlotsForObjectsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 public:
+    /// @return The selected collections.
     static std::vector<RimSummaryAddressCollection*> selectedCollections();
 
+    /// @return The plots for one instance of object type.
     static std::vector<RimSummaryPlot*> plotsForOneInstanceOfObjectType( const std::vector<RimSummaryPlot*>&                sourcePlots,
                                                                          RimSummaryAddressCollection::CollectionContentType objectType );
 
+    /// @return Whether selection compatible with plot.
     static bool isSelectionCompatibleWithPlot( const std::vector<RimSummaryAddressCollection*>& selection,
                                                RimSummaryMultiPlot*                             summaryMultiPlot );
 
+    /// Appends plots.
     static void appendPlots( RimSummaryMultiPlot* summaryMultiPlot, const std::vector<RimSummaryAddressCollection*>& selection );
 
+    /// Appends plots.
     static void appendPlots( RimSummaryMultiPlot*                    summaryMultiPlot,
                              const std::vector<RimSummaryCase*>&     cases,
                              const std::vector<RimSummaryEnsemble*>& ensembles );
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Creates address collections.
     static std::vector<RimSummaryAddressCollection*> createAddressCollections( const std::vector<RimSummaryCase*>&     cases,
                                                                                const std::vector<RimSummaryEnsemble*>& ensembles );
 };

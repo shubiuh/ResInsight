@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares export to LAS file resample command support.
 
 #pragma once
 
@@ -24,20 +26,21 @@
 #include "cafPdmObject.h"
 
 //==================================================================================================
-///
+/// @brief Supports export to LAS file obj command workflows.
 //==================================================================================================
 class RicExportToLasFileObj : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicExportToLasFileObj();
 
     caf::PdmField<QString> tvdrkbOffset;
 };
 
 //==================================================================================================
-///
+/// @brief UI model for configuring export to LAS file resample.
 //==================================================================================================
 class RicExportToLasFileResampleUi : public caf::PdmObject
 {
@@ -52,6 +55,7 @@ public:
     using CurveUnitConversionEnum = caf::AppEnum<CurveUnitConversion>;
 
 public:
+    /// Constructs the command object.
     RicExportToLasFileResampleUi();
 
     caf::PdmField<QString> exportFolder;
@@ -64,17 +68,24 @@ public:
     caf::PdmField<bool>                    exportTvdrkb;
     caf::PdmField<CurveUnitConversionEnum> curveUnitConversion;
 
+    /// Performs the tvdrkb diff for well paths command operation.
     void tvdrkbDiffForWellPaths( std::vector<double>* rkbDiffs );
+    /// Sets rkb diffs.
     void setRkbDiffs( const std::vector<QString>& wellNames, const std::vector<double>& rkbDiffs );
+    /// Sets unit conversion option enabled.
     void setUnitConversionOptionEnabled( bool enabled );
 
+    /// Responds to a value changed through the command UI.
     void fieldChangedByUi( const caf::PdmFieldHandle* changedField, const QVariant& oldValue, const QVariant& newValue ) override;
+    /// Performs the define editor attribute command operation.
     void defineEditorAttribute( const caf::PdmFieldHandle* field, QString uiConfigName, caf::PdmUiEditorAttribute* attribute ) override;
 
 protected:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
 private:
+    /// Updates field visibility.
     void updateFieldVisibility();
 
 private:

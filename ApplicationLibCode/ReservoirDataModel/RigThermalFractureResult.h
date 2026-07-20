@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares thermal fracture result reservoir-data functionality.
 
 #pragma once
 
@@ -29,6 +31,7 @@
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Stores a thermal fracture result result.
 class RigThermalFractureResult
 {
 public:

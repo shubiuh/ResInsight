@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements add stored flow characteristics plot command support.
 
 #include "RicAddStoredFlowCharacteristicsPlotFeature.h"
 

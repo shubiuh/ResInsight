@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements Eclipse hide fault command support.
 
 #include "RicEclipseHideFaultFeature.h"
 

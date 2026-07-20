@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create multiple well path laterals command support.
 
 #pragma once
 
@@ -32,30 +34,38 @@
 class RimModeledWellPath;
 class RimWellPath;
 
+/// @brief Utilities for caf command workflows.
 namespace caf
 {
 class PdmUiPropertyViewDialog;
 }
 
 //==================================================================================================
-///
+/// @brief UI model for configuring create multiple well path laterals.
 //==================================================================================================
 class RicCreateMultipleWellPathLateralsUi : public caf::PdmObject
 {
     CAF_PDM_HEADER_INIT;
 
 public:
+    /// Constructs the command object.
     RicCreateMultipleWellPathLateralsUi();
 
+    /// Sets top level well path.
     void setTopLevelWellPath( RimWellPath* wellPath );
+    /// Sets default values.
     void setDefaultValues( double start, double end );
 
+    /// @return The source lateral.
     RimModeledWellPath*   sourceLateral() const;
+    /// @return The location config.
     RimMultipleLocations* locationConfig() const;
 
 private:
+    /// Defines the field ordering used by the command UI.
     void defineUiOrdering( QString uiConfigName, caf::PdmUiOrdering& uiOrdering ) override;
 
+    /// @return The selectable values for the requested PDM field.
     QList<caf::PdmOptionItemInfo> calculateValueOptions( const caf::PdmFieldHandle* fieldNeedingOptions ) override;
 
 private:

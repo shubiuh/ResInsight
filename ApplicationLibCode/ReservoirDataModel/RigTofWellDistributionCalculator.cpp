@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements calculation of tof well distribution.
 
 #include "RigTofWellDistributionCalculator.h"
 
@@ -43,7 +45,7 @@
 //==================================================================================================
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigTofWellDistributionCalculator instance.
 //--------------------------------------------------------------------------------------------------
 RigTofWellDistributionCalculator::RigTofWellDistributionCalculator( RimEclipseResultCase* caseToApply,
                                                                     QString               targetWellname,
@@ -157,7 +159,7 @@ RigTofWellDistributionCalculator::RigTofWellDistributionCalculator( RimEclipseRe
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the group small contributions.
 //--------------------------------------------------------------------------------------------------
 void RigTofWellDistributionCalculator::groupSmallContributions( double smallContribThreshold )
 {
@@ -203,7 +205,7 @@ void RigTofWellDistributionCalculator::groupSmallContributions( double smallCont
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the build sorted tof to cell indices map.
 //--------------------------------------------------------------------------------------------------
 std::map<double, std::vector<size_t>> RigTofWellDistributionCalculator::buildSortedTofToCellIndicesMap( const std::vector<double>& tofData )
 {
@@ -277,7 +279,7 @@ std::vector<QString> RigTofWellDistributionCalculator::findCandidateContributing
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sorted unique tof values.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigTofWellDistributionCalculator::sortedUniqueTofValues() const
 {
@@ -285,7 +287,7 @@ const std::vector<double>& RigTofWellDistributionCalculator::sortedUniqueTofValu
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the contributing well count.
 //--------------------------------------------------------------------------------------------------
 size_t RigTofWellDistributionCalculator::contributingWellCount() const
 {
@@ -293,7 +295,7 @@ size_t RigTofWellDistributionCalculator::contributingWellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the contributing well name.
 //--------------------------------------------------------------------------------------------------
 const QString& RigTofWellDistributionCalculator::contributingWellName( size_t contribWellIndex ) const
 {
@@ -301,7 +303,7 @@ const QString& RigTofWellDistributionCalculator::contributingWellName( size_t co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the accumulated volume for contributing well.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigTofWellDistributionCalculator::accumulatedVolumeForContributingWell( size_t contributingWellIndex ) const
 {

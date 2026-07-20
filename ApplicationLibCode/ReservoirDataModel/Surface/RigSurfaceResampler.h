@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares surface resampler reservoir-data functionality.
 #pragma once
 
 #include "RigSurface.h"
@@ -24,6 +26,7 @@
 //--------------------------------------------------------------------------------------------------
 ///
 //--------------------------------------------------------------------------------------------------
+/// @brief Models surface resampler for reservoir-data processing.
 class RigSurfaceResampler
 {
 public:

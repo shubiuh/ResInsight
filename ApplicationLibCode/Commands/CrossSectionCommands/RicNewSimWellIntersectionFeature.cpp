@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new sim well intersection command support.
 
 #include "RicNewSimWellIntersectionFeature.h"
 

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements create surface intersection band command support.
 
 #include "RicCreateSurfaceIntersectionBandFeature.h"
 

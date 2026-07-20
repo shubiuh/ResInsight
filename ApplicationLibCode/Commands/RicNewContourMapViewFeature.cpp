@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements new contour map view command support.
 
 #include "RicNewContourMapViewFeature.h"
 

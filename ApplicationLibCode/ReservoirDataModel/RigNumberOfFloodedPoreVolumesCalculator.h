@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of number of flooded pore volumes.
 
 #pragma once
 
@@ -32,6 +34,7 @@ class RigMainGrid;
 ///
 //==================================================================================================
 
+/// @brief Calculates number of flooded pore volumes.
 class RigNumberOfFloodedPoreVolumesCalculator
 {
 public:

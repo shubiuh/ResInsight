@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste grid cross plot data set command support.
 
 #include "RicPasteGridCrossPlotDataSetFeature.h"
 

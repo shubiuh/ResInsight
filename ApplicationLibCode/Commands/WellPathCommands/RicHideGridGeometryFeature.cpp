@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements hide grid geometry command support.
 
 #include "RicHideGridGeometryFeature.h"
 

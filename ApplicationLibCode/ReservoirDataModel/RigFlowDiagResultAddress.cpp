@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements flow diag result address reservoir-data functionality.
 
 #include "RigFlowDiagResultAddress.h"
 
@@ -33,7 +35,7 @@ void RigFlowDiagResultAddress::PhaseSelectionEnum::setUp()
 } // namespace caf
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether native result.
 //--------------------------------------------------------------------------------------------------
 bool RigFlowDiagResultAddress::isNativeResult() const
 {
@@ -43,7 +45,7 @@ bool RigFlowDiagResultAddress::isNativeResult() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ui text.
 //--------------------------------------------------------------------------------------------------
 std::string RigFlowDiagResultAddress::uiText() const
 {
@@ -64,7 +66,7 @@ std::string RigFlowDiagResultAddress::uiText() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ui short text.
 //--------------------------------------------------------------------------------------------------
 std::string RigFlowDiagResultAddress::uiShortText() const
 {

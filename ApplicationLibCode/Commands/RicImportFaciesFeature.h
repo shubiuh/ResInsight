@@ -15,30 +15,38 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares import facies command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 class RimColorLegend;
+/// @brief Utilities for cvf command workflows.
 namespace cvf
 {
 class Color3f;
 }
 
 //==================================================================================================
-///
+/// @brief Command feature for import facies.
 //==================================================================================================
 class RicImportFaciesFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
 private:
+    /// Computes edit distance.
     static int  computeEditDistance( const QString& a, const QString& b );
+    /// @return The match by name.
     static bool matchByName( const QString& name, RimColorLegend* colorLegend, cvf::Color3f& color );
+    /// @return The predefined color match.
     static bool predefinedColorMatch( const QString& name, RimColorLegend* colorLegend, cvf::Color3f& color );
 };

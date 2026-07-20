@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares fishbones create command support.
 
 #pragma once
 
@@ -33,12 +35,15 @@ class QString;
 class RicFishbonesCreateHelper
 {
 public:
+    /// Creates and configure fishbones.
     static RimFishbones* createAndConfigureFishbones( RimFishbonesCollection*                                  fishbonesCollection,
                                                       const RimFishbonesDefines::RicFishbonesSystemParameters& customParameters,
                                                       double                                                   measuredDepth );
 
+    /// Sets up fishbones sub menu.
     static void setupFishbonesSubMenu( QAction* actionToSetup, const QString& actionText );
 
 private:
+    /// Performs the finalize fishbones creation command operation.
     static void finalizeFishbonesCreation( RimFishbones* fishbones, RimFishbonesCollection* fishbonesCollection );
 };

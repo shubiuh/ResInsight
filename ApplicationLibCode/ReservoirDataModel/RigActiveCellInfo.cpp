@@ -17,11 +17,13 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements active cell info reservoir-data functionality.
 
 #include "RigActiveCellInfo.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigActiveCellInfo instance.
 //--------------------------------------------------------------------------------------------------
 RigActiveCellInfo::RigActiveCellInfo()
     : m_reservoirActiveCellCount( 0 )
@@ -29,7 +31,7 @@ RigActiveCellInfo::RigActiveCellInfo()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets reservoir cell count.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::setReservoirCellCount( size_t reservoirCellCount )
 {
@@ -37,7 +39,7 @@ void RigActiveCellInfo::setReservoirCellCount( size_t reservoirCellCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reservoir cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigActiveCellInfo::reservoirCellCount() const
 {
@@ -45,7 +47,7 @@ size_t RigActiveCellInfo::reservoirCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether active.
 //--------------------------------------------------------------------------------------------------
 bool RigActiveCellInfo::isActive( ReservoirCellIndex reservoirCellIndex ) const
 {
@@ -60,7 +62,7 @@ bool RigActiveCellInfo::isActive( ReservoirCellIndex reservoirCellIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cell result index.
 //--------------------------------------------------------------------------------------------------
 ActiveCellIndex RigActiveCellInfo::cellResultIndex( ReservoirCellIndex reservoirCellIndex ) const
 {
@@ -70,7 +72,7 @@ ActiveCellIndex RigActiveCellInfo::cellResultIndex( ReservoirCellIndex reservoir
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets cell result index.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::setCellResultIndex( ReservoirCellIndex reservoirCellIndex, ActiveCellIndex reservoirCellResultIndex )
 {
@@ -80,7 +82,7 @@ void RigActiveCellInfo::setCellResultIndex( ReservoirCellIndex reservoirCellInde
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active reservoir cell indices.
 //--------------------------------------------------------------------------------------------------
 std::vector<ReservoirCellIndex> RigActiveCellInfo::activeReservoirCellIndices() const
 {
@@ -88,7 +90,7 @@ std::vector<ReservoirCellIndex> RigActiveCellInfo::activeReservoirCellIndices() 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets grid count.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::setGridCount( size_t gridCount )
 {
@@ -96,7 +98,7 @@ void RigActiveCellInfo::setGridCount( size_t gridCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets grid active cell counts.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::setGridActiveCellCounts( size_t gridIndex, size_t activeCellCount )
 {
@@ -106,7 +108,7 @@ void RigActiveCellInfo::setGridActiveCellCounts( size_t gridIndex, size_t active
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Computes derived data.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::computeDerivedData()
 {
@@ -127,7 +129,7 @@ void RigActiveCellInfo::computeDerivedData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the reservoir active cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigActiveCellInfo::reservoirActiveCellCount() const
 {
@@ -135,7 +137,7 @@ size_t RigActiveCellInfo::reservoirActiveCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets ijk bounding box.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::setIjkBoundingBox( const RigBoundingBoxIjk<caf::VecIjk0>& boundingBox )
 {
@@ -143,7 +145,7 @@ void RigActiveCellInfo::setIjkBoundingBox( const RigBoundingBoxIjk<caf::VecIjk0>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the ijk bounding box.
 //--------------------------------------------------------------------------------------------------
 const RigBoundingBoxIjk<caf::VecIjk0>& RigActiveCellInfo::ijkBoundingBox() const
 {
@@ -151,7 +153,7 @@ const RigBoundingBoxIjk<caf::VecIjk0>& RigActiveCellInfo::ijkBoundingBox() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid active cell counts.
 //--------------------------------------------------------------------------------------------------
 size_t RigActiveCellInfo::gridActiveCellCounts( size_t gridIndex ) const
 {
@@ -161,7 +163,7 @@ size_t RigActiveCellInfo::gridActiveCellCounts( size_t gridIndex ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the geometry bounding box.
 //--------------------------------------------------------------------------------------------------
 cvf::BoundingBox RigActiveCellInfo::geometryBoundingBox() const
 {
@@ -169,7 +171,7 @@ cvf::BoundingBox RigActiveCellInfo::geometryBoundingBox() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets geometry bounding box.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::setGeometryBoundingBox( cvf::BoundingBox bb )
 {
@@ -177,7 +179,7 @@ void RigActiveCellInfo::setGeometryBoundingBox( cvf::BoundingBox bb )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears the stored data.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::clear()
 {
@@ -189,7 +191,7 @@ void RigActiveCellInfo::clear()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Adds lgr.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::addLgr( size_t cellCount )
 {
@@ -210,7 +212,7 @@ void RigActiveCellInfo::addLgr( size_t cellCount )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a GridActiveCellCounts instance.
 //--------------------------------------------------------------------------------------------------
 RigActiveCellInfo::GridActiveCellCounts::GridActiveCellCounts()
     : m_activeCellCount( 0 )
@@ -218,7 +220,7 @@ RigActiveCellInfo::GridActiveCellCounts::GridActiveCellCounts()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the active cell count.
 //--------------------------------------------------------------------------------------------------
 size_t RigActiveCellInfo::GridActiveCellCounts::activeCellCount() const
 {
@@ -226,7 +228,7 @@ size_t RigActiveCellInfo::GridActiveCellCounts::activeCellCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets active cell count.
 //--------------------------------------------------------------------------------------------------
 void RigActiveCellInfo::GridActiveCellCounts::setActiveCellCount( size_t activeCellCount )
 {

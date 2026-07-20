@@ -15,13 +15,17 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares local grid reservoir-data functionality.
 
 #pragma once
 #include "RigGridBase.h"
 
+/// @brief Represents local grid.
 class RigLocalGrid : public RigGridBase
 {
 public:
+    /// Returns or processes local grid.
     explicit RigLocalGrid( RigMainGrid* mainGrid );
     ~RigLocalGrid() override;
 

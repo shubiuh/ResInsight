@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares tracer point reservoir-data functionality.
 
 #pragma once
 
@@ -27,6 +29,7 @@
 ///    some calculation time later on.
 ///    A phaseType flag indicates what was the dominant phase at this position.
 //==================================================================================================
+/// @brief Models tracer point for reservoir-data processing.
 class RigTracerPoint
 {
 public:

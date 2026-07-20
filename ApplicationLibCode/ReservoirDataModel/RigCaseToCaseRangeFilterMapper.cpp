@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements case to case range filter mapper reservoir-data functionality.
 
 #include "RigCaseToCaseRangeFilterMapper.h"
 #include "RigCaseToCaseCellMapper.h"
@@ -30,7 +32,7 @@
 #include <cmath>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Converts range filter ecl to fem.
 //--------------------------------------------------------------------------------------------------
 void RigCaseToCaseRangeFilterMapper::convertRangeFilterEclToFem( RimCellRangeFilter* srcFilter,
                                                                  const RigMainGrid*  srcEclGrid,
@@ -41,7 +43,7 @@ void RigCaseToCaseRangeFilterMapper::convertRangeFilterEclToFem( RimCellRangeFil
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Converts range filter fem to ecl.
 //--------------------------------------------------------------------------------------------------
 void RigCaseToCaseRangeFilterMapper::convertRangeFilterFemToEcl( RimCellRangeFilter* srcFilter,
                                                                  const RigFemPart*   srcFemPart,
@@ -51,6 +53,7 @@ void RigCaseToCaseRangeFilterMapper::convertRangeFilterFemToEcl( RimCellRangeFil
     convertRangeFilter( srcFilter, dstFilter, dstEclGrid, srcFemPart, false );
 }
 
+/// Supports range end points reservoir-data processing.
 struct RigRangeEndPoints
 {
     RigRangeEndPoints()
@@ -63,16 +66,22 @@ struct RigRangeEndPoints
     {
     }
 
+    /// Stores start i.
     size_t StartI;
+    /// Stores start j.
     size_t StartJ;
+    /// Stores start k.
     size_t StartK;
+    /// Stores end i.
     size_t EndI;
+    /// Stores end j.
     size_t EndJ;
+    /// Stores end k.
     size_t EndK;
 };
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Converts range filter.
 //--------------------------------------------------------------------------------------------------
 
 void RigCaseToCaseRangeFilterMapper::convertRangeFilter( const RimCellRangeFilter* srcFilter,
@@ -177,7 +186,7 @@ void RigCaseToCaseRangeFilterMapper::convertRangeFilter( const RimCellRangeFilte
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Converts range filter end points.
 //--------------------------------------------------------------------------------------------------
 void RigCaseToCaseRangeFilterMapper::convertRangeFilterEndPoints( const RigRangeEndPoints& src,
                                                                   RigRangeEndPoints&       dst,
@@ -433,7 +442,7 @@ RigCaseToCaseRangeFilterMapper::CellMatchType RigCaseToCaseRangeFilterMapper::fi
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Finds best ecl cell from fem cell.
 //--------------------------------------------------------------------------------------------------
 RigCaseToCaseRangeFilterMapper::CellMatchType RigCaseToCaseRangeFilterMapper::findBestEclCellFromFemCell( const RigFemPart* dependentFemPart,
                                                                                                           size_t             fi,

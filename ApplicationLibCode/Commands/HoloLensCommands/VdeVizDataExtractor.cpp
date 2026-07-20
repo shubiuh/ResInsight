@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements vde viz data extractor command support.
 
 #include "VdeVizDataExtractor.h"
 #include "VdeArrayDataPacket.h"

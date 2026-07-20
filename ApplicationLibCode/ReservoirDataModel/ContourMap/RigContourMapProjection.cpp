@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements contour map projection reservoir-data functionality.
 
 #include "RigContourMapProjection.h"
 
@@ -32,7 +34,7 @@
 #include <limits>
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Creates a RigContourMapProjection instance.
 //--------------------------------------------------------------------------------------------------
 RigContourMapProjection::RigContourMapProjection( const RigContourMapGrid* contourMapGrid )
     : m_contourMapGrid( contourMapGrid )
@@ -41,7 +43,7 @@ RigContourMapProjection::RigContourMapProjection( const RigContourMapGrid* conto
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates grid mapping.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::vector<std::pair<size_t, double>>>
     RigContourMapProjection::generateGridMapping( RigContourMapCalculator::ResultAggregationType resultAggregation,
@@ -55,7 +57,7 @@ std::vector<std::vector<std::pair<size_t, double>>>
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::maxValue() const
 {
@@ -63,7 +65,7 @@ double RigContourMapProjection::maxValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::minValue() const
 {
@@ -71,7 +73,7 @@ double RigContourMapProjection::minValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the mean value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::meanValue() const
 {
@@ -79,7 +81,7 @@ double RigContourMapProjection::meanValue() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sum all values.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::sumAllValues() const
 {
@@ -96,7 +98,7 @@ double RigContourMapProjection::sumAllValues() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of elements ij.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2ui RigContourMapProjection::numberOfElementsIJ() const
 {
@@ -104,7 +106,7 @@ cvf::Vec2ui RigContourMapProjection::numberOfElementsIJ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of vertices ij.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec2ui RigContourMapProjection::numberOfVerticesIJ() const
 {
@@ -112,7 +114,7 @@ cvf::Vec2ui RigContourMapProjection::numberOfVerticesIJ() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the vertex index.
 //--------------------------------------------------------------------------------------------------
 size_t RigContourMapProjection::vertexIndex( unsigned int i, unsigned int j ) const
 {
@@ -120,7 +122,7 @@ size_t RigContourMapProjection::vertexIndex( unsigned int i, unsigned int j ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value at vertex.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::valueAtVertex( unsigned int i, unsigned int j ) const
 {
@@ -133,7 +135,7 @@ double RigContourMapProjection::valueAtVertex( unsigned int i, unsigned int j ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of cells.
 //--------------------------------------------------------------------------------------------------
 unsigned int RigContourMapProjection::numberOfCells() const
 {
@@ -141,7 +143,7 @@ unsigned int RigContourMapProjection::numberOfCells() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of valid cells.
 //--------------------------------------------------------------------------------------------------
 unsigned int RigContourMapProjection::numberOfValidCells() const
 {
@@ -158,7 +160,7 @@ unsigned int RigContourMapProjection::numberOfValidCells() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the number of vertices.
 //--------------------------------------------------------------------------------------------------
 size_t RigContourMapProjection::numberOfVertices() const
 {
@@ -167,7 +169,7 @@ size_t RigContourMapProjection::numberOfVertices() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the check for map intersection.
 //--------------------------------------------------------------------------------------------------
 bool RigContourMapProjection::checkForMapIntersection( const cvf::Vec3d& domainPoint3d, cvf::Vec2d* contourMapPoint, double* valueAtPoint ) const
 {
@@ -191,7 +193,7 @@ bool RigContourMapProjection::checkForMapIntersection( const cvf::Vec3d& domainP
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the origin3d.
 //--------------------------------------------------------------------------------------------------
 cvf::Vec3d RigContourMapProjection::origin3d() const
 {
@@ -199,7 +201,7 @@ cvf::Vec3d RigContourMapProjection::origin3d() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the top depth bounding box.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::topDepthBoundingBox() const
 {
@@ -207,7 +209,7 @@ double RigContourMapProjection::topDepthBoundingBox() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the grid result index.
 //--------------------------------------------------------------------------------------------------
 size_t RigContourMapProjection::gridResultIndex( size_t globalCellIdx ) const
 {
@@ -215,7 +217,7 @@ size_t RigContourMapProjection::gridResultIndex( size_t globalCellIdx ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates value in map cell.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::calculateValueInMapCell( unsigned int                                   i,
                                                          unsigned int                                   j,
@@ -227,7 +229,7 @@ double RigContourMapProjection::calculateValueInMapCell( unsigned int           
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the max value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::maxValue( const std::vector<double>& aggregatedResults )
 {
@@ -236,7 +238,7 @@ double RigContourMapProjection::maxValue( const std::vector<double>& aggregatedR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the min value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::minValue( const std::vector<double>& aggregatedResults )
 {
@@ -245,7 +247,7 @@ double RigContourMapProjection::minValue( const std::vector<double>& aggregatedR
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets cell visibility.
 //--------------------------------------------------------------------------------------------------
 void RigContourMapProjection::setCellVisibility( cvf::ref<cvf::UByteArray> cellVisibility )
 {
@@ -253,7 +255,7 @@ void RigContourMapProjection::setCellVisibility( cvf::ref<cvf::UByteArray> cellV
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns cell visibility.
 //--------------------------------------------------------------------------------------------------
 cvf::ref<cvf::UByteArray> RigContourMapProjection::getCellVisibility() const
 {
@@ -261,7 +263,7 @@ cvf::ref<cvf::UByteArray> RigContourMapProjection::getCellVisibility() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Generates vertex results.
 //--------------------------------------------------------------------------------------------------
 void RigContourMapProjection::generateVertexResults()
 {
@@ -279,7 +281,7 @@ void RigContourMapProjection::generateVertexResults()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Sets value filter.
 //--------------------------------------------------------------------------------------------------
 void RigContourMapProjection::setValueFilter( std::optional<std::pair<double, double>> valueFilter )
 {
@@ -287,7 +289,7 @@ void RigContourMapProjection::setValueFilter( std::optional<std::pair<double, do
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value filter.
 //--------------------------------------------------------------------------------------------------
 std::optional<std::pair<double, double>> RigContourMapProjection::valueFilter() const
 {
@@ -295,7 +297,7 @@ std::optional<std::pair<double, double>> RigContourMapProjection::valueFilter() 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the sum triangle areas.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::sumTriangleAreas( const std::vector<cvf::Vec4d>& triangles )
 {
@@ -312,7 +314,7 @@ double RigContourMapProjection::sumTriangleAreas( const std::vector<cvf::Vec4d>&
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the interpolate value.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::interpolateValue( const cvf::Vec2d& gridPos2d ) const
 {
@@ -366,7 +368,7 @@ double RigContourMapProjection::interpolateValue( const cvf::Vec2d& gridPos2d ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the value in cell.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::valueInCell( unsigned int i, unsigned int j ) const
 {
@@ -379,7 +381,7 @@ double RigContourMapProjection::valueInCell( unsigned int i, unsigned int j ) co
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns whether result in cell is available.
 //--------------------------------------------------------------------------------------------------
 bool RigContourMapProjection::hasResultInCell( unsigned int i, unsigned int j ) const
 {
@@ -387,7 +389,7 @@ bool RigContourMapProjection::hasResultInCell( unsigned int i, unsigned int j ) 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Calculates value at vertex.
 //--------------------------------------------------------------------------------------------------
 double RigContourMapProjection::calculateValueAtVertex( unsigned int vi, unsigned int vj ) const
 {
@@ -418,7 +420,7 @@ double RigContourMapProjection::calculateValueAtVertex( unsigned int vi, unsigne
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the contour map cell contains only inactive cells.
 //--------------------------------------------------------------------------------------------------
 bool RigContourMapProjection::contourMapCellContainsOnlyInactiveCells( unsigned int i, unsigned int j ) const
 {
@@ -441,7 +443,7 @@ bool RigContourMapProjection::contourMapCellContainsOnlyInactiveCells( unsigned 
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the cells at ij.
 //--------------------------------------------------------------------------------------------------
 std::vector<std::pair<size_t, double>> RigContourMapProjection::cellsAtIJ( unsigned int i, unsigned int j ) const
 {
@@ -470,7 +472,7 @@ std::vector<double> RigContourMapProjection::yVertexPositions() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the aggregated results.
 //--------------------------------------------------------------------------------------------------
 const std::vector<double>& RigContourMapProjection::aggregatedResults() const
 {
@@ -478,7 +480,7 @@ const std::vector<double>& RigContourMapProjection::aggregatedResults() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the aggregated vertex results filtered.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigContourMapProjection::aggregatedVertexResultsFiltered() const
 {
@@ -500,7 +502,7 @@ std::vector<double> RigContourMapProjection::aggregatedVertexResultsFiltered() c
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the projected3d grid indices.
 //--------------------------------------------------------------------------------------------------
 const std::vector<std::vector<std::pair<size_t, double>>>& RigContourMapProjection::projected3dGridIndices() const
 {
@@ -508,7 +510,7 @@ const std::vector<std::vector<std::pair<size_t, double>>>& RigContourMapProjecti
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears results.
 //--------------------------------------------------------------------------------------------------
 void RigContourMapProjection::clearResults()
 {
@@ -517,7 +519,7 @@ void RigContourMapProjection::clearResults()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Clears grid mapping.
 //--------------------------------------------------------------------------------------------------
 void RigContourMapProjection::clearGridMapping()
 {

@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares intersection command support.
 
 #pragma once
 
@@ -22,8 +24,10 @@
 
 class QString;
 
+/// @brief Shared implementation helpers for intersection commands.
 class RicIntersectionFeatureImpl
 {
 public:
+    /// Creates intersection box slize.
     static void createIntersectionBoxSlize( const QString& name, RimBoxIntersection::SinglePlaneState plane );
 };

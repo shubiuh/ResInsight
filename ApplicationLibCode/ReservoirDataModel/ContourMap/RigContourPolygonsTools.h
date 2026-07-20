@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares utilities for contour polygons.
 
 #pragma once
 
@@ -28,17 +30,24 @@ class RigContourMapGrid;
 ///
 ///
 //==================================================================================================
+/// @brief Provides utilities for contour polygons.
 class RigContourPolygonsTools
 {
 public:
+    /// @brief Models contour polygon for reservoir-data processing.
     struct ContourPolygon
     {
+        /// Stores vertices.
         std::vector<cvf::Vec3d> vertices;
+        /// Stores value.
         double                  value;
+        /// Stores area.
         double                  area;
+        /// Stores bbox.
         cvf::BoundingBox        bbox;
     };
 
+    /// Type alias used for contour polygons.
     using ContourPolygons = std::vector<ContourPolygon>;
 
     static ContourPolygons createContourPolygonsFromLineSegments( caf::ContourLines::ListOfLineSegments& unorderedLineSegments,

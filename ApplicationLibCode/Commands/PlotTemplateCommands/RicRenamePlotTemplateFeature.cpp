@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements rename plot template command support.
 
 #include "RicRenamePlotTemplateFeature.h"
 

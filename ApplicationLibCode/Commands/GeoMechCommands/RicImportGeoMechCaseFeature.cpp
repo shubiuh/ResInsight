@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements import geo mech case command support.
 
 #include "RicImportGeoMechCaseFeature.h"
 

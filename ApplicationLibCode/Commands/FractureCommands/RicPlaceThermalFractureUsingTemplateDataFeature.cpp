@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements place thermal fracture using template data command support.
 
 #include "RicPlaceThermalFractureUsingTemplateDataFeature.h"
 

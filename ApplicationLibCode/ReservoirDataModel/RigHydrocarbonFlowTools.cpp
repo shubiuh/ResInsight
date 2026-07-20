@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for hydrocarbon flow.
 
 #include "RigHydrocarbonFlowTools.h"
 
@@ -26,7 +28,7 @@
 #include "RigFloodingSettings.h"
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the residual oil data.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigHydrocarbonFlowTools::residualOilData( RigCaseCellResultsData&             resultData,
                                                               RigHydrocarbonFlowTools::ResultType resultType,
@@ -60,7 +62,7 @@ std::vector<double> RigHydrocarbonFlowTools::residualOilData( RigCaseCellResults
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the residual gas data.
 //--------------------------------------------------------------------------------------------------
 std::vector<double> RigHydrocarbonFlowTools::residualGasData( RigCaseCellResultsData&             resultData,
                                                               RigHydrocarbonFlowTools::ResultType resultType,

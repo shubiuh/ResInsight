@@ -15,91 +15,117 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares Eclipse well show command support.
 
 #pragma once
 
 #include "cafCmdFeature.h"
 
 //==================================================================================================
-///
+/// @brief Command feature for Eclipse well show label.
 //==================================================================================================
 class RicEclipseWellShowLabelFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// @return Whether the command is checked for the current selection.
     bool isCommandChecked() const override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for Eclipse well show head.
 //==================================================================================================
 class RicEclipseWellShowHeadFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// @return Whether the command is checked for the current selection.
     bool isCommandChecked() const override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for Eclipse well show pipe.
 //==================================================================================================
 class RicEclipseWellShowPipeFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// @return Whether the command is checked for the current selection.
     bool isCommandChecked() const override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for Eclipse well show spheres.
 //==================================================================================================
 class RicEclipseWellShowSpheresFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// @return Whether the command is checked for the current selection.
     bool isCommandChecked() const override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for Eclipse well show well cells.
 //==================================================================================================
 class RicEclipseWellShowWellCellsFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// @return Whether the command is checked for the current selection.
     bool isCommandChecked() const override;
 };
 
 //==================================================================================================
-///
+/// @brief Command feature for Eclipse well show well cell fence.
 //==================================================================================================
 class RicEclipseWellShowWellCellFenceFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// @return Whether the command is checked for the current selection.
     bool isCommandChecked() const override;
 };

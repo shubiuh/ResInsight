@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of contour map.
 
 #pragma once
 
@@ -33,11 +35,14 @@ class RigPolyLinesData;
 ///
 ///
 //==================================================================================================
+/// @brief Calculates contour map.
 class RigContourMapCalculator
 {
 public:
+    /// Type alias used for cell index and result.
     using CellIndexAndResult = std::pair<size_t, double>;
 
+    /// Enumerates the supported result aggregation type values.
     enum ResultAggregationType
     {
         TOP_VALUE,

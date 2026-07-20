@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements vde array data packet command support.
 
 #include "VdeArrayDataPacket.h"
 

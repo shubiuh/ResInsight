@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements run fault react modeling command support.
 
 #include "RicRunFaultReactModelingFeature.h"
 

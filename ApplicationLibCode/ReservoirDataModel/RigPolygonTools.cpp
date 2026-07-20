@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements utilities for polygon.
 
 #include "RigPolygonTools.h"
 
@@ -28,21 +30,29 @@ namespace RigPolygonTools
 {
 namespace internal
 {
+    /// Supports geometry data reservoir-data processing.
     struct GeometryData
     {
+        /// Stores total length.
         double totalLength{ 0 };
+        /// Stores last segment length.
         double lastSegmentLength{ 0 };
+        /// Stores total horizontal length.
         double totalHorizontalLength{ 0 };
+        /// Stores last segment horisontal length.
         double lastSegmentHorisontalLength{ 0 };
+        /// Stores horizontal area.
         double horizontalArea{ 0 };
     };
 
     // Function to check if a point is valid and within bounds
+    /// Returns whether valid.
     bool isValid( int x, int y, int rows, int cols, const IntegerImage& image, const IntegerImage& visited )
     {
         return x >= 0 && x < rows && y >= 0 && y < cols && image[x][y] == 1 && !visited[x][y];
     }
 
+    /// Returns whether valid image.
     bool isValidImage( const IntegerImage& image )
     {
         if ( image.empty() ) return false;
@@ -56,7 +66,7 @@ namespace internal
     }
 
     //--------------------------------------------------------------------------------------------------
-    ///
+    /// Returns the flood fill.
     //--------------------------------------------------------------------------------------------------
     void floodFill( IntegerImage& image, int x, int y, int oldColor, int newColor )
     {
@@ -84,6 +94,7 @@ namespace internal
     }
 
     // Function to check if a point is on a line segment (edge of the polygon)
+    /// Returns whether on segment.
     bool isOnSegment( Point p, Point p1, Point p2 )
     {
         int x = p.first, y = p.second;
@@ -96,6 +107,7 @@ namespace internal
     }
 
     // Check if a point is inside a polygon using the Ray-Casting Algorithm
+    /// Returns whether inside polygon.
     bool isInsidePolygon( const Point& p, const std::vector<Point>& polygon )
     {
         int n     = static_cast<int>( polygon.size() );
@@ -123,7 +135,7 @@ namespace internal
     }
 
     //--------------------------------------------------------------------------------------------------
-    ///
+    /// Computes polygon geometry data.
     //--------------------------------------------------------------------------------------------------
     GeometryData computePolygonGeometryData( const std::vector<cvf::Vec3d>& vertices )
     {
@@ -165,7 +177,7 @@ namespace internal
 }; // namespace internal
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the erode.
 //--------------------------------------------------------------------------------------------------
 IntegerImage erode( IntegerImage image, int kernelSize )
 {
@@ -202,7 +214,7 @@ IntegerImage erode( IntegerImage image, int kernelSize )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the dilate.
 //--------------------------------------------------------------------------------------------------
 IntegerImage dilate( IntegerImage image, int kernelSize )
 {
@@ -239,7 +251,7 @@ IntegerImage dilate( IntegerImage image, int kernelSize )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the fill interior.
 //--------------------------------------------------------------------------------------------------
 IntegerImage fillInterior( IntegerImage sourceImage )
 {
@@ -283,7 +295,7 @@ IntegerImage fillInterior( IntegerImage sourceImage )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the boundary.
 //--------------------------------------------------------------------------------------------------
 std::vector<Point> boundary( const IntegerImage& image )
 {
@@ -364,7 +376,7 @@ std::vector<Point> boundary( const IntegerImage& image )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the assign value inside polygon.
 //--------------------------------------------------------------------------------------------------
 RigPolygonTools::IntegerImage assignValueInsidePolygon( IntegerImage image, const std::vector<Point>& polygon, int value )
 {
@@ -388,7 +400,7 @@ RigPolygonTools::IntegerImage assignValueInsidePolygon( IntegerImage image, cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the area.
 //--------------------------------------------------------------------------------------------------
 double area( const std::vector<Point>& polygon )
 {
@@ -408,7 +420,7 @@ double area( const std::vector<Point>& polygon )
 
 //--------------------------------------------------------------------------------------------------
 /// Ramer-Douglas-Peucker simplification algorithm
-///
+/// Returns the simplify polygon.
 /// https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm
 //--------------------------------------------------------------------------------------------------
 void simplifyPolygon( std::vector<cvf::Vec3d>& vertices, double epsilon )
@@ -457,7 +469,7 @@ void simplifyPolygon( std::vector<cvf::Vec3d>& vertices, double epsilon )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// Returns the geometry data as text.
 //--------------------------------------------------------------------------------------------------
 QString geometryDataAsText( const std::vector<cvf::Vec3d>& vertices, bool includeLastSegmentInfo )
 {

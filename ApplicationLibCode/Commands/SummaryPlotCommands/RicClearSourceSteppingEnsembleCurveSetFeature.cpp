@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements clear source stepping ensemble curve set command support.
 
 #include "RicClearSourceSteppingEnsembleCurveSetFeature.h"
 

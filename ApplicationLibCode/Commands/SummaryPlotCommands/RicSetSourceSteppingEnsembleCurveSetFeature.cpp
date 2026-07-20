@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements set source stepping ensemble curve set command support.
 
 #include "RicSetSourceSteppingEnsembleCurveSetFeature.h"
 

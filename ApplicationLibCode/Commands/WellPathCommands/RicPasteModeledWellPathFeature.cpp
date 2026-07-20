@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements paste modeled well path command support.
 
 #include "RicPasteModeledWellPathFeature.h"
 

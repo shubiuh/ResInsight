@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares create decline curves command support.
 
 #pragma once
 
@@ -26,17 +28,21 @@ class RimSummaryPlot;
 class RimSummaryCurve;
 
 //==================================================================================================
-///
+/// @brief Command feature for create decline curves.
 //==================================================================================================
 class RicCreateDeclineCurvesFeature : public caf::CmdFeature
 {
     CAF_CMD_HEADER_INIT;
 
 protected:
+    /// @return Whether the command is available for the current selection.
     bool isCommandEnabled() const override;
+    /// Executes the command for the current selection.
     void onActionTriggered( bool isChecked ) override;
+    /// Configures the command action's text, icon, and state.
     void setupActionLook( QAction* actionToSetup ) override;
 
+    /// Creates decline curve and add to plot.
     static RimSummaryDeclineCurve* createDeclineCurveAndAddToPlot( RimSummaryCurve*                         sourceCurve,
                                                                    RimSummaryDeclineCurve::DeclineCurveType declineCurveType );
 };

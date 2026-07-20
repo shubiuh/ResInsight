@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares calculation of tof accumulated phase fractions.
 
 #pragma once
 
@@ -28,14 +30,19 @@ class QString;
 ///
 //==================================================================================================
 
+/// @brief Calculates tof accumulated phase fractions.
 class RigTofAccumulatedPhaseFractionsCalculator
 {
 public:
     explicit RigTofAccumulatedPhaseFractionsCalculator( RimEclipseResultCase* caseToApply, QString wellname, size_t timestep );
 
+    /// Returns or processes sorted unique tof values.
     const std::vector<double>& sortedUniqueTOFValues() const { return m_tofInIncreasingOrder; }
+    /// Returns or processes accumulated phase fractions swat.
     const std::vector<double>& accumulatedPhaseFractionsSwat() const { return m_accumulatedPhaseFractionSwat; }
+    /// Returns or processes accumulated phase fractions soil.
     const std::vector<double>& accumulatedPhaseFractionsSoil() const { return m_accumulatedPhaseFractionSoil; }
+    /// Returns or processes accumulated phase fractions sgas.
     const std::vector<double>& accumulatedPhaseFractionsSgas() const { return m_accumulatedPhaseFractionSgas; }
 
 private:
@@ -58,9 +65,11 @@ private:
     std::vector<double> m_accumulatedPhaseFractionSoil;
 };
 
+/// @brief Models tof accumulated phase fractions calculator tester for reservoir-data processing.
 class RigTofAccumulatedPhaseFractionsCalculatorTester
 {
 public:
+    /// Returns or processes test sort tof and calculate acc phase fraction.
     static void testSortTofAndCalculateAccPhaseFraction( const std::vector<double>* tofData,
                                                          const std::vector<double>* fractionData,
                                                          const std::vector<double>* porvResults,

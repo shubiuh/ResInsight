@@ -16,6 +16,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares result modifier reservoir-data functionality.
 
 #pragma once
 
@@ -25,24 +27,29 @@
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models result modifier for reservoir-data processing.
 class RigResultModifier : public cvf::Object
 {
 public:
+    /// Sets cell scalar.
     virtual void setCellScalar( size_t gridLocalCellIndex, double scalarValue ) = 0;
 };
 
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models all grid cells result modifier for reservoir-data processing.
 class RigAllGridCellsResultModifier : public RigResultModifier
 {
 public:
+    /// Returns or processes all grid cells result modifier.
     RigAllGridCellsResultModifier( const RigGridBase* grid, std::vector<double>* reservoirResultValues )
         : m_grid( grid )
         , m_reservoirResultValues( reservoirResultValues )
     {
     }
 
+    /// Sets cell scalar.
     void setCellScalar( size_t gridLocalCellIndex, double scalarValue ) override
     {
         size_t reservoirCellIndex = m_grid->reservoirCellIndex( gridLocalCellIndex );
@@ -59,9 +66,11 @@ private:
 //==================================================================================================
 ///
 //==================================================================================================
+/// @brief Models active cells result modifier for reservoir-data processing.
 class RigActiveCellsResultModifier : public RigResultModifier
 {
 public:
+    /// Returns or processes active cells result modifier.
     RigActiveCellsResultModifier( const RigGridBase* grid, const RigActiveCellInfo* activeCellInfo, std::vector<double>* reservoirResultValues )
         : m_grid( grid )
         , m_activeCellInfo( activeCellInfo )
@@ -69,6 +78,7 @@ public:
     {
     }
 
+    /// Sets cell scalar.
     void setCellScalar( size_t gridLocalCellIndex, double scalarValue ) override
     {
         size_t reservoirCellIndex = m_grid->reservoirCellIndex( gridLocalCellIndex );

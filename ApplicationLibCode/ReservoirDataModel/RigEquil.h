@@ -15,6 +15,8 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Declares equil reservoir-data functionality.
 
 #pragma once
 
@@ -25,6 +27,7 @@
 // Inspired by /opm-common/src/opm/parser/eclipse/EclipseState/InitConfig/Equil.cpp
 //
 //--------------------------------------------------------------------------------------------------
+/// @brief Models equil for reservoir-data processing.
 class RigEquil
 {
 public:
@@ -38,15 +41,24 @@ public:
                        bool   wetGasInitConstantRv,
                        int    initializationTargetAccuracy );
 
+    /// Returns or processes datum depth.
     double datumDepth() const;
+    /// Returns or processes datum depth pressure.
     double datumDepthPressure() const;
+    /// Returns or processes water oil contact depth.
     double waterOilContactDepth() const;
+    /// Returns or processes water oil contact capillary pressure.
     double waterOilContactCapillaryPressure() const;
+    /// Returns or processes gas oil contact depth.
     double gasOilContactDepth() const;
+    /// Returns or processes gas oil contact capillary pressure.
     double gasOilContactCapillaryPressure() const;
 
+    /// Returns or processes live oil init constant rs.
     bool liveOilInitConstantRs() const;
+    /// Returns or processes wet gas init constant rv.
     bool wetGasInitConstantRv() const;
+    /// Returns or processes initialization target accuracy.
     int  initializationTargetAccuracy() const;
 
     static RigEquil defaultObject();
