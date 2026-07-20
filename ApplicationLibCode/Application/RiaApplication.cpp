@@ -15,6 +15,9 @@
 //  for more details.
 //
 /////////////////////////////////////////////////////////////////////////////////
+/// @file
+/// @brief Implements project orchestration and process-wide ResInsight application services.
+
 #include "RiaApplication.h"
 
 #include "Cloud/RiaConnectorTools.h"
@@ -155,7 +158,7 @@
 RiaApplication* RiaApplication::s_riaApplication = nullptr;
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RiaApplication* RiaApplication::instance()
 {
@@ -163,7 +166,7 @@ RiaApplication* RiaApplication::instance()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RiaApplication::RiaApplication()
     : m_socketServer( nullptr )
@@ -195,7 +198,7 @@ RiaApplication::RiaApplication()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RiaApplication::~RiaApplication()
 {
@@ -210,7 +213,7 @@ RiaApplication::~RiaApplication()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 const char* RiaApplication::getVersionStringApp( bool includeCrtInfo )
 {
@@ -235,7 +238,7 @@ const char* RiaApplication::getVersionStringApp( bool includeCrtInfo )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::enableDevelopmentFeatures()
 {
@@ -250,7 +253,7 @@ bool RiaApplication::enableDevelopmentFeatures()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::createMockModel()
 {
@@ -258,7 +261,7 @@ void RiaApplication::createMockModel()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::createResultsMockModel()
 {
@@ -266,7 +269,7 @@ void RiaApplication::createResultsMockModel()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::createLargeResultsMockModel()
 {
@@ -274,7 +277,7 @@ void RiaApplication::createLargeResultsMockModel()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::createMockModelCustomized()
 {
@@ -282,7 +285,7 @@ void RiaApplication::createMockModelCustomized()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::createInputMockModel()
 {
@@ -292,15 +295,15 @@ void RiaApplication::createInputMockModel()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
-void RiaApplication::setActiveReservoirView( Rim3dView* rv )
+void RiaApplication::setActiveReservoirView( Rim3dView* reservoirView )
 {
-    m_activeReservoirView = rv;
+    m_activeReservoirView = reservoirView;
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 const Rim3dView* RiaApplication::activeReservoirView() const
 {
@@ -308,7 +311,7 @@ const Rim3dView* RiaApplication::activeReservoirView() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 Rim3dView* RiaApplication::activeReservoirView()
 {
@@ -316,7 +319,7 @@ Rim3dView* RiaApplication::activeReservoirView()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RimGridView* RiaApplication::activeGridView()
 {
@@ -324,7 +327,7 @@ RimGridView* RiaApplication::activeGridView()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RimGridView* RiaApplication::activeMainOrComparisonGridView()
 {
@@ -343,7 +346,7 @@ RimGridView* RiaApplication::activeMainOrComparisonGridView()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 int RiaApplication::currentScriptCaseId() const
 {
@@ -351,7 +354,7 @@ int RiaApplication::currentScriptCaseId() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RimProject* RiaApplication::project()
 {
@@ -359,7 +362,7 @@ RimProject* RiaApplication::project()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RimCommandRouter* RiaApplication::commandRouter()
 {
@@ -367,7 +370,7 @@ RimCommandRouter* RiaApplication::commandRouter()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::setThreadCount() const
 {
@@ -398,7 +401,7 @@ void RiaApplication::setThreadCount() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::openFile( const QString& fileName )
 {
@@ -452,7 +455,7 @@ bool RiaApplication::openFile( const QString& fileName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::isProjectSavedToDisc() const
 {
@@ -462,7 +465,7 @@ bool RiaApplication::isProjectSavedToDisc() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::currentProjectPath() const
 {
@@ -483,7 +486,7 @@ QString RiaApplication::currentProjectPath() const
 
 //--------------------------------------------------------------------------------------------------
 /// Create an absolute path from a path that is specified relative to the project directory
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 /// If the path specified in \a projectRelativePath is already absolute, no changes will be made
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::createAbsolutePathFromProjectRelativePath( QString projectRelativePath )
@@ -510,7 +513,7 @@ QString RiaApplication::createAbsolutePathFromProjectRelativePath( QString proje
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::loadProject( const QString& projectFileName, ProjectLoadAction loadAction, RiaProjectModifier* projectModifier )
 {
@@ -969,7 +972,7 @@ bool RiaApplication::loadProject( const QString& projectFileName, ProjectLoadAct
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::loadProject( const QString& projectFileName )
 {
@@ -977,7 +980,7 @@ bool RiaApplication::loadProject( const QString& projectFileName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::saveProject( QString* errorMessage )
 {
@@ -995,7 +998,7 @@ bool RiaApplication::saveProject( QString* errorMessage )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::saveProjectAs( const QString& fileName, QString* errorMessage )
 {
@@ -1025,7 +1028,7 @@ bool RiaApplication::saveProjectAs( const QString& fileName, QString* errorMessa
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::hasValidProjectFileExtension( const QString& fileName )
 {
@@ -1033,7 +1036,7 @@ bool RiaApplication::hasValidProjectFileExtension( const QString& fileName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::closeProject()
 {
@@ -1049,7 +1052,7 @@ void RiaApplication::closeProject()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::lastUsedDialogDirectory( const QString& dialogName )
 {
@@ -1065,7 +1068,7 @@ QString RiaApplication::lastUsedDialogDirectory( const QString& dialogName )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::lastUsedDialogDirectoryWithFallback( const QString& dialogName, const QString& fallbackDirectory )
 {
@@ -1085,7 +1088,7 @@ QString RiaApplication::lastUsedDialogDirectoryWithFallback( const QString& dial
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::lastUsedDialogDirectoryWithFallbackToProjectFolder( const QString& dialogName )
 {
@@ -1093,7 +1096,7 @@ QString RiaApplication::lastUsedDialogDirectoryWithFallbackToProjectFolder( cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::setLastUsedDialogDirectory( const QString& dialogName, const QString& directory )
 {
@@ -1101,7 +1104,7 @@ void RiaApplication::setLastUsedDialogDirectory( const QString& dialogName, cons
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::openOdbCaseFromFile( const QString& fileName, bool applyTimeStepFilter )
 {
@@ -1159,7 +1162,7 @@ bool RiaApplication::openOdbCaseFromFile( const QString& fileName, bool applyTim
 }
 
 //--------------------------------------------------------------------------------------------------
-/// Add a list of well path file paths (JSON files) to the well path collection
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 std::vector<RimWellPath*> RiaApplication::addWellPathsToModel( QList<QString> wellPathFilePaths, QStringList* errorMessages )
 {
@@ -1188,7 +1191,7 @@ std::vector<RimWellPath*> RiaApplication::addWellPathsToModel( QList<QString> we
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::addWellPathFormationsToModel( QList<QString> wellPathFormationsFilePaths )
 {
@@ -1213,7 +1216,7 @@ void RiaApplication::addWellPathFormationsToModel( QList<QString> wellPathFormat
 }
 
 //--------------------------------------------------------------------------------------------------
-/// Add a list of well log file paths (LAS files) to the well path collection
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 std::vector<RimWellLogLasFile*> RiaApplication::addWellLogsToModel( const QList<QString>& wellLogFilePaths, QStringList* errorMessages )
 {
@@ -1237,7 +1240,7 @@ std::vector<RimWellLogLasFile*> RiaApplication::addWellLogsToModel( const QList<
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::scriptDirectories() const
 {
@@ -1245,7 +1248,7 @@ QString RiaApplication::scriptDirectories() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::scriptEditorPath() const
 {
@@ -1253,7 +1256,7 @@ QString RiaApplication::scriptEditorPath() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::octavePath() const
 {
@@ -1261,7 +1264,7 @@ QString RiaApplication::octavePath() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QStringList RiaApplication::octaveArguments() const
 {
@@ -1288,7 +1291,7 @@ QStringList RiaApplication::octaveArguments() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QProcessEnvironment RiaApplication::octaveProcessEnvironment() const
 {
@@ -1336,7 +1339,7 @@ QProcessEnvironment RiaApplication::octaveProcessEnvironment() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::pythonPath() const
 {
@@ -1344,7 +1347,7 @@ QString RiaApplication::pythonPath() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QProcessEnvironment RiaApplication::pythonProcessEnvironment() const
 {
@@ -1352,7 +1355,7 @@ QProcessEnvironment RiaApplication::pythonProcessEnvironment() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 std::optional<int> RiaApplication::activeGrpcPortNumber() const
 {
@@ -1360,7 +1363,7 @@ std::optional<int> RiaApplication::activeGrpcPortNumber() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::launchProcess( const QString& program, const QStringList& arguments, const QProcessEnvironment& processEnvironment )
 {
@@ -1416,7 +1419,7 @@ bool RiaApplication::launchProcess( const QString& program, const QStringList& a
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::launchProcessForMultipleCases( const QString&             program,
                                                     const QStringList&         arguments,
@@ -1433,7 +1436,7 @@ bool RiaApplication::launchProcessForMultipleCases( const QString&             p
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::terminateProcess()
 {
@@ -1444,7 +1447,7 @@ void RiaApplication::terminateProcess()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::waitForProcess() const
 {
@@ -1460,7 +1463,7 @@ void RiaApplication::waitForProcess() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RiaPreferences* RiaApplication::preferences()
 {
@@ -1468,7 +1471,7 @@ RiaPreferences* RiaApplication::preferences()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::applyPreferences()
 {
@@ -1498,7 +1501,7 @@ void RiaApplication::applyPreferences()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QString RiaApplication::commandLineParameterHelp()
 {
@@ -1510,7 +1513,7 @@ QString RiaApplication::commandLineParameterHelp()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::setCacheDataObject( const QString& key, const QVariant& dataObject )
 {
@@ -1518,7 +1521,7 @@ void RiaApplication::setCacheDataObject( const QString& key, const QVariant& dat
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 QVariant RiaApplication::cacheDataObject( const QString& key ) const
 {
@@ -1533,7 +1536,7 @@ QVariant RiaApplication::cacheDataObject( const QString& key ) const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::executeCommandFile( const QString& commandFile )
 {
@@ -1550,7 +1553,7 @@ void RiaApplication::executeCommandFile( const QString& commandFile )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 const QString RiaApplication::startDir() const
 {
@@ -1558,7 +1561,7 @@ const QString RiaApplication::startDir() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::setStartDir( const QString& startDir )
 {
@@ -1566,7 +1569,7 @@ void RiaApplication::setStartDir( const QString& startDir )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::setCommandLineHelpText( const QString& commandLineHelpText )
 {
@@ -1574,9 +1577,9 @@ void RiaApplication::setCommandLineHelpText( const QString& commandLineHelpText 
 }
 
 //--------------------------------------------------------------------------------------------------
-/// Parse and set the log level from Qt command line arguments
-/// This method is called early during initialization, before the full argument parsing
-/// Only sets m_logLevelFromCommandLine if a valid value is found, silently ignores errors
+/// @internal Implements the corresponding RiaApplication API contract.
+///
+/// This method runs before full argument parsing and silently ignores invalid values. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::parseLogLevelFromQtArguments()
 {
@@ -1597,7 +1600,7 @@ void RiaApplication::parseLogLevelFromQtArguments()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 std::vector<QString> RiaApplication::readFileListFromTextFile( QString listFileName )
 {
@@ -1626,7 +1629,7 @@ std::vector<QString> RiaApplication::readFileListFromTextFile( QString listFileN
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 cvf::Font* RiaApplication::defaultSceneFont()
 {
@@ -1639,7 +1642,7 @@ cvf::Font* RiaApplication::defaultSceneFont()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 cvf::Font* RiaApplication::sceneFont( int fontSize )
 {
@@ -1652,7 +1655,7 @@ cvf::Font* RiaApplication::sceneFont( int fontSize )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 cvf::Font* RiaApplication::defaultAnnotationFont()
 {
@@ -1662,7 +1665,7 @@ cvf::Font* RiaApplication::defaultAnnotationFont()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 cvf::Font* RiaApplication::defaultWellLabelFont()
 {
@@ -1672,7 +1675,7 @@ cvf::Font* RiaApplication::defaultWellLabelFont()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::initialize()
 {
@@ -1710,7 +1713,7 @@ void RiaApplication::initialize()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::loadAndUpdatePlotData()
 {
@@ -1718,7 +1721,7 @@ void RiaApplication::loadAndUpdatePlotData()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::resetProject()
 {
@@ -1731,7 +1734,7 @@ void RiaApplication::resetProject()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 bool RiaApplication::generateCode( const QString& fileName, QString* errMsg )
 {
@@ -1864,7 +1867,7 @@ bool RiaApplication::generateCode( const QString& fileName, QString* errMsg )
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RiaOsduConnector* RiaApplication::makeOsduConnector()
 {
@@ -1898,7 +1901,7 @@ RiaOsduConnector* RiaApplication::makeOsduConnector()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RiaSumoConnector* RiaApplication::makeSumoConnector()
 {
@@ -1925,7 +1928,7 @@ RiaSumoConnector* RiaApplication::makeSumoConnector()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 void RiaApplication::initializeDataLoadController()
 {
@@ -1951,7 +1954,7 @@ void RiaApplication::initializeDataLoadController()
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 RiaKeyValueStore<char>* RiaApplication::keyValueStore() const
 {
@@ -1959,7 +1962,7 @@ RiaKeyValueStore<char>* RiaApplication::keyValueStore() const
 }
 
 //--------------------------------------------------------------------------------------------------
-///
+/// @internal Implements the corresponding RiaApplication API contract. @endinternal
 //--------------------------------------------------------------------------------------------------
 std::vector<caf::PdmDeprecation> RiaApplication::defaultDeprecations()
 {
